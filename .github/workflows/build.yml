@@ -39,7 +39,21 @@ jobs:
       - name: Build release APK
         env:
           MOSIM_ALERT_ENDPOINT: ${{ secrets.MOSIM_ALERT_ENDPOINT }}
-        run: ./gradlew --no-daemon assembleRelease
+        run: |
+          set -o pipefail
+          ./gradlew --no-daemon --stacktrace assembleRelease 2>&1 | tee build.log
+
+      - name: Save build log on failure
+        if: failure()
+        run: |
+          mkdir -p ci-logs
+          grep -nE "^e: |error:|What went wrong|Caused by|FAILED|Exception" build.log | head -200 > ci-logs/build-errors.txt || true
+          tail -n 300 build.log > ci-logs/build-tail.txt
+          git config user.name "mosim-ci"
+          git config user.email "ci@users.noreply.github.com"
+          git add ci-logs
+          git commit -m "ci: build failure log [skip ci]" || true
+          git push || true
 
       - name: Copy APK
         run: |
