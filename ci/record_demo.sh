@@ -49,6 +49,13 @@ for i in $(seq 1 100); do
 done
 [ "$BOOTED" = "1" ] || { echo "BOOT TIMEOUT"; tail -40 demo/emulator.log; exit 1; }
 adb shell getprop ro.build.fingerprint
+# 시스템 서비스·저장소가 실제로 준비될 때까지 추가 대기
+for i in $(seq 1 40); do
+  if adb shell pm path com.android.settings >/dev/null 2>&1 && adb shell "echo ok > /data/local/tmp/.ready" >/dev/null 2>&1 \
+     && [ "$(adb shell getprop init.svc.bootanim 2>/dev/null | tr -d '\r')" = "stopped" ]; then echo "system ready after ${i}x5s"; break; fi
+  sleep 5
+done
+sleep 20
 adb shell settings put global window_animation_scale 0
 adb shell settings put global transition_animation_scale 0
 adb shell settings put global animator_duration_scale 0
@@ -58,14 +65,17 @@ sleep 5
 
 echo "== install =="
 adb install -r app/build/outputs/apk/debug/app-debug.apk
+for i in $(seq 1 12); do adb shell pm path com.hiddenframe.mosim >/dev/null 2>&1 && break; sleep 5; done
+adb shell pm path com.hiddenframe.mosim
 adb shell pm grant com.hiddenframe.mosim android.permission.POST_NOTIFICATIONS 2>/dev/null || true
 adb shell am start -n com.hiddenframe.mosim/.ui.MainActivity
-sleep 8
+sleep 10
+adb shell dumpsys activity activities | grep -m1 "mResumedActivity" || true
 adb exec-out screencap -p > demo/screenshot_home.png
 adb shell wm size
 
 echo "== record =="
-adb shell "screenrecord --time-limit 110 --bit-rate 8000000 /sdcard/mosim_demo.mp4" &
+adb shell "screenrecord --time-limit 110 --bit-rate 8000000 /data/local/tmp/mosim_demo.mp4" &
 REC=$!
 sleep 4
 adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.vehicle.SimulationReceiver --es scenario rainy_night
@@ -80,8 +90,8 @@ sleep 12
 adb shell input tap 1500 250
 sleep 8
 adb exec-out screencap -p > demo/screenshot_final.png
-timeout 150 wait $REC || true
+wait $REC || true
 sleep 3
-adb pull /sdcard/mosim_demo.mp4 demo/mosim_emulator_raw.mp4 || echo "pull failed"
+adb pull /data/local/tmp/mosim_demo.mp4 demo/mosim_emulator_raw.mp4 || echo "pull failed"
 adb logcat -d -s AlertSender:* CarApiSignalSource:* Voice:* AndroidRuntime:E ActivityManager:W > demo/logcat.txt || true
 ls -la demo
