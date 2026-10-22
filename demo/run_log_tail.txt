@@ -23,7 +23,7 @@ Loading local repository...                                                     
 Auto-selecting single ABI x86_64
 config: /home/runner/.android/avd/car.avd/config.ini
 == boot ==
-crw-rw-rw- 1 root kvm 10, 232 Oct 22 19:00 /dev/kvm
+crw-rw-rw- 1 root kvm 10, 232 Oct 22 19:15 /dev/kvm
 * daemon not running; starting now at tcp:5037
 * daemon started successfully
 booted after 10x5s
@@ -31,12 +31,10 @@ google/sdk_gcar_x86_64/emulator_car64_x86_64:13/TEA1.250515.001/13505934:userdeb
 == install ==
 Performing Streamed Install
 Success
+package:/data/app/~~v1wy6lvhQsyGqWhikb2v7w==/com.hiddenframe.mosim-_DeyDTZHOnCKmJZElGQ42w==/base.apk
 Starting: Intent { cmp=com.hiddenframe.mosim/.ui.MainActivity }
-Error type 3
-Error: Activity class {com.hiddenframe.mosim/com.hiddenframe.mosim.ui.MainActivity} does not exist.
 Physical size: 1920x1080
 == record ==
-Unable to open '/sdcard/mosim_demo.mp4': Permission denied
 Broadcasting: Intent { act=com.hiddenframe.mosim.SIM flg=0x400000 cmp=com.hiddenframe.mosim/.vehicle.SimulationReceiver (has extras) }
 Broadcast completed: result=0
 Broadcasting: Intent { act=com.hiddenframe.mosim.SIM flg=0x400000 cmp=com.hiddenframe.mosim/.vehicle.SimulationReceiver (has extras) }
@@ -45,16 +43,14 @@ Broadcasting: Intent { act=com.hiddenframe.mosim.SIM flg=0x400000 cmp=com.hidden
 Broadcast completed: result=0
 Broadcasting: Intent { act=com.hiddenframe.mosim.SIM flg=0x400000 cmp=com.hiddenframe.mosim/.vehicle.SimulationReceiver (has extras) }
 Broadcast completed: result=0
-timeout: failed to run command ‘wait’: No such file or directory
-adb: error: failed to stat remote object '/sdcard/mosim_demo.mp4': No such file or directory
-pull failed
-total 632
-drwxr-xr-x  2 runner runner   4096 Oct 22 19:02 .
-drwxr-xr-x 11 runner runner   4096 Oct 22 19:01 ..
--rw-r--r--  1 runner runner  18041 Oct 22 19:07 emulator.log
--rw-r--r--  1 runner runner 177796 Oct 22 19:09 logcat.txt
--rw-r--r--  1 runner runner 314607 Oct 22 18:59 mosim_emulator_raw.mp4
--rw-r--r--  1 runner runner   2512 Oct 22 18:59 run_log_tail.txt
--rw-r--r--  1 runner runner  64471 Oct 22 19:09 screenshot_final.png
--rw-r--r--  1 runner runner  24661 Oct 22 19:06 screenshot_home.png
--rw-r--r--  1 runner runner  21593 Oct 22 19:07 screenshot_rainy_night.png
+/data/local/tmp/mosim_demo.mp4: 1 file pulled, 0 skipped. 79.0 MB/s (386324 bytes in 0.005s)
+total 932
+drwxr-xr-x  2 runner runner   4096 Oct 22 19:25 .
+drwxr-xr-x 11 runner runner   4096 Oct 22 19:15 ..
+-rw-r--r--  1 runner runner  18218 Oct 22 19:23 emulator.log
+-rw-r--r--  1 runner runner  93908 Oct 22 19:25 logcat.txt
+-rw-r--r--  1 runner runner 386324 Oct 22 19:25 mosim_emulator_raw.mp4
+-rw-r--r--  1 runner runner   2921 Oct 22 19:12 run_log_tail.txt
+-rw-r--r--  1 runner runner 156719 Oct 22 19:24 screenshot_final.png
+-rw-r--r--  1 runner runner 112006 Oct 22 19:23 screenshot_home.png
+-rw-r--r--  1 runner runner 161759 Oct 22 19:23 screenshot_rainy_night.png
