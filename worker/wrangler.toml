@@ -1,0 +1,14 @@
+name = "mosim-alert"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+
+# KV: 가족 코드별 이상 신호 목록, 카카오 액세스 토큰 캐시
+[[kv_namespaces]]
+binding = "EVENTS"
+id = "REPLACE_WITH_KV_ID"   # wrangler kv namespace create EVENTS 실행 후 출력된 id로 교체
+
+# Secrets (wrangler secret put <이름> 으로만 설정, 이 파일에 적지 않습니다)
+#   KAKAO_REST_KEY       Kakao Developers 앱의 REST API 키
+#   KAKAO_REFRESH_TOKEN  '나에게 보내기'용 리프레시 토큰
+#   KAKAO_ACCESS_TOKEN   (선택) 초기 액세스 토큰. 없으면 리프레시로 발급
+#   DEVICE_TOKEN         (선택) 차량 앱 → 서버 인증 토큰. 비우면 인증 없음(데모)

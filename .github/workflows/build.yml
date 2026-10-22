@@ -1,0 +1,59 @@
+name: Build APK
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ["apk/**", "demo/**", "README.md", "docs/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      # 릴리스 서명 키가 Secrets에 있으면 사용, 없으면 디버그 키로 서명(심사용 설치 가능)
+      - name: Prepare signing (optional)
+        if: ${{ secrets.KEYSTORE_B64 != '' }}
+        run: |
+          echo "${{ secrets.KEYSTORE_B64 }}" | base64 -d > release.keystore
+          cat > keystore.properties <<EOF
+          storeFile=release.keystore
+          storePassword=${{ secrets.KEYSTORE_PASSWORD }}
+          keyAlias=${{ secrets.KEY_ALIAS }}
+          keyPassword=${{ secrets.KEY_PASSWORD }}
+          EOF
+
+      - name: Build release APK
+        env:
+          MOSIM_ALERT_ENDPOINT: ${{ secrets.MOSIM_ALERT_ENDPOINT }}
+        run: ./gradlew --no-daemon assembleRelease
+
+      - name: Copy APK
+        run: |
+          mkdir -p apk
+          cp app/build/outputs/apk/release/app-release.apk "apk/정세준_모심_release.apk"
+          ls -la apk
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mosim-apk
+          path: apk/*.apk
+
+      - name: Commit APK to repository
+        run: |
+          git config user.name "mosim-ci"
+          git config user.email "ci@users.noreply.github.com"
+          git add apk/*.apk
+          git diff --cached --quiet || git commit -m "ci: release APK [skip ci]"
+          git push
