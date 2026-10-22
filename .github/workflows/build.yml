@@ -12,6 +12,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      HAS_RELEASE_KEY: ${{ secrets.KEYSTORE_B64 != '' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -24,7 +26,7 @@ jobs:
 
       # 릴리스 서명 키가 Secrets에 있으면 사용, 없으면 디버그 키로 서명(심사용 설치 가능)
       - name: Prepare signing (optional)
-        if: ${{ secrets.KEYSTORE_B64 != '' }}
+        if: env.HAS_RELEASE_KEY == 'true'
         run: |
           echo "${{ secrets.KEYSTORE_B64 }}" | base64 -d > release.keystore
           cat > keystore.properties <<EOF
