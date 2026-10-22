@@ -15,13 +15,17 @@ interface VoiceOutput {
 class AndroidVoiceOutput(context: Context) : VoiceOutput {
     private var ready = false
     private val pending = ArrayDeque<String>()
-    private val tts: TextToSpeech = TextToSpeech(context.applicationContext) { status ->
-        if (status == TextToSpeech.SUCCESS) {
-            val r = try { tts.setLanguage(Locale.KOREAN) } catch (t: Throwable) { TextToSpeech.LANG_NOT_SUPPORTED }
-            ready = r != TextToSpeech.LANG_MISSING_DATA && r != TextToSpeech.LANG_NOT_SUPPORTED
-            tts.setSpeechRate(0.92f)
-            while (ready && pending.isNotEmpty()) sayNow(pending.removeFirst())
-        } else Log.w("Voice", "TTS init failed")
+    private lateinit var tts: TextToSpeech
+
+    init {
+        tts = TextToSpeech(context.applicationContext) { status ->
+            if (status == TextToSpeech.SUCCESS) {
+                val r = try { tts.setLanguage(Locale.KOREAN) } catch (t: Throwable) { TextToSpeech.LANG_NOT_SUPPORTED }
+                ready = r != TextToSpeech.LANG_MISSING_DATA && r != TextToSpeech.LANG_NOT_SUPPORTED
+                tts.setSpeechRate(0.92f)
+                while (ready && pending.isNotEmpty()) sayNow(pending.removeFirst())
+            } else Log.w("Voice", "TTS init failed")
+        }
     }
 
     override fun speak(text: String) {
@@ -32,5 +36,5 @@ class AndroidVoiceOutput(context: Context) : VoiceOutput {
         tts.speak(text, TextToSpeech.QUEUE_ADD, null, "mosim-${System.nanoTime()}")
     }
 
-    override fun shutdown() = tts.shutdown()
+    override fun shutdown() { if (::tts.isInitialized) tts.shutdown() }
 }
