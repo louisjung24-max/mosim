@@ -13,7 +13,7 @@ jobs:
   record:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 50
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,6 +24,7 @@ jobs:
           echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
+          ls -la /dev/kvm || true
 
       - uses: actions/setup-java@v4
         with:
@@ -35,55 +36,27 @@ jobs:
       - name: Build debug APK
         run: ./gradlew --no-daemon assembleDebug
 
-      - name: Run on Automotive emulator and record
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 33
-          target: android-automotive
-          arch: x86_64
-          profile: automotive_1024p_landscape
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: true
-          script: |
-            adb install -r app/build/outputs/apk/debug/app-debug.apk
-            adb shell settings put system screen_off_timeout 1800000
-            adb shell am start -n com.hiddenframe.mosim/.ui.MainActivity
-            sleep 4
-            # 녹화 시작 (최대 100초)
-            adb shell "screenrecord --time-limit 100 --bit-rate 6000000 /sdcard/mosim_demo.mp4" &
-            REC=$!
-            sleep 3
-            adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario rainy_night
-            sleep 20
-            adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario tire_low
-            sleep 10
-            adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario long_stop
-            sleep 10
-            adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario daytime
-            sleep 10
-            adb exec-out screencap -p > screenshot_final.png
-            wait $REC || true
-            sleep 2
-            adb pull /sdcard/mosim_demo.mp4 mosim_demo_raw.mp4
-            adb logcat -d -s AlertSender CarApiSignalSource Voice > logcat.txt || true
+      - name: Run emulator and record
+        id: rec
+        run: |
+          set -o pipefail
+          bash ci/record_demo.sh 2>&1 | tee demo_run.log
 
-      - name: Save outputs
+      - name: Collect logs (always)
+        if: always()
         run: |
           mkdir -p demo
-          cp mosim_demo_raw.mp4 demo/mosim_emulator_raw.mp4
-          cp screenshot_final.png demo/screenshot_final.png
-          cp logcat.txt demo/logcat.txt || true
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: mosim-demo
-          path: demo/*
-
-      - name: Commit demo files
-        run: |
+          tail -n 400 demo_run.log > demo/run_log_tail.txt || true
+          rm -f demo/emulator.log
           git config user.name "mosim-ci"
           git config user.email "ci@users.noreply.github.com"
           git pull --rebase origin main || true
           git add demo
-          git diff --cached --quiet || git commit -m "ci: emulator demo recording [skip ci]"
-          git push
+          git diff --cached --quiet || git commit -m "ci: emulator demo outputs [skip ci]"
+          git push || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mosim-demo
+          path: demo/*
