@@ -13,7 +13,7 @@
 | `app/` | 차량용 앱 (Kotlin, Android Automotive OS, minSdk 28) |
 | `worker/` | 알림 서버 (Cloudflare Workers) — 자녀 웹 페이지, 카카오톡 전송 |
 | `apk/` | 릴리스 APK (`정세준_모심_release.apk`, CI 자동 빌드) |
-| `demo/` | 에뮬레이터 시연 녹화 (CI 자동) |
+| `demo/` | 시연 영상 `모심_시연영상_90초.mp4`, 에뮬레이터 원본 녹화, 화면 캡처 (CI 자동 녹화 + 편집) |
 
 ## 실행 방법
 
