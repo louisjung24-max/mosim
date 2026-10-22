@@ -29,8 +29,8 @@ hw.lcd.width=1920
 hw.lcd.height=1080
 hw.lcd.density=160
 hw.keyboard=yes
-hw.ramSize=3072
-disk.dataPartition.size=4G
+hw.ramSize=2560
+disk.dataPartition.size=2048M
 EOF
 
 echo "== boot =="
