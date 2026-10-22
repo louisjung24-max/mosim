@@ -22,10 +22,10 @@
 2. Automotive 에뮬레이터 생성: Device Manager → Automotive → Automotive (1024p landscape), API 33 x86_64
 3. 실행 후 화면 하단 **데모** 버튼으로 시나리오 재생, 또는 adb:
    ```
-   adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario rainy_night
-   adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario tire_low
-   adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario long_stop
-   adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario daytime
+   adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.vehicle.SimulationReceiver --es scenario rainy_night
+   adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.vehicle.SimulationReceiver --es scenario tire_low
+   adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.vehicle.SimulationReceiver --es scenario long_stop
+   adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.vehicle.SimulationReceiver --es scenario daytime
    ```
 4. APK 직접 설치: `adb install -r apk/정세준_모심_release.apk`
 

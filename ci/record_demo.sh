@@ -68,20 +68,20 @@ echo "== record =="
 adb shell "screenrecord --time-limit 110 --bit-rate 8000000 /sdcard/mosim_demo.mp4" &
 REC=$!
 sleep 4
-adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario rainy_night
+adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.vehicle.SimulationReceiver --es scenario rainy_night
 sleep 22
 adb exec-out screencap -p > demo/screenshot_rainy_night.png
-adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario tire_low
+adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.vehicle.SimulationReceiver --es scenario tire_low
 sleep 12
-adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario long_stop
+adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.vehicle.SimulationReceiver --es scenario long_stop
 sleep 12
-adb shell am broadcast -a com.hiddenframe.mosim.SIM --es scenario daytime
+adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.vehicle.SimulationReceiver --es scenario daytime
 sleep 12
-adb shell input tap 1500 330
+adb shell input tap 1500 250
 sleep 8
 adb exec-out screencap -p > demo/screenshot_final.png
 timeout 150 wait $REC || true
 sleep 3
 adb pull /sdcard/mosim_demo.mp4 demo/mosim_emulator_raw.mp4 || echo "pull failed"
-adb logcat -d -s AlertSender:* CarApiSignalSource:* Voice:* AndroidRuntime:E > demo/logcat.txt || true
+adb logcat -d -s AlertSender:* CarApiSignalSource:* Voice:* AndroidRuntime:E ActivityManager:W > demo/logcat.txt || true
 ls -la demo
