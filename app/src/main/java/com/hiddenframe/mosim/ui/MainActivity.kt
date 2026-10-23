@@ -59,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         ShareSettings.KEYS.forEachIndexed { i, key ->
             val row = ViewShareRowBinding.inflate(inflater, b.shareList, false)
             row.rowLabel.text = ShareSettings.LABELS[key]
+            row.rowSwitch.isSaveEnabled = false
             row.rowSwitch.isChecked = app.share.isShared(key)
             row.rowDivider.visibility = if (i == ShareSettings.KEYS.lastIndex) android.view.View.INVISIBLE else android.view.View.VISIBLE
             row.rowSwitch.setOnCheckedChangeListener { _, on ->
