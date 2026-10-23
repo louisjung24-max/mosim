@@ -23,15 +23,15 @@ Loading local repository...                                                     
 Auto-selecting single ABI x86_64
 config: /home/runner/.android/avd/car.avd/config.ini
 == boot ==
-crw-rw-rw- 1 root kvm 10, 232 Oct 23 02:07 /dev/kvm
+crw-rw-rw- 1 root kvm 10, 232 Oct 23 02:21 /dev/kvm
 * daemon not running; starting now at tcp:5037
 * daemon started successfully
-booted after 9x5s
+booted after 8x5s
 google/sdk_gcar_x86_64/emulator_car64_x86_64:13/TEA1.250515.001/13505934:userdebug/dev-keys
 == install ==
 Performing Streamed Install
 Success
-package:/data/app/~~E9kn5QaZCezOZ8SS2PiTsg==/com.hiddenframe.mosim-yiB8fVwAjomEtrTR3NOfTQ==/base.apk
+package:/data/app/~~1JV9kn8oLVOHpDa9kW1GlA==/com.hiddenframe.mosim-ZNPFnGPOHZtY4DvhL0p0Bw==/base.apk
 Starting: Intent { cmp=com.hiddenframe.mosim/.ui.MainActivity }
 Physical size: 1920x1080
 == record ==
@@ -43,16 +43,16 @@ Broadcasting: Intent { act=com.hiddenframe.mosim.SIM flg=0x400000 cmp=com.hidden
 Broadcast completed: result=0
 Broadcasting: Intent { act=com.hiddenframe.mosim.SIM flg=0x400000 cmp=com.hiddenframe.mosim/.vehicle.SimulationReceiver (has extras) }
 Broadcast completed: result=0
-/data/local/tmp/mosim_demo.mp4: 1 file pulled, 0 skipped. 6.0 MB/s (280267 bytes in 0.045s)
-total 2452
-drwxr-xr-x  2 runner runner    4096 Oct 23 02:17 .
-drwxr-xr-x 11 runner runner    4096 Oct 23 02:09 ..
--rw-r--r--  1 runner runner   16951 Oct 23 02:14 emulator.log
--rw-r--r--  1 runner runner   91101 Oct 23 02:17 logcat.txt
--rw-r--r--  1 runner runner  280267 Oct 23 02:17 mosim_emulator_raw.mp4
--rw-r--r--  1 runner runner    2933 Oct 23 02:07 run_log_tail.txt
--rw-r--r--  1 runner runner  182433 Oct 23 02:07 screenshot_family_page.png
--rw-r--r--  1 runner runner  144473 Oct 23 02:17 screenshot_final.png
--rw-r--r--  1 runner runner  104677 Oct 23 02:15 screenshot_home.png
--rw-r--r--  1 runner runner  150099 Oct 23 02:16 screenshot_rainy_night.png
--rw-r--r--  1 runner runner 1511073 Oct 23 02:07 모심_시연영상_90초.mp4
+/data/local/tmp/mosim_demo.mp4: 1 file pulled, 0 skipped. 117.0 MB/s (317058 bytes in 0.003s)
+total 2440
+drwxr-xr-x  2 runner runner    4096 Oct 23 02:31 .
+drwxr-xr-x 11 runner runner    4096 Oct 23 02:22 ..
+-rw-r--r--  1 runner runner   17850 Oct 23 02:26 emulator.log
+-rw-r--r--  1 runner runner   52136 Oct 23 02:31 logcat.txt
+-rw-r--r--  1 runner runner  317058 Oct 23 02:31 mosim_emulator_raw.mp4
+-rw-r--r--  1 runner runner    2932 Oct 23 02:21 run_log_tail.txt
+-rw-r--r--  1 runner runner  182433 Oct 23 02:21 screenshot_family_page.png
+-rw-r--r--  1 runner runner  138983 Oct 23 02:30 screenshot_final.png
+-rw-r--r--  1 runner runner  104404 Oct 23 02:29 screenshot_home.png
+-rw-r--r--  1 runner runner  149324 Oct 23 02:29 screenshot_rainy_night.png
+-rw-r--r--  1 runner runner 1511073 Oct 23 02:21 모심_시연영상_90초.mp4
