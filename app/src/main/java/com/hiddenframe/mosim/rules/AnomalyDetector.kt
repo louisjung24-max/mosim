@@ -69,7 +69,7 @@ class AnomalyDetector(private val baseline: Baseline) {
         if (!isNight) return Result(voice = weeklyGreetingIfSunday())
         spokeNightOnce = true
         val label = if (hour >= NIGHT_FROM) "밤 ${hour - 12}시" else "새벽 ${if (hour == 0) 12 else hour}시"
-        val voice = VoiceCue("어르신, 지금 ${label}입니다. 밤길은 천천히 가셔도 괜찮아요.")
+        val voice = VoiceCue("지금 ${label}입니다. 밤길은 천천히 가셔도 괜찮아요.")
         val unusual = !baseline.learned || !baseline.usuallyDrivesAt(hour)
         val anomaly = if (unusual) Anomaly(
             Anomaly.Type.NIGHT_DEPARTURE, "야간 외출",
@@ -85,7 +85,7 @@ class AnomalyDetector(private val baseline: Baseline) {
         if (!spike || spokeBrakeOnce) return Result()
         spokeBrakeOnce = true
         val weather = if (wiperOn) "비 오는 밤이라 길이 미끄럽습니다. " else ""
-        val voice = VoiceCue("어르신, ${weather}오늘은 급제동이 평소보다 잦으셨어요. 조금 천천히 가셔도 괜찮습니다.")
+        val voice = VoiceCue("${weather}오늘은 급제동이 평소보다 잦았어요. 조금 천천히 가셔도 괜찮습니다.")
         // 급제동 횟수는 부모님이 '운전 점수' 공유를 켠 경우에만 자녀에게 전달됩니다.
         val anomaly = Anomaly(Anomaly.Type.HARD_BRAKE_SPIKE, "급제동 증가", "오늘 운행에서 급제동이 평소보다 잦습니다.")
         return Result(voice, anomaly)

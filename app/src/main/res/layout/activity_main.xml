@@ -3,232 +3,295 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:background="@color/bg"
-    android:padding="24dp"
-    android:baselineAligned="false">
+    android:orientation="vertical"
+    android:background="@color/background_secondary"
+    android:paddingStart="32dp"
+    android:paddingEnd="32dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp">
 
-    <!-- 왼쪽: 지금 상태 + 음성 안내 자막 -->
+    <!-- 앱 헤더 -->
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1.15"
-        android:orientation="vertical"
-        android:layout_marginEnd="20dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingBottom="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="@string/app_name"
-            android:textColor="@color/accent"
-            android:textSize="20sp"
-            android:letterSpacing="0.08"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:fontFamily="@font/asta"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/statusTitle"
+            android:id="@+id/headerStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/bg_pill"
             android:text="주차 중"
-            android:textColor="@color/text"
-            android:textSize="44sp"
-            android:textStyle="bold" />
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp" />
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/statusMeta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="시동 꺼짐"
-            android:textColor="@color/muted"
-            android:textSize="22sp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
+        <!-- 왼쪽: 지금 상태 + 안내 -->
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="20dp"
-            app:cardBackgroundColor="@color/card"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="0dp">
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.15"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="@color/surface_basic"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:padding="28dp">
 
                 <TextView
+                    android:id="@+id/statusTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="음성 안내"
-                    android:textColor="@color/muted"
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/lastVoice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:lineSpacingMultiplier="1.25"
-                    android:text="시동을 켜면 모심이 함께 탑니다."
-                    android:textColor="@color/text"
-                    android:textSize="30sp"
+                    android:text="주차 중"
+                    android:textColor="@color/text_primary"
+                    android:textSize="40sp"
                     android:textStyle="bold" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="14dp"
-                    android:background="@color/line" />
-
                 <TextView
-                    android:id="@+id/log"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:fontFamily="monospace"
-                    android:lineSpacingMultiplier="1.3"
-                    android:textColor="@color/muted"
-                    android:textSize="15sp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="데모"
-                android:textColor="@color/muted"
-                android:textSize="15sp"
-                android:layout_marginEnd="10dp" />
-
-            <Button
-                android:id="@+id/btnDemoNight"
-                style="@style/DemoButton"
-                android:text="비 오는 밤길" />
-
-            <Button
-                android:id="@+id/btnDemoTire"
-                style="@style/DemoButton"
-                android:text="타이어" />
-
-            <Button
-                android:id="@+id/btnDemoStop"
-                style="@style/DemoButton"
-                android:text="장시간 정차" />
-
-            <Button
-                android:id="@+id/btnDemoDay"
-                style="@style/DemoButton"
-                android:text="낮 운행" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!-- 오른쪽: 가족 공유 설정 -->
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        app:cardBackgroundColor="@color/card"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="0dp">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="24dp">
+                    android:id="@+id/statusMeta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="시동 꺼짐"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="18sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_inner_card"
+                    android:padding="22dp">
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="가족에게 보여줄 것"
-                        android:textColor="@color/text"
-                        android:textSize="26sp"
-                        android:textStyle="bold" />
-
-                    <com.google.android.material.materialswitch.MaterialSwitch
-                        android:id="@+id/switchMaster"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="공유"
-                        android:textColor="@color/text"
-                        android:textSize="18sp" />
+                        android:text="지금 안내"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:id="@+id/lastVoice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:lineSpacingMultiplier="1.3"
+                        android:text="시동을 켜면 모심이 함께 탑니다."
+                        android:textColor="@color/text_primary"
+                        android:textSize="26sp" />
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/shareHint"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:textColor="@color/muted"
-                    android:textSize="17sp" />
+                    android:layout_marginTop="22dp"
+                    android:text="오늘의 기록"
+                    android:textColor="@color/text_tertiary"
+                    android:textSize="15sp" />
 
                 <LinearLayout
-                    android:id="@+id/shareList"
+                    android:id="@+id/logList"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="6dp"
+                    android:orientation="vertical" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:orientation="vertical" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginBottom="18dp"
-                    android:background="@color/line" />
+                    <Button
+                        android:id="@+id/btnDemoNight"
+                        style="@style/Widget.Mosim.ChipButton"
+                        android:text="비 오는 밤길" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="가족 코드"
-                    android:textColor="@color/muted"
-                    android:textSize="17sp" />
+                    <Button
+                        android:id="@+id/btnDemoTire"
+                        style="@style/Widget.Mosim.ChipButton"
+                        android:text="타이어" />
 
-                <TextView
-                    android:id="@+id/familyCode"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="monospace"
-                    android:letterSpacing="0.2"
-                    android:textColor="@color/accent"
-                    android:textSize="34sp"
-                    android:textStyle="bold" />
+                    <Button
+                        android:id="@+id/btnDemoStop"
+                        style="@style/Widget.Mosim.ChipButton"
+                        android:text="장시간 정차" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="자녀 휴대폰에서 이 코드를 입력하면 연결됩니다."
-                    android:textColor="@color/muted"
-                    android:textSize="15sp" />
-
-                <TextView
-                    android:id="@+id/weekly"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="22dp"
-                    android:textColor="@color/text"
-                    android:textSize="18sp" />
+                    <Button
+                        android:id="@+id/btnDemoDay"
+                        style="@style/Widget.Mosim.ChipButton"
+                        android:text="낮 운행" />
+                </LinearLayout>
             </LinearLayout>
-        </ScrollView>
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 오른쪽: 가족 공유 -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/surface_basic"
+            app:cardCornerRadius="28dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="28dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="가족 공유"
+                                android:textColor="@color/text_primary"
+                                android:textSize="26sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/shareHint"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:textColor="@color/text_tertiary"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/switchMaster"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/shareList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:orientation="vertical" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/bg_inner_card"
+                        android:padding="20dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="가족 코드"
+                                android:textColor="@color/text_tertiary"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="자녀 휴대폰에서 입력하면 연결됩니다"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="15sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/familyCode"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.18"
+                            android:textColor="@color/text_primary"
+                            android:textSize="28sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
+
+                        <include
+                            android:id="@+id/statTrips"
+                            layout="@layout/view_stat"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp" />
+
+                        <include
+                            android:id="@+id/statNight"
+                            layout="@layout/view_stat"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp" />
+
+                        <include
+                            android:id="@+id/statAlerts"
+                            layout="@layout/view_stat"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 </LinearLayout>

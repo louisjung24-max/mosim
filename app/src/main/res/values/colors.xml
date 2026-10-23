@@ -1,8 +1,41 @@
 <resources>
-    <color name="bg">#0F1115</color>
-    <color name="card">#1A1E26</color>
-    <color name="line">#2A3040</color>
-    <color name="text">#F3F4F6</color>
-    <color name="muted">#9AA3B2</color>
-    <color name="accent">#F2B544</color>
+    <!-- Pleos Connect 색상 토큰(다크 테마) — document.pleos.ai Colors 기준 -->
+    <color name="basic_00">#131417</color>
+    <color name="basic_50">#1D1E21</color>
+    <color name="basic_100">#313236</color>
+    <color name="basic_200">#44464E</color>
+    <color name="basic_300">#686A72</color>
+    <color name="basic_400">#A4A8AE</color>
+
+    <color name="background_primary">@color/basic_50</color>
+    <color name="background_secondary">@color/basic_00</color>
+    <color name="surface_basic">@color/basic_50</color>
+    <color name="surface_low">@color/basic_00</color>
+    <color name="surface_high">@color/basic_100</color>
+    <color name="surface_accent">@color/basic_200</color>
+
+    <color name="text_primary">#F4F5F7</color>
+    <color name="text_secondary">#C2C5CB</color>
+    <color name="text_tertiary">#8E9199</color>
+    <color name="text_quaternary">#686A72</color>
+
+    <color name="informative_active">#2ED47A</color>
+    <color name="informative_warning">#F5A524</color>
+
+    <color name="switch_on">@color/informative_active</color>
+    <color name="switch_off">#33FFFFFF</color>
+    <color name="switch_knob_on">@color/basic_00</color>
+    <color name="switch_knob_off">@color/basic_400</color>
+
+    <color name="button_basic">#14FFFFFF</color>
+    <color name="button_basic_pressed">#22FFFFFF</color>
+    <color name="divider">@color/basic_100</color>
+
+    <!-- 호환용 별칭 -->
+    <color name="bg">@color/background_secondary</color>
+    <color name="card">@color/surface_basic</color>
+    <color name="line">@color/divider</color>
+    <color name="text">@color/text_primary</color>
+    <color name="muted">@color/text_tertiary</color>
+    <color name="accent">@color/informative_active</color>
 </resources>

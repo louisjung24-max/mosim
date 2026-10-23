@@ -121,18 +121,19 @@ async function page(env: Env, c: string): Promise<Response> {
 
   const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>모심 · 가족 알림</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Asta+Sans:wght@300..800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0F1115;--card:#1A1E26;--line:#2A3040;--t:#F3F4F6;--m:#9AA3B2;--a:#F2B544}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font-family:-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+:root{--bg:#131417;--card:#1D1E21;--inner:#313236;--line:#313236;--t:#F4F5F7;--s:#C2C5CB;--m:#8E9199;--a:#2ED47A}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--t);font-family:"Asta Sans",-apple-system,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
 .wrap{max-width:560px;margin:0 auto;padding:20px 16px 40px}
-h1{font-size:14px;letter-spacing:.1em;color:var(--a);margin:0 0 4px}
+h1{font-size:15px;letter-spacing:.02em;color:var(--m);margin:0 0 6px;font-weight:600}
 h2{font-size:26px;margin:0 0 4px}.sub{color:var(--m);font-size:14px;margin-bottom:18px}
-.card{background:var(--card);border-radius:16px;padding:16px}
+.card{background:var(--card);border-radius:24px;padding:18px}
 ul{list-style:none;margin:0;padding:0}.ev{display:flex;gap:12px;padding:14px 0;border-top:1px solid var(--line)}.ev:first-child{border-top:0;padding-top:0}
-.ic{font-size:26px;width:36px;text-align:center}.t{font-weight:700;font-size:17px}.b{color:var(--t);opacity:.85;font-size:15px;margin-top:3px;line-height:1.45}.d{color:var(--m);font-size:12px;margin-top:6px}
+.ic{font-size:24px;width:44px;height:44px;border-radius:14px;background:var(--inner);display:flex;align-items:center;justify-content:center;flex-shrink:0}.t{font-weight:700;font-size:17px}.b{color:var(--s);font-size:15px;margin-top:3px;line-height:1.5}.d{color:var(--m);font-size:12px;margin-top:6px}
 .empty{color:var(--m);padding:14px 0}
-.cta{display:flex;gap:10px;margin-top:16px}.cta a{flex:1;text-align:center;padding:14px;border-radius:12px;text-decoration:none;font-weight:700}
-.call{background:var(--a);color:#0F1115}.fix{background:transparent;border:1px solid var(--line);color:var(--t)}
+.cta{display:flex;gap:10px;margin-top:16px}.cta a{flex:1;text-align:center;padding:15px;border-radius:999px;text-decoration:none;font-weight:700}
+.call{background:var(--t);color:#131417}.fix{background:rgba(255,255,255,.08);color:var(--t)}
 .note{color:var(--m);font-size:12px;margin-top:18px;line-height:1.5}
 </style></head><body><div class="wrap">
 <h1>모심</h1><h2>부모님 차에서 온 소식</h2><div class="sub">가족 코드 ${esc(c)} · 부모님이 켜 둔 항목만 보입니다</div>

@@ -87,7 +87,7 @@ adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.ve
 sleep 12
 adb shell am broadcast -a com.hiddenframe.mosim.SIM -n com.hiddenframe.mosim/.vehicle.SimulationReceiver --es scenario daytime
 sleep 12
-adb shell input tap 1500 250
+adb shell input tap 1450 214
 sleep 8
 adb exec-out screencap -p > demo/screenshot_final.png
 wait $REC || true

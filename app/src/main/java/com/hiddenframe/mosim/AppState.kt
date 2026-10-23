@@ -15,13 +15,13 @@ data class UiState(
     val wiperOn: Boolean = false,
     val hour: Int? = null,
     val lastVoice: String = "시동을 켜면 모심이 함께 탑니다.",
-    val log: List<String> = emptyList(),
+    val log: List<Pair<String, String>> = emptyList(),
 )
 
 class AppState {
     private val _ui = MutableStateFlow(UiState())
     val ui: StateFlow<UiState> = _ui
-    private val fmt = SimpleDateFormat("HH:mm:ss", Locale.KOREA)
+    private val fmt = SimpleDateFormat("HH:mm", Locale.KOREA)
 
     fun onEvent(e: VehicleEvent) {
         _ui.value = when (e) {
@@ -36,14 +36,14 @@ class AppState {
         }
     }
 
-    fun onVoice(text: String) { _ui.value = append("음성: $text").copy(lastVoice = text) }
+    fun onVoice(text: String) { _ui.value = append("안내: $text").copy(lastVoice = text) }
 
     fun onAnomaly(a: Anomaly, shared: Boolean) {
         _ui.value = append(if (shared) "가족에게 전달: ${a.title}" else "차 안에서만: ${a.title} (공유 꺼짐)")
     }
 
     private fun append(line: String): UiState {
-        val l = (listOf("${fmt.format(Date())}  $line") + _ui.value.log).take(8)
+        val l = (listOf(fmt.format(Date()) to line) + _ui.value.log).take(6)
         return _ui.value.copy(log = l)
     }
 }
