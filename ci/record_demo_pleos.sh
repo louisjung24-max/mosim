@@ -3,8 +3,9 @@
 # 라이선스: 42dot Pleos Connect SDK License Agreement — 저장소 소유자(정세준)가 동의함 (2026-10-28).
 # 차량 신호는 AAOS VHAL 주입(cmd car_service inject-vhal-event), 위치는 에뮬레이터 geo fix로 넣습니다.
 set -uo pipefail
-PKG="system-images;android-34;pleos_car_emulator;x86_64"
-IMG_DIR_REL="system-images/android-34/pleos_car_emulator/x86_64"
+# 이미지의 source.properties가 태그를 android-automotive로 선언하므로 그 경로에 둡니다
+PKG="system-images;android-34;android-automotive;x86_64"
+IMG_DIR_REL="system-images/android-34/android-automotive/x86_64"
 XML_URL="https://nexus-playground.pleos.ai/repository/raw-releases/connect-avd/2.x/crp-sys-img.xml"
 ZIP_URL="https://nexus-playground.pleos.ai/repository/raw-releases/connect-avd/2.x/crp_car_emulator.zip"
 ZIP_SHA1="b4f858d5bcc6c71506d7edfc872bcb9e5a11acaa"
@@ -22,11 +23,11 @@ yes 2>/dev/null | sdkmanager --sdk_root="$SDK" --licenses >/dev/null 2>&1 || tru
 sdkmanager --sdk_root="$SDK" --install "platform-tools" "emulator" 2>&1 | tr '\r' '\n' | grep -vE "^\s*$|Loading|Fetch|%" | tail -3
 emulator -version 2>&1 | head -1 | tee "$OUT/emulator_version.txt"
 
-if [ ! -f "$SDK/$IMG_DIR_REL/system.img" ]; then
+if [ ! -f "$SDK/$IMG_DIR_REL/system.img" ] && false; then
   log "pleos image via sdkmanager (user source)"
   printf '### User Sources for Android SDK Manager\ncount=1\nsrc00=%s\nenabled00=true\ndisp00=Pleos Connect\n' "$(echo "$XML_URL" | sed 's/:/\\:/')" > "$HOME/.android/repositories.cfg"
   yes 2>/dev/null | sdkmanager --sdk_root="$SDK" --licenses 2>&1 | grep -iE "pleos|accept" | head -5
-  yes 2>/dev/null | sdkmanager --sdk_root="$SDK" --install "$PKG" 2>&1 | tr '\r' '\n' | grep -vE "^\s*$|%" | tail -8
+  yes 2>/dev/null | sdkmanager --sdk_root="$SDK" --install "system-images;android-34;pleos_car_emulator;x86_64" 2>&1 | tr '\r' '\n' | grep -vE "^\s*$|%" | tail -8
 fi
 if [ ! -f "$SDK/$IMG_DIR_REL/system.img" ]; then
   log "pleos image via direct download"
@@ -43,6 +44,7 @@ fi
 ls "$SDK/$IMG_DIR_REL" | tee "$OUT/image_files.txt"
 [ -f "$SDK/$IMG_DIR_REL/system.img" ] || { echo "PLEOS IMAGE MISSING"; exit 1; }
 cat "$SDK/$IMG_DIR_REL/source.properties" 2>/dev/null | tee -a "$OUT/image_files.txt"
+[ "${1:-}" = "fetch" ] && exit 0
 
 log "avd"
 avdmanager list device 2>/dev/null | grep -iE "id:|name:" | grep -iE "pleos|automotive|crp" | head -10 | tee "$OUT/devices.txt"

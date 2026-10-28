@@ -29,10 +29,11 @@ jobs:
           sudo udevadm trigger --name-match=kvm
 
       # Pleos Connect v2.1.0 시스템 이미지(약 4GB)를 다음 실행부터 재사용
-      - name: Cache Pleos system image
-        uses: actions/cache@v4
+      - name: Restore Pleos system image
+        id: sysimg
+        uses: actions/cache/restore@v4
         with:
-          path: /usr/local/lib/android/sdk/system-images/android-34/pleos_car_emulator
+          path: /usr/local/lib/android/sdk/system-images/android-34/android-automotive
           key: pleos-connect-sysimg-2.1.0-r2
 
       - uses: actions/setup-java@v4
@@ -44,6 +45,16 @@ jobs:
 
       - name: Build debug APK
         run: ./gradlew --no-daemon assembleDebug
+
+      - name: Fetch Pleos system image (42dot license accepted by repo owner)
+        run: bash ci/record_demo_pleos.sh fetch
+
+      - name: Save Pleos system image
+        if: steps.sysimg.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: /usr/local/lib/android/sdk/system-images/android-34/android-automotive
+          key: pleos-connect-sysimg-2.1.0-r2
 
       - name: Run Pleos emulator and record
         run: |
