@@ -158,7 +158,7 @@ VC "/vehicle/body?front_wiper=Low"
 sleep 5
 # 3) 주행 → 위치가 콘솔 속도를 따라가는지 확인, 아니면 geo fix로 이동
 drive 6 50
-if ! adb logcat -d -s PleosSignalSource:D | grep -q "fix dt"; then echo "no fused fixes from console speed -> geo fix"; USE_GEO=1; geo; sleep 1; drive 4 50; fi
+drive 3 50
 echo "USE_GEO=$USE_GEO" | tee -a "$OUT/vc_calls.txt"
 # 급제동 2회
 drive 1 15 100

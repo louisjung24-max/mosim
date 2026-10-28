@@ -12,20 +12,18 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <!-- Pleos Connect SDK 읽기 권한 (공개 API, protectionLevel normal). 제어(CONTROL_*) 권한은 쓰지 않습니다. -->
     <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
-    <uses-permission android:name="pleos.car.permission.CAR_POWERTRAIN" />
     <uses-permission android:name="pleos.car.permission.CAR_ENERGY" />
-    <uses-permission android:name="pleos.car.permission.CAR_MILEAGE" />
     <uses-permission android:name="pleos.car.permission.CAR_INFO" />
-    <uses-permission android:name="pleos.car.permission.READ_WINDSHIELD_WIPERS" />
+    <!-- Window·Wiper 도메인 읽기 -->
+    <uses-permission android:name="pleos.car.permission.CAR_WINDOWS" />
     <!-- Pleos TextToSpeech SDK -->
     <uses-permission android:name="pleos.car.permission.TTS_SERVICE" />
     <!-- Pleos FusedLocation SDK (dangerous: 실행 중 허용 요청). 급제동·정차 판정에만 쓰고 외부로 보내지 않습니다. -->
     <uses-permission android:name="pleos.car.permission.FUSED_LOCATION" />
-    <!-- 일반 AAOS 에뮬레이터용 대체 경로(android.car) -->
+    <!-- 표준 AAOS 차속(급제동 판정)·일반 AAOS 에뮬레이터 대체 경로(android.car) -->
     <uses-permission android:name="android.car.permission.CAR_INFO" />
     <uses-permission android:name="android.car.permission.CAR_ENERGY" />
     <uses-permission android:name="android.car.permission.CAR_SPEED" tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.car.permission.CAR_TIRES" tools:ignore="ProtectedPermissions" />
 
     <application
         android:name=".MosimApp"

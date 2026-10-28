@@ -42,17 +42,18 @@ npx wrangler deploy
 ## 테스트 환경
 - 에뮬레이터: Android Automotive 13 (API 33) x86_64, automotive_1024p_landscape
 - 한국어 TTS 엔진이 없는 에뮬레이터에서는 음성 대신 화면 자막으로 표시됩니다.
-- Pleos Connect 에뮬레이터 v2.1.0(API 34)에서는 Virtual Console로 기어·와이퍼·연료를 바꾸면 실제 SDK 경로(`PleosSignalSource`)가 동작합니다.
+- Pleos Connect 에뮬레이터 v2.1.0(API 34)에서는 Virtual Console(기어·와이퍼·속도·브레이크·배터리)로 실제 SDK 경로가 동작합니다. CI 녹화: `.github/workflows/demo-pleos.yml`(콘솔 HTTP API로 조작).
 - 일반 AAOS 에뮬레이터에서는 Pleos 서비스가 없으므로 3초 안에 응답이 없으면 AAOS 기본 차량 속성(`CarApiSignalSource`)과 Android TTS로 자동 전환됩니다.
 
 ## 사용한 Pleos Connect SDK (모두 공개 API)
 | SDK | 버전 | 쓰는 곳 |
 |---|---|---|
-| Vehicle | 2.3.2 | 기어 P↔D(운행 시작·종료), 앞유리 와이퍼(비), 연료 잔량(차량 관리), 이번 운행 거리(장거리), 브레이크 페달(급제동 보조) |
-| FusedLocation | 1.1.3 | 위치 변화로 감속도 계산 → 급제동·장시간 정차 판정 (Vehicle SDK에 차속 API가 없어 대체). 위치는 차 밖으로 보내지 않음 |
+| Vehicle | 2.3.2 | 기어 P↔D(운행 시작·종료), 앞유리 와이퍼(비), 전기차 배터리(SOC)·연료 잔량(차량 관리), 이번 운행 거리(장거리), 브레이크 페달(급제동 보조) |
+| FusedLocation | 1.1.3 | 차속 신호가 없는 차량에서 위치 변화로 감속도를 계산하는 대체 경로. 위치는 차 밖으로 보내지 않음 |
+| (표준 AAOS) CarPropertyManager | – | 차속(PERF_VEHICLE_SPEED) → 급제동·장시간 정차 판정. Vehicle SDK 2.3.2에 차속 API가 없어 Android 표준 API 사용 |
 | TextToSpeech | 3.3.1 | 차 안 음성 안내. ON_DEVICE 모드라 앱 등록(Client ID/Secret)이 필요 없고 문장이 서버로 나가지 않음 |
 
-권한: `pleos.car.permission.CAR_DRIVE · CAR_POWERTRAIN · CAR_ENERGY · CAR_MILEAGE · CAR_INFO · READ_WINDSHIELD_WIPERS · TTS_SERVICE · FUSED_LOCATION`(실행 중 허용 요청). 제어(CONTROL_*) 권한은 쓰지 않습니다.
+권한: `pleos.car.permission.CAR_DRIVE · CAR_ENERGY · CAR_INFO · CAR_WINDOWS · TTS_SERVICE · FUSED_LOCATION`(실행 중 허용 요청) + `android.car.permission.CAR_SPEED`. 제어(CONTROL_*) 권한은 쓰지 않습니다.
 
 ## 구조
 ```

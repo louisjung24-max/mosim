@@ -11,8 +11,9 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 
 /**
- * Android Automotive OS 기본 차량 속성 공급원 (대체 경로).
- * Pleos 차량 서비스가 응답하지 않는 기기(일반 AAOS 에뮬레이터)에서만 켜집니다. 실제 차량 경로는 [PleosSignalSource].
+ * Android Automotive OS 표준 차량 속성 공급원 (CarPropertyManager).
+ * - 차속(PERF_VEHICLE_SPEED): Pleos Vehicle SDK에 차속 API가 없어 표준 AAOS API로 받아 급제동을 판정합니다.
+ * - 시동·연료·주행거리: Pleos 차량 서비스가 없는 기기(일반 AAOS 에뮬레이터)에서만 씁니다([speedOnly]=false).
  * 에뮬레이터에서는 속도·시동 권한이 시스템 전용이라 등록이 거부될 수 있으며, 그 경우 조용히 비활성화됩니다.
  */
 class CarApiSignalSource(private val context: Context) : VehicleSignalSource {
@@ -20,6 +21,9 @@ class CarApiSignalSource(private val context: Context) : VehicleSignalSource {
 
     private val _events = MutableSharedFlow<VehicleEvent>(extraBufferCapacity = 64)
     override val events: SharedFlow<VehicleEvent> = _events
+
+    /** true면 차속(급제동)만 내보냅니다. Pleos Vehicle SDK가 기어·에너지 등을 맡을 때 씁니다. */
+    @Volatile var speedOnly = true
 
     private var car: Car? = null
     private var pm: CarPropertyManager? = null
@@ -41,16 +45,20 @@ class CarApiSignalSource(private val context: Context) : VehicleSignalSource {
                         }
                     }
                     lastSpeed = mps; lastSpeedAt = now
+                    lastVehicleSpeedAt = now
                     _events.tryEmit(VehicleEvent.Speed(kmh))
                 }
                 VehiclePropertyIds.IGNITION_STATE -> {
+                    if (speedOnly) return
                     val state = (value.value as? Int) ?: return
                     _events.tryEmit(VehicleEvent.Ignition(on = state >= IGNITION_ON))
                 }
                 VehiclePropertyIds.FUEL_LEVEL_LOW -> {
+                    if (speedOnly) return
                     if ((value.value as? Boolean) == true) _events.tryEmit(VehicleEvent.FuelLow(10))
                 }
                 VehiclePropertyIds.PERF_ODOMETER -> {
+                    if (speedOnly) return
                     (value.value as? Float)?.let { _events.tryEmit(VehicleEvent.Odometer(it)) }
                 }
             }
@@ -87,6 +95,9 @@ class CarApiSignalSource(private val context: Context) : VehicleSignalSource {
 
     companion object {
         private const val TAG = "CarApiSignalSource"
+        /** 표준 AAOS 차속을 마지막으로 받은 시각. 있으면 위치 기반 속도 계산을 쉽니다. */
+        @Volatile var lastVehicleSpeedAt = 0L
+        fun vehicleSpeedFresh() = System.currentTimeMillis() - lastVehicleSpeedAt < 5_000L
         private const val HARD_BRAKE_MPS2 = 3.5f
         private const val IGNITION_ON = 4 // VehicleIgnitionState.ON
     }

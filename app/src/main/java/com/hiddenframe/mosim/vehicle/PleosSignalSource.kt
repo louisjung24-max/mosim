@@ -33,8 +33,8 @@ import kotlin.math.sqrt
  * - 비: 앞유리 와이퍼 상태
  * - 차량 관리: 연료 잔량 또는 전기차 배터리(SOC) 10% 이하
  * - 장거리: 이번 운행 주행 거리
- * - 급제동: 위치 변화로 계산한 감속도 ≥ 3.5 m/s² + 브레이크 페달 밟힘 (Vehicle SDK에 차속 API가 없어 위치로 계산)
- * - 장시간 정차: D단에서 20분 이상 정지
+ * - 급제동: 표준 AAOS 차속([CarApiSignalSource])이 기본. 차속이 없는 차량에서는 위치 변화로 계산한 감속도 ≥ 3.5 m/s² + 브레이크 페달로 대체
+ * - 장시간 정차: 차속(표준 AAOS 또는 위치 계산)으로 서비스에서 판정
  *
  * 위치·속도는 차 안에서 판정에만 쓰고 밖으로 보내지 않습니다.
  * Pleos 차량 서비스가 없는 기기(일반 에뮬레이터)에서는 [connected]가 false로 남고 조용히 비활성화됩니다.
@@ -60,8 +60,6 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
     private var fuelWarned = false
     private var lastFix: LocationData? = null
     private var lastSpeedMps = -1f
-    private var stoppedSince = 0L
-    private var idleReported = false
 
     private val gearListener = object : GearSelectionListener {
         override fun onSelected(gear: VehicleGear?) { gear ?: return; connected = true; onGear(gear) }
@@ -155,7 +153,7 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         val moving = gear != VehicleGear.GEAR_PARK && gear != VehicleGear.GEAR_UNKNOWN && gear != VehicleGear.GEAR_NEUTRAL
         if (moving && !driving) {
             driving = true
-            fuelWarned = false; idleReported = false; pedalSeenThisTrip = false; stoppedSince = 0L; lastFix = null; lastSpeedMps = -1f
+            fuelWarned = false; pedalSeenThisTrip = false; lastFix = null; lastSpeedMps = -1f
             _events.tryEmit(VehicleEvent.Ignition(on = true, hourOfDay = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)))
         } else if (gear == VehicleGear.GEAR_PARK && driving) {
             driving = false
@@ -169,6 +167,8 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         if (!driving || prev == null) return
         val dt = (fix.timestampMillis - prev.timestampMillis) / 1000f
         if (dt < MIN_DT_S || dt > MAX_DT_S) { lastSpeedMps = -1f; return }
+        // 표준 AAOS 차속이 들어오는 차량이면 그쪽을 쓰고, 위치 기반 계산은 대체 경로로만 둡니다.
+        if (CarApiSignalSource.vehicleSpeedFresh()) { lastSpeedMps = -1f; return }
         val mps = distanceMeters(prev, fix) / dt
         Log.d(TAG, "fix dt=${"%.2f".format(dt)}s speed=${"%.1f".format(mps * 3.6f)}km/h")
         _events.tryEmit(VehicleEvent.Speed(mps * 3.6f))
@@ -183,19 +183,6 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
             }
         }
         lastSpeedMps = mps
-
-        // 장시간 정차: D단에서 거의 움직이지 않는 상태가 이어질 때
-        val now = fix.timestampMillis
-        if (mps * 3.6f < STOPPED_KMH) {
-            if (stoppedSince == 0L) stoppedSince = now
-            val minutes = ((now - stoppedSince) / 60_000L).toInt()
-            if (minutes >= LONG_STOP_MIN && !idleReported) {
-                idleReported = true
-                _events.tryEmit(VehicleEvent.IdleStop(minutes))
-            }
-        } else {
-            stoppedSince = 0L; idleReported = false
-        }
     }
 
     private fun distanceMeters(a: LocationData, b: LocationData): Float {
@@ -238,8 +225,6 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         private const val MIN_BRAKE_FROM_KMH = 15f
         private const val MIN_DT_S = 0.3f
         private const val MAX_DT_S = 3f
-        private const val STOPPED_KMH = 2f
-        private const val LONG_STOP_MIN = 20
         private const val PEDAL_WINDOW_MS = 3000L
     }
 }

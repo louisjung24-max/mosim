@@ -46,9 +46,10 @@ class DriveMonitorService : LifecycleService() {
         }
         SimulatedSignalSource.start()
         pleos.start()
+        carApi.start() // 차속은 처음부터
         lifecycleScope.launch {
             delay(PLEOS_PROBE_MS)
-            if (!pleos.connected) carApi.start()
+            if (!pleos.connected) carApi.speedOnly = false
         }
     }
 
@@ -58,8 +59,32 @@ class DriveMonitorService : LifecycleService() {
         return START_STICKY
     }
 
+    // 장시간 정차: 운행 중(D) 차속이 거의 0인 상태가 20분 이어지면 한 번 알립니다. 차속 출처(표준 AAOS·위치)와 무관.
+    private var driving = false
+    private var stoppedSince = 0L
+    private var idleReported = false
+
+    private suspend fun trackIdle(e: VehicleEvent) {
+        when (e) {
+            is VehicleEvent.Ignition -> { driving = e.on; stoppedSince = 0L; idleReported = false }
+            is VehicleEvent.Speed -> if (driving) {
+                val now = System.currentTimeMillis()
+                if (e.kmh < STOPPED_KMH) {
+                    if (stoppedSince == 0L) stoppedSince = now
+                    val minutes = ((now - stoppedSince) / 60_000L).toInt()
+                    if (minutes >= AnomalyDetector.LONG_STOP_MIN && !idleReported) {
+                        idleReported = true
+                        handle(VehicleEvent.IdleStop(minutes))
+                    }
+                } else { stoppedSince = 0L; idleReported = false }
+            }
+            else -> {}
+        }
+    }
+
     private suspend fun handle(e: VehicleEvent) {
         val app = application as MosimApp
+        if (e !is VehicleEvent.IdleStop) trackIdle(e)
         app.state.onEvent(e)
         when (e) {
             is VehicleEvent.Ignition -> if (e.on) app.weekly.addTrip(night = (e.hourOfDay ?: 12).let { it >= AnomalyDetector.NIGHT_FROM || it < AnomalyDetector.NIGHT_UNTIL })
@@ -95,7 +120,8 @@ class DriveMonitorService : LifecycleService() {
     companion object {
         private const val CHANNEL = "mosim_drive"
         private const val NOTIF_ID = 1001
-        private const val PLEOS_PROBE_MS = 3000L
+        private const val PLEOS_PROBE_MS = 15000L
+        private const val STOPPED_KMH = 2f
         const val ACTION_LOCATION_GRANTED = "com.hiddenframe.mosim.LOCATION_GRANTED"
         fun start(context: Context, action: String? = null) {
             val i = Intent(context, DriveMonitorService::class.java).setAction(action)
