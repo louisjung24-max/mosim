@@ -17,14 +17,16 @@ jobs:
           java-version: "17"
       - name: Fetch Pleos SDK artifacts and dump API
         run: |
-          set -x
+          set +e
           R=https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground
           mkdir -p probe sdk && cd sdk
           curl -s "https://nexus-playground.pleos.ai/service/rest/v1/search?repository=maven-releases&group=ai.pleos.playground" > ../probe/search.json || true
           for a in Vehicle TextToSpeech SpeechToText FusedLocation NaviHelper TTS STT Tts Stt Location Navihelper; do
             curl -sf "$R/$a/maven-metadata.xml" -o "$a-meta.xml" && echo "== $a" >> ../probe/artifacts.txt && cat "$a-meta.xml" >> ../probe/artifacts.txt
           done
-          curl -sf "$R/Vehicle/2.3.1/Vehicle-2.3.1.aar" -o vehicle.aar
+          curl -sS -o /dev/null -w "repo root: %{http_code}\n" "$R/" >> ../probe/artifacts.txt
+          curl -sS -L -o vehicle.aar -w "aar: %{http_code}\n" "$R/Vehicle/2.3.1/Vehicle-2.3.1.aar" >> ../probe/artifacts.txt
+          ls -la vehicle.aar >> ../probe/artifacts.txt
           curl -sf "$R/Vehicle/2.3.1/Vehicle-2.3.1.pom" -o ../probe/vehicle.pom || true
           unzip -o -q vehicle.aar -d vehicle
           cp vehicle/AndroidManifest.xml ../probe/vehicle-manifest.xml || true
@@ -39,6 +41,7 @@ jobs:
             javap -constants -classpath . "$c" >> ../../../probe/vehicle-constants.txt 2>&1 || true
           done
       - name: Commit probe output
+        if: always()
         run: |
           git config user.name "mosim-ci"
           git config user.email "ci@users.noreply.github.com"
