@@ -211,3 +211,216 @@ public final class ai.pleos.playground.location.fused.utils.c {
   static {};
   public final java.lang.String a(java.lang.String);
 }
+##### ai.pleos.playground.location.fused.FusedLocation
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.FusedLocation {
+  public ai.pleos.playground.location.fused.FusedLocation(android.content.Context);
+  public static final android.content.Context access$getContext$p(ai.pleos.playground.location.fused.FusedLocation);
+  public final void initialize();
+  public final void release();
+  public final boolean isSupported();
+  public final void getLastKnownLocation(ai.pleos.playground.location.fused.listener.FusedLocationListener);
+  public final void registerFusedLocationCallback(ai.pleos.playground.location.fused.listener.FusedLocationListener);
+  public final void unregisterFusedLocationCallback(ai.pleos.playground.location.fused.listener.FusedLocationListener);
+  public final void addProximityAlert(ai.pleos.playground.location.fused.model.ProximityAlertRequest, ai.pleos.playground.location.fused.listener.ProximityAlertListener);
+  public final void removeProximityAlert(java.lang.String);
+  public final void showLocationAccessBlockedPopup();
+}
+##### ai.pleos.playground.location.fused.a
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.a {
+  public static final boolean a;
+  public static final java.lang.String b;
+  public static final java.lang.String c;
+  public static final java.lang.String d;
+  public static final java.lang.String e;
+  public static final java.lang.String f;
+  public static final java.lang.String g;
+  public ai.pleos.playground.location.fused.a();
+}
+##### ai.pleos.playground.location.fused.constant.Constants
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.constant.Constants {
+  public static final ai.pleos.playground.location.fused.constant.Constants INSTANCE;
+  public static final java.lang.String SERVICE_PACKAGE_NAME;
+  public static final java.lang.String SERVICE_NAME;
+  public static final java.lang.String ACTION;
+  static {};
+}
+##### ai.pleos.playground.location.fused.listener.FusedLocationListener
+Compiled from "SourceFile"
+public interface ai.pleos.playground.location.fused.listener.FusedLocationListener {
+  public abstract void onChanged(ai.pleos.playground.location.fused.model.LocationData);
+  public abstract void onError(java.lang.Exception);
+}
+##### ai.pleos.playground.location.fused.listener.ProximityAlertListener
+Compiled from "SourceFile"
+public interface ai.pleos.playground.location.fused.listener.ProximityAlertListener {
+  public abstract void onRegistered(java.lang.String);
+  public abstract void onTransition(ai.pleos.playground.location.fused.model.ProximityAlertEvent);
+  public abstract void onError(java.lang.Exception);
+}
+##### ai.pleos.playground.location.fused.mapper.a
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.mapper.a {
+  public static final ai.pleos.playground.location.fused.model.LocationData a(ai.pleos.playground.location.fused.model.FusedLocationTransData);
+}
+##### ai.pleos.playground.location.fused.mapper.b
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.mapper.b {
+  public static final ai.pleos.playground.location.fused.model.ProximityAlertTransData a(ai.pleos.playground.location.fused.model.ProximityAlertRequest, java.lang.String);
+  public static final ai.pleos.playground.location.fused.model.ProximityAlertEvent a(ai.pleos.playground.location.fused.model.ProximityAlertEventTransData);
+}
+##### ai.pleos.playground.location.fused.model.LocationData
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.model.LocationData {
+  public ai.pleos.playground.location.fused.model.LocationData(double, double, double, float, float, long);
+  public static ai.pleos.playground.location.fused.model.LocationData copy$default(ai.pleos.playground.location.fused.model.LocationData, double, double, double, float, float, long, int, java.lang.Object);
+  public final double getLatitude();
+  public final double getLongitude();
+  public final double getAltitude();
+  public final float getHeading();
+  public final float getConfidence();
+  public final long getTimestampMillis();
+  public final double component1();
+  public final double component2();
+  public final double component3();
+  public final float component4();
+  public final float component5();
+  public final long component6();
+  public final ai.pleos.playground.location.fused.model.LocationData copy(double, double, double, float, float, long);
+  public java.lang.String toString();
+  public int hashCode();
+  public boolean equals(java.lang.Object);
+}
+##### ai.pleos.playground.location.fused.model.ProximityAlertEvent
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.model.ProximityAlertEvent {
+  public ai.pleos.playground.location.fused.model.ProximityAlertEvent(java.lang.String, ai.pleos.playground.location.fused.model.ProximityTransition);
+  public static ai.pleos.playground.location.fused.model.ProximityAlertEvent copy$default(ai.pleos.playground.location.fused.model.ProximityAlertEvent, java.lang.String, ai.pleos.playground.location.fused.model.ProximityTransition, int, java.lang.Object);
+  public final java.lang.String getAlertId();
+  public final ai.pleos.playground.location.fused.model.ProximityTransition getTransition();
+  public final java.lang.String component1();
+  public final ai.pleos.playground.location.fused.model.ProximityTransition component2();
+  public final ai.pleos.playground.location.fused.model.ProximityAlertEvent copy(java.lang.String, ai.pleos.playground.location.fused.model.ProximityTransition);
+  public java.lang.String toString();
+  public int hashCode();
+  public boolean equals(java.lang.Object);
+}
+##### ai.pleos.playground.location.fused.model.ProximityAlertRequest
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.model.ProximityAlertRequest {
+  public ai.pleos.playground.location.fused.model.ProximityAlertRequest(double, double, float, java.util.Set<? extends ai.pleos.playground.location.fused.model.ProximityTransition>);
+  public static ai.pleos.playground.location.fused.model.ProximityAlertRequest copy$default(ai.pleos.playground.location.fused.model.ProximityAlertRequest, double, double, float, java.util.Set, int, java.lang.Object);
+  public final double getLatitude();
+  public final double getLongitude();
+  public final float getRadiusMeters();
+  public final java.util.Set<ai.pleos.playground.location.fused.model.ProximityTransition> getTransitionTypes();
+  public final java.lang.String validationErrorOrNull$FusedLocation_release();
+  public final double component1();
+  public final double component2();
+  public final float component3();
+  public final java.util.Set<ai.pleos.playground.location.fused.model.ProximityTransition> component4();
+  public final ai.pleos.playground.location.fused.model.ProximityAlertRequest copy(double, double, float, java.util.Set<? extends ai.pleos.playground.location.fused.model.ProximityTransition>);
+  public java.lang.String toString();
+  public int hashCode();
+  public boolean equals(java.lang.Object);
+}
+##### ai.pleos.playground.location.fused.model.ProximityAlertRequestKt
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.model.ProximityAlertRequestKt {
+}
+##### ai.pleos.playground.location.fused.model.ProximityTransition
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.model.ProximityTransition extends java.lang.Enum<ai.pleos.playground.location.fused.model.ProximityTransition> {
+  public static final ai.pleos.playground.location.fused.model.ProximityTransition ENTER;
+  public static final ai.pleos.playground.location.fused.model.ProximityTransition EXIT;
+  public static ai.pleos.playground.location.fused.model.ProximityTransition[] values();
+  public static ai.pleos.playground.location.fused.model.ProximityTransition valueOf(java.lang.String);
+  public static kotlin.enums.EnumEntries<ai.pleos.playground.location.fused.model.ProximityTransition> getEntries();
+  static {};
+}
+##### ai.pleos.playground.location.fused.service.a
+Compiled from "SourceFile"
+public abstract class ai.pleos.playground.location.fused.service.a<IService extends android.os.IInterface> implements android.content.ServiceConnection {
+  public static final ai.pleos.playground.location.fused.service.a$a h;
+  public static final int i;
+  public static final long j;
+  public ai.pleos.playground.location.fused.service.a(android.content.Context, kotlin.jvm.functions.Function1<? super android.os.IBinder, ? extends IService>, kotlinx.coroutines.CoroutineScope);
+  public ai.pleos.playground.location.fused.service.a(android.content.Context, kotlin.jvm.functions.Function1, kotlinx.coroutines.CoroutineScope, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  static void a(ai.pleos.playground.location.fused.service.a, kotlin.jvm.functions.Function1, kotlin.jvm.functions.Function1, int, java.lang.Object);
+  public static final java.lang.String c(ai.pleos.playground.location.fused.service.a);
+  public static final void a(ai.pleos.playground.location.fused.service.a, ai.pleos.playground.location.fused.service.a$c);
+  public static final ai.pleos.playground.location.fused.service.a$c a(ai.pleos.playground.location.fused.service.a);
+  public static final android.content.Context b(ai.pleos.playground.location.fused.service.a);
+  static {};
+  protected final IService c();
+  protected final void a(IService);
+  public abstract void d();
+  public void onServiceConnected(android.content.ComponentName, android.os.IBinder);
+  public void onServiceDisconnected(android.content.ComponentName);
+  public final void a(android.content.Intent);
+  public final void b();
+  public final void a(kotlin.jvm.functions.Function1<? super IService, kotlin.Unit>, kotlin.jvm.functions.Function1<? super java.lang.Exception, kotlin.Unit>);
+}
+##### ai.pleos.playground.location.fused.service.b
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.service.b extends ai.pleos.playground.location.fused.service.a<ai.pleos.playground.location.fused.IFusedLocationService> {
+  public ai.pleos.playground.location.fused.service.b(android.content.Context, kotlin.jvm.functions.Function1<? super android.os.IBinder, ? extends ai.pleos.playground.location.fused.IFusedLocationService>, kotlinx.coroutines.CoroutineScope, kotlin.jvm.functions.Function0<java.lang.String>);
+  public ai.pleos.playground.location.fused.service.b(android.content.Context, kotlin.jvm.functions.Function1, kotlinx.coroutines.CoroutineScope, kotlin.jvm.functions.Function0, int, kotlin.jvm.internal.DefaultConstructorMarker);
+  public static final ai.pleos.playground.location.fused.service.stub.a a(ai.pleos.playground.location.fused.service.b);
+  public static final java.util.concurrent.atomic.AtomicBoolean d(ai.pleos.playground.location.fused.service.b);
+  public static final ai.pleos.playground.location.fused.service.b$c a(ai.pleos.playground.location.fused.service.b, java.lang.String);
+  public static final java.lang.String c(ai.pleos.playground.location.fused.service.b);
+  public static final java.util.concurrent.CopyOnWriteArrayList b(ai.pleos.playground.location.fused.service.b);
+  public final void b(ai.pleos.playground.location.fused.listener.FusedLocationListener);
+  public final void c(ai.pleos.playground.location.fused.listener.FusedLocationListener);
+  public final void e(ai.pleos.playground.location.fused.listener.FusedLocationListener);
+  public final void a(ai.pleos.playground.location.fused.model.ProximityAlertRequest, ai.pleos.playground.location.fused.listener.ProximityAlertListener);
+  public final void c(java.lang.String);
+  public final void f();
+  public final void i();
+  public final void j();
+  public void d();
+}
+##### ai.pleos.playground.location.fused.service.stub.a
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.service.stub.a extends ai.pleos.playground.location.fused.callback.IFusedLocationCallback$Stub {
+  public ai.pleos.playground.location.fused.service.stub.a(java.util.List<? extends ai.pleos.playground.location.fused.listener.FusedLocationListener>);
+  public void onChangeEvent(ai.pleos.playground.location.fused.model.FusedLocationTransData);
+  public void onErrorEvent(java.lang.String);
+}
+##### ai.pleos.playground.location.fused.service.stub.b
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.service.stub.b extends ai.pleos.playground.location.fused.callback.IProximityAlertCallback$Stub {
+  public ai.pleos.playground.location.fused.service.stub.b(ai.pleos.playground.location.fused.listener.ProximityAlertListener, kotlin.jvm.functions.Function0<kotlin.Unit>);
+  public void onRegistered(java.lang.String);
+  public void onTransitionEvent(ai.pleos.playground.location.fused.model.ProximityAlertEventTransData);
+  public void onErrorEvent(java.lang.String);
+  public final void a();
+}
+##### ai.pleos.playground.location.fused.utils.a
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.utils.a {
+  public static final ai.pleos.playground.location.fused.utils.a a;
+  static {};
+  public final void a(java.lang.String, java.lang.String);
+  public final void c(java.lang.String, java.lang.String);
+  public final void b(java.lang.String, java.lang.String);
+  public final void d(java.lang.String, java.lang.String);
+}
+##### ai.pleos.playground.location.fused.utils.b
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.utils.b {
+  public static final ai.pleos.playground.location.fused.utils.b a;
+  static {};
+  public final boolean a(android.content.Context, java.lang.String);
+}
+##### ai.pleos.playground.location.fused.utils.c
+Compiled from "SourceFile"
+public final class ai.pleos.playground.location.fused.utils.c {
+  public static final ai.pleos.playground.location.fused.utils.c a;
+  public static final java.lang.String b;
+  static {};
+  public final java.lang.String a(java.lang.String);
+}
