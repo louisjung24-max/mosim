@@ -53,6 +53,12 @@ jobs:
             (cd x$a && unzip -o -q classes.jar -d cls && cd cls && find . -name '*.class' | sed 's#^\./##; s#\.class$##; s#/#.#g' | sort > ../../../probe/$a-classes.txt
              for c in $(grep -vE '\$|Impl|internal|BuildConfig' ../../../probe/$a-classes.txt | head -40); do echo "##### $c" >> ../../../probe/$a-api.txt; javap -classpath . "$c" >> ../../../probe/$a-api.txt 2>&1; done)
           done
+      - name: Pleos Connect emulator image metadata
+        run: |
+          set +e
+          mkdir -p probe
+          curl -sS -L -o probe/pleos-sys-img.xml https://nexus-playground.pleos.ai/repository/raw-releases/connect-avd/2.x/crp-sys-img.xml
+          ls -la probe/pleos-sys-img.xml
       - name: Commit probe output
         if: always()
         run: |
