@@ -34,6 +34,7 @@ object SimulatedSignalSource : VehicleSignalSource {
                 SCENARIO_RAINY_NIGHT -> rainyNight()
                 SCENARIO_TIRE, SCENARIO_BATTERY -> batteryLow()
                 SCENARIO_LONG_STOP -> longStop()
+                SCENARIO_IDLE_ONLY -> emit(VehicleEvent.IdleStop(minutes = 22))
                 SCENARIO_DAYTIME -> daytimeTrip()
                 else -> daytimeTrip()
             }
@@ -79,5 +80,7 @@ object SimulatedSignalSource : VehicleSignalSource {
     const val SCENARIO_TIRE = "tire_low" // 이전 이름(호환용)
     const val SCENARIO_BATTERY = "battery_low"
     const val SCENARIO_LONG_STOP = "long_stop"
+    /** 실제 운행 중에 20분 정차만 앞당겨 보여 줄 때 (Pleos 에뮬레이터 시연용) */
+    const val SCENARIO_IDLE_ONLY = "idle_only"
     const val SCENARIO_DAYTIME = "daytime"
 }

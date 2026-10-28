@@ -150,7 +150,7 @@ sleep 5
 adb logcat -c
 
 log "record"
-adb shell "screenrecord --time-limit 170 --bit-rate 8000000 /data/local/tmp/mosim_pleos.mp4" &
+adb shell "screenrecord --time-limit 105 --bit-rate 8000000 /data/local/tmp/mosim_pleos.mp4" &
 REC=$!
 sleep 4
 # 1) 밤, 기어 D → 야간 안내 + (공유 허용 시) 가족 알림
@@ -174,14 +174,19 @@ sleep 8
 python3 ci/vconsole.py set "soc|state.?of.?charge" 8 2>&1 | tee -a "$OUT/vc_calls.txt" || true
 sleep 10
 adb exec-out screencap -p > "$OUT/03_battery.png"
-# 5) 감속·정차, 비 그침, 주차(P) → 운행 종료
-drive 2 0 60
+# 5) 천천히 멈춤(D 유지) → 장시간 정차(20분 경과를 시연용으로 앞당김)
+drive 1 20 30
+drive 1 10 30
+drive 2 0 40
+adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario idle_only >/dev/null
+sleep 10
+# 6) 비 그침, 주차(P) → 운행 종료
 VC "/vehicle/body?front_wiper=Off"
 VC "/vehicle/gear?gear=Park"
 sleep 8
-# 6) 장시간 정차는 20분이 걸려 시연 버튼(시뮬레이터)으로 보여 줍니다
-adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario long_stop >/dev/null
-sleep 12
+# 7) 부모님이 '야간 외출' 공유를 끔 (공유 철회)
+adb shell input tap 2447 294
+sleep 9
 adb exec-out screencap -p > "$OUT/04_end.png"
 wait $REC || true
 kill $HB 2>/dev/null || true
