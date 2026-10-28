@@ -1,0 +1,52 @@
+== sdk components ==
+Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+== pleos image via sdkmanager (user source) ==
+All SDK package licenses accepted.
+Loading package information...                                                  
+Loading local repository...                                                     
+Warning: Failed to find package 'system-images;android-34;pleos_car_emulator;x86_64'
+== pleos image via direct download ==
+/mnt/pleos/crp.zip: OK
+VerifiedBootParams.textproto
+advancedFeatures.ini
+build.prop
+data
+devices.xml
+encryptionkey.img
+kernel-ranchu
+ramdisk.img
+source.properties
+system.img
+userdata.img
+vendor.img
+Pkg.Desc=System Image x86_64
+Pkg.Revision=1
+Pkg.Dependencies=emulator
+AndroidVersion.ApiLevel=34
+SystemImage.Abi=x86_64
+SystemImage.TagId=android-automotive
+SystemImage.TagDisplay=Automotive
+SystemImage.GpuSupport=true
+Addon.VendorId=42dot
+Addon.VendorDisplay=42dot Inc.
+avd_config_ini.hw.keyboard=yes
+avd_config_ini.hw.ramSize=8192
+avd_config_ini.hw.gpu.enabled=yes
+avd_config_ini.hw.gpu.mode=host
+avd_config_ini.hw.multi_display_window=no
+avd_config_ini.hw.hotplug_multi_display=no
+== avd ==
+id: 0 or "automotive_1024p_landscape"
+    Name: Automotive (1024p landscape)
+id: 36 or "Pleos_Connect_v2_0"
+    Name: Pleos Connect v2.1.0
+device: Pleos_Connect_v2_0
+Error: Package path is not valid. Valid system image paths are:
+system-images;android-34;android-automotive;x86_64
+null
+Loading local repository...                                                     Warning: Observed package id 'system-images;android-34;android-automotive;x86_64' in inconsistent location '/usr/local/lib/android/sdk/system-images/android-34/pleos_car_emulator/x86_64' (Expected '/usr/local/lib/android/sdk/system-images/android-34/android-automotive/x86_64')
+[=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [=======================================] 100% Fetch remote repository...       
+Error: Package path is not valid. Valid system image paths are:
+system-images;android-34;android-automotive;x86_64
+null
+AVD CREATE FAILED
