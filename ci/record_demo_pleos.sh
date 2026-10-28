@@ -100,8 +100,11 @@ adb shell "date $(date -u +%m%d)1340$(date -u +%Y).00" 2>&1 | tail -1   # 13:40 
 adb shell date
 
 log "install"
-adb install -r -g app/build/outputs/apk/debug/app-debug.apk
-for i in $(seq 1 12); do adb shell pm path $APP >/dev/null 2>&1 && break; sleep 5; done
+for i in $(seq 1 8); do
+  adb install -r -g app/build/outputs/apk/debug/app-debug.apk && adb shell pm path $APP >/dev/null 2>&1 && break
+  echo "install retry $i"; sleep 15
+done
+adb shell pm path $APP || { echo "INSTALL FAILED"; exit 1; }
 for p in pleos.car.permission.FUSED_LOCATION android.permission.POST_NOTIFICATIONS; do adb shell pm grant $APP $p 2>&1 | tail -1; done
 adb shell dumpsys package $APP | grep -E "pleos.car.permission.*granted" | tee "$OUT/granted.txt"
 adb logcat -c
