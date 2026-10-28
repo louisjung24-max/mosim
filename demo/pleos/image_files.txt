@@ -5,6 +5,7 @@ data
 devices.xml
 encryptionkey.img
 kernel-ranchu
+package.xml
 ramdisk.img
 source.properties
 system.img

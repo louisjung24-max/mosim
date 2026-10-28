@@ -1,12 +1,5 @@
 == sdk components ==
 Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
-== pleos image via sdkmanager (user source) ==
-All SDK package licenses accepted.
-Loading package information...                                                  
-Loading local repository...                                                     
-Warning: Failed to find package 'system-images;android-34;pleos_car_emulator;x86_64'
-== pleos image via direct download ==
-/mnt/pleos/crp.zip: OK
 VerifiedBootParams.textproto
 advancedFeatures.ini
 build.prop
@@ -14,6 +7,7 @@ data
 devices.xml
 encryptionkey.img
 kernel-ranchu
+package.xml
 ramdisk.img
 source.properties
 system.img
@@ -41,12 +35,143 @@ id: 0 or "automotive_1024p_landscape"
 id: 36 or "Pleos_Connect_v2_0"
     Name: Pleos Connect v2.1.0
 device: Pleos_Connect_v2_0
-Error: Package path is not valid. Valid system image paths are:
-system-images;android-34;android-automotive;x86_64
-null
-Loading local repository...                                                     Warning: Observed package id 'system-images;android-34;android-automotive;x86_64' in inconsistent location '/usr/local/lib/android/sdk/system-images/android-34/pleos_car_emulator/x86_64' (Expected '/usr/local/lib/android/sdk/system-images/android-34/android-automotive/x86_64')
-[=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [=======================================] 100% Fetch remote repository...       
-Error: Package path is not valid. Valid system image paths are:
-system-images;android-34;android-automotive;x86_64
-null
-AVD CREATE FAILED
+Loading local repository...                                                     [=========                              ] 25% Loading local repository...       [=========                              ] 25% Fetch remote repository...        [=======================================] 100% Fetch remote repository...       
+Auto-selecting single ABI x86_64
+== boot ==
+* daemon not running; starting now at tcp:5037
+* daemon started successfully
+booted after 6x5s
+Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys
+Physical size: 2560x1440
+package:ai.pleos.android.webview
+package:ai.pleos.connecttokensampleapp
+package:ai.pleos.connectwebconsole
+package:ai.pleos.gleoai.model.provider
+package:ai.pleos.hardware.vehicle.emulator
+package:ai.pleos.multimedia.mediabridge
+package:ai.pleos.playground.caas
+package:ai.pleos.playground.service.adas
+package:ai.pleos.playground.service.cap
+package:ai.pleos.playground.service.location.fused
+package:ai.pleos.playground.service.navi
+package:ai.pleos.playground.service.sync
+package:ai.pleos.playground.service.vehicle
+package:ai.pleos.service
+package:ai.pleos.service.car
+package:ai.pleos.service.profile
+package:ai.pleos.service.trustagent
+package:ai.pleos.service.ui
+package:ai.pleos.servicemodepro
+package:ai.pleos.system.service.hid
+package:ai.pleos.system.service.logcat_broker
+package:ai.pleos.system.service.wifi
+package:ai.pleos.system.update.broadcast
+package:ai.pleos.theme.connect
+package:ai.pleos.welcomescreen
+package:ai.umos.smartkeyconsole
+package:ai.umos.vehiclecontrol
+package:com.android.crpavd.wifiprovisioner
+== vhal probe ==
+## get-property 0x11400400
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+## get-property 0x13400CC8
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+## get-property 0x11600307
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+## get-property 0x11600106
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+## get-property 0x11200402
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+## get-property 0x11600207
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+== time 22:40 KST ==
+Wed Oct 28 13:40:00 KST 2026
+Wed Oct 28 19:35:42 KST 2026
+== install ==
+Performing Streamed Install
+Success
+      pleos.car.permission.TTS_SERVICE: granted=true
+      pleos.car.permission.CAR_ENERGY: granted=true
+      pleos.car.permission.CAR_INFO: granted=true
+      pleos.car.permission.CAR_DRIVE: granted=true
+        pleos.car.permission.FUSED_LOCATION: granted=true
+        pleos.car.permission.FUSED_LOCATION: granted=true
+Starting: Intent { cmp=com.hiddenframe.mosim/.ui.MainActivity }
+== record ==
+
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+/data/local/tmp/mosim_pleos.mp4: 1 file pulled, 0 skipped. 50.8 MB/s (2141917 bytes in 0.040s)
+total 4064
+drwxr-xr-x 2 runner runner    4096 Oct 28 10:39 .
+drwxr-xr-x 3 runner runner    4096 Oct 28 10:17 ..
+-rw-r--r-- 1 runner runner  264954 Oct 28 10:35 00_boot.png
+-rw-r--r-- 1 runner runner  267984 Oct 28 10:36 01_home.png
+-rw-r--r-- 1 runner runner  327345 Oct 28 10:37 02_rainy_night.png
+-rw-r--r-- 1 runner runner  327345 Oct 28 10:37 03_fuel.png
+-rw-r--r-- 1 runner runner  348072 Oct 28 10:37 04_before_toggle.png
+-rw-r--r-- 1 runner runner  348561 Oct 28 10:39 05_final.png
+-rw-r--r-- 1 runner runner    3567 Oct 28 10:28 avd_config.ini
+-rw-r--r-- 1 runner runner     166 Oct 28 10:27 devices.txt
+-rw-r--r-- 1 runner runner   10081 Oct 28 10:33 emulator.log
+-rw-r--r-- 1 runner runner       0 Oct 28 10:17 emulator_tail.txt
+-rw-r--r-- 1 runner runner      64 Oct 28 10:27 emulator_version.txt
+-rw-r--r-- 1 runner runner     126 Oct 28 10:35 fingerprint.txt
+-rw-r--r-- 1 runner runner     322 Oct 28 10:36 granted.txt
+-rw-r--r-- 1 runner runner     671 Oct 28 10:27 image_files.txt
+-rw-r--r-- 1 runner runner    1504 Oct 28 10:37 inject.txt
+-rw-r--r-- 1 runner runner    3135 Oct 28 10:39 logcat_app.txt
+-rw-r--r-- 1 runner runner   49721 Oct 28 10:39 logcat_pleos.txt
+-rw-r--r-- 1 runner runner 2141917 Oct 28 10:39 mosim_pleos_raw.mp4
+-rw-r--r-- 1 runner runner    8467 Oct 28 10:35 packages.txt
+-rw-r--r-- 1 runner runner    2171 Oct 28 10:17 run_log_tail.txt
+-rw-r--r-- 1 runner runner    2430 Oct 28 10:35 vhal_probe.txt
