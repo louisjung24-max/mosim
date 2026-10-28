@@ -42,14 +42,24 @@ npx wrangler deploy
 ## 테스트 환경
 - 에뮬레이터: Android Automotive 13 (API 33) x86_64, automotive_1024p_landscape
 - 한국어 TTS 엔진이 없는 에뮬레이터에서는 음성 대신 화면 자막으로 표시됩니다.
-- 실차 신호: `CarApiSignalSource`(AAOS CarPropertyManager). Pleos Playground 승인 후 `PleosSignalSource`로 교체 예정 (동일 인터페이스 `VehicleSignalSource`).
+- Pleos Connect 에뮬레이터 v2.1.0(API 34)에서는 Virtual Console로 기어·와이퍼·연료를 바꾸면 실제 SDK 경로(`PleosSignalSource`)가 동작합니다.
+- 일반 AAOS 에뮬레이터에서는 Pleos 서비스가 없으므로 3초 안에 응답이 없으면 AAOS 기본 차량 속성(`CarApiSignalSource`)과 Android TTS로 자동 전환됩니다.
+
+## 사용한 Pleos Connect SDK (모두 공개 API)
+| SDK | 버전 | 쓰는 곳 |
+|---|---|---|
+| Vehicle | 2.3.2 | 기어 P↔D(운행 시작·종료), 앞유리 와이퍼(비), 연료 잔량(차량 관리), 이번 운행 거리(장거리), 브레이크 페달(급제동 보조) |
+| FusedLocation | 1.1.3 | 위치 변화로 감속도 계산 → 급제동·장시간 정차 판정 (Vehicle SDK에 차속 API가 없어 대체). 위치는 차 밖으로 보내지 않음 |
+| TextToSpeech | 3.3.1 | 차 안 음성 안내. ON_DEVICE 모드라 앱 등록(Client ID/Secret)이 필요 없고 문장이 서버로 나가지 않음 |
+
+권한: `pleos.car.permission.CAR_DRIVE · CAR_POWERTRAIN · CAR_ENERGY · CAR_MILEAGE · CAR_INFO · READ_WINDSHIELD_WIPERS · TTS_SERVICE · FUSED_LOCATION`(실행 중 허용 요청). 제어(CONTROL_*) 권한은 쓰지 않습니다.
 
 ## 구조
 ```
-vehicle/   VehicleSignalSource(시뮬레이터 · AAOS Car API · Pleos SDK 자리)
+vehicle/   VehicleSignalSource — PleosSignalSource(실차) · CarApiSignalSource(일반 AAOS) · SimulatedSignalSource(시연)
 rules/     AnomalyDetector — 차 안에서 판정, 결과만 밖으로
 data/      Baseline(평소 패턴, 차량 내 저장) · ShareSettings(부모님이 고르는 공유 범위) · WeeklyStore
-voice/     VoiceOutput(TTS, Pleos TextToSpeech SDK 자리)
+voice/     VoiceOutput — PleosVoiceOutput(Pleos TTS, ON_DEVICE) → 없으면 AndroidVoiceOutput
 alert/     AlertSender — 허용된 신호만 서버로
 service/   DriveMonitorService — 시동 중 상시 동작
 ui/        MainActivity — 대화면 큰 글씨, 공유 설정, 데모 버튼
