@@ -25,9 +25,9 @@ jobs:
             curl -sf "$R/$a/maven-metadata.xml" -o "$a-meta.xml" && echo "== $a" >> ../probe/artifacts.txt && cat "$a-meta.xml" >> ../probe/artifacts.txt
           done
           curl -sS -o /dev/null -w "repo root: %{http_code}\n" "$R/" >> ../probe/artifacts.txt
-          curl -sS -L -o vehicle.aar -w "aar: %{http_code}\n" "$R/Vehicle/2.3.1/Vehicle-2.3.1.aar" >> ../probe/artifacts.txt
+          curl -sS -L -o vehicle.aar -w "aar: %{http_code}\n" "$R/Vehicle/2.3.2/Vehicle-2.3.2.aar" >> ../probe/artifacts.txt
           ls -la vehicle.aar >> ../probe/artifacts.txt
-          curl -sf "$R/Vehicle/2.3.1/Vehicle-2.3.1.pom" -o ../probe/vehicle.pom || true
+          curl -sf "$R/Vehicle/2.3.2/Vehicle-2.3.2.pom" -o ../probe/vehicle.pom || true
           unzip -o -q vehicle.aar -d vehicle
           cp vehicle/AndroidManifest.xml ../probe/vehicle-manifest.xml || true
           cd vehicle && unzip -o -q classes.jar -d cls && cd cls
@@ -39,6 +39,19 @@ jobs:
           for c in $(grep -E '^ai\.pleos\.playground\.vehicle\.constant\.' ../../../probe/vehicle-classes.txt | grep -v '\$' | head -80); do
             echo "##### $c" >> ../../../probe/vehicle-constants.txt
             javap -constants -classpath . "$c" >> ../../../probe/vehicle-constants.txt 2>&1 || true
+          done
+      - name: Dump TTS and FusedLocation API
+        run: |
+          set +e
+          R=https://nexus-playground.pleos.ai/repository/maven-releases/ai/pleos/playground
+          cd sdk 2>/dev/null || mkdir -p sdk && cd sdk
+          for spec in TextToSpeech:3.3.1 FusedLocation:1.1.3; do
+            a=${spec%%:*}; v=${spec##*:}
+            curl -sS -L -o $a.aar "$R/$a/$v/$a-$v.aar"
+            curl -sS -L -o ../probe/$a.pom "$R/$a/$v/$a-$v.pom"
+            rm -rf x$a && mkdir x$a && unzip -o -q $a.aar -d x$a && cp x$a/AndroidManifest.xml ../probe/$a-manifest.xml
+            (cd x$a && unzip -o -q classes.jar -d cls && cd cls && find . -name '*.class' | sed 's#^\./##; s#\.class$##; s#/#.#g' | sort > ../../../probe/$a-classes.txt
+             for c in $(grep -vE '\$|Impl|internal|BuildConfig' ../../../probe/$a-classes.txt | head -40); do echo "##### $c" >> ../../../probe/$a-api.txt; javap -classpath . "$c" >> ../../../probe/$a-api.txt 2>&1; done)
           done
       - name: Commit probe output
         if: always()
