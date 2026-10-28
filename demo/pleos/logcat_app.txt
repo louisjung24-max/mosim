@@ -1,4 +1,4 @@
 --------- beginning of main
-10-29 01:36:31.813 12909 12989 I AlertSender: endpoint not set; skip NIGHT_DEPARTURE
-10-29 01:37:17.014 12909 12989 I AlertSender: endpoint not set; skip VEHICLE_CARE
-10-29 01:37:41.941 12909 12988 I AlertSender: endpoint not set; skip LONG_STOP
+10-29 01:57:25.898 16335 16472 I AlertSender: endpoint not set; skip NIGHT_DEPARTURE
+10-29 01:58:11.661 16335 16472 I AlertSender: endpoint not set; skip VEHICLE_CARE
+10-29 01:58:28.816 16335 16472 I AlertSender: endpoint not set; skip LONG_STOP

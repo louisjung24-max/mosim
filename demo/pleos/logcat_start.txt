@@ -1,11 +1,10 @@
 --------- beginning of main
-10-29 01:36:02.780 12909 12909 I PleosSignalSource: registered gear-now
-10-29 01:36:02.782 12909 12909 I PleosSignalSource: registered gear
-10-29 01:36:03.100 12909 12909 I PleosSignalSource: registered wiper
-10-29 01:36:03.490 12909 12909 I PleosSignalSource: registered fuel
-10-29 01:36:04.796 12909 12909 I PleosSignalSource: registered soc
-10-29 01:36:05.733 12909 12909 I PleosSignalSource: registered distance
-10-29 01:36:05.789 12909 12909 I PleosSignalSource: registered brake
-10-29 01:36:06.205 12909 12909 I Voice   : Pleos TTS → Android TTS (init timeout)
-10-29 01:36:06.217 12909 12909 W Voice   : TTS init failed
-10-29 01:36:07.155 12909 13255 W PleosSignalSource: distance: ERROR_NOT_SUPPORTED_PROPERTY
+10-29 01:56:23.587 16335 16335 I PleosSignalSource: registered gear-now
+10-29 01:56:23.645 16335 16335 I PleosSignalSource: registered gear
+10-29 01:56:24.399 16335 16335 I PleosSignalSource: registered wiper
+10-29 01:56:25.359 16335 16335 I PleosSignalSource: registered fuel
+10-29 01:56:36.490 16335 16335 I PleosSignalSource: registered soc
+10-29 01:56:38.859 16335 16335 I PleosSignalSource: registered distance
+10-29 01:56:40.492 16335 16335 I PleosSignalSource: registered brake
+10-29 01:56:47.308 16335 16335 I Voice   : Pleos TTS → Android TTS (init timeout)
+10-29 01:56:49.484 16335 16335 W Voice   : TTS init failed
