@@ -54,7 +54,8 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
 
     // 운행 상태
     private var driving = false
-    private var brakePressed: Boolean? = null
+    private var pedalSeenThisTrip = false
+    private var pedalPressedAt = 0L
     private var fuelWarned = false
     private var lastFix: LocationData? = null
     private var lastSpeedMps = -1f
@@ -92,7 +93,9 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         override fun onFailed(e: Exception) = warn("distance", e)
     }
     private val brakeListener = object : BrakePedalStatusListener {
-        override fun onBrakePedalStatusUpdated(pressed: Boolean?) { brakePressed = pressed }
+        override fun onBrakePedalStatusUpdated(pressed: Boolean?) {
+            if (pressed == true) { pedalSeenThisTrip = true; pedalPressedAt = System.currentTimeMillis() }
+        }
         override fun onFailed(e: Exception) = warn("brake", e)
     }
     private val locationListener = object : FusedLocationListener {
@@ -136,7 +139,7 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         val moving = gear != VehicleGear.GEAR_PARK && gear != VehicleGear.GEAR_UNKNOWN && gear != VehicleGear.GEAR_NEUTRAL
         if (moving && !driving) {
             driving = true
-            fuelWarned = false; idleReported = false; stoppedSince = 0L; lastFix = null; lastSpeedMps = -1f
+            fuelWarned = false; idleReported = false; pedalSeenThisTrip = false; stoppedSince = 0L; lastFix = null; lastSpeedMps = -1f
             _events.tryEmit(VehicleEvent.Ignition(on = true, hourOfDay = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)))
         } else if (gear == VehicleGear.GEAR_PARK && driving) {
             driving = false
@@ -156,8 +159,8 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         if (lastSpeedMps >= 0f) {
             val decel = (lastSpeedMps - mps) / dt
             val fromSpeedKmh = lastSpeedMps * 3.6f
-            // GPS 오차로 인한 오탐을 줄이기 위해 페달 신호가 있으면 함께 확인합니다.
-            val pedalOk = brakePressed != false
+            // GPS 오차로 인한 오탐을 줄이기 위해, 이 차에서 페달 신호가 들어온다면 최근 3초 안에 밟혔는지 함께 확인합니다.
+            val pedalOk = !pedalSeenThisTrip || System.currentTimeMillis() - pedalPressedAt <= PEDAL_WINDOW_MS
             if (decel >= HARD_BRAKE_MPS2 && fromSpeedKmh >= MIN_BRAKE_FROM_KMH && pedalOk) {
                 _events.tryEmit(VehicleEvent.HardBrake(decel))
             }
@@ -215,5 +218,6 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         private const val MAX_DT_S = 3f
         private const val STOPPED_KMH = 2f
         private const val LONG_STOP_MIN = 20
+        private const val PEDAL_WINDOW_MS = 3000L
     }
 }
