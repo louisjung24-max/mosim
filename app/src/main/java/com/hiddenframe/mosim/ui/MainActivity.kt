@@ -1,5 +1,6 @@
 package com.hiddenframe.mosim.ui
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,7 @@ import com.hiddenframe.mosim.databinding.ActivityMainBinding
 import com.hiddenframe.mosim.databinding.ViewLogRowBinding
 import com.hiddenframe.mosim.databinding.ViewShareRowBinding
 import com.hiddenframe.mosim.service.DriveMonitorService
+import com.hiddenframe.mosim.vehicle.PleosSignalSource
 import com.hiddenframe.mosim.vehicle.SimulatedSignalSource
 import kotlinx.coroutines.launch
 
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         b = ActivityMainBinding.inflate(layoutInflater)
         setContentView(b.root)
         DriveMonitorService.start(this)
+        requestLocationIfNeeded()
 
         b.familyCode.text = app.share.familyCode
         b.statTrips.statLabel.text = "이번 주 운행"
@@ -50,6 +53,20 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) { app.state.ui.collect { render(it) } }
+        }
+    }
+
+    /** 급제동·장시간 정차 판정용. 위치는 차 안에서만 쓰고 가족에게 보내지 않습니다. */
+    private fun requestLocationIfNeeded() {
+        val perm = PleosSignalSource.PERM_FUSED_LOCATION
+        if (checkSelfPermission(perm) == PackageManager.PERMISSION_GRANTED) return
+        runCatching { requestPermissions(arrayOf(perm), REQ_LOCATION) }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQ_LOCATION && grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED) {
+            DriveMonitorService.start(this, DriveMonitorService.ACTION_LOCATION_GRANTED)
         }
     }
 
@@ -109,5 +126,9 @@ class MainActivity : AppCompatActivity() {
         b.statTrips.statValue.text = "${app.weekly.trips}회"
         b.statNight.statValue.text = "${app.weekly.nightTrips}회"
         b.statAlerts.statValue.text = "${app.weekly.anomalies}건"
+    }
+
+    companion object {
+        private const val REQ_LOCATION = 41
     }
 }

@@ -13,9 +13,11 @@ import com.hiddenframe.mosim.R
 import com.hiddenframe.mosim.alert.AlertSender
 import com.hiddenframe.mosim.rules.AnomalyDetector
 import com.hiddenframe.mosim.vehicle.CarApiSignalSource
+import com.hiddenframe.mosim.vehicle.PleosSignalSource
 import com.hiddenframe.mosim.vehicle.SimulatedSignalSource
 import com.hiddenframe.mosim.vehicle.VehicleEvent
 import com.hiddenframe.mosim.vehicle.VehicleSignalSource
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.launch
 
@@ -25,19 +27,35 @@ import kotlinx.coroutines.launch
 class DriveMonitorService : LifecycleService() {
 
     private lateinit var sources: List<VehicleSignalSource>
+    private lateinit var pleos: PleosSignalSource
+    private lateinit var carApi: CarApiSignalSource
     private lateinit var detector: AnomalyDetector
 
     override fun onCreate() {
         super.onCreate()
         val app = application as MosimApp
         detector = AnomalyDetector(app.baseline)
-        sources = listOf(SimulatedSignalSource, CarApiSignalSource(this))
+        pleos = PleosSignalSource(this)
+        carApi = CarApiSignalSource(this)
+        // 우선순위: Pleos Vehicle SDK → (없으면) AAOS 기본 차량 속성. 시뮬레이터는 시연용으로 항상 켜 둡니다.
+        sources = listOf(SimulatedSignalSource, pleos, carApi)
         startForeground(NOTIF_ID, buildNotification())
-        sources.forEach { it.start() }
 
         lifecycleScope.launch {
             merge(*sources.map { it.events }.toTypedArray()).collect { handle(it) }
         }
+        SimulatedSignalSource.start()
+        pleos.start()
+        lifecycleScope.launch {
+            delay(PLEOS_PROBE_MS)
+            if (!pleos.connected) carApi.start()
+        }
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        super.onStartCommand(intent, flags, startId)
+        if (intent?.action == ACTION_LOCATION_GRANTED) pleos.startLocation()
+        return START_STICKY
     }
 
     private suspend fun handle(e: VehicleEvent) {
@@ -77,8 +95,10 @@ class DriveMonitorService : LifecycleService() {
     companion object {
         private const val CHANNEL = "mosim_drive"
         private const val NOTIF_ID = 1001
-        fun start(context: Context) {
-            val i = Intent(context, DriveMonitorService::class.java)
+        private const val PLEOS_PROBE_MS = 3000L
+        const val ACTION_LOCATION_GRANTED = "com.hiddenframe.mosim.LOCATION_GRANTED"
+        fun start(context: Context, action: String? = null) {
+            val i = Intent(context, DriveMonitorService::class.java).setAction(action)
             androidx.core.content.ContextCompat.startForegroundService(context, i)
         }
     }

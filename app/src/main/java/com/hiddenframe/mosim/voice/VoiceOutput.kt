@@ -5,7 +5,7 @@ import android.speech.tts.TextToSpeech
 import android.util.Log
 import java.util.Locale
 
-/** 차 안 음성 출력. Pleos TextToSpeech SDK 승인 후 같은 인터페이스로 교체합니다. */
+/** 차 안 음성 출력. 기본은 [PleosVoiceOutput](Pleos TextToSpeech SDK), 없으면 [AndroidVoiceOutput]. */
 interface VoiceOutput {
     fun speak(text: String)
     fun shutdown()

@@ -34,6 +34,7 @@ class AnomalyDetector(private val baseline: Baseline) {
     private var brakeCountThisTrip = 0
     private var spokeNightOnce = false
     private var spokeBrakeOnce = false
+    private var reportedDistanceOnce = false
 
     fun onEvent(e: VehicleEvent): Result = when (e) {
         is VehicleEvent.Ignition -> onIgnition(e)
@@ -51,16 +52,16 @@ class AnomalyDetector(private val baseline: Baseline) {
             voice = VoiceCue("시동을 켜 둔 채 ${e.minutes}분째 멈춰 계세요. 괜찮으시면 말씀해 주세요."),
             anomaly = Anomaly(Anomaly.Type.LONG_STOP, "장시간 정차", "시동이 켜진 채 ${e.minutes}분째 정차 중입니다. 평소보다 긴 정차예요."),
         ) else Result()
-        is VehicleEvent.Odometer -> if (e.km >= baseline.usualTripKm * LONG_DISTANCE_RATIO && baseline.learned) Result(
+        is VehicleEvent.Odometer -> if (!reportedDistanceOnce && baseline.learned && e.km >= baseline.usualTripKm * LONG_DISTANCE_RATIO) Result(
             anomaly = Anomaly(Anomaly.Type.LONG_DISTANCE, "장거리 운행", "오늘 ${e.km.toInt()}km를 달리고 있어요. 평소보다 먼 길입니다."),
-        ) else Result()
+        ).also { reportedDistanceOnce = true } else Result()
         is VehicleEvent.Speed -> Result()
     }
 
     private fun onIgnition(e: VehicleEvent.Ignition): Result {
         if (!e.on) {
             baseline.recordTrip(hour, brakeCountThisTrip)
-            brakeCountThisTrip = 0; spokeNightOnce = false; spokeBrakeOnce = false; wiperOn = false
+            brakeCountThisTrip = 0; spokeNightOnce = false; spokeBrakeOnce = false; reportedDistanceOnce = false; wiperOn = false
             return Result()
         }
         hour = e.hourOfDay ?: java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)

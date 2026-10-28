@@ -10,6 +10,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // Pleos Connect SDK (Vehicle · TextToSpeech · FusedLocation) 공개 저장소
+        maven("https://nexus-playground.pleos.ai/repository/maven-releases/")
     }
 }
 rootProject.name = "mosim"

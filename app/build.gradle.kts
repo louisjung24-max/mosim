@@ -20,8 +20,8 @@ android {
         applicationId = "com.hiddenframe.mosim"
         minSdk = 28
         targetSdk = 33
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.2.0"
         // 알림 서버 주소. 비어 있으면 서버 전송을 건너뛰고 화면에만 표시합니다.
         buildConfigField("String", "ALERT_ENDPOINT", "\"${System.getenv("MOSIM_ALERT_ENDPOINT") ?: ""}\"")
     }
@@ -55,7 +55,7 @@ android {
         buildConfig = true
     }
 
-    // Android Automotive OS 차량 속성(android.car). Pleos Connect SDK는 AAOS에 정렬되어 있어 같은 자리에서 교체됩니다.
+    // Android Automotive OS 차량 속성(android.car). Pleos 차량 서비스가 없는 일반 AAOS 에뮬레이터용 대체 경로입니다.
     useLibrary("android.car")
 
     compileOptions {
@@ -73,4 +73,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.4")
     implementation("androidx.lifecycle:lifecycle-service:2.8.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+
+    // Pleos Connect SDK
+    implementation("ai.pleos.playground:Vehicle:2.3.2")
+    implementation("ai.pleos.playground:TextToSpeech:3.3.1")
+    implementation("ai.pleos.playground:FusedLocation:1.1.3")
 }

@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 
 /**
- * Android Automotive OS 차량 속성 공급원.
- * Pleos Connect SDK는 AAOS API에 정렬되어 있으므로(공식 문서), Playground 승인 후 이 클래스만 Vehicle SDK 호출로 교체합니다.
+ * Android Automotive OS 기본 차량 속성 공급원 (대체 경로).
+ * Pleos 차량 서비스가 응답하지 않는 기기(일반 AAOS 에뮬레이터)에서만 켜집니다. 실제 차량 경로는 [PleosSignalSource].
  * 에뮬레이터에서는 속도·시동 권한이 시스템 전용이라 등록이 거부될 수 있으며, 그 경우 조용히 비활성화됩니다.
  */
 class CarApiSignalSource(private val context: Context) : VehicleSignalSource {

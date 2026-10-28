@@ -68,6 +68,7 @@ adb install -r app/build/outputs/apk/debug/app-debug.apk
 for i in $(seq 1 12); do adb shell pm path com.hiddenframe.mosim >/dev/null 2>&1 && break; sleep 5; done
 adb shell pm path com.hiddenframe.mosim
 adb shell pm grant com.hiddenframe.mosim android.permission.POST_NOTIFICATIONS 2>/dev/null || true
+adb shell pm grant com.hiddenframe.mosim pleos.car.permission.FUSED_LOCATION 2>/dev/null || true
 adb shell am start -n com.hiddenframe.mosim/.ui.MainActivity
 sleep 10
 adb shell dumpsys activity activities | grep -m1 "mResumedActivity" || true
@@ -93,5 +94,5 @@ adb exec-out screencap -p > demo/screenshot_final.png
 wait $REC || true
 sleep 3
 adb pull /data/local/tmp/mosim_demo.mp4 demo/mosim_emulator_raw.mp4 || echo "pull failed"
-adb logcat -d -s AlertSender:* CarApiSignalSource:* Voice:* AndroidRuntime:E ActivityManager:W > demo/logcat.txt || true
+adb logcat -d -s AlertSender:* CarApiSignalSource:* PleosSignalSource:* Voice:* AndroidRuntime:E ActivityManager:W > demo/logcat.txt || true
 ls -la demo

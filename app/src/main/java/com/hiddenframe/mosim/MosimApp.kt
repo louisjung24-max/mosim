@@ -4,7 +4,7 @@ import android.app.Application
 import com.hiddenframe.mosim.data.Baseline
 import com.hiddenframe.mosim.data.ShareSettings
 import com.hiddenframe.mosim.data.WeeklyStore
-import com.hiddenframe.mosim.voice.AndroidVoiceOutput
+import com.hiddenframe.mosim.voice.PleosVoiceOutput
 import com.hiddenframe.mosim.voice.VoiceOutput
 
 class MosimApp : Application() {
@@ -19,6 +19,6 @@ class MosimApp : Application() {
         baseline = Baseline(this)
         share = ShareSettings(this)
         weekly = WeeklyStore(this)
-        voice = AndroidVoiceOutput(this)
+        voice = PleosVoiceOutput(this)
     }
 }
