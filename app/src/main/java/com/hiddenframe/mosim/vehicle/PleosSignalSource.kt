@@ -62,11 +62,12 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
     private var idleReported = false
 
     private val gearListener = object : GearSelectionListener {
-        override fun onSelected(gear: VehicleGear) { connected = true; onGear(gear) }
+        override fun onSelected(gear: VehicleGear?) { gear ?: return; connected = true; onGear(gear) }
         override fun onFailed(e: Exception) = warn("gear", e)
     }
     private val wiperListener = object : WiperStateListener {
-        override fun onWiperStateUpdated(state: WiperState) {
+        override fun onWiperStateUpdated(state: WiperState?) {
+            state ?: return
             connected = true
             _events.tryEmit(VehicleEvent.Wiper(on = state == WiperState.ON))
         }
@@ -104,7 +105,7 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         try {
             val v = Vehicle(context.applicationContext).also { it.initialize() }
             vehicle = v
-            v.getGear().getCurrentGearSelectionState({ connected = true; onGear(it) }, { warn("gear-now", it) })
+            v.getGear().getCurrentGearSelectionState({ g -> g?.let { connected = true; onGear(it) } }, { warn("gear-now", it) })
             v.getGear().registerGearSelection(gearListener)
             v.getWiper().registerWiperState(windshield, wiperListener)
             v.getFuel().registerFuelPercent(fuelListener)
