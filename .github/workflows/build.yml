@@ -3,7 +3,7 @@ name: Build APK
 on:
   push:
     branches: [main]
-    paths-ignore: ["apk/**", "demo/**", "README.md", "docs/**"]
+    paths-ignore: ["apk/**", "demo/**", "probe/**", "README.md", "docs/**", ".github/workflows/sdk-probe.yml"]
   workflow_dispatch:
 
 permissions:
