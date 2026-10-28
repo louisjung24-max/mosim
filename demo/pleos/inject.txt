@@ -22,3 +22,27 @@ java.lang.SecurityException: The command 'inject-vhal-event' requires non-user b
 	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
 	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
 	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+
+Exception occurred while executing 'inject-vhal-event':
+java.lang.SecurityException: The command 'inject-vhal-event' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)

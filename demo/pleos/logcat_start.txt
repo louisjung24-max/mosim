@@ -1,0 +1,6 @@
+--------- beginning of main
+10-28 19:58:08.668 16862 16862 I Voice   : Pleos TTS ready
+10-28 19:58:15.674 16862 16862 I PleosSignalSource: registered gear-now
+10-28 19:58:15.709 16862 16862 I PleosSignalSource: registered gear
+10-28 19:58:18.367 16862 16862 W PleosSignalSource: skip wiper: registerWiperState need Permission
+10-28 19:58:19.930 16862 16862 I PleosSignalSource: registered fuel
