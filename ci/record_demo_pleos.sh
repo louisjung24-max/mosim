@@ -112,61 +112,79 @@ adb shell dumpsys package $APP | sed -n '/requested permissions/,/User 0/p' > "$
 adb shell pm list permissions -f 2>/dev/null | grep -B1 -A4 -iE "WIPER|POWERTRAIN|MILEAGE|CAR_ENERGY|TTS_SERVICE" > "$OUT/perm_defs.txt"
 adb logcat -d -s PleosSignalSource:* Voice:* > "$OUT/logcat_start.txt"
 
-log "virtual console probe"
-adb forward tcp:8088 tcp:8088
-curl -sS -m 10 -o "$OUT/console_index.html" -w "console http %{http_code}\n" http://127.0.0.1:8088/ || true
-timeout 180 python3 ci/vconsole_probe.py "$OUT/console" 2>&1 | tail -5
-adb exec-out screencap -p > "$OUT/01b_after_console.png"
+adb shell pm list permissions -g -f 2>/dev/null | grep -A3 "permission:pleos.car" > "$OUT/perm_pleos_all.txt"
 
-# 주차(P)에서 시작
-VH inject-vhal-event 0x11400400 4 >/dev/null
-VH inject-vhal-event 0x13400CC8 1 1 >/dev/null
+log "virtual console"
+adb forward tcp:8088 tcp:8088
+curl -sS -m 10 -o /dev/null -w "console http %{http_code}\n" http://127.0.0.1:8088/ || true
+# 콘솔은 브라우저 세션이 살아 있을 때 입력을 반영하므로 하트비트를 계속 보냅니다
+( while true; do curl -s -m 3 -X POST "http://127.0.0.1:8088/browser/session?client=mosim-ci" >/dev/null 2>&1; sleep 1; done ) &
+HB=$!
+python3 ci/vconsole.py catalog "$OUT" 2>&1 | tail -2
+python3 ci/vconsole.py find "soc|state.?of.?charge|battery|fuel" > "$OUT/vc_find_energy.txt" 2>&1
+python3 ci/vconsole.py find "wiper" > "$OUT/vc_find_wiper.txt" 2>&1
+head -c 1500 "$OUT/vc_find_energy.txt"; echo
+VC() { curl -sS -m 10 -X PUT "http://127.0.0.1:8088$1" -o /dev/null -w "PUT $1 -> %{http_code}\n" | tee -a "$OUT/vc_calls.txt"; }
+ctl() { VC "/vehicle/controls?speed=$1&accelerator=$2&brake=$3&steering=0"; }
+
+# 주차(P), 와이퍼 끔에서 시작
+ctl 0 0 0; VC "/vehicle/gear?gear=Park"; VC "/vehicle/body?front_wiper=Off"
 sleep 3
 
 GEO_LAT=37.5012; GEO_LON=127.0396   # 강남대로 부근
-geo() { adb emu geo fix "$GEO_LON" "$GEO_LAT" >/dev/null 2>&1; }
-drive() { # $1=초, $2=km/h
+USE_GEO=0
+geo() { [ "$USE_GEO" = 1 ] && adb emu geo fix "$GEO_LON" "$GEO_LAT" >/dev/null 2>&1; true; }
+drive() { # $1=초, $2=km/h, $3=brake%
   local step; step=$(python3 -c "print($2/3.6/111320)")
-  for _ in $(seq 1 "$1"); do GEO_LAT=$(python3 -c "print(f'{$GEO_LAT+$step:.7f}')"); geo; sleep 1; done
+  for _ in $(seq 1 "$1"); do
+    ctl "$2" "$([ "${3:-0}" -gt 0 ] && echo 0 || echo 30)" "${3:-0}" >/dev/null
+    GEO_LAT=$(python3 -c "print(f'{$GEO_LAT+$step:.7f}')"); geo; sleep 1
+  done
 }
 
+adb shell am start -W -n $APP/.ui.MainActivity >/dev/null
+sleep 5
+adb logcat -c
+
 log "record"
-adb shell "screenrecord --time-limit 150 --bit-rate 8000000 /data/local/tmp/mosim_pleos.mp4" &
+adb shell "screenrecord --time-limit 170 --bit-rate 8000000 /data/local/tmp/mosim_pleos.mp4" &
 REC=$!
 sleep 4
-# 1) 밤 10시 40분, 기어 D → 야간 안내 + (공유 허용 시) 가족 알림
-VH inject-vhal-event 0x11400400 8 | tee -a "$OUT/inject.txt"
+# 1) 밤, 기어 D → 야간 안내 + (공유 허용 시) 가족 알림
+VC "/vehicle/gear?gear=Drive"
 sleep 9
-# 2) 비: 앞유리 와이퍼 ON
-VH inject-vhal-event 0x13400CC8 1 2 | tee -a "$OUT/inject.txt"
-sleep 4
-# 3) 주행(위치) → 급제동 2회
-geo; sleep 1
+# 2) 비: 앞유리 와이퍼
+VC "/vehicle/body?front_wiper=Low"
+sleep 5
+# 3) 주행 → 위치가 콘솔 속도를 따라가는지 확인, 아니면 geo fix로 이동
 drive 6 50
-drive 1 15
+if ! adb logcat -d -s PleosSignalSource:D | grep -q "fix dt"; then echo "no fused fixes from console speed -> geo fix"; USE_GEO=1; geo; sleep 1; drive 4 50; fi
+echo "USE_GEO=$USE_GEO" | tee -a "$OUT/vc_calls.txt"
+# 급제동 2회
+drive 1 15 100
 drive 4 35
-drive 1 8
+drive 1 8 100
 drive 3 30
 adb exec-out screencap -p > "$OUT/02_rainy_night.png"
-sleep 9
-# 4) 연료 부족 (FUEL_LEVEL, ml)
-CAP=$(adb shell cmd car_service get-property-value 0x11600106 2>/dev/null | grep -oE "floatValues: \[[0-9.]+" | grep -oE "[0-9.]+$" | head -1)
-LOW=$(python3 -c "c=float('${CAP:-50000}' or 50000); print(int(c*0.07))")
-VH inject-vhal-event 0x11600307 "$LOW" | tee -a "$OUT/inject.txt"
+sleep 8
+# 4) 배터리 부족 (전기차 SOC 8%)
+python3 ci/vconsole.py set "soc|state.?of.?charge" 8 2>&1 | tee -a "$OUT/vc_calls.txt" || true
 sleep 10
-adb exec-out screencap -p > "$OUT/03_fuel.png"
-# 5) 비 그치고 주차(P) → 운행 종료
-VH inject-vhal-event 0x13400CC8 1 1 >/dev/null
-VH inject-vhal-event 0x11400400 4 | tee -a "$OUT/inject.txt"
+adb exec-out screencap -p > "$OUT/03_battery.png"
+# 5) 감속·정차, 비 그침, 주차(P) → 운행 종료
+drive 2 0 60
+VC "/vehicle/body?front_wiper=Off"
+VC "/vehicle/gear?gear=Park"
 sleep 8
 # 6) 장시간 정차는 20분이 걸려 시연 버튼(시뮬레이터)으로 보여 줍니다
 adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario long_stop >/dev/null
 sleep 12
-adb exec-out screencap -p > "$OUT/04_before_toggle.png"
+adb exec-out screencap -p > "$OUT/04_end.png"
 wait $REC || true
+kill $HB 2>/dev/null || true
 sleep 3
 adb pull /data/local/tmp/mosim_pleos.mp4 "$OUT/mosim_pleos_raw.mp4" || echo "pull failed"
 adb logcat -d -s PleosSignalSource:* Voice:* AlertSender:* CarApiSignalSource:* AndroidRuntime:E > "$OUT/logcat_app.txt"
 adb logcat -d | grep -iE "pleos|vehicle|fused|tts" | tail -300 > "$OUT/logcat_pleos.txt"
-adb exec-out screencap -p > "$OUT/05_final.png"
+curl -s -m 5 http://127.0.0.1:8088/vehicle/state > "$OUT/vc_state_end.json" || true
 ls -la "$OUT"

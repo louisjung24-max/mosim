@@ -1,5 +1,0 @@
-id: 0 or "automotive_1024p_landscape"
-    Name: Automotive (1024p landscape)
-id: 36 or "Pleos_Connect_v2_0"
-    Name: Pleos Connect v2.1.0
-device: Pleos_Connect_v2_0

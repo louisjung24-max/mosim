@@ -170,6 +170,7 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         val dt = (fix.timestampMillis - prev.timestampMillis) / 1000f
         if (dt < MIN_DT_S || dt > MAX_DT_S) { lastSpeedMps = -1f; return }
         val mps = distanceMeters(prev, fix) / dt
+        Log.d(TAG, "fix dt=${"%.2f".format(dt)}s speed=${"%.1f".format(mps * 3.6f)}km/h")
         _events.tryEmit(VehicleEvent.Speed(mps * 3.6f))
 
         if (lastSpeedMps >= 0f) {
