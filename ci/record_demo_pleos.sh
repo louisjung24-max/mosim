@@ -108,6 +108,15 @@ adb logcat -c
 adb shell am start -n $APP/.ui.MainActivity
 sleep 12
 adb exec-out screencap -p > "$OUT/01_home.png"
+adb shell dumpsys package $APP | sed -n '/requested permissions/,/User 0/p' > "$OUT/perm_requested.txt"
+adb shell pm list permissions -f 2>/dev/null | grep -B1 -A4 -iE "WIPER|POWERTRAIN|MILEAGE|CAR_ENERGY|TTS_SERVICE" > "$OUT/perm_defs.txt"
+adb logcat -d -s PleosSignalSource:* Voice:* > "$OUT/logcat_start.txt"
+
+log "virtual console probe"
+adb forward tcp:8088 tcp:8088
+curl -sS -m 10 -o "$OUT/console_index.html" -w "console http %{http_code}\n" http://127.0.0.1:8088/ || true
+timeout 180 python3 ci/vconsole_probe.py "$OUT/console" 2>&1 | tail -5
+adb exec-out screencap -p > "$OUT/01b_after_console.png"
 
 # 주차(P)에서 시작
 VH inject-vhal-event 0x11400400 4 >/dev/null

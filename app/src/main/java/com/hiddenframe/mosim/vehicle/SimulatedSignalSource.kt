@@ -32,7 +32,7 @@ object SimulatedSignalSource : VehicleSignalSource {
             delay(400) // 서비스가 막 시작된 경우 구독이 붙을 시간을 줍니다
             when (scenario) {
                 SCENARIO_RAINY_NIGHT -> rainyNight()
-                SCENARIO_TIRE -> tireLow()
+                SCENARIO_TIRE, SCENARIO_BATTERY -> batteryLow()
                 SCENARIO_LONG_STOP -> longStop()
                 SCENARIO_DAYTIME -> daytimeTrip()
                 else -> daytimeTrip()
@@ -56,9 +56,10 @@ object SimulatedSignalSource : VehicleSignalSource {
         emit(VehicleEvent.Speed(25f), 1500)
     }
 
-    private suspend fun tireLow() {
+    /** 차량 관리: 전기차 배터리 잔량 낮음 (실차에서는 Vehicle SDK EvBattery·Fuel로 감지) */
+    private suspend fun batteryLow() {
         emit(VehicleEvent.Ignition(on = true, hourOfDay = 9))
-        emit(VehicleEvent.TirePressureLow("앞 왼쪽"), 1500)
+        emit(VehicleEvent.BatteryLow(8), 1500)
     }
 
     private suspend fun longStop() {
@@ -75,7 +76,8 @@ object SimulatedSignalSource : VehicleSignalSource {
     }
 
     const val SCENARIO_RAINY_NIGHT = "rainy_night"
-    const val SCENARIO_TIRE = "tire_low"
+    const val SCENARIO_TIRE = "tire_low" // 이전 이름(호환용)
+    const val SCENARIO_BATTERY = "battery_low"
     const val SCENARIO_LONG_STOP = "long_stop"
     const val SCENARIO_DAYTIME = "daytime"
 }

@@ -48,6 +48,10 @@ class AnomalyDetector(private val baseline: Baseline) {
             voice = VoiceCue("연료가 ${e.percent}퍼센트 남았습니다. 주유소를 들르시면 좋겠어요."),
             anomaly = Anomaly(Anomaly.Type.VEHICLE_CARE, "연료 부족", "연료가 ${e.percent}% 남았습니다."),
         )
+        is VehicleEvent.BatteryLow -> Result(
+            voice = VoiceCue("배터리가 ${e.percent}퍼센트 남았습니다. 가까운 충전소에 들르시면 좋겠어요."),
+            anomaly = Anomaly(Anomaly.Type.VEHICLE_CARE, "배터리 부족", "배터리가 ${e.percent}% 남았습니다."),
+        )
         is VehicleEvent.IdleStop -> if (e.minutes >= LONG_STOP_MIN) Result(
             voice = VoiceCue("시동을 켜 둔 채 ${e.minutes}분째 멈춰 계세요. 괜찮으시면 말씀해 주세요."),
             anomaly = Anomaly(Anomaly.Type.LONG_STOP, "장시간 정차", "시동이 켜진 채 ${e.minutes}분째 정차 중입니다. 평소보다 긴 정차예요."),

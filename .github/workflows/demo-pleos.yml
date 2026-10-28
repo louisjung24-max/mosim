@@ -56,6 +56,11 @@ jobs:
           path: /usr/local/lib/android/sdk/system-images/android-34/android-automotive
           key: pleos-connect-sysimg-2.1.0-r2
 
+      - name: Install Playwright (Virtual Console 조작용)
+        run: |
+          pip install -q playwright
+          python3 -m playwright install --with-deps chromium >/dev/null
+
       - name: Run Pleos emulator and record
         run: |
           set -o pipefail

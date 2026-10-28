@@ -31,6 +31,7 @@ class AppState {
             is VehicleEvent.HardBrake -> append("급제동 감지")
             is VehicleEvent.TirePressureLow -> append("타이어 공기압 낮음 (${e.wheel})")
             is VehicleEvent.FuelLow -> append("연료 ${e.percent}%")
+            is VehicleEvent.BatteryLow -> append("배터리 ${e.percent}%")
             is VehicleEvent.IdleStop -> append("정차 ${e.minutes}분")
             is VehicleEvent.Odometer -> _ui.value
         }

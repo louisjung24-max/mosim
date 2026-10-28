@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
         renderShareState(app.share.sharingEnabled)
 
         b.btnDemoNight.setOnClickListener { SimulatedSignalSource.play(SimulatedSignalSource.SCENARIO_RAINY_NIGHT) }
-        b.btnDemoTire.setOnClickListener { SimulatedSignalSource.play(SimulatedSignalSource.SCENARIO_TIRE) }
+        b.btnDemoTire.setOnClickListener { SimulatedSignalSource.play(SimulatedSignalSource.SCENARIO_BATTERY) }
         b.btnDemoStop.setOnClickListener { SimulatedSignalSource.play(SimulatedSignalSource.SCENARIO_LONG_STOP) }
         b.btnDemoDay.setOnClickListener { SimulatedSignalSource.play(SimulatedSignalSource.SCENARIO_DAYTIME) }
 

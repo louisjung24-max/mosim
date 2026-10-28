@@ -141,7 +141,7 @@
                     <Button
                         android:id="@+id/btnDemoTire"
                         style="@style/Widget.Mosim.ChipButton"
-                        android:text="타이어" />
+                        android:text="배터리" />
 
                     <Button
                         android:id="@+id/btnDemoStop"

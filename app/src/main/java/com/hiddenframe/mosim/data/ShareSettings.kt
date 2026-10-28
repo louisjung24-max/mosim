@@ -36,7 +36,7 @@ class ShareSettings(context: Context) {
             "night" to "야간 외출",
             "distance" to "장거리 운행",
             "stop" to "장시간 정차",
-            "care" to "타이어·연료 알림",
+            "care" to "배터리·연료 알림",
             "location" to "실시간 위치",
             "score" to "운전 점수(급제동 등)",
         )

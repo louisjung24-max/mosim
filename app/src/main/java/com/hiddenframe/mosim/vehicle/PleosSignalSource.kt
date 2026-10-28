@@ -10,6 +10,7 @@ import ai.pleos.playground.vehicle.constant.control.VehicleGear
 import ai.pleos.playground.vehicle.constant.control.WiperState
 import ai.pleos.playground.vehicle.listener.BrakePedalStatusListener
 import ai.pleos.playground.vehicle.listener.DistanceDrivenListener
+import ai.pleos.playground.vehicle.listener.EvBatteryStateOfChargeListener
 import ai.pleos.playground.vehicle.listener.FuelPercentListener
 import ai.pleos.playground.vehicle.listener.GearSelectionListener
 import ai.pleos.playground.vehicle.listener.WiperStateListener
@@ -30,7 +31,7 @@ import kotlin.math.sqrt
  * 공개 API만 사용합니다.
  * - 운행 시작/종료: 기어 P ↔ D/R (Vehicle SDK에 시동 상태 API가 없어 기어로 판단)
  * - 비: 앞유리 와이퍼 상태
- * - 차량 관리: 연료 잔량 10% 이하
+ * - 차량 관리: 연료 잔량 또는 전기차 배터리(SOC) 10% 이하
  * - 장거리: 이번 운행 주행 거리
  * - 급제동: 위치 변화로 계산한 감속도 ≥ 3.5 m/s² + 브레이크 페달 밟힘 (Vehicle SDK에 차속 API가 없어 위치로 계산)
  * - 장시간 정차: D단에서 20분 이상 정지
@@ -85,6 +86,17 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         }
         override fun onFailed(e: Exception) = warn("fuel", e)
     }
+    private val socListener = object : EvBatteryStateOfChargeListener {
+        override fun onEvBatteryStateOfChargeUpdated(percent: Int?) {
+            val p = percent ?: return
+            connected = true
+            if (p <= FUEL_LOW_PERCENT && driving && !fuelWarned) {
+                fuelWarned = true
+                _events.tryEmit(VehicleEvent.BatteryLow(p))
+            }
+        }
+        override fun onFailed(e: Exception) = warn("soc", e)
+    }
     private val tripDistanceListener = object : DistanceDrivenListener {
         override fun onDistanceDrivenUpdated(km: Float?) {
             val d = km ?: return
@@ -105,17 +117,21 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
 
     override fun start() {
         if (!context.packageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) return
-        try {
-            val v = Vehicle(context.applicationContext).also { it.initialize() }
-            vehicle = v
-            v.getGear().getCurrentGearSelectionState({ g -> g?.let { connected = true; onGear(it) } }, { warn("gear-now", it) })
-            v.getGear().registerGearSelection(gearListener)
-            v.getWiper().registerWiperState(windshield, wiperListener)
-            v.getFuel().registerFuelPercent(fuelListener)
-            v.getOdometer().registerTripCurrentDrivingDistance(tripDistanceListener)
-            v.getBrake().registerBrakePedalStatus(brakeListener)
+        val v = try {
+            Vehicle(context.applicationContext).also { it.initialize() }
         } catch (t: Throwable) {
-            Log.i(TAG, "Pleos Vehicle SDK unavailable: ${t.message}")
+            Log.i(TAG, "Pleos Vehicle SDK unavailable: ${t.message}"); null
+        }
+        if (v != null) {
+            vehicle = v
+            // 차종마다 지원 항목이 달라(내연기관/전기차 등) 항목별로 따로 등록하고, 실패한 항목만 건너뜁니다.
+            reg("gear-now") { v.getGear().getCurrentGearSelectionState({ g -> g?.let { connected = true; onGear(it) } }, { warn("gear-now", it) }) }
+            reg("gear") { v.getGear().registerGearSelection(gearListener) }
+            reg("wiper") { v.getWiper().registerWiperState(windshield, wiperListener) }
+            reg("fuel") { v.getFuel().registerFuelPercent(fuelListener) }
+            reg("soc") { v.getEvBattery().registerEvBatteryStateOfCharge(socListener) }
+            reg("distance") { v.getOdometer().registerTripCurrentDrivingDistance(tripDistanceListener) }
+            reg("brake") { v.getBrake().registerBrakePedalStatus(brakeListener) }
         }
         startLocation()
     }
@@ -190,6 +206,10 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
         return (2 * r * atan2(sqrt(h), sqrt(1 - h))).toFloat()
     }
 
+    private inline fun reg(what: String, block: () -> Unit) {
+        try { block(); Log.i(TAG, "registered $what") } catch (t: Throwable) { Log.w(TAG, "skip $what: ${t.message}") }
+    }
+
     private fun warn(what: String, e: Exception) { Log.w(TAG, "$what: ${e.message}") }
 
     override fun stop() {
@@ -197,6 +217,7 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
             runCatching { v.getGear().unregisterGearSelection(gearListener) }
             runCatching { v.getWiper().unregisterWiperState(windshield, wiperListener) }
             runCatching { v.getFuel().unregisterFuelPercent(fuelListener) }
+            runCatching { v.getEvBattery().unregisterEvBatteryStateOfCharge(socListener) }
             runCatching { v.getOdometer().unregisterTripCurrentDrivingDistance(tripDistanceListener) }
             runCatching { v.getBrake().unregisterBrakePedalStatus(brakeListener) }
             runCatching { v.release() }

@@ -13,6 +13,8 @@ sealed class VehicleEvent {
     data class Wiper(val on: Boolean) : VehicleEvent()
     data class TirePressureLow(val wheel: String) : VehicleEvent()
     data class FuelLow(val percent: Int) : VehicleEvent()
+    /** 전기차 구동 배터리 잔량(%) 낮음 */
+    data class BatteryLow(val percent: Int) : VehicleEvent()
     data class Odometer(val km: Float) : VehicleEvent()
     /** 시동이 켜진 채 정차한 누적 시간(분). */
     data class IdleStop(val minutes: Int) : VehicleEvent()
