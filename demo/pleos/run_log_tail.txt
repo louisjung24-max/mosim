@@ -40,7 +40,7 @@ Auto-selecting single ABI x86_64
 == boot ==
 * daemon not running; starting now at tcp:5037
 * daemon started successfully
-booted after 10x5s
+booted after 8x5s
 Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys
 Physical size: 2560x1440
 package:ai.pleos.android.webview
@@ -114,17 +114,14 @@ java.lang.SecurityException: The command 'get-property-value' requires non-user 
 	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
 == time 22:40 KST ==
 Wed Oct 28 13:40:00 KST 2026
-Thu Oct 29 00:46:03 KST 2026
+Thu Oct 29 01:09:58 KST 2026
 == install ==
 Performing Streamed Install
-Success
-      pleos.car.permission.TTS_SERVICE: granted=true
-      pleos.car.permission.CAR_ENERGY: granted=true
-      pleos.car.permission.CAR_INFO: granted=true
-      pleos.car.permission.CAR_DRIVE: granted=true
-        pleos.car.permission.FUSED_LOCATION: granted=true
-        pleos.car.permission.FUSED_LOCATION: granted=true
+adb: failed to install app/build/outputs/apk/debug/app-debug.apk: cmd: Failure calling service package: Broken pipe (32)
+
 Starting: Intent { cmp=com.hiddenframe.mosim/.ui.MainActivity }
+Error type 3
+Error: Activity class {com.hiddenframe.mosim/com.hiddenframe.mosim.ui.MainActivity} does not exist.
 == virtual console ==
 8088
 console http 200
@@ -146,34 +143,36 @@ USE_GEO=0
 /vehicle/ev-battery?field=soc&value=8 -> 200
 PUT /vehicle/body?front_wiper=Off -> 200
 PUT /vehicle/gear?gear=Park -> 200
-/data/local/tmp/mosim_pleos.mp4: 1 file pulled, 0 skipped. 72.1 MB/s (2043907 bytes in 0.027s)
-total 3440
-drwxr-xr-x 2 runner runner    4096 Oct 28 15:50 .
-drwxr-xr-x 3 runner runner    4096 Oct 28 15:37 ..
--rw-r--r-- 1 runner runner  265748 Oct 28 15:45 00_boot.png
--rw-r--r-- 1 runner runner  267180 Oct 28 15:47 01_home.png
--rw-r--r-- 1 runner runner  212079 Oct 28 15:48 02_rainy_night.png
--rw-r--r-- 1 runner runner  213410 Oct 28 15:48 03_battery.png
--rw-r--r-- 1 runner runner  243685 Oct 28 15:49 04_end.png
--rw-r--r-- 1 runner runner    3567 Oct 28 15:38 avd_config.ini
--rw-r--r-- 1 runner runner     166 Oct 28 15:37 devices.txt
--rw-r--r-- 1 runner runner   10056 Oct 28 15:44 emulator.log
--rw-r--r-- 1 runner runner      64 Oct 28 15:37 emulator_version.txt
--rw-r--r-- 1 runner runner     126 Oct 28 15:45 fingerprint.txt
--rw-r--r-- 1 runner runner     322 Oct 28 15:46 granted.txt
--rw-r--r-- 1 runner runner     671 Oct 28 15:37 image_files.txt
--rw-r--r-- 1 runner runner    3830 Oct 28 15:50 logcat_app.txt
--rw-r--r-- 1 runner runner   50282 Oct 28 15:50 logcat_pleos.txt
--rw-r--r-- 1 runner runner     693 Oct 28 15:47 logcat_start.txt
--rw-r--r-- 1 runner runner 2043907 Oct 28 15:50 mosim_pleos_raw.mp4
--rw-r--r-- 1 runner runner    8467 Oct 28 15:45 packages.txt
--rw-r--r-- 1 runner runner    2898 Oct 28 15:47 perm_defs.txt
--rw-r--r-- 1 runner runner    9778 Oct 28 15:47 perm_pleos_all.txt
--rw-r--r-- 1 runner runner    1795 Oct 28 15:47 perm_requested.txt
--rw-r--r-- 1 runner runner    1577 Oct 28 15:48 vc_calls.txt
--rw-r--r-- 1 runner runner   50157 Oct 28 15:47 vc_catalog.json
--rw-r--r-- 1 runner runner    1934 Oct 28 15:47 vc_find_energy.txt
--rw-r--r-- 1 runner runner     346 Oct 28 15:47 vc_find_wiper.txt
--rw-r--r-- 1 runner runner   25351 Oct 28 15:47 vc_state.json
--rw-r--r-- 1 runner runner   21878 Oct 28 15:50 vc_state_end.json
--rw-r--r-- 1 runner runner    2430 Oct 28 15:45 vhal_probe.txt
+/data/local/tmp/mosim_pleos.mp4: 1 file pulled, 0 skipped. 3.5 MB/s (163207 bytes in 0.044s)
+total 948
+drwxr-xr-x 2 runner runner   4096 Oct 28 16:18 .
+drwxr-xr-x 3 runner runner   4096 Oct 28 15:57 ..
+-rw-r--r-- 1 runner runner 267076 Oct 28 16:09 00_boot.png
+-rw-r--r-- 1 runner runner  60051 Oct 28 16:13 01_home.png
+-rw-r--r-- 1 runner runner  65929 Oct 28 16:15 02_rainy_night.png
+-rw-r--r-- 1 runner runner  65929 Oct 28 16:15 03_battery.png
+-rw-r--r-- 1 runner runner  66085 Oct 28 16:16 04_end.png
+-rw-r--r-- 1 runner runner   3567 Oct 28 16:02 avd_config.ini
+-rw-r--r-- 1 runner runner    166 Oct 28 16:02 devices.txt
+-rw-r--r-- 1 runner runner  11187 Oct 28 16:18 emulator.log
+-rw-r--r-- 1 runner runner   6517 Oct 28 15:57 emulator_tail.txt
+-rw-r--r-- 1 runner runner     64 Oct 28 16:02 emulator_version.txt
+-rw-r--r-- 1 runner runner    126 Oct 28 16:09 fingerprint.txt
+-rw-r--r-- 1 runner runner      0 Oct 28 16:13 granted.txt
+-rw-r--r-- 1 runner runner    671 Oct 28 16:02 image_files.txt
+-rw-r--r-- 1 runner runner      0 Oct 28 16:18 logcat_app.txt
+-rw-r--r-- 1 runner runner  51672 Oct 28 16:18 logcat_pleos.txt
+-rw-r--r-- 1 runner runner      0 Oct 28 16:14 logcat_start.txt
+-rw-r--r-- 1 runner runner 163207 Oct 28 16:18 mosim_pleos_raw.mp4
+-rw-r--r-- 1 runner runner   8467 Oct 28 16:09 packages.txt
+-rw-r--r-- 1 runner runner   2898 Oct 28 16:14 perm_defs.txt
+-rw-r--r-- 1 runner runner   9778 Oct 28 16:14 perm_pleos_all.txt
+-rw-r--r-- 1 runner runner      0 Oct 28 16:13 perm_requested.txt
+-rw-r--r-- 1 runner runner   9207 Oct 28 15:57 run_log_tail.txt
+-rw-r--r-- 1 runner runner   3370 Oct 28 16:15 vc_calls.txt
+-rw-r--r-- 1 runner runner  50157 Oct 28 16:14 vc_catalog.json
+-rw-r--r-- 1 runner runner   1934 Oct 28 16:14 vc_find_energy.txt
+-rw-r--r-- 1 runner runner    346 Oct 28 16:14 vc_find_wiper.txt
+-rw-r--r-- 1 runner runner  25358 Oct 28 16:14 vc_state.json
+-rw-r--r-- 1 runner runner  21881 Oct 28 16:18 vc_state_end.json
+-rw-r--r-- 1 runner runner   2430 Oct 28 16:09 vhal_probe.txt

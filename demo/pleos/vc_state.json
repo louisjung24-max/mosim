@@ -386,7 +386,7 @@
   "source": "default",
   "timestamp_ms": 0,
   "emulator_active": false,
-  "bridge_ready": true,
+  "bridge_ready": false,
   "topics": {
    "ad_mode_state": "SDV_ADAS_AD_CONTROL_ADCONTROL_ACTUAL_AD_MODE_STATE",
    "target_speed": "SDV_ADAS_AD_CONTROL_ADCONTROL_ACTUAL_TARGET_SPEED"
@@ -421,7 +421,7 @@
   "source": "default",
   "timestamp_ms": 0,
   "emulator_active": false,
-  "bridge_ready": true,
+  "bridge_ready": false,
   "topics": {
    "traveled_distance": "SDV_MOTION_DRIVING_INFO_DRIVINGINFO_ACTUAL_TRAVELED_DISTANCE",
    "usage_time": "SDV_MOTION_DRIVING_INFO_DRIVINGINFO_ACTUAL_USAGE_TIME",
@@ -465,7 +465,7 @@
   ]
  },
  "ev_battery": {
-  "bridge_ready": true,
+  "bridge_ready": false,
   "emulator_active": false,
   "current_energy_kwh": 77.400002,
   "state_of_charge": 100.0,
@@ -666,7 +666,7 @@
   "source_timestamp": 0,
   "source_location": "",
   "emulator_active": false,
-  "bridge_ready": true,
+  "bridge_ready": false,
   "desired_topic": "SDV_CONVENIENCE_GLOVE_BOX_GLOVEBOX_DESIRED_OPENED",
   "actual_topic": "SDV_CONVENIENCE_GLOVE_BOX_GLOVEBOX_ACTUAL_OPENED",
   "type": "sdv_convenience_glove_box::VapiGloveBoxOpened",
@@ -681,7 +681,7 @@
   }
  },
  "telltales": {
-  "bridge_ready": true,
+  "bridge_ready": false,
   "emulator_active": false,
   "desired_topic": "SDV_SAFETY_TELLTALE_TELLTALE_DESIRED_TELLTALE_STATUS",
   "actual_topic": "SDV_SAFETY_TELLTALE_TELLTALE_ACTUAL_TELLTALE_STATUS",
@@ -741,7 +741,7 @@
   "actual": {}
  },
  "power_system": {
-  "bridge_ready": true,
+  "bridge_ready": false,
   "emulator_active": false,
   "desired_topic": "SDV_ENERGY_POWER_SYSTEM_POWERSYSTEM_DESIRED_POWER_STATE",
   "actual_topic": "SDV_ENERGY_POWER_SYSTEM_POWERSYSTEM_ACTUAL_POWER_STATE",
@@ -756,7 +756,7 @@
   "actual": {}
  },
  "notifications": {
-  "bridge_ready": true,
+  "bridge_ready": false,
   "emulator_active": false,
   "actual_topic": "SDV_VEHICLE_NOTIFICATION_NOTIFICATION_ACTUAL_NOTIFICATION",
   "min_id": 0,

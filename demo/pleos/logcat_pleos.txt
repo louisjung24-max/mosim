@@ -1,300 +1,300 @@
-10-29 00:50:18.232  7011 11149 D [Pleos][SDK]a: [binder:7011_8]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
-10-29 00:50:18.298 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:18.491 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:18.538   781  1679 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:18.645   781   881 I ActivityManager: Killing 9986:ai.pleos.multimedia.mediabridge/u10a116 (adj 999): empty #28
-10-29 00:50:18.645   781   881 I ActivityManager: Killing 9460:ai.pleos.service.car/u10s1000 (adj 999): empty #29
-10-29 00:50:18.645   781   881 I ActivityManager: Killing 4620:ai.pleos.system.update.broadcast/u10s1000 (adj 999): empty #36
-10-29 00:50:18.701   781  1679 W ProcessStats: Tracking association SourceState{46ec052 ai.umos.ambientai/1010142 BFgs #1709} whose proc state 4 is better than process ProcessState{d103f0c ai.pleos.service.ui/1001000 pkg=ai.pleos.service.ui} proc state 14 (64 skipped)
-10-29 00:50:18.872 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:18.872 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:19.043   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:19.183 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:19.373 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:19.455  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202619451)
-10-29 00:50:19.458  8907  9213 D [Pleos]e: invoke() called
-10-29 00:50:19.498 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:19.583   781  1679 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:19.596   176   190 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [725408], float_values: [], byte_values: [], string_bytes: [] } }
-10-29 00:50:19.799 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:19.873 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:19.922   176 10191 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
-10-29 00:50:20.083   781  1734 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:20.102 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:20.193  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:20.198  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:20.198  9210  9461 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:20.198  9210  9461 D [Pleos]j: compare to time: 1969
-10-29 00:50:20.376 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:20.417 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:20.459  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202620453)
-10-29 00:50:20.460  8907  9213 D [Pleos]e: invoke() called
-10-29 00:50:20.584   781  1734 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:20.718 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:20.833   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:20.867   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:20.878 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:20.930   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:21.058 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:21.087   781  1734 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:21.388 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:21.415 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:21.463  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202621453)
-10-29 00:50:21.464  8907  9213 D [Pleos]e: invoke() called
-10-29 00:50:21.590   781  1734 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:21.628   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:21.717 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:21.765   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:21.786   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:21.888 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:21.923   176 10191 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
-10-29 00:50:22.018 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:22.103   781  1734 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:22.203  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:22.204  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:22.204  9210  9461 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:22.204  9210  9461 D [Pleos]j: compare to time: 3975
-10-29 00:50:22.204  9210  9461 I [Pleos]j: [DefaultDispatcher-worker-1]fetchFilterMap propertyEventFilterMap 12
-10-29 00:50:22.204  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]before latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793202618228)
-10-29 00:50:22.204  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]after latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793202622204)
-10-29 00:50:22.204  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]collect event: PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:22.206  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = ai.umos.ambientai, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@7e80e7b, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:22.206  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]include - EV_BATTERY_LEVEL
-10-29 00:50:22.206  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = com.hiddenframe.mosim, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@b5e8c62, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:22.207  7011 11149 D [Pleos][SDK]a: [binder:7011_8]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
-10-29 00:50:22.258   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:22.322 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:22.363  3774  5530 W [SyncService-v0.5.2]DocumentWorker:      documentKey=VEHICLE:vehicle-notification-v1:1
-10-29 00:50:22.363  3774  5530 W [SyncService-v0.5.2]DocumentWorker:      taskKey=fetch:VEHICLE:vehicle-notification-v1:1
-10-29 00:50:22.363  3774  5530 W [SyncService-v0.5.2]DocumentWorker:      error=Required properties are invalid or missing: vehicleId
-10-29 00:50:22.392 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:22.518  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202622457)
-10-29 00:50:22.522  8907 15585 D [Pleos]e: invoke() called
-10-29 00:50:22.598   176   190 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [728410], float_values: [], byte_values: [], string_bytes: [] } }
-10-29 00:50:22.624 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:22.643   781   955 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.analytics.ANALYTICS_START pkg=ai.pleos.playground.service.analytics } U=10: not found
-10-29 00:50:22.644   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:22.733   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:22.816   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:22.843   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:22.855   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:22.892 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:22.897   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:22.904 10320 10454 D PLEOS_UI_SERVICE: [PLEOS_UI_SERVICE][MediaStorageRepositoryImpl::reconnectStorageApi] storageApi.connect(defaultNetwork)
-10-29 00:50:22.934 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:23.154   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:23.217  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:23.222  9210  9462 D [Pleos]j: [DefaultDispatcher-worker-2]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:23.222  9210  9462 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:23.222  9210  9462 D [Pleos]j: compare to time: 1014
-10-29 00:50:23.237 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:23.396 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:23.485  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202623464)
-10-29 00:50:23.486  8907 15585 D [Pleos]e: invoke() called
-10-29 00:50:23.539 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:23.657   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:23.729   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:23.752   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:23.840 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:23.902 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:23.924   176 10191 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
-10-29 00:50:24.142 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:24.161   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:24.206  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:24.206  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:24.206  9210  9461 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:24.206  9210  9461 D [Pleos]j: compare to time: 2002
-10-29 00:50:24.405 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:24.448 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:24.623   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.analytics.ANALYTICS_START pkg=ai.pleos.playground.service.analytics } U=10: not found
-10-29 00:50:24.663   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:24.752 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:24.811   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:24.918 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:25.055 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:25.168   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:25.203  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:25.203  9210  9462 D [Pleos]j: [DefaultDispatcher-worker-2]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:25.203  9210  9462 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:25.203  9210  9462 D [Pleos]j: compare to time: 2999
-10-29 00:50:25.369 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:25.423 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:25.477  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202625463)
-10-29 00:50:25.483  8907 15585 D [Pleos]e: invoke() called
-10-29 00:50:25.601   176   190 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [731412], float_values: [], byte_values: [], string_bytes: [] } }
-10-29 00:50:25.669   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:25.670 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:25.925 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:25.925   176 10191 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
-10-29 00:50:25.973 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:26.171   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:26.275 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:26.418  3501  3501 W PleosService: Rebinding NetsvcService after bindService failed (delay=30000ms)
-10-29 00:50:26.419   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.system.service.netsvc.NetsvcService pkg=ai.pleos.system.service.netsvc cmp=ai.pleos.system.service.netsvc/.NetsvcService } U=0: not found
-10-29 00:50:26.431 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:26.579 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:26.610  6221  6221 W PleosService: Rebinding NetsvcService after bindService failed (delay=30000ms)
-10-29 00:50:26.613   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.system.service.netsvc.NetsvcService pkg=ai.pleos.system.service.netsvc cmp=ai.pleos.system.service.netsvc/.NetsvcService } U=0: not found
-10-29 00:50:26.672   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:26.882 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:26.933 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:27.175   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:27.218 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:27.309  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:27.310  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:27.310  9210  9461 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:27.310  9210  9461 D [Pleos]j: compare to time: 5106
-10-29 00:50:27.310  9210  9461 I [Pleos]j: [DefaultDispatcher-worker-1]fetchFilterMap propertyEventFilterMap 12
-10-29 00:50:27.310  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]before latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793202622204)
-10-29 00:50:27.310  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]after latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793202627310)
-10-29 00:50:27.310  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]collect event: PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:27.310  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = ai.umos.ambientai, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@7e80e7b, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:27.310  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]include - EV_BATTERY_LEVEL
-10-29 00:50:27.310  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = com.hiddenframe.mosim, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@b5e8c62, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:27.310  7011 11149 D [Pleos][SDK]a: [binder:7011_8]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
-10-29 00:50:27.442 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:27.514  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202627461)
-10-29 00:50:27.533  8907 15585 D [Pleos]e: invoke() called
-10-29 00:50:27.551 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:27.677   781  1117 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:27.856 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:27.908 10320 10576 W PLEOS_UI_SERVICE: [PLEOS_UI_SERVICE][MediaStorageRepositoryImpl::reconnectStorageApi$lambda$0] storageApi.connect(defaultNetwork): failed, Connection timed out after 5000ms
-10-29 00:50:27.910 10320 10454 D PLEOS_UI_SERVICE: [PLEOS_UI_SERVICE][MediaStorageRepositoryImpl::invokeSuspend] storageApi reconnect scheduled after 5000ms
-10-29 00:50:27.926   176 10191 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
-10-29 00:50:27.950 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:28.120   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:28.265  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:28.268  9210  9462 D [Pleos]j: [DefaultDispatcher-worker-2]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:28.268  9210  9462 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:28.268  9210  9462 D [Pleos]j: compare to time: 958
-10-29 00:50:28.291 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:28.450 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:28.597 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:28.602   176   190 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [734413], float_values: [], byte_values: [], string_bytes: [] } }
-10-29 00:50:28.667   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:28.728   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:28.904 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:28.958 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:29.171   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:29.216 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:29.477  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202629465)
-10-29 00:50:29.489  8907  9213 D [Pleos]e: invoke() called
-10-29 00:50:29.511 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:29.529 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:29.679   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:29.842 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:29.927   176 10191 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
-10-29 00:50:29.999   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:30.016 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:30.265 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:30.408  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:30.408  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:30.408  9210  9461 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:30.408  9210  9461 D [Pleos]j: compare to time: 3098
-10-29 00:50:30.408  9210  9461 I [Pleos]j: [DefaultDispatcher-worker-1]fetchFilterMap propertyEventFilterMap 12
-10-29 00:50:30.409  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]before latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793202627310)
-10-29 00:50:30.409  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]after latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793202630409)
-10-29 00:50:30.409  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]collect event: PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:30.409  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = ai.umos.ambientai, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@7e80e7b, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:30.409  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]include - EV_BATTERY_LEVEL
-10-29 00:50:30.409  9210  9461 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = com.hiddenframe.mosim, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@b5e8c62, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:30.409  7011 11149 D [Pleos][SDK]a: [binder:7011_8]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
-10-29 00:50:30.518 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:30.585 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:30.890 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:30.916   781   955 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:31.020 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:31.230  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:31.230  9210  9462 D [Pleos]j: [DefaultDispatcher-worker-2]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:31.230  9210  9462 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:31.230  9210  9462 D [Pleos]j: compare to time: 821
-10-29 00:50:31.234 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:31.417   781   955 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:31.468  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202631466)
-10-29 00:50:31.469  8907 15585 D [Pleos]e: invoke() called
-10-29 00:50:31.521 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:31.555 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:31.608   176   190 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [737420], float_values: [], byte_values: [], string_bytes: [] } }
-10-29 00:50:31.756   781   881 D AppWidgetServiceImpl: Provider info from ComponentInfo{ai.umos.vehiclecontrol/ai.umos.vehiclecontrol.feature.seatPosition.miniApp.SeatPositionMiniAppProvider} won't be persisted.
-10-29 00:50:31.856 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:31.928   176 10191 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
-10-29 00:50:31.974   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:32.022 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:32.158 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:32.712   781  1900 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:32.720 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:32.720 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:32.734  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202632693)
-10-29 00:50:32.734  8907 15585 D [Pleos]e: invoke() called
-10-29 00:50:32.955 10320 10454 D PLEOS_UI_SERVICE: [PLEOS_UI_SERVICE][MediaStorageRepositoryImpl::reconnectStorageApi] storageApi.connect(defaultNetwork)
-10-29 00:50:33.025 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:33.202  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:33.203  9210  9461 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:33.203  9210  9461 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:33.203  9210  9461 D [Pleos]j: compare to time: 2794
-10-29 00:50:33.221 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:33.258   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:33.332 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:33.706 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:33.722 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:33.759   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:33.930   176 10191 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
-10-29 00:50:34.046 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:34.235 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:34.266   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:34.381 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:34.475  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202634471)
-10-29 00:50:34.475  8907 15585 D [Pleos]e: invoke() called
-10-29 00:50:34.634   176   190 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [740445], float_values: [], byte_values: [], string_bytes: [] } }
-10-29 00:50:34.692 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:34.736   781   881 W ProcessStats: Tracking association SourceState{20c5ba9 ai.umos.vehiclecontrol/1001000 BTop #1739} whose proc state 2 is better than process ProcessState{d103f0c ai.pleos.service.ui/1001000 pkg=ai.pleos.service.ui} proc state 14 (712 skipped)
-10-29 00:50:34.744 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:34.767   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:34.995 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:35.213  9210  9210 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
-10-29 00:50:35.213  9210  9462 D [Pleos]j: [DefaultDispatcher-worker-2]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
-10-29 00:50:35.213  9210  9462 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
-10-29 00:50:35.213  9210  9462 D [Pleos]j: compare to time: 4804
-10-29 00:50:35.213  9210  9462 I [Pleos]j: [DefaultDispatcher-worker-2]fetchFilterMap propertyEventFilterMap 12
-10-29 00:50:35.213  9210  9462 D [Pleos]j: [DefaultDispatcher-worker-2]before latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793202630409)
-10-29 00:50:35.213  9210  9462 D [Pleos]j: [DefaultDispatcher-worker-2]after latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793202635213)
-10-29 00:50:35.213  9210  9462 D [Pleos]u: [DefaultDispatcher-worker-2]collect event: PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:35.213  9210  9462 D [Pleos]u: [DefaultDispatcher-worker-2]broadcastPropertyCallback() called with: applicationId = ai.umos.ambientai, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@7e80e7b, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:35.213  9210  9462 D [Pleos]u: [DefaultDispatcher-worker-2]include - EV_BATTERY_LEVEL
-10-29 00:50:35.213  9210  9462 D [Pleos]u: [DefaultDispatcher-worker-2]broadcastPropertyCallback() called with: applicationId = com.hiddenframe.mosim, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@b5e8c62, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
-10-29 00:50:35.213  7011 11149 D [Pleos][SDK]a: [binder:7011_8]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
-10-29 00:50:35.246 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:35.270   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:35.298 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:35.687 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:35.746 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:35.771   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:35.933   176 10191 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
-10-29 00:50:35.993 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:36.249 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:36.282   781  1529 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:36.336 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:36.475  8907  8907 D [Pleos]e: [main]onLocationCallback data FusedLocationData(latitude=39.237255, longitude=-123.15003166666666, altitude=0.0, heading=0.0, confidence=5.0, timestampMillis=1793202636470)
-10-29 00:50:36.476  8907 15585 D [Pleos]e: invoke() called
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=207 source=vehicle-controls action=web-deactivated domain=30 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=208 source=body-controls action=web-deactivated domain=30 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=209 source=hvac-controls action=web-deactivated domain=23 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=210 source=vehicle-api-etcs action=web-deactivated domain=11 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=211 source=vehicle-api-glove-box action=web-deactivated domain=11 topic=(none) type=sdv_convenience_glove_box::VapiGloveBoxOpened detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=212 source=vehicle-api-telltale action=web-deactivated domain=14 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=213 source=vehicle-api-power-system action=web-deactivated domain=30 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=214 source=vehicle-api-notification action=web-deactivated domain=19 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=215 source=vehicle-api-driving-mode action=web-deactivated domain=17 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=216 source=vehicle-api-odometer action=web-deactivated domain=30 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=217 source=ev-battery action=web-deactivated domain=30 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=218 source=vehicle-api-hvac-air-cleaner action=web-deactivated domain=30 topic=(none) type=sdv_climate_hvac_base::VapiHvacBaseAirPurificationActivated detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=219 source=vehicle-api-steering-wheel-heat action=web-deactivated domain=30 topic=(none) type=sdv_motion_steering_wheel_base::VapiSteeringWheelBaseHandleHeatingLevel detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=220 source=vehicle-api-tire-pressure action=web-deactivated domain=30 topic=SDV_MISC_TIRE_BASE_TIREBASE_ACTUAL_PRESSURE type=sdv_misc_tire_base::VapiTireBasePressure detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=221 source=vehicle-api-seat action=web-deactivated domain=11 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=222 source=scenario action=web-deactivated domain=17 topic=(none) type=(none) detail=(none)
-10-29 00:50:36.555   474   548 I VehicleApiDdsEmu: event seq=223 source=dds-availability action=cleared domain=30 topic=(none) type=(none) detail=source=web-deactivation direct_vhal_write=false
-10-29 00:50:36.798   781   983 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
-10-29 00:50:36.877 12514 12514 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
-10-29 00:50:36.877 12514 12514 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
-10-29 00:50:36.936   474   548 I VehicleApiDdsEmu: event seq=224 source=system action=emulation-source-inactive domain=30 topic=(none) type=(none) detail=source=web
-10-29 00:50:36.936   474   548 I VehicleApiDdsEmu: event seq=225 source=http action=browser-inactive domain=30 topic=(none) type=(none) detail=(none)
+10-29 01:17:42.090 21408 21579 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:42.098   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:17:42.102 20006 22705 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:42.106 20006 20566 W ActivityManager: Unable to start service Intent { act=ai.pleos.system.service.netsvc.NetsvcService pkg=ai.pleos.system.service.netsvc cmp=ai.pleos.system.service.netsvc/.NetsvcService } U=0: not found
+10-29 01:17:42.123 20365 21944 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:42.134 20006 20082 W ProcessStats: Tracking association SourceState{ba16140 ai.pleos.service.trustagent/1010118 BTop #988} whose proc state 2 is better than process ProcessState{36972ba ai.pleos.service.trustagent/10118 pkg=ai.pleos.service.trustagent} proc state 5 (24 skipped)
+10-29 01:17:42.242 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:44.179   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:17:44.180   178   189 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [917366], float_values: [], byte_values: [], string_bytes: [] } }
+10-29 01:17:44.199 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:44.302 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:44.398 20006 20566 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:44.447 21377 21493 W [SyncService-v0.5.2]DocumentWorker:      documentKey=USER_VEHICLE_MODEL:profile-vehicle-property-v1:1
+10-29 01:17:44.447 21377 21493 W [SyncService-v0.5.2]DocumentWorker:      taskKey=submit:USER_VEHICLE_MODEL:profile-vehicle-property-v1:1
+10-29 01:17:44.447 21377 21493 W [SyncService-v0.5.2]DocumentWorker:      error=Required properties are invalid or missing: accountId, vehicleId
+10-29 01:17:45.782 20006 22705 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:45.795 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:47.361   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:17:47.361   178   189 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [920629], float_values: [], byte_values: [], string_bytes: [] } }
+10-29 01:17:47.437 20006 21343 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:47.459 21408 21579 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:47.477 20203 25013 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:47.481 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:47.614 20365 21944 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1988 android.content.ContextWrapper.bindService:861 ai.pleos.car.PleosCar$Companion.createPleosCar$lambda$1$attemptBind:44 ai.pleos.car.PleosCar$Companion.createPleosCar:50 ai.pleos.car.PleosCarProvider.initialize:18 
+10-29 01:17:47.626 20365 21944 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:47.917 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:47.917 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:48.838 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:48.934 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:48.934 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:50.086   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:17:50.388   178   189 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [923662], float_values: [], byte_values: [], string_bytes: [] } }
+10-29 01:17:50.399 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:50.403 21208 21223 D [Pleos][SDK]a: [binder:21208_1]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
+10-29 01:17:50.410 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:50.410 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:50.410 22492 22513 D [Pleos]j: compare to time: 23363
+10-29 01:17:50.411 22492 22513 I [Pleos]j: [DefaultDispatcher-worker-1]fetchFilterMap propertyEventFilterMap 1
+10-29 01:17:50.411 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]before latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793204247039)
+10-29 01:17:50.416 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]after latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793204270411)
+10-29 01:17:50.416 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]collect event: PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
+10-29 01:17:50.416 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = ai.umos.ambientai, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@5d2dc35, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
+10-29 01:17:50.416 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]include - EV_BATTERY_LEVEL
+10-29 01:17:50.417 21208 21223 D [Pleos][SDK]a: [binder:21208_1]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
+10-29 01:17:50.417 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:50.417 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:50.417 22492 22513 D [Pleos]j: compare to time: 5
+10-29 01:17:50.504 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:50.504 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:50.504 22492 22513 D [Pleos]j: compare to time: 8
+10-29 01:17:50.508 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:50.508 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:50.508 22492 22513 D [Pleos]j: compare to time: 94
+10-29 01:17:50.530 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:50.530 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:50.530 22492 22513 D [Pleos]j: compare to time: 99
+10-29 01:17:50.746 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:50.746 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:50.746 22492 22513 D [Pleos]j: compare to time: 215
+10-29 01:17:50.811 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:50.811 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:50.811 22492 22513 D [Pleos]j: compare to time: 341
+10-29 01:17:51.017 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:51.017 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:51.017 22492 22513 D [Pleos]j: compare to time: 403
+10-29 01:17:51.113 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:51.113 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:51.311 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:51.311 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:51.311 22492 22513 D [Pleos]j: compare to time: 687
+10-29 01:17:51.323 20006 22523 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:51.436 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:51.440 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:51.440 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:51.440 22492 22513 D [Pleos]j: compare to time: 912
+10-29 01:17:51.472 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:51.472 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:51.472 22492 22513 D [Pleos]j: compare to time: 1057
+10-29 01:17:51.727 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:52.008 20006 20616 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:52.013 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:52.083 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:52.087   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:17:53.333 20006 22535 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:53.333 20365 21944 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1988 android.content.ContextWrapper.bindService:861 ai.pleos.car.PleosCar$Companion.createPleosCar$lambda$1$attemptBind:44 ai.pleos.car.PleosCar$Companion.createPleosCar:50 ai.pleos.car.PleosCarProvider.initialize:18 
+10-29 01:17:53.336 20365 21944 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:53.337 21408 21579 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:53.357 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:53.357 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:53.389   178   189 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [926664], float_values: [], byte_values: [], string_bytes: [] } }
+10-29 01:17:53.420 20203 25013 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:53.669 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:53.671 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:53.684 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:53.684 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:53.684 22492 22513 D [Pleos]j: compare to time: 1720
+10-29 01:17:53.684 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:53.684 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:53.684 22492 22513 D [Pleos]j: compare to time: 3273
+10-29 01:17:53.684 22492 22513 I [Pleos]j: [DefaultDispatcher-worker-1]fetchFilterMap propertyEventFilterMap 1
+10-29 01:17:53.684 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]before latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793204270411)
+10-29 01:17:53.684 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]after latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793204273684)
+10-29 01:17:53.684 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]collect event: PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
+10-29 01:17:53.684 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = ai.umos.ambientai, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@5d2dc35, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
+10-29 01:17:53.684 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]include - EV_BATTERY_LEVEL
+10-29 01:17:53.685 21208 21223 D [Pleos][SDK]a: [binder:21208_1]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
+10-29 01:17:53.686 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:53.686 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:53.686 22492 22513 D [Pleos]j: compare to time: 2
+10-29 01:17:53.763 20006 25975 E ActivityManager:   0.5% 178/ai.pleos.hardware.vehicle@V2-sdv-service: 0.2% user + 0.2% kernel / faults: 5 minor
+10-29 01:17:53.763 20006 25975 E ActivityManager:   0.2% 22120/ai.pleos.gleoai.model.provider: 0.1% user + 0.1% kernel / faults: 53 minor 21 major
+10-29 01:17:53.861 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:53.971 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:53.981 20006 22535 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:54.088   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:17:54.877 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:54.882 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:54.882 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:54.882 22492 22513 D [Pleos]j: compare to time: 1196
+10-29 01:17:55.417 20006 22523 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:55.421 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:55.421 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:55.880 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:55.881 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:55.881 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:55.881 22492 22513 D [Pleos]j: compare to time: 2197
+10-29 01:17:55.892 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:55.926 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:55.936 20006 22523 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:56.188   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:17:56.310 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:56.494   178   189 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [929767], float_values: [], byte_values: [], string_bytes: [] } }
+10-29 01:17:56.502 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:56.503 20006 22535 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:56.768 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:57.006 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:57.037 20006 22523 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:57.158 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:58.018 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:58.018 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:58.018 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:58.018 22492 22513 D [Pleos]j: compare to time: 4334
+10-29 01:17:58.022 22492 22513 I [Pleos]j: [DefaultDispatcher-worker-1]fetchFilterMap propertyEventFilterMap 1
+10-29 01:17:58.022 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]before latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793204273684)
+10-29 01:17:58.022 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]after latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793204278022)
+10-29 01:17:58.022 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]collect event: PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
+10-29 01:17:58.022 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = ai.umos.ambientai, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@5d2dc35, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
+10-29 01:17:58.022 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:58.022 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]include - EV_BATTERY_LEVEL
+10-29 01:17:58.023 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:58.187 20006 22523 W ProcessStats: Tracking association SourceState{ba16140 ai.pleos.service.trustagent/1010118 BTop #992} whose proc state 2 is better than process ProcessState{36972ba ai.pleos.service.trustagent/10118 pkg=ai.pleos.service.trustagent} proc state 5 (24 skipped)
+10-29 01:17:58.188 20006 22535 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:58.193   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:17:58.327 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:58.343 20365 21944 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1988 android.content.ContextWrapper.bindService:861 ai.pleos.car.PleosCar$Companion.createPleosCar$lambda$1$attemptBind:44 ai.pleos.car.PleosCar$Companion.createPleosCar:50 ai.pleos.car.PleosCarProvider.initialize:18 
+10-29 01:17:58.652 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:58.658 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:58.671 20365 21944 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:58.682 20203 20583 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:58.684 21408 21579 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:17:58.769 20006 22535 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:58.967 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:59.077 21208 21223 D [Pleos][SDK]a: [binder:21208_1]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
+10-29 01:17:59.256 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:17:59.279 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:17:59.298 20006 20616 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:59.589   178   189 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [932863], float_values: [], byte_values: [], string_bytes: [] } }
+10-29 01:17:59.921 20006 20566 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:17:59.933 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:17:59.934 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:17:59.934 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:17:59.934 22492 22513 D [Pleos]j: compare to time: 1911
+10-29 01:18:00.195   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:18:00.288 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:00.574 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:00.612 20006 20566 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:01.152 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:01.153 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:01.572 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:01.775 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:18:01.776 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:18:01.776 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:18:01.776 22492 22513 D [Pleos]j: compare to time: 3753
+10-29 01:18:01.776 22492 22513 I [Pleos]j: [DefaultDispatcher-worker-1]fetchFilterMap propertyEventFilterMap 1
+10-29 01:18:01.780 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]before latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793204278022)
+10-29 01:18:01.781 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]after latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793204281781)
+10-29 01:18:01.781 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:01.781 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]collect event: PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
+10-29 01:18:01.781 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = ai.umos.ambientai, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@5d2dc35, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
+10-29 01:18:01.781 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]include - EV_BATTERY_LEVEL
+10-29 01:18:01.781 21208 21223 D [Pleos][SDK]a: [binder:21208_1]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
+10-29 01:18:01.914 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:02.197   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:18:02.235 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:02.369 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:02.553 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:02.592   178   189 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [935866], float_values: [], byte_values: [], string_bytes: [] } }
+10-29 01:18:03.175 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:03.415 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:18:03.418 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:18:03.418 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:18:03.418 22492 22513 D [Pleos]j: compare to time: 1634
+10-29 01:18:03.423 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:03.677 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:03.689 20365 21944 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1988 android.content.ContextWrapper.bindService:861 ai.pleos.car.PleosCar$Companion.createPleosCar$lambda$1$attemptBind:44 ai.pleos.car.PleosCar$Companion.createPleosCar:50 ai.pleos.car.PleosCarProvider.initialize:18 
+10-29 01:18:03.732 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:03.845 20006 20566 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:03.858 21408 21579 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:18:03.883 20203 26115 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:18:03.978 20365 21944 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:18:04.047 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:04.199   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:18:04.297 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:04.389 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:04.390 20006 22705 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:04.704 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:04.731 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:18:04.735 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:18:04.735 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:18:04.735 22492 22513 D [Pleos]j: compare to time: 2950
+10-29 01:18:04.954 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:05.264 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:05.574 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:05.579 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:05.595   178   189 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [938869], float_values: [], byte_values: [], string_bytes: [] } }
+10-29 01:18:05.602 20006 22705 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:05.630 21471 21471 D DRIVING_VIEW: [DRIVING_VIEW][UnrealQualitySelector::query] UnrealQualitySelector query vehicleCode: CONNECT
+10-29 01:18:05.931 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:06.119 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:06.156 20006 20033 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:06.201   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:18:06.300 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:06.658 20006 20021 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:07.170 20006 20155 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:07.200 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:07.204 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:07.206 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:18:07.218 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:18:07.218 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:18:07.218 22492 22513 D [Pleos]j: compare to time: 5437
+10-29 01:18:07.218 22492 22513 I [Pleos]j: [DefaultDispatcher-worker-1]fetchFilterMap propertyEventFilterMap 1
+10-29 01:18:07.218 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]before latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793204281781)
+10-29 01:18:07.218 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]after latestMap value: PropertyEventFilterData(propertyEventValue=PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null), collectTime=1793204287218)
+10-29 01:18:07.219 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]collect event: PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
+10-29 01:18:07.219 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]broadcastPropertyCallback() called with: applicationId = ai.umos.ambientai, broadcastItem = ai.pleos.playground.vehicle.callback.IPropertyCallback$Stub$Proxy@5d2dc35, propertyEventItem = PropertyEventItem(packageNames=[ai.umos.ambientai], itemValue=PropertyEventValueItem(propertyKey=EV_BATTERY_LEVEL, areaIds=[0], value=77400.0, error=null))
+10-29 01:18:07.219 22492 22513 D [Pleos]u: [DefaultDispatcher-worker-1]include - EV_BATTERY_LEVEL
+10-29 01:18:07.396 21208 21223 D [Pleos][SDK]a: [binder:21208_1]onChangeEvent() called with: propIdName = EV_BATTERY_LEVEL, areaId = 0, value = 77400.0
+10-29 01:18:07.405 20006 20566 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.analytics.ANALYTICS_START pkg=ai.pleos.playground.service.analytics } U=10: not found
+10-29 01:18:07.528 21611 21611 W PleosService: Rebinding NetsvcService after bindService failed (delay=30000ms)
+10-29 01:18:07.568 20006 20033 W ActivityManager: Unable to start service Intent { act=ai.pleos.system.service.netsvc.NetsvcService pkg=ai.pleos.system.service.netsvc cmp=ai.pleos.system.service.netsvc/.NetsvcService } U=0: not found
+10-29 01:18:07.605 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:07.903 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:08.204   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }
+10-29 01:18:08.206 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:08.279 20006 22705 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:08.488 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:08.519 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:08.596   178   189 I sdv_vhal_rust: sdv_vhal_rust_ffi::rust_vehicle_hardware: vhal set_value: VehiclePropValue { timestamp: 0, prop: 290459441, area_id: 0, status: Available, raw_value: RawPropValues { int32_values: [], int64_values: [941870], float_values: [], byte_values: [], string_bytes: [] } }
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=233 source=vehicle-controls action=web-deactivated domain=30 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=234 source=body-controls action=web-deactivated domain=30 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=235 source=hvac-controls action=web-deactivated domain=23 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=236 source=vehicle-api-etcs action=web-deactivated domain=11 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=237 source=vehicle-api-glove-box action=web-deactivated domain=11 topic=(none) type=sdv_convenience_glove_box::VapiGloveBoxOpened detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=238 source=vehicle-api-telltale action=web-deactivated domain=14 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=239 source=vehicle-api-power-system action=web-deactivated domain=30 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=240 source=vehicle-api-notification action=web-deactivated domain=19 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=241 source=vehicle-api-driving-mode action=web-deactivated domain=17 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=242 source=vehicle-api-odometer action=web-deactivated domain=30 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=243 source=ev-battery action=web-deactivated domain=30 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=244 source=vehicle-api-hvac-air-cleaner action=web-deactivated domain=30 topic=(none) type=sdv_climate_hvac_base::VapiHvacBaseAirPurificationActivated detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=245 source=vehicle-api-steering-wheel-heat action=web-deactivated domain=30 topic=(none) type=sdv_motion_steering_wheel_base::VapiSteeringWheelBaseHandleHeatingLevel detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=246 source=vehicle-api-tire-pressure action=web-deactivated domain=30 topic=SDV_MISC_TIRE_BASE_TIREBASE_ACTUAL_PRESSURE type=sdv_misc_tire_base::VapiTireBasePressure detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=247 source=vehicle-api-seat action=web-deactivated domain=11 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=248 source=scenario action=web-deactivated domain=17 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.653   474   499 I VehicleApiDdsEmu: event seq=249 source=dds-availability action=cleared domain=30 topic=(none) type=(none) detail=source=web-deactivation direct_vhal_write=false
+10-29 01:18:08.766 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:18:08.919 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:18:08.919 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:18:08.919 22492 22513 D [Pleos]j: compare to time: 1612
+10-29 01:18:08.919 21408 21579 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:18:08.926 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:08.931   474   499 I VehicleApiDdsEmu: event seq=250 source=system action=emulation-source-inactive domain=30 topic=(none) type=(none) detail=source=web
+10-29 01:18:08.931   474   499 I VehicleApiDdsEmu: event seq=251 source=http action=browser-inactive domain=30 topic=(none) type=(none) detail=(none)
+10-29 01:18:08.938 20203 26115 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:18:08.938 20006 20033 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:08.983 20365 21944 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.bindService:1988 android.content.ContextWrapper.bindService:861 ai.pleos.car.PleosCar$Companion.createPleosCar$lambda$1$attemptBind:44 ai.pleos.car.PleosCar$Companion.createPleosCar:50 ai.pleos.car.PleosCarProvider.initialize:18 
+10-29 01:18:08.995 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:09.155 20365 21944 W PLEOS_CAR_LIB: [PLEOS_CAR_LIB][PleosCarProvider::getCarManager] PleosCar is not ready yet
+10-29 01:18:09.559 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:09.559 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:09.585 20006 22705 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:09.830 22492 22492 I [Pleos]b: [main]Vehicle onChangeEvent: propertyId=291504905, areaId=0, value=77400.0
+10-29 01:18:09.831 22492 22513 D [Pleos]j: [DefaultDispatcher-worker-1]carPropertyFilter: FlowFilter key SdkPropertyKey(key=EV_BATTERY_LEVEL) areaId 0
+10-29 01:18:09.831 22492 22513 D [Pleos]j: compare to value: current(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) | latest(PropertyEventValue(propertyKey=SdkPropertyKey(key=EV_BATTERY_LEVEL), areaId=0, value=77400.0, error=null)) 
+10-29 01:18:09.831 22492 22513 D [Pleos]j: compare to time: 2612
+10-29 01:18:09.861 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:10.067 23034 23034 D CarEvsVehicleInfoService: Digital mirror is disabled by system property
+10-29 01:18:10.100 20006 20566 W ActivityManager: Unable to start service Intent { act=ai.pleos.iap2.eap.proxy.action.BIND_PROXY_SERVICE pkg=ai.pleos.iap2.eap.proxy } U=10: not found
+10-29 01:18:10.177 23034 23034 W CarEvsVehicleInfoService: Garbage activity checker + (running=false, activityRunning=false)
+10-29 01:18:10.206   178  8270 E sdv_vhal_rust: sdv_vhal_rust_ffi::delegator::vehicle_info: Failed to get vehicle information. Error { kind: SecureStorageError, message: "SecureStorageError: RPC error: Connection failed: Connection failed: Connection refused (os error 111)" }

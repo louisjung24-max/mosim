@@ -1,80 +1,80 @@
-INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.0 SwiftShader 4.0.0.1)
-INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 
-INFO         | Graphics Device Extensions N/A
-INFO         | Disabling sparse binding feature support
-INFO         | Sending adb public key [QAAAAJdEOovZhHJjPphNDZZ2+lFAEYSN9wbbEqsctIW7lRomBkmgqSMmkxE53LSoe/e9zJLctb/bdL1F9q87cWDkuJeDmCxvBPs3gquH/6JqNT5UUDJBNv5MvhqJrGtG1XOM5wFDbQntjk/+oB1/J5Ujzqykzt76YpklMv75nawhI56WAnmQAC6oW9mmQ/fpgv78oAmVoVedBFxk7xExF+CXuB738dSzOv6MeFL0Gx8dy1FBpAaOj1qAz1nwDLsxhnWeuZLrMTtY4i0faXqgE3GHiwV2FLf2s3su7VBQlRpGKxosp+S5LLxnz3brDVCgHL3fgNSKyUnH6UlQmRsmPOmB4Z0v0K+l6VSRKhQSmJospsRAiKRdtD0sg/VqzB7uNlW6lgEoRJSnbsNZfUWa2fb1r5Hm1tR1x7kobx63WVmsX2O3NCGPtcsMhW6wWEztiV/IjYQ2Ue930bYatA1sMRvwUbYLbKGLrVahOHSorWJbRozplBu8VfktR4ttukWjsGocy125pe/19ZOI+X8pwJ1f61EUcYQR0sxZ4ZyrGpBMp8TF6NfpD8igsvaA1aTGF0kCgucWdELcTkulwl+P6dB/swayQ0tXoMxqqE66D8P6nO/NvpecQAaoope67hL2RhcwTesNOdSt3FaYC37roG78Ret9riOVrwqJyshXl6oqRiSzVKBBfgEAAQA= runner@unknown]
-INFO         | Userspace boot properties:
-INFO         |   androidboot.boot_devices=pci0000:00/0000:00:03.0 pci0000:00/0000:00:06.0
-INFO         |   androidboot.dalvik.vm.heapsize=576m
-INFO         |   androidboot.debug.hwui.renderer=skiagl
-INFO         |   androidboot.debug.sf.nobootanimation=1
-INFO         |   androidboot.hardware=ranchu
-INFO         |   androidboot.hardware.gltransport=pipe
-INFO         |   androidboot.hardware.vulkan=ranchu
-INFO         |   androidboot.logcat=*:V
-INFO         |   androidboot.opengles.version=196608
-INFO         |   androidboot.qemu=1
-INFO         |   androidboot.qemu.adb.pubkey=QAAAAJdEOovZhHJjPphNDZZ2+lFAEYSN9wbbEqsctIW7lRomBkmgqSMmkxE53LSoe/e9zJLctb/bdL1F9q87cWDkuJeDmCxvBPs3gquH/6JqNT5UUDJBNv5MvhqJrGtG1XOM5wFDbQntjk/+oB1/J5Ujzqykzt76YpklMv75nawhI56WAnmQAC6oW9mmQ/fpgv78oAmVoVedBFxk7xExF+CXuB738dSzOv6MeFL0Gx8dy1FBpAaOj1qAz1nwDLsxhnWeuZLrMTtY4i0faXqgE3GHiwV2FLf2s3su7VBQlRpGKxosp+S5LLxnz3brDVCgHL3fgNSKyUnH6UlQmRsmPOmB4Z0v0K+l6VSRKhQSmJospsRAiKRdtD0sg/VqzB7uNlW6lgEoRJSnbsNZfUWa2fb1r5Hm1tR1x7kobx63WVmsX2O3NCGPtcsMhW6wWEztiV/IjYQ2Ue930bYatA1sMRvwUbYLbKGLrVahOHSorWJbRozplBu8VfktR4ttukWjsGocy125pe/19ZOI+X8pwJ1f61EUcYQR0sxZ4ZyrGpBMp8TF6NfpD8igsvaA1aTGF0kCgucWdELcTkulwl+P6dB/swayQ0tXoMxqqE66D8P6nO/NvpecQAaoope67hL2RhcwTesNOdSt3FaYC37roG78Ret9riOVrwqJyshXl6oqRiSzVKBBfgEAAQA= runner@unknown
-INFO         |   androidboot.qemu.avd_name=pleos
-INFO         |   androidboot.qemu.camera_hq_edge_processing=0
-INFO         |   androidboot.qemu.camera_protocol_ver=1
-INFO         |   androidboot.qemu.cpuvulkan.version=4206592
-INFO         |   androidboot.qemu.gltransport.drawFlushInterval=800
-INFO         |   androidboot.qemu.gltransport.name=pipe
-INFO         |   androidboot.qemu.hwcodec.avcdec=2
-INFO         |   androidboot.qemu.hwcodec.hevcdec=2
-INFO         |   androidboot.qemu.hwcodec.vpxdec=2
-INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
-INFO         |   androidboot.qemu.skin=2560x1440
-INFO         |   androidboot.qemu.virtiowifi=1
-INFO         |   androidboot.qemu.vsync=60
-INFO         |   androidboot.serialno=EMULATOR37X2X12X0
-INFO         |   androidboot.vbmeta.digest=a43808d542a6f7ea7a54c849d8cf5682b62ae48dca6607440bcc6c6799d72fd7
 INFO         |   androidboot.vbmeta.hash_alg=sha256
 INFO         |   androidboot.vbmeta.size=6720
 INFO         |   androidboot.veritymode=enforcing
-WARNING: cannnot unmap ptr 0x7f0a49801000 as it is in the protected range from 0x7f0949800000 to 0x7f0a49a00000
+WARNING: cannnot unmap ptr 0x7fa6dec01000 as it is in the protected range from 0x7fa5dec00000 to 0x7fa6dee00000
 pc_memory_init: above 4g size: 40000000
 INFO         | Monitoring duration of emulator setup.
 WARNING      | The emulator now requires a signed jwt token for gRPC access! Use the -grpc flag if you really want an open unprotected grpc port
 INFO         | Using security allow list from: /usr/local/lib/android/sdk/emulator/lib/emulator_access.json
-INFO         | The active JSON Web Key Sets can be found here: /run/user/1001/avd/running/3348/jwks/e73ad7ae-ce6f-43f8-ac9e-2cc7eb0dc5c3/active.jwk
-INFO         | Scanning /run/user/1001/avd/running/3348/jwks/e73ad7ae-ce6f-43f8-ac9e-2cc7eb0dc5c3 for jwk keys.
+INFO         | The active JSON Web Key Sets can be found here: /run/user/1001/avd/running/3397/jwks/a6fd680d-fd2a-41d3-a23c-0bd07fc3122a/active.jwk
+INFO         | Scanning /run/user/1001/avd/running/3397/jwks/a6fd680d-fd2a-41d3-a23c-0bd07fc3122a for jwk keys.
 INFO         | Started GRPC server at 127.0.0.1:8554, security: Local, auth: +token
-INFO         | Advertising in: /run/user/1001/avd/running/pid_3348.ini
-INFO         | Successfully initialized netsim WiFi
+INFO         | Advertising in: /run/user/1001/avd/running/pid_3397.ini
 INFO         | Activated packet streamer for bluetooth emulation
+INFO         | Successfully initialized netsim WiFi
 INFO         | Setting display: 0 configuration to: 2560x1440, dpi: 160x160 
 INFO         | setDisplayActiveConfig: id:0, 2560x1440
 INFO         | emulatorSetupEnvironment: Environment scene is not required
 USER_INFO    | Emulator is performing a full startup. This may take upto two minutes, or more.
 WARNING      | Failed to process .ini file /home/runner/.android/emu-update-last-check.ini for reading.
 WARNING      | Failed to process .ini file /home/runner/.android/emu-update-last-check.ini for reading.
-INFO         | Boot completed in 77994 ms
+INFO         | Boot completed in 60961 ms
 INFO         | Increasing screen off timeout, logcat buffer size to 2M.
-ERROR        | Failed to find ColorBuffer: 27
+ERROR        | Failed to find ColorBuffer: 18
 ERROR        | Failed to bind to texture: invalid color buffer.
 dlopen "libcuda.so" failed!
 dlopen "libcuda.so" failed!
 dlopen "libcuda.so" failed!
 Failed to call cuInit, cannot use nvidia cuvid decoder for h264 stream
-[h264 @ 0x5597b2283a80] no frame!
-[h264 @ 0x5597b2283a80] no frame!
-[h264 @ 0x5597bbbf1f80] no frame!
-[h264 @ 0x5597bbbf1f80] no frame!
-[h264 @ 0x5597a6882d80] no frame!
-[h264 @ 0x5597a6882d80] no frame!
-[h264 @ 0x5597bbc72480] no frame!
-[h264 @ 0x5597bbc72480] no frame!
-[h264 @ 0x5597a688ad80] no frame!
-[h264 @ 0x5597a688ad80] no frame!
-ERROR        | Failed to find ColorBuffer: 172
+[h264 @ 0x5631663f4900] no frame!
+[h264 @ 0x5631663f4900] no frame!
+[h264 @ 0x563160bc0000] no frame!
+[h264 @ 0x563160bc0000] no frame!
+[h264 @ 0x56315d416000] no frame!
+[h264 @ 0x56315d416000] no frame!
+[h264 @ 0x563160894880] no frame!
+[h264 @ 0x563160894880] no frame!
+[h264 @ 0x563160635a80] no frame!
+[h264 @ 0x563160635a80] no frame!
+[h264 @ 0x56315d8a2880] no frame!
+[h264 @ 0x56315d8a2880] no frame!
+[h264 @ 0x56315bffed80] no frame!
+[h264 @ 0x56315bffed80] no frame!
+[h264 @ 0x563163e43f80] no frame!
+[h264 @ 0x563163e43f80] no frame!
+[h264 @ 0x56316a89e880] no frame!
+[h264 @ 0x56316a89e880] no frame!
+[h264 @ 0x5631604ad200] no frame!
+[h264 @ 0x5631604ad200] no frame!
+[h264 @ 0x5631adfef180] no frame!
+[h264 @ 0x5631adfef180] no frame!
+[h264 @ 0x5631adfed200] no frame!
+[h264 @ 0x5631adfed200] no frame!
+ERROR        | Failed to find ColorBuffer: 217
 ERROR        | Failed to bind to texture: invalid color buffer.
-[h264 @ 0x5597a19c1180] no frame!
-[h264 @ 0x5597a19c1180] no frame!
-[h264 @ 0x5597bd415a80] no frame!
-[h264 @ 0x5597bd415a80] no frame!
-[h264 @ 0x5597f8781b00] no frame!
-[h264 @ 0x5597f8781b00] no frame!
-[h264 @ 0x5597b0369680] no frame!
-[h264 @ 0x5597b0369680] no frame!
+ERROR        | Failed to find ColorBuffer: 105
+ERROR        | Failed to bind to texture: invalid color buffer.
+[h264 @ 0x5631ab715180] no frame!
+[h264 @ 0x5631ab715180] no frame!
+[h264 @ 0x5631ac196480] no frame!
+[h264 @ 0x5631ac196480] no frame!
+[h264 @ 0x5631b2207600] no frame!
+[h264 @ 0x5631b2207600] no frame!
+[h264 @ 0x56316a118880] no frame!
+[h264 @ 0x56316a118880] no frame!
+[h264 @ 0x563160634d00] no frame!
+[h264 @ 0x563160634d00] no frame!
+[h264 @ 0x5631ab5d0900] no frame!
+[h264 @ 0x5631ab5d0900] no frame!
+[h264 @ 0x5631ab648480] no frame!
+[h264 @ 0x5631ab648480] no frame!
+[h264 @ 0x563160635a80] no frame!
+[h264 @ 0x563160635a80] no frame!
+[h264 @ 0x5631adfe8480] no frame!
+[h264 @ 0x5631adfe8480] no frame!
+[h264 @ 0x5631ac04da80] no frame!
+[h264 @ 0x5631ac04da80] no frame!
+[h264 @ 0x56315c2fbf80] no frame!
+[h264 @ 0x56315c2fbf80] no frame!
+[h264 @ 0x563160628880] no frame!
+[h264 @ 0x563160628880] no frame!
