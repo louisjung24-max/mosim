@@ -53,3 +53,32 @@ PUT /vehicle/controls?speed=0&accelerator=0&brake=60&steering=0 -> 200
 PUT /vehicle/controls?speed=0&accelerator=0&brake=60&steering=0 -> 200
 PUT /vehicle/body?front_wiper=Off -> 200
 PUT /vehicle/gear?gear=Park -> 200
+PUT /vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 -> 200
+PUT /vehicle/gear?gear=Park -> 200
+PUT /vehicle/body?front_wiper=Off -> 200
+PUT /vehicle/gear?gear=Drive -> 200
+PUT /vehicle/body?front_wiper=Low -> 200
+PUT /vehicle/controls?speed=50&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=50&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=50&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=50&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=50&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=50&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=50&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=50&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=50&accelerator=30&brake=0&steering=0 -> 200
+USE_GEO=0
+PUT /vehicle/controls?speed=15&accelerator=0&brake=100&steering=0 -> 200
+PUT /vehicle/controls?speed=35&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=35&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=35&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=35&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=8&accelerator=0&brake=100&steering=0 -> 200
+PUT /vehicle/controls?speed=30&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=30&accelerator=30&brake=0&steering=0 -> 200
+PUT /vehicle/controls?speed=30&accelerator=30&brake=0&steering=0 -> 200
+/vehicle/ev-battery?field=soc&value=8 -> 200
+PUT /vehicle/controls?speed=0&accelerator=0&brake=60&steering=0 -> 200
+PUT /vehicle/controls?speed=0&accelerator=0&brake=60&steering=0 -> 200
+PUT /vehicle/body?front_wiper=Off -> 200
+PUT /vehicle/gear?gear=Park -> 200

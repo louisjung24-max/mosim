@@ -613,7 +613,7 @@
   "direct_vhal_write": false
  },
  "etcs": {
-  "bridge_ready": true,
+  "bridge_ready": false,
   "emulator_active": false,
   "input_mode": "http",
   "actual_topics": {
@@ -627,9 +627,9 @@
    "terminal_info": "SDV_CONVENIENCE_ETCS_ETCS_ACTUAL_TERMINAL_INFO"
   },
   "desired_subscribers": {
-   "activated": true,
-   "voice_guidance_enabled": true,
-   "voice_guidance_volume": true
+   "activated": false,
+   "voice_guidance_enabled": false,
+   "voice_guidance_volume": false
   },
   "supported_scenarios": [
    "power-on",
