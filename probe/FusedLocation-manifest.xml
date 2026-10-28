@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ai.pleos.playground.location.fused" >
+
+    <uses-sdk android:minSdkVersion="23" />
+
+    <queries>
+        <package android:name="ai.pleos.playground.service.location.fused" />
+    </queries>
+
+    <uses-permission android:name="ai.pleos.playground.service.location.fused.FUSED_LOCATION_BINDING" />
+
+    <uses-feature
+        android:name="android.hardware.type.automotive"
+        android:required="true" />
+
+    <application>
+        <meta-data
+            android:name="ai.pleos.playground.service.location.fused.min_version_name"
+            android:value="0.5.0" />
+        <meta-data
+            android:name="ai.pleos.playground.service.location.fused.min_version_code"
+            android:value="1" />
+        <meta-data
+            android:name="ai.pleos.playground.sdk.location.fused.current_version_name"
+            android:value="1.1.3" />
+        <meta-data
+            android:name="ai.pleos.playground.sdk.location.fused.current_version_code"
+            android:value="12" />
+    </application>
+
+</manifest>
