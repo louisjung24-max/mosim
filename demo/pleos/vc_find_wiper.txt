@@ -1,0 +1,1 @@
+{"id": "windshield-wipers-switch", "name": null, "title": null, "write_endpoint": "/vehicle/body", "control": {"kind": "enum", "field_by_area": {"front": "front_wiper", "rear": "rear_wiper"}, "options": [{"label": "Off", "value": "Off"}, {"label": "Auto", "value": "Auto"}, {"label": "Low", "value": "Low"}, {"label": "High", "value": "High"}]}}

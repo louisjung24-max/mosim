@@ -1,0 +1,6 @@
+      pleos.car.permission.TTS_SERVICE: granted=true
+      pleos.car.permission.CAR_ENERGY: granted=true
+      pleos.car.permission.CAR_INFO: granted=true
+      pleos.car.permission.CAR_DRIVE: granted=true
+        pleos.car.permission.FUSED_LOCATION: granted=true
+        pleos.car.permission.FUSED_LOCATION: granted=true

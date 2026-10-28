@@ -1,0 +1,279 @@
+  + permission:pleos.car.permission.NAVI_ROUTE_SEARCH
+    package:ai.pleos.playground.service.navi
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.HID_INPUT_MONITOR
+    package:ai.pleos.system.service.hid
+    label:HID input monitor permission
+    description:Receive HID attach/detach events, list connected HID devices, and subscribe to HID input reports.
+--
+  + permission:pleos.car.permission.ADAS_DRIVING_WARN
+    package:ai.pleos.playground.service.adas
+    label:ADAS_DRIVING_WARN permission
+    description:This permission is required to access observe driving warn api
+--
+  + permission:pleos.car.permission.ACCESS_WIFI_STATE
+    package:ai.pleos.system.service.wifi
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.READ_VR_DB_VERSION
+    package:ai.pleos.playground.caas
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.CONTROL_ADAS_PARKING
+    package:ai.pleos.playground.service.adas
+    label:ADAS_PARKING_CONTROL permission
+    description:This permission is required to access observe parking control api
+--
+  + permission:pleos.car.permission.CAR_PIN_MANAGE
+    package:ai.pleos.service.trustagent
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.ADAS_TRACKED_OBJECT
+    package:ai.pleos.playground.service.adas
+    label:TRACKED_OBJECT permission
+    description:This permission is required to access observe tracked object api
+--
+  + permission:pleos.car.permission.HID_VIRTUAL_DEVICE
+    package:ai.pleos.system.service.hid
+    label:HID virtual device permission
+    description:Register UHID devices and transmit virtual HID reports to the system.
+--
+  + permission:pleos.car.permission.NAVI_NOTIFY
+    package:ai.pleos.playground.service.navi
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.NAVI_CUSTOM_ETC
+    package:ai.pleos.playground.service.navi
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.NAVI_CUSTOM_MAP
+    package:ai.pleos.playground.service.navi
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.CAR_PIN_QUERY
+    package:ai.pleos.service.trustagent
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_DOORS
+    package:ai.pleos.playground.service.vehicle
+    label:private car’s doors
+    description:private car’s doors.
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_DRIVE
+    package:ai.pleos.playground.service.vehicle
+    label:access private car’s drive.
+    description:access private car’s drive.
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_SEATS
+    package:ai.pleos.playground.service.vehicle
+    label:private car’s seats
+    description:private car’s seats.
+--
+  + permission:pleos.car.permission.CONTROL_CAR_DOORS
+    package:ai.pleos.playground.service.vehicle
+    label:control car’s doors
+    description:Control car’s doors.
+--
+  + permission:pleos.car.permission.CONTROL_CAR_DRIVE
+    package:ai.pleos.playground.service.vehicle
+    label:access control car’s drive.
+    description:access control car’s drive.
+--
+  + permission:pleos.car.permission.CONTROL_CAR_SEATS
+    package:ai.pleos.playground.service.vehicle
+    label:control car’s seats
+    description:Control car’s seats.
+--
+  + permission:pleos.car.permission.NAVI_ROUTE
+    package:ai.pleos.playground.service.navi
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.READ_WIFI_CREDENTIAL
+    package:ai.pleos.system.service.wifi
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.ADAS_LOCAL_MAP
+    package:ai.pleos.playground.service.adas
+    label:ADAS_LOCAL_MAP permission
+    description:This permission is required to access observe local map api
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_ENERGY
+    package:ai.pleos.playground.service.vehicle
+    label:private car’s EV charge settings
+    description:private your car’s EV charge settings.
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_INFO
+    package:ai.pleos.playground.service.vehicle
+    label:access private car’s basic information
+    description:Access private car’s basic information.
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_TOLL
+    package:ai.pleos.playground.service.vehicle
+    label:access private car’s toll.
+    description:access private car’s toll.
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_LIGHTS
+    package:ai.pleos.playground.service.vehicle
+    label:access private car’s lights.
+    description:access private car’s lights.
+--
+  + permission:pleos.car.permission.FUSED_LOCATION
+    package:ai.pleos.playground.service.location.fused
+    label:FUSED_LOCATION permission
+    description:null
+--
+  + permission:pleos.car.permission.STT_SERVICE
+    package:ai.pleos.playground.caas
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.TTS_SERVICE
+    package:ai.pleos.playground.caas
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_SAFETY
+    package:ai.pleos.playground.service.vehicle
+    label:access private car’s safety.
+    description:access private car’s safety.
+--
+  + permission:pleos.car.permission.ADAS_PARKING
+    package:ai.pleos.playground.service.adas
+    label:ADAS_PARKING permission
+    description:This permission is required to access observe parking api
+--
+  + permission:pleos.car.permission.NAVI_CUSTOM_ROUTE
+    package:ai.pleos.playground.service.navi
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.CAR_ENERGY
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s energy information
+    description:Access your car’s energy information.
+--
+  + permission:pleos.car.permission.CAR_INFO
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s basic information
+    description:Access car’s basic information.
+--
+  + permission:pleos.car.permission.CAR_TOLL
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s toll.
+    description:Access car’s toll.
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_CLIMATE
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s hvac
+    description:Access your car’s hvac.
+--
+  + permission:pleos.car.permission.CAR_LIGHTS
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s lights.
+    description:access car’s lights.
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_MIRRORS
+    package:ai.pleos.playground.service.vehicle
+    label:private car’s mirrors
+    description:private car’s mirrors.
+--
+  + permission:pleos.car.permission.CAR_SAFETY
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s safety.
+    description:access car’s safety.
+--
+  + permission:pleos.car.permission.CAR_CLIMATE
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s climate.
+    description:access car’s climate.
+--
+  + permission:pleos.car.permission.PRIVATE_CAR_WINDOWS
+    package:ai.pleos.playground.service.vehicle
+    label:private car’s windows
+    description:private car’s windows.
+--
+  + permission:pleos.car.permission.CAR_MIRRORS
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s mirrors.
+    description:access car’s mirrors.
+--
+  + permission:pleos.car.permission.CONTROL_CAR_CLIMATE
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s hvac
+    description:Access your car’s hvac.
+--
+  + permission:pleos.car.permission.LLM_SERVICE
+    package:ai.pleos.playground.caas
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.CHANGE_WIFI_STATE
+    package:ai.pleos.system.service.wifi
+    label:null
+    description:null
+--
+  + permission:pleos.car.permission.CONTROL_CAR_MIRRORS
+    package:ai.pleos.playground.service.vehicle
+    label:control car’s mirrors
+    description:Control car’s mirrors.
+--
+  + permission:pleos.car.permission.CONTROL_CAR_ENERGY
+    package:ai.pleos.playground.service.vehicle
+    label:Control car’s EV charge settings
+    description:Control your car’s EV charge settings.
+--
+  + permission:pleos.car.permission.CAR_WINDOWS
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s windows.
+    description:access car’s windows.
+--
+  + permission:pleos.car.permission.CONTROL_CAR_INFO
+    package:ai.pleos.playground.service.vehicle
+    label:access control car’s basic information
+    description:Access control car’s basic information.
+--
+  + permission:pleos.car.permission.CONTROL_CAR_TOLL
+    package:ai.pleos.playground.service.vehicle
+    label:access control car’s toll.
+    description:Access control car’s toll.
+--
+  + permission:pleos.car.permission.CONTROL_CAR_LIGHTS
+    package:ai.pleos.playground.service.vehicle
+    label:access control car’s lights.
+    description:access control car’s lights.
+--
+  + permission:pleos.car.permission.CONTROL_CAR_WINDOWS
+    package:ai.pleos.playground.service.vehicle
+    label:control car’s windows
+    description:Control car’s windows.
+--
+  + permission:pleos.car.permission.CONTROL_CAR_SAFETY
+    package:ai.pleos.playground.service.vehicle
+    label:access control car’s safety.
+    description:access control car’s safety.
+--
+  + permission:pleos.car.permission.CAR_DOORS
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s doors.
+    description:access car’s doors.
+--
+  + permission:pleos.car.permission.CAR_DRIVE
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s drive.
+    description:access car’s drive.
+--
+  + permission:pleos.car.permission.CAR_SEATS
+    package:ai.pleos.playground.service.vehicle
+    label:access car’s seats.
+    description:access car’s seats.

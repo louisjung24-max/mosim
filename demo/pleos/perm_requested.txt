@@ -1,0 +1,34 @@
+    requested permissions:
+      android.permission.INTERNET
+      android.permission.FOREGROUND_SERVICE
+      android.permission.FOREGROUND_SERVICE_DATA_SYNC
+      android.permission.POST_NOTIFICATIONS
+      pleos.car.permission.CAR_DRIVE
+      pleos.car.permission.CAR_POWERTRAIN
+      pleos.car.permission.CAR_ENERGY
+      pleos.car.permission.CAR_MILEAGE
+      pleos.car.permission.CAR_INFO
+      pleos.car.permission.READ_WINDSHIELD_WIPERS
+      pleos.car.permission.TTS_SERVICE
+      pleos.car.permission.FUSED_LOCATION
+      android.car.permission.CAR_INFO
+      android.car.permission.CAR_ENERGY
+      android.car.permission.CAR_SPEED
+      android.car.permission.CAR_TIRES
+      ai.pleos.playground.service.vehicle.VEHICLE_BINDING
+      ai.pleos.playground.service.location.fused.FUSED_LOCATION_BINDING
+      com.hiddenframe.mosim.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+    install permissions:
+      ai.pleos.playground.service.vehicle.VEHICLE_BINDING: granted=true
+      com.hiddenframe.mosim.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: granted=true
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.INTERNET: granted=true
+      android.car.permission.CAR_TIRES: granted=false
+      pleos.car.permission.TTS_SERVICE: granted=true
+      android.permission.FOREGROUND_SERVICE_DATA_SYNC: granted=true
+      pleos.car.permission.CAR_ENERGY: granted=true
+      pleos.car.permission.CAR_INFO: granted=true
+      pleos.car.permission.CAR_DRIVE: granted=true
+      ai.pleos.playground.service.location.fused.FUSED_LOCATION_BINDING: granted=true
+      android.car.permission.CAR_INFO: granted=true
+    User 0: ceDataInode=319547 installed=true hidden=false suspended=false distractionFlags=0 stopped=true notLaunched=true enabled=0 instant=false virtual=false
