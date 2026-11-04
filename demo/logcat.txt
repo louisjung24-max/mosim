@@ -1,632 +1,454 @@
 --------- beginning of system
-11-04 15:19:08.728   518   518 W ActivityManager: Too early to start/bind service in system_server: Phase=550 ComponentInfo{com.android.server.telecom/com.android.server.telecom.components.TelecomService}
-11-04 15:19:08.728   518   518 W ActivityManager: Too early to start/bind service in system_server: Phase=550 ComponentInfo{com.android.server.telecom/com.android.server.telecom.components.TelecomService}
-11-04 15:19:08.759   518   549 W ActivityManager: com.google.android.permissioncontroller inode == 0 (b/152760674)
-11-04 15:19:08.759   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:09.462   518   549 W ActivityManager: com.android.car.cluster.osdouble inode == 0 (b/152760674)
-11-04 15:19:09.462   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:09.488   518   549 W ActivityManager: com.android.car.cluster.osdouble inode == 0 (b/152760674)
-11-04 15:19:09.488   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:09.806   518   549 W ActivityManager: com.google.android.networkstack inode == 0 (b/152760674)
-11-04 15:19:09.807   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:10.067   518   549 W ActivityManager: com.android.car.cluster.home inode == 0 (b/152760674)
-11-04 15:19:10.067   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:10.201   518   549 W ActivityManager: Slow operation: 138ms so far, now at startProcess: done updating battery stats
-11-04 15:19:10.201   518   549 W ActivityManager: Slow operation: 138ms so far, now at startProcess: building log message
-11-04 15:19:10.201   518   549 W ActivityManager: Slow operation: 138ms so far, now at startProcess: starting to update pids map
-11-04 15:19:10.201   518   549 W ActivityManager: Slow operation: 138ms so far, now at startProcess: done updating pids map
-11-04 15:19:10.201   518   549 W ActivityManager: Slow operation: 132ms so far, now at startProcess: asking zygote to start proc
-11-04 15:19:10.201   518   549 W ActivityManager: com.android.car.cluster.osdouble inode == 0 (b/152760674)
-11-04 15:19:10.201   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:10.206   518   549 W ActivityManager: Slow operation: 137ms so far, now at startProcess: returned from zygote!
-11-04 15:19:10.219   518   549 W ActivityManager: Slow operation: 150ms so far, now at startProcess: done updating battery stats
-11-04 15:19:10.219   518   549 W ActivityManager: Slow operation: 150ms so far, now at startProcess: building log message
-11-04 15:19:10.219   518   549 W ActivityManager: Slow operation: 150ms so far, now at startProcess: starting to update pids map
-11-04 15:19:10.219   518   549 W ActivityManager: Slow operation: 150ms so far, now at startProcess: done updating pids map
-11-04 15:19:10.219   518   549 W ActivityManager: Slow operation: 147ms so far, now at startProcess: asking zygote to start proc
-11-04 15:19:10.220   518   549 W ActivityManager: com.android.se inode == 0 (b/152760674)
-11-04 15:19:10.220   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:10.244   518   549 W ActivityManager: Slow operation: 172ms so far, now at startProcess: returned from zygote!
-11-04 15:19:10.244   518   549 W ActivityManager: Slow operation: 172ms so far, now at startProcess: done updating battery stats
-11-04 15:19:10.244   518   549 W ActivityManager: Slow operation: 172ms so far, now at startProcess: building log message
-11-04 15:19:10.244   518   549 W ActivityManager: Slow operation: 172ms so far, now at startProcess: starting to update pids map
-11-04 15:19:10.244   518   549 W ActivityManager: Slow operation: 172ms so far, now at startProcess: done updating pids map
-11-04 15:19:10.244   518   549 W ActivityManager: Slow operation: 169ms so far, now at startProcess: asking zygote to start proc
-11-04 15:19:10.244   518   549 W ActivityManager: com.android.providers.telephony inode == 0 (b/152760674)
-11-04 15:19:10.244   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:10.247   518   549 W ActivityManager: Slow operation: 172ms so far, now at startProcess: returned from zygote!
-11-04 15:19:10.247   518   549 W ActivityManager: Slow operation: 172ms so far, now at startProcess: done updating battery stats
-11-04 15:19:10.247   518   549 W ActivityManager: Slow operation: 172ms so far, now at startProcess: building log message
-11-04 15:19:10.247   518   549 W ActivityManager: Slow operation: 172ms so far, now at startProcess: starting to update pids map
-11-04 15:19:10.247   518   549 W ActivityManager: Slow operation: 172ms so far, now at startProcess: done updating pids map
-11-04 15:19:10.247   518   549 W ActivityManager: Slow operation: 163ms so far, now at startProcess: asking zygote to start proc
-11-04 15:19:10.247   518   549 W ActivityManager: com.android.systemui inode == 0 (b/152760674)
-11-04 15:19:10.247   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:10.258   518   549 W ActivityManager: Slow operation: 174ms so far, now at startProcess: returned from zygote!
-11-04 15:19:10.258   518   549 W ActivityManager: Slow operation: 174ms so far, now at startProcess: done updating battery stats
-11-04 15:19:10.258   518   549 W ActivityManager: Slow operation: 174ms so far, now at startProcess: building log message
-11-04 15:19:10.258   518   549 W ActivityManager: Slow operation: 174ms so far, now at startProcess: starting to update pids map
-11-04 15:19:10.258   518   549 W ActivityManager: Slow operation: 174ms so far, now at startProcess: done updating pids map
-11-04 15:19:10.258   518   549 W ActivityManager: com.google.android.car.setupwizard inode == 0 (b/152760674)
-11-04 15:19:10.258   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:10.278   518   549 W ActivityManager: Slow operation: 60ms so far, now at startProcess: returned from zygote!
-11-04 15:19:10.279   518   549 W ActivityManager: Slow operation: 61ms so far, now at startProcess: done updating battery stats
-11-04 15:19:10.279   518   549 W ActivityManager: Slow operation: 61ms so far, now at startProcess: building log message
-11-04 15:19:10.279   518   549 W ActivityManager: Slow operation: 61ms so far, now at startProcess: starting to update pids map
-11-04 15:19:10.279   518   549 W ActivityManager: Slow operation: 61ms so far, now at startProcess: done updating pids map
-11-04 15:19:10.401   518   549 W ActivityManager: com.google.android.gsf inode == 0 (b/152760674)
-11-04 15:19:10.599   518   549 W ActivityManager: com.google.android.companiondevicesupport inode == 0 (b/152760674)
-11-04 15:19:10.599   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:10.604   518  1042 W ActivityManager: Unable to start service Intent { cmp=com.android.car.cartelemetryapp/.CarMetricsCollectorService } U=0: not found
-11-04 15:19:11.210   518  1035 W ActivityManager: Unable to start service Intent { cmp=com.android.experimentalcar/.ExperimentalCarService } U=0: not found
-11-04 15:19:14.381   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:14.639   518  1001 W ActivityManager: UserLifecycleEvent 4 received without an active userJourneySession.
-11-04 15:19:14.986   518   549 W ActivityManager: com.google.android.car.setupwizard inode == 0 (b/152760674)
-11-04 15:19:14.986   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:15.146   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:15.203   518   549 W ActivityManager: Slow operation: 57ms so far, now at startProcess: returned from zygote!
-11-04 15:19:15.204   518   549 W ActivityManager: Slow operation: 58ms so far, now at startProcess: done updating battery stats
-11-04 15:19:15.204   518   549 W ActivityManager: Slow operation: 58ms so far, now at startProcess: building log message
-11-04 15:19:15.204   518   549 W ActivityManager: Slow operation: 58ms so far, now at startProcess: starting to update pids map
-11-04 15:19:15.205   518   549 W ActivityManager: Slow operation: 59ms so far, now at startProcess: done updating pids map
-11-04 15:19:15.307   518   549 W ActivityManager: com.google.android.permissioncontroller inode == 0 (b/152760674)
-11-04 15:19:15.307   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:15.360   518   549 W ActivityManager: Slow operation: 75ms so far, now at startProcess: returned from zygote!
-11-04 15:19:15.362   518   549 W ActivityManager: Slow operation: 77ms so far, now at startProcess: done updating battery stats
-11-04 15:19:15.362   518   549 W ActivityManager: Slow operation: 77ms so far, now at startProcess: building log message
-11-04 15:19:15.362   518   549 W ActivityManager: Slow operation: 77ms so far, now at startProcess: starting to update pids map
-11-04 15:19:15.362   518   549 W ActivityManager: Slow operation: 77ms so far, now at startProcess: done updating pids map
-11-04 15:19:15.471   518   549 W ActivityManager: android inode == 0 (b/152760674)
-11-04 15:19:15.471   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:15.544   518   549 W ActivityManager: Slow operation: 74ms so far, now at startProcess: done updating battery stats
-11-04 15:19:15.544   518   549 W ActivityManager: Slow operation: 74ms so far, now at startProcess: building log message
-11-04 15:19:15.544   518   549 W ActivityManager: Slow operation: 74ms so far, now at startProcess: starting to update pids map
-11-04 15:19:15.544   518   549 W ActivityManager: Slow operation: 74ms so far, now at startProcess: done updating pids map
-11-04 15:19:17.019   518   549 W ActivityManager: com.google.android.carassistant inode == 0 (b/152760674)
-11-04 15:19:17.019   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:17.100   518   549 W ActivityManager: Slow operation: 67ms so far, now at startProcess: returned from zygote!
-11-04 15:19:17.111   518   549 W ActivityManager: Slow operation: 104ms so far, now at startProcess: done updating battery stats
-11-04 15:19:17.111   518   549 W ActivityManager: Slow operation: 104ms so far, now at startProcess: building log message
-11-04 15:19:17.111   518   549 W ActivityManager: Slow operation: 104ms so far, now at startProcess: starting to update pids map
-11-04 15:19:17.111   518   549 W ActivityManager: Slow operation: 104ms so far, now at startProcess: done updating pids map
-11-04 15:19:17.401   518  1042 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.phenotype.service.START pkg=com.google.android.gms } U=0: not found
-11-04 15:19:17.403   518  1042 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@5627530
-11-04 15:19:17.458   518  1264 W ActivityManager: Unable to start service Intent { act=com.google.android.chimera.BoundService.START dat=chimera-action: cmp=com.google.android.gms/.chimera.PersistentBoundBrokerService } U=0: not found
-11-04 15:19:17.460   518  1264 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@3578fd5
-11-04 15:19:21.847   518   729 W ActivityManager: Unable to start service Intent { act=com.google.android.chimera.BoundService.START dat=chimera-action: cmp=com.google.android.gms/.chimera.PersistentApiService } U=0: not found
-11-04 15:19:21.847   518   594 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@53fa027
-11-04 15:19:22.676   518   729 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.phenotype.service.START pkg=com.google.android.gms } U=10: not found
-11-04 15:19:22.687   518   792 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@d5256a0
-11-04 15:19:22.901   518   549 W ActivityManager: Slow operation: 58ms so far, now at startProcess: asking zygote to start proc
-11-04 15:19:22.903   518   549 W ActivityManager: com.google.android.ext.services inode == 0 (b/152760674)
-11-04 15:19:22.903   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:22.920   518   540 W ActivityManager: UserLifecycleEvent 5 received without an active userJourneySession.
-11-04 15:19:24.862   518   549 W ActivityManager: Slow operation: 2019ms so far, now at startProcess: returned from zygote!
-11-04 15:19:24.867   518   549 W ActivityManager: Slow operation: 2024ms so far, now at startProcess: done updating battery stats
-11-04 15:19:24.867   518   549 W ActivityManager: Slow operation: 2024ms so far, now at startProcess: building log message
-11-04 15:19:24.867   518   549 W ActivityManager: Slow operation: 2024ms so far, now at startProcess: starting to update pids map
-11-04 15:19:25.854   518   549 W ActivityManager: Slow operation: 3010ms so far, now at startProcess: done updating pids map
-11-04 15:19:27.902   518  1264 W ActivityManager: Slow operation: 132ms so far, now at attachApplicationLocked: before bindApplication
-11-04 15:19:27.919   518  1264 W ActivityManager: Slow operation: 149ms so far, now at attachApplicationLocked: immediately before bindApplication
-11-04 15:19:28.104   518  1264 W ActivityManager: Slow operation: 334ms so far, now at attachApplicationLocked: immediately after bindApplication
-11-04 15:19:28.127   518  1264 W ActivityManager: Slow operation: 357ms so far, now at attachApplicationLocked: after updateLruProcessLocked
-11-04 15:19:28.155   518  1264 W ActivityManager: Slow operation: 385ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:19:29.882   518  1492 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.phenotype.service.START pkg=com.google.android.gms } U=10: not found
-11-04 15:19:29.923   518  1492 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@e338a91
-11-04 15:19:32.749   518  1312 W ActivityManager: UserLifecycleEvent 4 received without an active userJourneySession.
-11-04 15:19:32.772   518  1312 W ActivityManager: UserLifecycleEvent 5 received without an active userJourneySession.
-11-04 15:19:38.789   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:38.812   518   549 W ActivityManager: Slow operation: 61ms so far, now at startProcess: returned from zygote!
-11-04 15:19:38.943   518   549 W ActivityManager: Slow operation: 192ms so far, now at startProcess: done updating battery stats
-11-04 15:19:38.943   518   549 W ActivityManager: Slow operation: 192ms so far, now at startProcess: building log message
-11-04 15:19:38.943   518   549 W ActivityManager: Slow operation: 192ms so far, now at startProcess: starting to update pids map
-11-04 15:19:38.943   518   549 W ActivityManager: Slow operation: 192ms so far, now at startProcess: done updating pids map
-11-04 15:19:39.300   518   616 W ActivityManager: Slow operation: 68ms so far, now at startProcess: done creating new process record
-11-04 15:19:39.300   518   616 W ActivityManager: Slow operation: 68ms so far, now at startProcess: stepping in to startProcess
-11-04 15:19:39.319   518   549 W ActivityManager: com.google.android.bluetooth inode == 0 (b/152760674)
-11-04 15:19:39.319   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:39.319   518   616 W ActivityManager: Slow operation: 87ms so far, now at startProcess: done starting proc!
-11-04 15:19:39.457   518   549 W ActivityManager: Slow operation: 156ms so far, now at startProcess: returned from zygote!
-11-04 15:19:39.740   518   549 W ActivityManager: Slow operation: 438ms so far, now at startProcess: done updating battery stats
-11-04 15:19:39.740   518   549 W ActivityManager: Slow operation: 440ms so far, now at startProcess: building log message
-11-04 15:19:39.740   518   549 W ActivityManager: Slow operation: 440ms so far, now at startProcess: starting to update pids map
-11-04 15:19:39.740   518   549 W ActivityManager: Slow operation: 440ms so far, now at startProcess: done updating pids map
-11-04 15:19:40.781   518   548 W ActivityManager: UserLifecycleEvent 4 received without an active userJourneySession.
-11-04 15:19:40.816   518   548 W ActivityManager: UserLifecycleEvent 5 received without an active userJourneySession.
-11-04 15:19:40.817   518   548 E ActivityManager: User switch timeout: from 0 to 10
-11-04 15:19:41.237   518  1271 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.gservices.START pkg=com.google.android.gms } U=0: not found
-11-04 15:19:41.250   518  1042 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@15cc7d5
-11-04 15:19:41.446   518   548 W ActivityManager: UserLifecycleEvent 5 received without an active userJourneySession.
-11-04 15:19:41.446   518   548 W ActivityManager: UserLifecycleEvent 6 received without an active userJourneySession.
-11-04 15:19:43.273   518   549 W ActivityManager: Slow operation: 830ms so far, now at startProcess: returned from zygote!
-11-04 15:19:43.273   518   549 W ActivityManager: Slow operation: 1334ms so far, now at startProcess: done updating battery stats
-11-04 15:19:43.273   518   549 W ActivityManager: Slow operation: 1334ms so far, now at startProcess: building log message
-11-04 15:19:43.273   518   549 W ActivityManager: Slow operation: 1334ms so far, now at startProcess: starting to update pids map
-11-04 15:19:43.275   518   549 W ActivityManager: Slow operation: 1336ms so far, now at startProcess: done updating pids map
-11-04 15:19:43.275   518   549 W ActivityManager: Slow operation: 1221ms so far, now at startProcess: asking zygote to start proc
-11-04 15:19:43.275   518   549 W ActivityManager: com.google.android.bluetooth inode == 0 (b/152760674)
-11-04 15:19:43.275   518   549 W ActivityManager: com.google.android.gms inode == 0 (b/152760674)
-11-04 15:19:44.251   518  1681 W ActivityManager: Slow operation: 528ms so far, now at attachApplicationLocked: before bindApplication
-11-04 15:19:44.559   518  1681 W ActivityManager: Slow operation: 836ms so far, now at attachApplicationLocked: immediately before bindApplication
-11-04 15:19:44.563   518  1681 W ActivityManager: Slow operation: 840ms so far, now at attachApplicationLocked: immediately after bindApplication
-11-04 15:19:44.569   518  1681 W ActivityManager: Slow operation: 846ms so far, now at attachApplicationLocked: after updateLruProcessLocked
-11-04 15:19:44.572   518  1681 W ActivityManager: Slow operation: 849ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:19:44.643   518   549 W ActivityManager: Slow operation: 2589ms so far, now at startProcess: returned from zygote!
-11-04 15:19:44.650   518   549 W ActivityManager: Slow operation: 2596ms so far, now at startProcess: done updating battery stats
-11-04 15:19:44.650   518   549 W ActivityManager: Slow operation: 2596ms so far, now at startProcess: building log message
-11-04 15:19:44.650   518   549 W ActivityManager: Slow operation: 2596ms so far, now at startProcess: starting to update pids map
-11-04 15:19:44.650   518   549 W ActivityManager: Slow operation: 2596ms so far, now at startProcess: done updating pids map
-11-04 15:19:45.339   518  1492 W ActivityManager: UserLifecycleEvent 4 received without an active userJourneySession.
-11-04 15:19:46.219   518  1492 W ActivityManager: UserLifecycleEvent 5 received without an active userJourneySession.
-11-04 15:19:46.406   518  1681 W ActivityManager: Slow operation: 1000ms so far, now at attachApplicationLocked: immediately after bindApplication
-11-04 15:19:46.406   518  1681 W ActivityManager: Slow operation: 1000ms so far, now at attachApplicationLocked: after updateLruProcessLocked
-11-04 15:19:46.406   518  1681 W ActivityManager: Slow operation: 1000ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:19:46.409   518  1681 W ActivityManager: Slow operation: 1003ms so far, now at attachApplicationLocked: after updateOomAdjLocked
-11-04 15:19:46.683   518  1762 W ActivityManager: Unable to start service Intent { cmp=com.android.car.messenger/.MessengerService } U=10: not found
-11-04 15:19:46.685   518  1762 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.maps/com.google.android.apps.geo.autograph.vms.platform.car.CarVmsPublisherClientService } U=10: not found
-11-04 15:19:46.686   518  1681 W ActivityManager: Unable to start service Intent { cmp=com.android.car.custominput.sample/.SampleCustomInputService } U=10: not found
-11-04 15:19:46.687   518  1681 W ActivityManager: Unable to start service Intent { cmp=com.android.car.castreceiver/.CastReceiverCompanionService } U=10: not found
-11-04 15:19:46.688   518  1681 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.mediashell/.automotive.AutomotiveCastReceiverService } U=10: not found
-11-04 15:19:46.784   518   549 W ActivityManager: Slow operation: 149ms so far, now at startProcess: returned from zygote!
-11-04 15:19:46.939   518  1492 W ActivityManager: User switch slowed down by observer #0 UserTrackerImpl: result took 6802 ms to process.
-11-04 15:19:46.939   518  1492 E ActivityManager: User switch timeout: observer #0 UserTrackerImpl's result was received 6806 ms after dispatchUserSwitch.
-11-04 15:19:47.022   518   549 W ActivityManager: Slow operation: 387ms so far, now at startProcess: done updating battery stats
-11-04 15:19:47.022   518   549 W ActivityManager: Slow operation: 387ms so far, now at startProcess: building log message
-11-04 15:19:47.022   518   549 W ActivityManager: Slow operation: 387ms so far, now at startProcess: starting to update pids map
-11-04 15:19:47.023   518   549 W ActivityManager: Slow operation: 388ms so far, now at startProcess: done updating pids map
-11-04 15:19:47.023   518   549 W ActivityManager: Slow operation: 339ms so far, now at startProcess: asking zygote to start proc
-11-04 15:19:47.039   518   549 W ActivityManager: Slow operation: 355ms so far, now at startProcess: returned from zygote!
-11-04 15:19:47.059   518   549 W ActivityManager: Slow operation: 375ms so far, now at startProcess: done updating battery stats
-11-04 15:19:47.059   518   549 W ActivityManager: Slow operation: 375ms so far, now at startProcess: building log message
-11-04 15:19:47.059   518   549 W ActivityManager: Slow operation: 375ms so far, now at startProcess: starting to update pids map
-11-04 15:19:47.060   518   549 W ActivityManager: Slow operation: 376ms so far, now at startProcess: done updating pids map
-11-04 15:19:47.060   518   549 W ActivityManager: Slow operation: 363ms so far, now at startProcess: asking zygote to start proc
-11-04 15:19:47.109   518   549 W ActivityManager: Slow operation: 412ms so far, now at startProcess: returned from zygote!
-11-04 15:19:47.109   518   549 W ActivityManager: Slow operation: 412ms so far, now at startProcess: done updating battery stats
-11-04 15:19:47.109   518   549 W ActivityManager: Slow operation: 412ms so far, now at startProcess: building log message
-11-04 15:19:47.109   518   549 W ActivityManager: Slow operation: 412ms so far, now at startProcess: starting to update pids map
-11-04 15:19:47.110   518   549 W ActivityManager: Slow operation: 413ms so far, now at startProcess: done updating pids map
-11-04 15:19:47.143   518   549 W ActivityManager: Slow operation: 82ms so far, now at startProcess: returned from zygote!
-11-04 15:19:47.143   518   549 W ActivityManager: Slow operation: 82ms so far, now at startProcess: done updating battery stats
-11-04 15:19:47.143   518   549 W ActivityManager: Slow operation: 82ms so far, now at startProcess: building log message
-11-04 15:19:47.143   518   549 W ActivityManager: Slow operation: 82ms so far, now at startProcess: starting to update pids map
-11-04 15:19:47.143   518   549 W ActivityManager: Slow operation: 82ms so far, now at startProcess: done updating pids map
-11-04 15:19:47.347   518  1035 W ActivityManager: Slow operation: 57ms so far, now at attachApplicationLocked: immediately before bindApplication
-11-04 15:19:47.347   518  1035 W ActivityManager: Slow operation: 57ms so far, now at attachApplicationLocked: immediately after bindApplication
-11-04 15:19:47.347   518  1035 W ActivityManager: Slow operation: 57ms so far, now at attachApplicationLocked: after updateLruProcessLocked
-11-04 15:19:47.958   518  1035 W ActivityManager: Slow operation: 668ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:19:50.130   518  1896 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.gservices.START pkg=com.google.android.gms } U=10: not found
-11-04 15:19:50.599   518  1896 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@5a86756
-11-04 15:19:56.550   518   549 W ActivityManager: Slow operation: 2048ms so far, now at startProcess: returned from zygote!
-11-04 15:19:59.160   518   549 W ActivityManager: Slow operation: 4658ms so far, now at startProcess: done updating battery stats
-11-04 15:19:59.160   518   549 W ActivityManager: Slow operation: 4658ms so far, now at startProcess: building log message
-11-04 15:19:59.160   518   549 W ActivityManager: Slow operation: 4658ms so far, now at startProcess: starting to update pids map
-11-04 15:19:59.160   518   549 W ActivityManager: Slow operation: 4658ms so far, now at startProcess: done updating pids map
-11-04 15:20:02.919   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.btservice.AdapterService in 1000ms for connection
-11-04 15:20:09.590   518   616 W ActivityManager: Slow operation: 653ms so far, now at startProcess: building args
-11-04 15:20:09.668   518   549 W ActivityManager: Slow operation: 731ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:09.671   518   616 W ActivityManager: Slow operation: 734ms so far, now at startProcess: done starting proc!
-11-04 15:20:10.755   518   622 W ActivityManager: Slow operation: 55ms so far, now at startProcess: done starting proc!
-11-04 15:20:10.971   518   548 W ActivityManager: UserLifecycleEvent 5 received without an active userJourneySession.
-11-04 15:20:10.971   518   548 W ActivityManager: UserLifecycleEvent 6 received without an active userJourneySession.
-11-04 15:20:11.695   518   549 W ActivityManager: Slow operation: 2758ms so far, now at startProcess: returned from zygote!
-11-04 15:20:11.695   518   549 W ActivityManager: Slow operation: 2758ms so far, now at startProcess: done updating battery stats
-11-04 15:20:11.695   518   549 W ActivityManager: Slow operation: 2758ms so far, now at startProcess: building log message
-11-04 15:20:11.695   518   549 W ActivityManager: Slow operation: 2758ms so far, now at startProcess: starting to update pids map
-11-04 15:20:11.704   518   549 W ActivityManager: Slow operation: 2767ms so far, now at startProcess: done updating pids map
-11-04 15:20:11.704   518   549 W ActivityManager: Slow operation: 1004ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:13.002   518   549 W ActivityManager: Slow operation: 2302ms so far, now at startProcess: returned from zygote!
-11-04 15:20:14.300   518   549 W ActivityManager: Slow operation: 3600ms so far, now at startProcess: done updating battery stats
-11-04 15:20:14.302   518   549 W ActivityManager: Slow operation: 3602ms so far, now at startProcess: building log message
-11-04 15:20:14.302   518   549 W ActivityManager: Slow operation: 3602ms so far, now at startProcess: starting to update pids map
-11-04 15:20:14.302   518   549 W ActivityManager: Slow operation: 3602ms so far, now at startProcess: done updating pids map
-11-04 15:20:14.302   518   549 W ActivityManager: Slow operation: 2680ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:15.555   518   549 W ActivityManager: Slow operation: 3933ms so far, now at startProcess: returned from zygote!
-11-04 15:20:15.561   518   549 W ActivityManager: Slow operation: 3939ms so far, now at startProcess: done updating battery stats
-11-04 15:20:15.561   518   549 W ActivityManager: Slow operation: 3939ms so far, now at startProcess: building log message
-11-04 15:20:15.561   518   549 W ActivityManager: Slow operation: 3939ms so far, now at startProcess: starting to update pids map
-11-04 15:20:15.561   518   549 W ActivityManager: Slow operation: 3939ms so far, now at startProcess: done updating pids map
-11-04 15:20:15.562   518   549 W ActivityManager: Slow operation: 170ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:16.067   518   549 W ActivityManager: Slow operation: 675ms so far, now at startProcess: returned from zygote!
-11-04 15:20:16.067   518   549 W ActivityManager: Slow operation: 675ms so far, now at startProcess: done updating battery stats
-11-04 15:20:16.067   518   549 W ActivityManager: Slow operation: 675ms so far, now at startProcess: building log message
-11-04 15:20:16.067   518   549 W ActivityManager: Slow operation: 675ms so far, now at startProcess: starting to update pids map
-11-04 15:20:16.072   518   549 W ActivityManager: Slow operation: 680ms so far, now at startProcess: done updating pids map
-11-04 15:20:16.555   518   729 W ActivityManager: Slow operation: 53ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:20:17.623   518   605 W ActivityManager: Slow operation: 89ms so far, now at startProcess: done starting proc!
-11-04 15:20:17.987   518   549 W ActivityManager: Slow operation: 1176ms so far, now at startProcess: returned from zygote!
-11-04 15:20:17.987   518   549 W ActivityManager: Slow operation: 1176ms so far, now at startProcess: done updating battery stats
-11-04 15:20:20.151   518   549 W ActivityManager: Slow operation: 2617ms so far, now at startProcess: returned from zygote!
-11-04 15:20:20.974   518   549 W ActivityManager: Slow operation: 3440ms so far, now at startProcess: done updating battery stats
-11-04 15:20:20.974   518   549 W ActivityManager: Slow operation: 3440ms so far, now at startProcess: building log message
-11-04 15:20:20.974   518   549 W ActivityManager: Slow operation: 3440ms so far, now at startProcess: starting to update pids map
-11-04 15:20:20.974   518   549 W ActivityManager: Slow operation: 3440ms so far, now at startProcess: done updating pids map
-11-04 15:20:21.144   518   532 W ActivityManager: Slow operation: 169ms so far, now at attachApplicationLocked: immediately before bindApplication
-11-04 15:20:21.145   518   532 W ActivityManager: Slow operation: 169ms so far, now at attachApplicationLocked: immediately after bindApplication
-11-04 15:20:21.150   518   532 W ActivityManager: Slow operation: 175ms so far, now at attachApplicationLocked: after updateLruProcessLocked
-11-04 15:20:21.221   518   532 W ActivityManager: Slow operation: 246ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:20:21.769   518  2030 W ActivityManager: Slow operation: 355ms so far, now at startProcess: done starting proc!
-11-04 15:20:21.772   518   549 W ActivityManager: Slow operation: 355ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:24.881   518   549 W ActivityManager: Slow operation: 3467ms so far, now at startProcess: returned from zygote!
-11-04 15:20:25.952   518   549 W ActivityManager: Slow operation: 4538ms so far, now at startProcess: done updating battery stats
-11-04 15:20:25.952   518   549 W ActivityManager: Slow operation: 4538ms so far, now at startProcess: building log message
-11-04 15:20:25.952   518   549 W ActivityManager: Slow operation: 4538ms so far, now at startProcess: starting to update pids map
-11-04 15:20:25.955   518   549 W ActivityManager: Slow operation: 4541ms so far, now at startProcess: done updating pids map
-11-04 15:20:25.955   518   549 W ActivityManager: Slow operation: 517ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:26.014   518  2011 W ActivityManager: Slow operation: 59ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:20:26.050   518  2011 W ActivityManager: Slow operation: 95ms so far, now at attachApplicationLocked: after updateOomAdjLocked
-11-04 15:20:27.444   518   549 W ActivityManager: Slow operation: 2006ms so far, now at startProcess: returned from zygote!
-11-04 15:20:27.444   518   549 W ActivityManager: Slow operation: 2006ms so far, now at startProcess: done updating battery stats
-11-04 15:20:27.444   518   549 W ActivityManager: Slow operation: 2006ms so far, now at startProcess: building log message
-11-04 15:20:27.513   518   549 W ActivityManager: Slow operation: 2075ms so far, now at startProcess: starting to update pids map
-11-04 15:20:27.513   518   549 W ActivityManager: Slow operation: 2075ms so far, now at startProcess: done updating pids map
-11-04 15:20:28.779   518   792 W ActivityManager: Slow operation: 675ms so far, now at attachApplicationLocked: immediately before bindApplication
-11-04 15:20:28.779   518   792 W ActivityManager: Slow operation: 675ms so far, now at attachApplicationLocked: immediately after bindApplication
-11-04 15:20:28.787   518   792 W ActivityManager: Slow operation: 683ms so far, now at attachApplicationLocked: after updateLruProcessLocked
-11-04 15:20:28.788   518   792 W ActivityManager: Slow operation: 684ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:20:37.697   518  2011 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.wearable.BIND pkg=com.google.android.gms } U=10: not found
-11-04 15:20:38.101   518  1035 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@6872229
-11-04 15:20:39.469   518   622 W ActivityManager: Skipping broadcast of Intent { act=android.intent.action.MEDIA_UNMOUNTABLE dat=file:///... flg=0x5000010 (has extras) }: user 11 and its parent (if any) are stopped
-11-04 15:20:39.698   518   549 W ActivityManager: Slow operation: 1646ms so far, now at startProcess: returned from zygote!
-11-04 15:20:39.699   518   549 W ActivityManager: Slow operation: 1647ms so far, now at startProcess: done updating battery stats
-11-04 15:20:39.699   518   549 W ActivityManager: Slow operation: 1647ms so far, now at startProcess: building log message
-11-04 15:20:39.699   518   549 W ActivityManager: Slow operation: 1647ms so far, now at startProcess: starting to update pids map
-11-04 15:20:39.699   518   549 W ActivityManager: Slow operation: 1647ms so far, now at startProcess: done updating pids map
-11-04 15:20:39.982   518   594 W ActivityManager: Slow operation: 212ms so far, now at attachApplicationLocked: immediately after bindApplication
-11-04 15:20:39.985   518   594 W ActivityManager: Slow operation: 215ms so far, now at attachApplicationLocked: after updateLruProcessLocked
-11-04 15:20:39.988   518   594 W ActivityManager: Slow operation: 218ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:20:39.989   518   594 W ActivityManager: Slow operation: 219ms so far, now at attachApplicationLocked: after updateOomAdjLocked
-11-04 15:20:42.633   518   548 W ActivityManager: UserLifecycleEvent 5 received without an active userJourneySession.
-11-04 15:20:42.633   518   548 W ActivityManager: UserLifecycleEvent 6 received without an active userJourneySession.
-11-04 15:20:46.028   518   549 W ActivityManager: Slow operation: 1590ms so far, now at startProcess: returned from zygote!
-11-04 15:20:46.028   518   549 W ActivityManager: Slow operation: 1590ms so far, now at startProcess: done updating battery stats
-11-04 15:20:46.028   518   549 W ActivityManager: Slow operation: 1590ms so far, now at startProcess: building log message
-11-04 15:20:46.028   518   549 W ActivityManager: Slow operation: 1590ms so far, now at startProcess: starting to update pids map
-11-04 15:20:46.030   518   549 W ActivityManager: Slow operation: 1592ms so far, now at startProcess: done updating pids map
-11-04 15:20:46.030   518   549 W ActivityManager: Slow operation: 1543ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:46.188   518   548 W ActivityManager: UserLifecycleEvent 5 received without an active userJourneySession.
-11-04 15:20:46.188   518   548 W ActivityManager: UserLifecycleEvent 6 received without an active userJourneySession.
-11-04 15:20:46.706   518  1681 W ActivityManager: Slow operation: 148ms so far, now at attachApplicationLocked: after updateOomAdjLocked
-11-04 15:20:48.097   518   549 W ActivityManager: Slow operation: 3610ms so far, now at startProcess: returned from zygote!
-11-04 15:20:48.100   518   549 W ActivityManager: Slow operation: 3613ms so far, now at startProcess: done updating battery stats
-11-04 15:20:48.100   518   549 W ActivityManager: Slow operation: 3613ms so far, now at startProcess: building log message
-11-04 15:20:48.813   518   549 W ActivityManager: Slow operation: 4326ms so far, now at startProcess: starting to update pids map
-11-04 15:20:48.813   518   549 W ActivityManager: Slow operation: 4326ms so far, now at startProcess: done updating pids map
-11-04 15:20:48.813   518   549 W ActivityManager: Slow operation: 4193ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:50.881   518   549 W ActivityManager: Slow operation: 6261ms so far, now at startProcess: returned from zygote!
-11-04 15:20:51.368   518   549 W ActivityManager: Slow operation: 6748ms so far, now at startProcess: done updating battery stats
-11-04 15:20:51.368   518   549 W ActivityManager: Slow operation: 6748ms so far, now at startProcess: building log message
-11-04 15:20:51.368   518   549 W ActivityManager: Slow operation: 6748ms so far, now at startProcess: starting to update pids map
-11-04 15:20:51.522   518   549 W ActivityManager: Slow operation: 6902ms so far, now at startProcess: done updating pids map
-11-04 15:20:51.522   518   549 W ActivityManager: Slow operation: 5346ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:51.803   518   548 W ActivityManager: UserLifecycleEvent 1 received without an active userJourneySession.
-11-04 15:20:52.050   518  2423 W ActivityManager: Slow operation: 61ms so far, now at attachApplicationLocked: after sendPendingBroadcastsLocked
-11-04 15:20:52.587   518   729 W ActivityManager: Unable to start service Intent { cmp=com.android.car.messenger/.MessengerService } U=10: not found
-11-04 15:20:52.607   518   729 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.maps/com.google.android.apps.geo.autograph.vms.platform.car.CarVmsPublisherClientService } U=10: not found
-11-04 15:20:52.621   518   729 W ActivityManager: Unable to start service Intent { cmp=com.android.car.custominput.sample/.SampleCustomInputService } U=10: not found
-11-04 15:20:52.622   518   729 W ActivityManager: Unable to start service Intent { cmp=com.android.car.castreceiver/.CastReceiverCompanionService } U=10: not found
-11-04 15:20:52.632   518  1312 W ActivityManager: Unable to start service Intent { cmp=com.google.android.apps.mediashell/.automotive.AutomotiveCastReceiverService } U=10: not found
-11-04 15:20:52.737   518   548 W ActivityManager: UserLifecycleEvent 6 received without an active userJourneySession.
-11-04 15:20:54.019   518   549 W ActivityManager: Slow operation: 7843ms so far, now at startProcess: returned from zygote!
-11-04 15:20:54.219   518   549 W ActivityManager: Slow operation: 8043ms so far, now at startProcess: done updating battery stats
-11-04 15:20:54.219   518   549 W ActivityManager: Slow operation: 8043ms so far, now at startProcess: building log message
-11-04 15:20:54.219   518   549 W ActivityManager: Slow operation: 8043ms so far, now at startProcess: starting to update pids map
-11-04 15:20:54.222   518   549 W ActivityManager: Slow operation: 8046ms so far, now at startProcess: done updating pids map
-11-04 15:20:54.222   518   549 W ActivityManager: Slow operation: 7322ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:54.231   518  1829 W ActivityManager: Unable to start service Intent { cmp=com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService } U=0: not found
-11-04 15:20:55.524   518   549 W ActivityManager: Slow operation: 8624ms so far, now at startProcess: returned from zygote!
-11-04 15:20:55.550   518   549 W ActivityManager: Slow operation: 8649ms so far, now at startProcess: done updating battery stats
-11-04 15:20:55.550   518   549 W ActivityManager: Slow operation: 8650ms so far, now at startProcess: building log message
-11-04 15:20:55.550   518   549 W ActivityManager: Slow operation: 8650ms so far, now at startProcess: starting to update pids map
-11-04 15:20:55.550   518   549 W ActivityManager: Slow operation: 8650ms so far, now at startProcess: done updating pids map
-11-04 15:20:55.550   518   549 W ActivityManager: Slow operation: 4214ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:55.728   518   729 W ActivityManager: Unable to start service Intent { cmp=com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService } U=10: not found
-11-04 15:20:55.871   518   549 W ActivityManager: Slow operation: 4527ms so far, now at startProcess: returned from zygote!
-11-04 15:20:56.456   518  1829 W ActivityManager: Slow operation: 5120ms so far, now at startProcess: done updating battery stats
-11-04 15:20:56.456   518  1829 W ActivityManager: Slow operation: 5120ms so far, now at startProcess: building log message
-11-04 15:20:56.456   518  1829 W ActivityManager: Slow operation: 5120ms so far, now at startProcess: starting to update pids map
-11-04 15:20:56.457   518  1829 W ActivityManager: Slow operation: 5121ms so far, now at startProcess: done updating pids map
-11-04 15:20:56.468   518   549 W ActivityManager: Slow operation: 4578ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:56.531   518   549 W ActivityManager: Slow operation: 4641ms so far, now at startProcess: returned from zygote!
-11-04 15:20:56.531   518   549 W ActivityManager: Slow operation: 4641ms so far, now at startProcess: done updating battery stats
-11-04 15:20:56.531   518   549 W ActivityManager: Slow operation: 4641ms so far, now at startProcess: building log message
-11-04 15:20:56.531   518   549 W ActivityManager: Slow operation: 4641ms so far, now at startProcess: starting to update pids map
-11-04 15:20:56.531   518   549 W ActivityManager: Slow operation: 4641ms so far, now at startProcess: done updating pids map
-11-04 15:20:56.531   518   549 W ActivityManager: Slow operation: 3216ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:56.619   518   549 W ActivityManager: Slow operation: 3304ms so far, now at startProcess: returned from zygote!
-11-04 15:20:56.619   518   549 W ActivityManager: Slow operation: 3304ms so far, now at startProcess: done updating battery stats
-11-04 15:20:56.619   518   549 W ActivityManager: Slow operation: 3304ms so far, now at startProcess: building log message
-11-04 15:20:56.619   518   549 W ActivityManager: Slow operation: 3304ms so far, now at startProcess: starting to update pids map
-11-04 15:20:56.619   518   549 W ActivityManager: Slow operation: 3304ms so far, now at startProcess: done updating pids map
-11-04 15:20:56.619   518   549 W ActivityManager: Slow operation: 3211ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:56.686   518  1681 W ActivityManager: Permission Denial: getUidProcessState from com.google.android.gms asks to run as user 0 but is calling from uid u10a172; this requires android.permission.INTERACT_ACROSS_USERS_FULL
-11-04 15:20:56.692   518   549 W ActivityManager: Slow operation: 3284ms so far, now at startProcess: returned from zygote!
-11-04 15:20:56.692   518   549 W ActivityManager: Slow operation: 3284ms so far, now at startProcess: done updating battery stats
-11-04 15:20:56.692   518   549 W ActivityManager: Slow operation: 3284ms so far, now at startProcess: building log message
-11-04 15:20:56.692   518   549 W ActivityManager: Slow operation: 3284ms so far, now at startProcess: starting to update pids map
-11-04 15:20:56.692   518   549 W ActivityManager: Slow operation: 3284ms so far, now at startProcess: done updating pids map
-11-04 15:20:56.692   518   549 W ActivityManager: Slow operation: 3263ms so far, now at startProcess: asking zygote to start proc
-11-04 15:20:56.731   518   549 W ActivityManager: Slow operation: 3302ms so far, now at startProcess: returned from zygote!
-11-04 15:20:56.731   518   549 W ActivityManager: Slow operation: 3302ms so far, now at startProcess: done updating battery stats
-11-04 15:20:56.731   518   549 W ActivityManager: Slow operation: 3302ms so far, now at startProcess: building log message
-11-04 15:20:56.731   518   549 W ActivityManager: Slow operation: 3302ms so far, now at startProcess: starting to update pids map
-11-04 15:20:56.731   518   549 W ActivityManager: Slow operation: 3302ms so far, now at startProcess: done updating pids map
-11-04 15:20:57.596   518   549 W ActivityManager: Slow operation: 285ms so far, now at startProcess: done updating battery stats
-11-04 15:20:57.596   518   549 W ActivityManager: Slow operation: 285ms so far, now at startProcess: building log message
-11-04 15:20:57.596   518   549 W ActivityManager: Slow operation: 285ms so far, now at startProcess: starting to update pids map
-11-04 15:20:57.596   518   549 W ActivityManager: Slow operation: 285ms so far, now at startProcess: done updating pids map
-11-04 15:20:59.016   518   548 W ActivityManager: Timeout executing service: ServiceRecord{46c2d72 u10 com.google.android.bluetooth/com.android.bluetooth.hfp.HeadsetService}
-11-04 15:20:59.028   518   594 W ActivityManager: Slow operation: 388ms so far, now at startProcess: done updating battery stats
-11-04 15:20:59.028   518   594 W ActivityManager: Slow operation: 388ms so far, now at startProcess: building log message
-11-04 15:20:59.028   518   594 W ActivityManager: Slow operation: 388ms so far, now at startProcess: starting to update pids map
-11-04 15:20:59.028   518   594 W ActivityManager: Slow operation: 388ms so far, now at startProcess: done updating pids map
-11-04 15:21:00.011   518   622 W ActivityManager: Unable to start service Intent { cmp=com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl } U=12: not found
-11-04 15:21:00.028   518   533 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.auth.account.ACTION_UPDATE_WORK_AUTHENTICATOR cmp=com.google.android.gms/.auth.account.service.WorkAccountService (has extras) } U=10: not found
-11-04 15:21:00.296   518   622 W ActivityManager: Unable to start service Intent { cmp=com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl } U=12: not found
-11-04 15:21:00.947   518   548 W ActivityManager: Slow operation: 61ms so far, now at startProcess: done creating new process record
-11-04 15:21:00.947   518   548 W ActivityManager: Slow operation: 63ms so far, now at startProcess: stepping in to startProcess
-11-04 15:21:00.947   518  2977 E ActivityManager: ANR in com.google.android.bluetooth
-11-04 15:21:00.947   518  2977 E ActivityManager: PID: 2076
-11-04 15:21:00.947   518  2977 E ActivityManager: Reason: executing service com.google.android.bluetooth/com.android.bluetooth.hfp.HeadsetService
-11-04 15:21:00.947   518  2977 E ActivityManager: ErrorId: dccb6a25-24d5-4691-a360-f4808549a642
-11-04 15:21:00.947   518  2977 E ActivityManager: Frozen: false
-11-04 15:21:00.947   518  2977 E ActivityManager: Load: 0.0 / 0.0 / 0.0
-11-04 15:21:00.947   518  2977 E ActivityManager: ----- Output from /proc/pressure/memory -----
-11-04 15:21:00.947   518  2977 E ActivityManager: some avg10=2.14 avg60=1.97 avg300=0.66 total=2446186
-11-04 15:21:00.947   518  2977 E ActivityManager: full avg10=0.39 avg60=0.29 avg300=0.08 total=456063
-11-04 15:21:00.947   518  2977 E ActivityManager: ----- End output from /proc/pressure/memory -----
-11-04 15:21:00.947   518  2977 E ActivityManager: 
-11-04 15:21:00.947   518  2977 E ActivityManager: CPU usage from 8305ms to 1820ms ago (2026-11-04 15:20:50.801 to 2026-11-04 15:20:57.286):
-11-04 15:21:00.947   518  2977 E ActivityManager:   20% 323/android.hardware.graphics.composer@2.4-service: 0.3% user + 20% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:   8.9% 518/system_server: 7.1% user + 1.8% kernel / faults: 6011 minor 44 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   8.2% 2293/com.google.android.tts: 5.5% user + 2.7% kernel / faults: 5539 minor 151 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   5.3% 1329/com.android.car.settings: 0.4% user + 4.9% kernel / faults: 42 minor 1 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   2.4% 1282/com.google.android.gms.persistent: 1.9% user + 0.4% kernel / faults: 1815 minor 11 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   2.3% 1564/com.google.android.gms: 1.5% user + 0.7% kernel / faults: 4552 minor 19 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   2.1% 416/logcat: 0.1% user + 2% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.7% 1990/com.google.android.apps.automotive.inputmethod: 0.3% user + 0.3% kernel / faults: 2756 minor 108 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   1.3% 2517/android.process.acore: 1% user + 0.3% kernel / faults: 1949 minor 27 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   1.2% 286/zygote64: 0.1% user + 1% kernel / faults: 1105 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   1% 359/surfaceflinger: 0.4% user + 0.6% kernel / faults: 5 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   1% 1015/com.google.android.gms.persistent: 0.6% user + 0.4% kernel / faults: 883 minor 7 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.3% 1303/com.google.android.permissioncontroller: 0.2% user + 0.1% kernel / faults: 858 minor 2 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.3% 37/kswapd0: 0% user + 0.3% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.9% 826/com.android.car: 0.6% user + 0.3% kernel / faults: 1051 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.9% 943/com.android.phone: 0.6% user + 0.3% kernel / faults: 772 minor 4 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.7% 36/kworker/0:1H-kverityd: 0% user + 0.7% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.7% 944/com.android.systemui: 0.6% user + 0.1% kernel / faults: 621 minor 3 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.7% 2177/com.google.android.carassistant:search: 0.4% user + 0.3% kernel / faults: 1491 minor 13 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.3% 2201/com.google.android.permissioncontroller: 0.2% user + 0.1% kernel / faults: 383 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.6% 114/logd: 0.3% user + 0.3% kernel / faults: 105 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.1% 130/carwatchdogd: 0.1% user + 0% kernel / faults: 32 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.4% 186/jbd2/dm-34-8: 0% user + 0.4% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.4% 936/com.android.car.cluster.osdouble: 0.3% user + 0.1% kernel / faults: 177 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0% 115/lmkd: 0% user + 0% kernel / faults: 1 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.3% 281/statsd: 0.1% user + 0.1% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.1% 389/adbd: 0% user + 0% kernel / faults: 1775 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.3% 764/com.google.android.permissioncontroller: 0.1% user + 0.1% kernel / faults: 139 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.3% 1173/com.google.android.gms: 0.3% user + 0% kernel / faults: 82 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.3% 1381/com.google.android.carassistant:interactor: 0.3% user + 0% kernel / faults: 1323 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.1% 1835/com.google.android.companiondevicesupport: 0.1% user + 0% kernel / faults: 339 minor 1 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.3% 2250/com.google.android.car.setupwizard:gmscore_unstable: 0.3% user + 0% kernel / faults: 311 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.1% 1/init: 0% user + 0.1% kernel / faults: 7 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0% 13/ksoftirqd/0: 0% user + 0% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:   0% 107/kworker/u2:2-events_unbound: 0% user + 0% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:   0% 140/keystore2: 0% user + 0% kernel / faults: 129 minor 1 major
-11-04 15:21:00.947   518  2977 E ActivityManager:   0% 421/cameraserver: 0% user + 0% kernel / faults: 51 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.1% 426/media.extractor: 0.1% user + 0% kernel / faults: 25 minor
-11-04 15:21:00.947   518  2977 E ActivityManager:   0.1% 429/mediaserver: 0% user + 0.1% kernel / faults: 14 minor 39 major
-11-04 15:21:00.947   518  2977 E ActivityManager:  +0% 2599/android.car.usb.handler: 0% user + 0% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:  +0% 2678/com.google.android.ext.services: 0% user + 0% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:  +0% 2711/com.google.android.providers.media.module: 0% user + 0% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:  +0% 2736/com.android.sdksetup: 0% user + 0% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:  +0% 2758/com.android.keychain: 0% user + 0% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:  +0% 2775/com.android.car.media: 0% user + 0% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:  +0% 2793/com.android.providers.calendar: 0% user + 0% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager:  +0% 2811/com.android.phone: 0% user + 0% kernel
-11-04 15:21:00.947   518  2977 E ActivityManager: 100% TOTAL: 37% user + 60% kernel + 1.8% irq + 0.2% softirq
-11-04 15:21:00.947   518  2977 E ActivityManager: CPU usage from 152107ms to 152107ms ago (1970-01-01 00:00:00.000 to 1970-01-01 00:00:00.000) with 0% awake:
-11-04 15:21:00.947   518  2977 E ActivityManager: 0% TOTAL: 0% user + 0% kernel
-11-04 15:21:00.948   518   548 W ActivityManager: Slow operation: 64ms so far, now at startProcess: done starting proc!
-11-04 15:21:01.347   518   549 W ActivityManager: Slow operation: 1122ms so far, now at startProcess: returned from zygote!
-11-04 15:21:01.347   518   549 W ActivityManager: Slow operation: 1122ms so far, now at startProcess: done updating battery stats
-11-04 15:21:01.347   518   549 W ActivityManager: Slow operation: 1122ms so far, now at startProcess: building log message
-11-04 15:21:01.347   518   549 W ActivityManager: Slow operation: 1122ms so far, now at startProcess: starting to update pids map
-11-04 15:21:01.348   518   549 W ActivityManager: Slow operation: 1122ms so far, now at startProcess: done updating pids map
-11-04 15:21:01.348   518   549 W ActivityManager: Slow operation: 401ms so far, now at startProcess: asking zygote to start proc
-11-04 15:21:01.425   518   549 W ActivityManager: Slow operation: 478ms so far, now at startProcess: returned from zygote!
-11-04 15:21:01.425   518   549 W ActivityManager: Slow operation: 478ms so far, now at startProcess: done updating battery stats
-11-04 15:21:01.425   518   549 W ActivityManager: Slow operation: 478ms so far, now at startProcess: building log message
-11-04 15:21:01.425   518   549 W ActivityManager: Slow operation: 478ms so far, now at startProcess: starting to update pids map
-11-04 15:21:01.425   518   549 W ActivityManager: Slow operation: 478ms so far, now at startProcess: done updating pids map
-11-04 15:21:01.425   518   549 W ActivityManager: Slow operation: 201ms so far, now at startProcess: asking zygote to start proc
-11-04 15:21:01.567   518   549 W ActivityManager: Slow operation: 343ms so far, now at startProcess: returned from zygote!
-11-04 15:21:01.585   518   549 W ActivityManager: Slow operation: 361ms so far, now at startProcess: done updating battery stats
-11-04 15:21:01.585   518   549 W ActivityManager: Slow operation: 361ms so far, now at startProcess: building log message
-11-04 15:21:01.585   518   549 W ActivityManager: Slow operation: 361ms so far, now at startProcess: starting to update pids map
-11-04 15:21:01.585   518   549 W ActivityManager: Slow operation: 361ms so far, now at startProcess: done updating pids map
-11-04 15:21:02.419   518   549 W ActivityManager: Slow operation: 81ms so far, now at startProcess: asking zygote to start proc
-11-04 15:21:02.419   518  2460 W ActivityManager: Slow operation: 82ms so far, now at startProcess: done starting proc!
-11-04 15:21:03.086   518   549 W ActivityManager: Slow operation: 748ms so far, now at startProcess: returned from zygote!
-11-04 15:21:03.164   518   549 W ActivityManager: Slow operation: 826ms so far, now at startProcess: done updating battery stats
-11-04 15:21:03.164   518   549 W ActivityManager: Slow operation: 826ms so far, now at startProcess: building log message
-11-04 15:21:03.164   518   549 W ActivityManager: Slow operation: 826ms so far, now at startProcess: starting to update pids map
-11-04 15:21:03.164   518   549 W ActivityManager: Slow operation: 826ms so far, now at startProcess: done updating pids map
-11-04 15:21:03.757   518   549 W ActivityManager: Slow operation: 588ms so far, now at startProcess: returned from zygote!
-11-04 15:21:04.057   518   549 W ActivityManager: Slow operation: 888ms so far, now at startProcess: done updating battery stats
-11-04 15:21:04.057   518   549 W ActivityManager: Slow operation: 888ms so far, now at startProcess: building log message
-11-04 15:21:04.057   518   549 W ActivityManager: Slow operation: 888ms so far, now at startProcess: starting to update pids map
-11-04 15:21:04.058   518   549 W ActivityManager: Slow operation: 889ms so far, now at startProcess: done updating pids map
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.opp.BluetoothOppService in 50494ms for start-requested
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.vc.VolumeControlService in 60494ms for start-requested
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.mcp.McpService in 70494ms for start-requested
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.le_audio.LeAudioService in 80494ms for start-requested
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.hfpclient.HeadsetClientService in 90494ms for start-requested
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.pbap.BluetoothPbapService in 100494ms for start-requested
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.btservice.AdapterService in 1000ms for connection
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.gatt.GattService in 110494ms for start-requested
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.hid.HidDeviceService in 120494ms for start-requested
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.tbs.TbsService in 130494ms for start-requested
-11-04 15:21:04.737   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.map.BluetoothMapService in 140494ms for start-requested
-11-04 15:21:04.738   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.hid.HidHostService in 150493ms for start-requested
-11-04 15:21:04.738   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.hfp.HeadsetService in 160493ms for start-requested
-11-04 15:21:04.738   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.hfpclient.HfpClientConnectionService in 10999ms for start-requested
-11-04 15:21:04.738   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.pan.PanService in 170493ms for start-requested
-11-04 15:21:04.738   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.pbapclient.PbapClientService in 180493ms for start-requested
-11-04 15:21:04.738   518  1312 W ActivityManager: Scheduling restart of crashed service com.google.android.bluetooth/com.android.bluetooth.mapclient.MapClientService in 190493ms for start-requested
-11-04 15:21:05.001   518   533 W ActivityManager: Slow operation: 51ms so far, now at attachApplicationLocked: immediately before bindApplication
-11-04 15:21:05.002   518   533 W ActivityManager: Slow operation: 52ms so far, now at attachApplicationLocked: immediately after bindApplication
-11-04 15:21:05.002   518   533 W ActivityManager: Slow operation: 52ms so far, now at attachApplicationLocked: after updateLruProcessLocked
-11-04 15:21:05.013   518   533 W ActivityManager: Slow operation: 63ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:21:08.323   518  1013 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.google.android.apps.automotive.templates.host/com.android.car.libraries.templates.host.RendererService
-11-04 15:21:10.887   518   549 W ActivityManager: Slow operation: 6461ms so far, now at startProcess: returned from zygote!
-11-04 15:21:10.887   518   549 W ActivityManager: Slow operation: 6461ms so far, now at startProcess: done updating battery stats
-11-04 15:21:10.887   518   549 W ActivityManager: Slow operation: 6461ms so far, now at startProcess: building log message
-11-04 15:21:11.004   518   549 W ActivityManager: Slow operation: 6578ms so far, now at startProcess: starting to update pids map
-11-04 15:21:11.004   518   549 W ActivityManager: Slow operation: 6578ms so far, now at startProcess: done updating pids map
-11-04 15:21:11.004   518   549 W ActivityManager: Slow operation: 6108ms so far, now at startProcess: asking zygote to start proc
-11-04 15:21:11.004   518  1896 W ActivityManager: Unable to start service Intent { act=android.service.carrier.CarrierService pkg=com.android.carrierconfig } U=0: not found
-11-04 15:21:11.522   518  1001 W ActivityManager: Slow operation: 157ms so far, now at attachApplicationLocked: immediately before bindApplication
-11-04 15:21:11.522   518  1001 W ActivityManager: Slow operation: 157ms so far, now at attachApplicationLocked: immediately after bindApplication
-11-04 15:21:11.523   518  1001 W ActivityManager: Slow operation: 158ms so far, now at attachApplicationLocked: after updateLruProcessLocked
-11-04 15:21:11.523   518  1001 W ActivityManager: Slow operation: 158ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:21:11.525   518  1001 W ActivityManager: Slow operation: 160ms so far, now at attachApplicationLocked: after sendPendingBroadcastsLocked
-11-04 15:21:11.640   518   622 W ActivityManager: Unbind failed: could not find connection for android.app.LoadedApk$ServiceDispatcher$InnerConnection@f5546e5
-11-04 15:21:16.333   518   549 W ActivityManager: Slow operation: 11437ms so far, now at startProcess: returned from zygote!
-11-04 15:21:16.334   518   549 W ActivityManager: Slow operation: 11438ms so far, now at startProcess: done updating battery stats
-11-04 15:21:16.334   518   549 W ActivityManager: Slow operation: 11438ms so far, now at startProcess: building log message
-11-04 15:21:16.334   518   549 W ActivityManager: Slow operation: 11438ms so far, now at startProcess: starting to update pids map
-11-04 15:21:16.334   518   549 W ActivityManager: Slow operation: 11438ms so far, now at startProcess: done updating pids map
-11-04 15:21:16.334   518   549 W ActivityManager: Slow operation: 10594ms so far, now at startProcess: asking zygote to start proc
-11-04 15:21:17.550   518   547 W ActivityManager: Skipping broadcast of Intent { act=android.search.action.SEARCHABLES_CHANGED flg=0x24000010 }: user 11 and its parent (if any) are stopped
-11-04 15:21:20.343   518   547 W ActivityManager: Skipping broadcast of Intent { act=android.search.action.SEARCHABLES_CHANGED flg=0x24000010 }: user 12 and its parent (if any) are stopped
-11-04 15:21:20.445   518   547 W ActivityManager: Skipping broadcast of Intent { act=android.search.action.SEARCHABLES_CHANGED flg=0x24000010 }: user 12 and its parent (if any) are stopped
-11-04 15:21:21.450   518   549 W ActivityManager: Slow operation: 15710ms so far, now at startProcess: returned from zygote!
-11-04 15:21:21.450   518   549 W ActivityManager: Slow operation: 15710ms so far, now at startProcess: done updating battery stats
-11-04 15:21:21.450   518   549 W ActivityManager: Slow operation: 15710ms so far, now at startProcess: building log message
-11-04 15:21:21.450   518   549 W ActivityManager: Slow operation: 15710ms so far, now at startProcess: starting to update pids map
-11-04 15:21:21.450   518   549 W ActivityManager: Slow operation: 15710ms so far, now at startProcess: done updating pids map
-11-04 15:21:21.450   518   549 W ActivityManager: Slow operation: 10212ms so far, now at startProcess: asking zygote to start proc
-11-04 15:21:21.901   518  2623 W ActivityManager: Slow operation: 234ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:21:23.819   518   549 W ActivityManager: Slow operation: 12581ms so far, now at startProcess: returned from zygote!
-11-04 15:21:23.826   518  1294 W ActivityManager: Slow operation: 12588ms so far, now at startProcess: done updating battery stats
-11-04 15:21:23.826   518  1294 W ActivityManager: Slow operation: 12588ms so far, now at startProcess: building log message
-11-04 15:21:23.826   518  1294 W ActivityManager: Slow operation: 12588ms so far, now at startProcess: starting to update pids map
-11-04 15:21:23.826   518  1294 W ActivityManager: Slow operation: 12588ms so far, now at startProcess: done updating pids map
-11-04 15:21:23.839   518   549 W ActivityManager: Slow operation: 12054ms so far, now at startProcess: asking zygote to start proc
-11-04 15:21:24.362   518   549 W ActivityManager: Slow operation: 12577ms so far, now at startProcess: returned from zygote!
-11-04 15:21:24.363   518   549 W ActivityManager: Slow operation: 12578ms so far, now at startProcess: done updating battery stats
-11-04 15:21:24.363   518   549 W ActivityManager: Slow operation: 12578ms so far, now at startProcess: building log message
-11-04 15:21:24.363   518   549 W ActivityManager: Slow operation: 12578ms so far, now at startProcess: starting to update pids map
-11-04 15:21:24.363   518   549 W ActivityManager: Slow operation: 12578ms so far, now at startProcess: done updating pids map
-11-04 15:21:24.363   518   549 W ActivityManager: Slow operation: 7708ms so far, now at startProcess: asking zygote to start proc
-11-04 15:21:24.393   518   549 W ActivityManager: Slow operation: 7738ms so far, now at startProcess: returned from zygote!
-11-04 15:21:24.393   518   549 W ActivityManager: Slow operation: 7738ms so far, now at startProcess: done updating battery stats
-11-04 15:21:24.393   518   549 W ActivityManager: Slow operation: 7738ms so far, now at startProcess: building log message
-11-04 15:21:24.393   518   549 W ActivityManager: Slow operation: 7738ms so far, now at startProcess: starting to update pids map
-11-04 15:21:24.393   518   549 W ActivityManager: Slow operation: 7738ms so far, now at startProcess: done updating pids map
-11-04 15:21:24.393   518   549 W ActivityManager: Slow operation: 7244ms so far, now at startProcess: asking zygote to start proc
-11-04 15:21:24.414   518   549 W ActivityManager: Slow operation: 7265ms so far, now at startProcess: returned from zygote!
-11-04 15:21:24.414   518   549 W ActivityManager: Slow operation: 7265ms so far, now at startProcess: done updating battery stats
-11-04 15:21:24.414   518   549 W ActivityManager: Slow operation: 7265ms so far, now at startProcess: building log message
-11-04 15:21:24.414   518   549 W ActivityManager: Slow operation: 7265ms so far, now at startProcess: starting to update pids map
-11-04 15:21:24.414   518   549 W ActivityManager: Slow operation: 7265ms so far, now at startProcess: done updating pids map
-11-04 15:21:24.414   518   549 W ActivityManager: Slow operation: 3142ms so far, now at startProcess: asking zygote to start proc
-11-04 15:21:24.459   518   549 W ActivityManager: Slow operation: 3187ms so far, now at startProcess: returned from zygote!
-11-04 15:21:24.462   518   549 W ActivityManager: Slow operation: 3190ms so far, now at startProcess: done updating battery stats
-11-04 15:21:24.462   518   549 W ActivityManager: Slow operation: 3190ms so far, now at startProcess: building log message
-11-04 15:21:24.462   518   549 W ActivityManager: Slow operation: 3190ms so far, now at startProcess: starting to update pids map
-11-04 15:21:24.463   518   549 W ActivityManager: Slow operation: 3191ms so far, now at startProcess: done updating pids map
-11-04 15:21:24.669   518  1829 W ActivityManager: Unable to start service Intent { cmp=com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService } U=0: not found
-11-04 15:21:24.670   518   532 W ActivityManager: Unable to start service Intent { cmp=com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService } U=10: not found
-11-04 15:21:24.912   518  1013 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.android.car.messenger/.services.MessengerService
-11-04 15:21:25.431   518  2423 W ActivityManager: Unable to start service Intent { act=android.os.image.action.NOTIFY_IF_IN_USE cmp=com.android.dynsystem/.DynamicSystemInstallationService } U=0: not found
-11-04 15:21:27.460   518   532 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.wearable.BIND pkg=com.google.android.gms } U=0: not found
-11-04 15:21:27.467   518  1013 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@73fbfeb
-11-04 15:21:29.596   518  1492 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.nearby.discovery:ACTION_INIT_RUNTIME_STATE cmp=com.google.android.gms/.nearby.discovery.service.DiscoveryService } U=0: not found
-11-04 15:21:32.163   518  1271 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.nearby.discovery:ACTION_INIT_RUNTIME_STATE cmp=com.google.android.gms/.nearby.discovery.service.DiscoveryService } U=10: not found
-11-04 15:21:37.343   518   549 W ActivityManager: Slow operation: 53ms so far, now at startProcess: done updating battery stats
-11-04 15:21:37.343   518   549 W ActivityManager: Slow operation: 53ms so far, now at startProcess: building log message
-11-04 15:21:37.343   518   549 W ActivityManager: Slow operation: 53ms so far, now at startProcess: starting to update pids map
-11-04 15:21:37.343   518   549 W ActivityManager: Slow operation: 53ms so far, now at startProcess: done updating pids map
-11-04 15:21:43.283   518  2621 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.nearby.discovery:ACTION_INIT_RUNTIME_STATE cmp=com.google.android.gms/.nearby.discovery.service.DiscoveryService } U=10: not found
-11-04 15:21:45.432   518   548 W ActivityManager: UserLifecycleEvent 6 received without an active userJourneySession.
-11-04 15:21:45.494   518  2623 W ActivityManager: Unable to start service Intent { cmp=com.android.car.cartelemetryapp/.CarMetricsCollectorService } U=0: not found
+11-04 15:46:21.564   525   525 W ActivityManager: Slow operation: 129ms so far, now at startProcess: done creating new process record
+11-04 15:46:21.564   525   525 W ActivityManager: Slow operation: 130ms so far, now at startProcess: stepping in to startProcess
+11-04 15:46:21.566   525   525 W ActivityManager: Slow operation: 132ms so far, now at startProcess: done starting proc!
+11-04 15:46:22.338   525   558 W ActivityManager: Slow operation: 773ms so far, now at startProcess: done updating battery stats
+11-04 15:46:22.339   525   558 W ActivityManager: Slow operation: 774ms so far, now at startProcess: building log message
+11-04 15:46:22.339   525   558 W ActivityManager: Slow operation: 774ms so far, now at startProcess: starting to update pids map
+11-04 15:46:22.339   525   558 W ActivityManager: Slow operation: 774ms so far, now at startProcess: done updating pids map
+11-04 15:46:22.430   525   558 W ActivityManager: Slow operation: 103ms so far, now at startProcess: done updating battery stats
+11-04 15:46:22.431   525   558 W ActivityManager: Slow operation: 104ms so far, now at startProcess: building log message
+11-04 15:46:22.431   525   558 W ActivityManager: Slow operation: 104ms so far, now at startProcess: starting to update pids map
+11-04 15:46:22.431   525   558 W ActivityManager: Slow operation: 104ms so far, now at startProcess: done updating pids map
+11-04 15:46:22.580   525   558 W ActivityManager: Slow operation: 163ms so far, now at startProcess: returned from zygote!
+11-04 15:46:22.581   525   558 W ActivityManager: Slow operation: 164ms so far, now at startProcess: done updating battery stats
+11-04 15:46:22.581   525   558 W ActivityManager: Slow operation: 164ms so far, now at startProcess: building log message
+11-04 15:46:22.581   525   558 W ActivityManager: Slow operation: 164ms so far, now at startProcess: starting to update pids map
+11-04 15:46:22.581   525   558 W ActivityManager: Slow operation: 164ms so far, now at startProcess: done updating pids map
+11-04 15:46:22.581   525   558 W ActivityManager: Slow operation: 150ms so far, now at startProcess: asking zygote to start proc
+11-04 15:46:22.724   525   558 W ActivityManager: Slow operation: 294ms so far, now at startProcess: returned from zygote!
+11-04 15:46:22.725   525   558 W ActivityManager: Slow operation: 294ms so far, now at startProcess: done updating battery stats
+11-04 15:46:22.726   525   558 W ActivityManager: Slow operation: 295ms so far, now at startProcess: building log message
+11-04 15:46:22.726   525   558 W ActivityManager: Slow operation: 295ms so far, now at startProcess: starting to update pids map
+11-04 15:46:22.726   525   558 W ActivityManager: Slow operation: 295ms so far, now at startProcess: done updating pids map
+11-04 15:46:22.726   525   558 W ActivityManager: Slow operation: 137ms so far, now at startProcess: asking zygote to start proc
+11-04 15:46:22.773   525   558 W ActivityManager: Slow operation: 184ms so far, now at startProcess: returned from zygote!
+11-04 15:46:23.005   525  1573 W ActivityManager: Slow operation: 256ms so far, now at attachApplicationLocked: after updateOomAdjLocked
+11-04 15:46:23.024   525  2117 W ActivityManager: Slow operation: 435ms so far, now at startProcess: done updating battery stats
+11-04 15:46:23.024   525  2117 W ActivityManager: Slow operation: 435ms so far, now at startProcess: building log message
+11-04 15:46:23.024   525  2117 W ActivityManager: Slow operation: 435ms so far, now at startProcess: starting to update pids map
+11-04 15:46:23.024   525  2117 W ActivityManager: Slow operation: 435ms so far, now at startProcess: done updating pids map
+11-04 15:46:23.921   525   558 W ActivityManager: Slow operation: 225ms so far, now at startProcess: done updating battery stats
+11-04 15:46:23.921   525   558 W ActivityManager: Slow operation: 225ms so far, now at startProcess: building log message
+11-04 15:46:23.921   525   558 W ActivityManager: Slow operation: 225ms so far, now at startProcess: starting to update pids map
+11-04 15:46:23.921   525   558 W ActivityManager: Slow operation: 225ms so far, now at startProcess: done updating pids map
+11-04 15:46:24.062   525   597 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.wearable.BIND pkg=com.google.android.gms } U=10: not found
+11-04 15:46:24.420   525   558 W ActivityManager: Slow operation: 258ms so far, now at startProcess: returned from zygote!
+11-04 15:46:24.549   525  2471 W ActivityManager: Slow operation: 404ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+11-04 15:46:24.554   525   558 W ActivityManager: Slow operation: 467ms so far, now at startProcess: done updating battery stats
+11-04 15:46:24.554   525   558 W ActivityManager: Slow operation: 467ms so far, now at startProcess: building log message
+11-04 15:46:24.554   525   558 W ActivityManager: Slow operation: 467ms so far, now at startProcess: starting to update pids map
+11-04 15:46:24.555   525   558 W ActivityManager: Slow operation: 468ms so far, now at startProcess: done updating pids map
+11-04 15:46:24.617   525   558 W ActivityManager: Slow operation: 64ms so far, now at startProcess: returned from zygote!
+11-04 15:46:24.617   525   558 W ActivityManager: Slow operation: 65ms so far, now at startProcess: done updating battery stats
+11-04 15:46:24.618   525   558 W ActivityManager: Slow operation: 65ms so far, now at startProcess: building log message
+11-04 15:46:24.618   525   558 W ActivityManager: Slow operation: 65ms so far, now at startProcess: starting to update pids map
+11-04 15:46:24.618   525   558 W ActivityManager: Slow operation: 65ms so far, now at startProcess: done updating pids map
+11-04 15:46:24.767   525  2480 W ActivityManager: Slow operation: 76ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+11-04 15:46:24.799   525  2480 W ActivityManager: Slow operation: 85ms so far, now at attachApplicationLocked: after updateOomAdjLocked
+11-04 15:46:24.830   525  2480 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@44260fd
+11-04 15:46:29.227   525  1573 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.wearable.BIND pkg=com.google.android.gms } U=10: not found
+11-04 15:46:29.319   525  1496 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@77b8464
+11-04 15:46:30.848   525  2165 W ActivityManager: Dumping Java threads failed, initiating native stack dump.
+11-04 15:46:32.871   525  2165 W ActivityManager: Native stack dump failed!
+11-04 15:46:32.871   525  2165 E ActivityManager: Aborting stack trace dump (current extra pid=1656); deadline exceeded.
+11-04 15:46:33.467   525  2165 E ActivityManager: ANR in com.android.car.settings
+11-04 15:46:33.467   525  2165 E ActivityManager: PID: 1251
+11-04 15:46:33.467   525  2165 E ActivityManager: Reason: ContentProvider not responding
+11-04 15:46:33.467   525  2165 E ActivityManager: ErrorId: c17a2da4-8807-4dc2-a637-e168e74fb9ce
+11-04 15:46:33.467   525  2165 E ActivityManager: Frozen: false
+11-04 15:46:33.467   525  2165 E ActivityManager: Load: 32.14 / 11.0 / 3.95
+11-04 15:46:33.467   525  2165 E ActivityManager: ----- Output from /proc/pressure/memory -----
+11-04 15:46:33.467   525  2165 E ActivityManager: some avg10=2.15 avg60=1.02 avg300=0.37 total=1421509
+11-04 15:46:33.467   525  2165 E ActivityManager: full avg10=0.47 avg60=0.15 avg300=0.03 total=260610
+11-04 15:46:33.467   525  2165 E ActivityManager: ----- End output from /proc/pressure/memory -----
+11-04 15:46:33.467   525  2165 E ActivityManager: 
+11-04 15:46:33.467   525  2165 E ActivityManager: CPU usage from 3868ms to -41295ms ago (2026-11-04 15:45:47.709 to 2026-11-04 15:46:32.871):
+11-04 15:46:33.467   525  2165 E ActivityManager:   24% 318/android.hardware.graphics.composer@2.4-service: 0.7% user + 23% kernel / faults: 1 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   9% 525/system_server: 6.7% user + 2.3% kernel / faults: 32409 minor 146 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   5.5% 1251/com.android.car.settings: 0.6% user + 4.8% kernel / faults: 1287 minor 52 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   4.9% 2105/com.google.android.tts: 3.8% user + 1% kernel / faults: 35884 minor 496 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   2.4% 126/carwatchdogd: 1.1% user + 1.2% kernel / faults: 30 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   2% 1224/com.google.android.gms.persistent: 1.6% user + 0.4% kernel / faults: 10202 minor 95 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   2% 337/surfaceflinger: 0.8% user + 1.1% kernel / faults: 1201 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   1.6% 1656/com.google.android.gms: 1.2% user + 0.4% kernel / faults: 11625 minor 137 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   1.2% 951/com.android.phone: 1% user + 0.2% kernel / faults: 3696 minor 5 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   1.2% 400/logcat: 0.1% user + 1% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.9% 982/com.android.systemui: 0.5% user + 0.4% kernel / faults: 4365 minor 14 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.6% 39/kswapd0: 0% user + 0.6% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.4% 130/vold: 0.1% user + 0.3% kernel / faults: 235 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.7% 946/com.android.car.cluster.osdouble: 0.5% user + 0.2% kernel / faults: 3495 minor 5 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.4% 1200/com.google.android.permissioncontroller: 0.3% user + 0.1% kernel / faults: 2994 minor 7 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.6% 1982/com.google.android.carassistant:search: 0.5% user + 0.1% kernel / faults: 3923 minor 20 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.6% 836/com.android.car: 0.5% user + 0.1% kernel / faults: 1600 minor 2 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.5% 285/zygote64: 0.1% user + 0.3% kernel / faults: 2681 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.4% 114/logd: 0.3% user + 0.1% kernel / faults: 650 minor 1 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.4% 1/init: 0% user + 0.3% kernel / faults: 112 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.4% 2061/com.google.android.car.setupwizard:gmscore_unstable: 0.3% user + 0% kernel / faults: 2364 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.2% 61/kworker/0:2H-kverityd: 0% user + 0.2% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.3% 1900/com.google.android.apps.automotive.inputmethod: 0.2% user + 0% kernel / faults: 1892 minor 14 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.2% 116/servicemanager: 0.1% user + 0.1% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 873/com.android.networkstack.process: 0.1% user + 0% kernel / faults: 1948 minor 8 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.2% 1589/com.google.android.providers.media.module: 0.1% user + 0% kernel / faults: 1459 minor 26 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.2% 1644/com.google.android.permissioncontroller: 0.1% user + 0% kernel / faults: 2026 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 933/com.android.car.cluster.home: 0% user + 0% kernel / faults: 1260 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 1335/com.google.android.carassistant:interactor: 0.1% user + 0% kernel / faults: 1548 minor 21 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 189/jbd2/dm-34-8: 0% user + 0.1% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 334/audioserver: 0% user + 0.1% kernel / faults: 534 minor 130 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 1028/com.google.android.gms.persistent: 0.1% user + 0% kernel / faults: 773 minor 14 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 13/ksoftirqd/0: 0% user + 0.1% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 406/installd: 0% user + 0% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0% 775/com.google.android.permissioncontroller: 0% user + 0% kernel / faults: 594 minor 2 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 125/kworker/0:3-events: 0% user + 0.1% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 283/statsd: 0% user + 0% kernel / faults: 107 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   0.1% 355/adbd: 0% user + 0% kernel / faults: 4708 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   0% 148/android.hardware.automotive.vehicle@V1-emulator-service: 0% user + 0% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0% 284/netd: 0% user + 0% kernel / faults: 349 minor 18 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0% 425/media.swcodec: 0% user + 0% kernel / faults: 2443 minor 9 major
+11-04 15:46:33.467   525  2165 E ActivityManager:   0% 317/android.hardware.graphics.allocator@3.0-service: 0% user + 0% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0% 1179/com.google.android.car.setupwizard: 0% user + 0% kernel / faults: 458 minor
+11-04 15:46:33.467   525  2165 E ActivityManager:   0% 14/rcu_preempt: 0% user + 0% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0% 28/kcompactd0: 0% user + 0% kernel
+11-04 15:46:33.467   525  2165 E ActivityManager:   0% 115/lmkd: 0% user + 0% kernel / faults: 1 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 407/media.extractor: 0% user + 0% kernel / faults: 768 minor 5 major
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 948/com.android.se: 0% user + 0% kernel / faults: 947 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 1418/kworker/u2:3-phy1: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 1774/com.google.process.gservices: 0% user + 0% kernel / faults: 96 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 8/kworker/u2:0-ext4-rsv-conversion: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 69/ueventd: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 295/android.hardware.bluetooth@1.1-service.btlinux: 0% user + 0% kernel / faults: 23 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 319/android.hardware.health@2.1-service: 0% user + 0% kernel / faults: 1 major
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 320/android.hardware.media.c2@1.0-service-goldfish: 0% user + 0% kernel / faults: 52 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 373/mdnsd: 0% user + 0% kernel / faults: 4 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 387/drmserver: 0% user + 0% kernel / faults: 73 minor 1 major
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 401/bt_vhci_forwarder: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 403/cameraserver: 0% user + 0% kernel / faults: 99 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 409/mediaserver: 0% user + 0% kernel / faults: 177 minor 36 major
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 764/wpa_supplicant: 0% user + 0% kernel / faults: 12 minor 2 major
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 1704/android.car.usb.handler: 0% user + 0% kernel / faults: 63 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 1743/com.android.bluetooth: 0% user + 0% kernel / faults: 245 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2175/com.android.car: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2197/com.android.providers.calendar: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2262/com.google.android.companiondevicesupport: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2304/com.google.android.providers.media.module: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2350/android.process.acore: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2387/com.android.car.rotary: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2513/com.google.android.permissioncontroller: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2539/com.android.providers.calendar: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2578/com.google.android.ext.services: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2614/com.google.android.providers.media.module: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2625/android.process.media: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2637/com.android.car.carlauncher: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2674/com.google.process.gapps: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2732/com.google.android.ext.services: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2759/com.android.car.media.localmediaplayer: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2780/com.android.car.mapsplaceholder: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2913/crash_dump64: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2924/com.google.android.gms: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager: 100% TOTAL: 36% user + 60% kernel + 2.1% irq + 0.3% softirq
+11-04 15:46:33.468   525  2165 E ActivityManager: CPU usage from 4550ms to 16820ms later (2026-11-04 15:45:56.127 to 2026-11-04 15:46:08.397):
+11-04 15:46:33.468   525  2165 E ActivityManager:   29% 318/android.hardware.graphics.composer@2.4-service: 0.9% user + 29% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     29% 376/HwBinder:318_1: 0.8% user + 28% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.2% 365/display_0_vsync: 0.1% user + 0.1% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 375/display_1_vsync: 0% user + 0.1% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   3.9% 126/carwatchdogd: 1.6% user + 2.2% kernel / faults: 14 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:     3.9% 163/WatchdogPerfSvc: 1.6% user + 2.2% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   4.6% 525/system_server: 3.4% user + 1.2% kernel / faults: 1474 minor 1 major
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.7% 2165/AnrConsumer: 0.3% user + 0.3% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.5% 525/system_server: 0.3% user + 0.1% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.3% 597/binder:525_3: 0.3% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.3% 612/oregroundThread: 0.3% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 549/android.display: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 550/android.anim: 0% user + 0.1% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 556/android.bg: 0% user + 0.1% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 577/PackageManagerB: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 592/OverlayManager: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 736/binder:525_4: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 773/binder:525_6: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 1027/binder:525_9: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 1128/binder:525_C: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 1347/binder:525_D: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 1537/binder:525_12: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 1694/binder:525_15: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 1875/binder:525_16: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 2110/binder:525_17: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 2116/binder:525_19: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:    +0% 2317/binder:525_1B: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   8% 1251/com.android.car.settings: 1.2% user + 6.7% kernel / faults: 1 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:     6.1% 1268/RenderThread: 0.9% user + 5.1% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.3% 1251/id.car.settings: 0% user + 0.3% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.3% 1264/binder:1251_3: 0% user + 0.3% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.3% 1372/binder:1251_5: 0.3% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   1.9% 337/surfaceflinger: 0.8% user + 1.1% kernel / faults: 5 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:     1.1% 337/surfaceflinger: 0.9% user + 0.1% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.2% 426/HwBinder:337_1: 0.1% user + 0.1% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 411/binder:337_1: 0% user + 0.1% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.1% 416/surfaceflinger: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   1.5% 1224/com.google.android.gms.persistent: 1% user + 0.5% kernel / faults: 439 minor 4 major
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.2% 1224/.gms.persistent: 0.2% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.2% 1235/binder:1224_2: 0.2% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:    +0% 2327/-Executor] idle: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:    +0% 2333/-Executor] idle: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.8% 836/com.android.car: 0.6% user + 0.2% kernel / faults: 163 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.2% 857/binder:836_2: 0.2% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.2% 2074/binder:836_8: 0.2% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.8% 951/com.android.phone: 0.6% user + 0.2% kernel / faults: 223 minor 2 major
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.6% 951/m.android.phone: 0.6% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.2% 114/logd: 0.1% user + 0% kernel / faults: 92 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:     0% 128/logd.writer: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.3% 285/zygote64: 0.1% user + 0.2% kernel / faults: 375 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.4% 400/logcat: 0.1% user + 0.3% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   1.5% 2105/com.google.android.tts: 1% user + 0.5% kernel / faults: 298 minor 20 major
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.1% 13/ksoftirqd/0: 0% user + 0.1% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.1% 148/android.hardware.automotive.vehicle@V1-emulator-service: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0% 149/android.hardwar: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.4% 946/com.android.car.cluster.osdouble: 0.4% user + 0% kernel / faults: 33 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.2% 946/luster.osdouble: 0.2% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 1/init: 0% user + 0% kernel / faults: 79 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:     0% 66/init: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 61/kworker/0:2H-kblockd: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 115/lmkd: 0% user + 0% kernel / faults: 1 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 116/servicemanager: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0% 125/kworker/0:3-events: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.1% 295/android.hardware.bluetooth@1.1-service.btlinux: 0.1% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.1% 403/cameraserver: 0.1% user + 0% kernel / faults: 10 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:    +0% 2335/binder:403_9: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:    +0% 2336/binder:403_A: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:    +0% 2337/binder:403_B: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.2% 1200/com.google.android.permissioncontroller: 0.2% user + 0% kernel / faults: 16 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.5% 1589/com.google.android.providers.media.module: 0.5% user + 0% kernel / faults: 35 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.7% 1656/com.google.android.gms: 0.7% user + 0% kernel / faults: 14 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.7% 1788/lowpool[0]: 0.7% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:   0.9% 1982/com.google.android.carassistant:search: 0.9% user + 0% kernel / faults: 274 minor
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.9% 2077/BG Thread #0: 0.9% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:     0.9% 2153/BG Thread #3: 0.9% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2262/com.google.android.companiondevicesupport: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2304/com.google.android.providers.media.module: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager:  +0% 2350/android.process.acore: 0% user + 0% kernel
+11-04 15:46:33.468   525  2165 E ActivityManager: 100% TOTAL: 22% user + 73% kernel + 3.7% irq + 0.5% softirq
+11-04 15:46:34.962   525  1023 W ActivityManager: Re-adding persistent process ProcessRecord{3666d72 951:com.android.phone/1001}
+11-04 15:46:35.069   525   558 W ActivityManager: Slow operation: 931ms so far, now at startProcess: returned from zygote!
+11-04 15:46:35.069   525   558 W ActivityManager: Slow operation: 931ms so far, now at startProcess: done updating battery stats
+11-04 15:46:35.069   525   558 W ActivityManager: Slow operation: 931ms so far, now at startProcess: building log message
+11-04 15:46:35.069   525   558 W ActivityManager: Slow operation: 931ms so far, now at startProcess: starting to update pids map
+11-04 15:46:35.069   525   558 W ActivityManager: Slow operation: 931ms so far, now at startProcess: done updating pids map
+11-04 15:46:35.069   525   558 W ActivityManager: Slow operation: 914ms so far, now at startProcess: asking zygote to start proc
+11-04 15:46:35.133   525   558 W ActivityManager: Slow operation: 978ms so far, now at startProcess: returned from zygote!
+11-04 15:46:35.133   525   558 W ActivityManager: Slow operation: 978ms so far, now at startProcess: done updating battery stats
+11-04 15:46:35.133   525   558 W ActivityManager: Slow operation: 978ms so far, now at startProcess: building log message
+11-04 15:46:35.133   525   558 W ActivityManager: Slow operation: 978ms so far, now at startProcess: starting to update pids map
+11-04 15:46:35.133   525   558 W ActivityManager: Slow operation: 978ms so far, now at startProcess: done updating pids map
+11-04 15:46:35.133   525   558 W ActivityManager: Slow operation: 947ms so far, now at startProcess: asking zygote to start proc
+11-04 15:46:35.158   525   558 W ActivityManager: Slow operation: 972ms so far, now at startProcess: returned from zygote!
+11-04 15:46:35.158   525   558 W ActivityManager: Slow operation: 972ms so far, now at startProcess: done updating battery stats
+11-04 15:46:35.158   525   558 W ActivityManager: Slow operation: 972ms so far, now at startProcess: building log message
+11-04 15:46:35.227   525   558 W ActivityManager: Slow operation: 1041ms so far, now at startProcess: starting to update pids map
+11-04 15:46:35.228   525   558 W ActivityManager: Slow operation: 1042ms so far, now at startProcess: done updating pids map
+11-04 15:46:35.228   525   558 W ActivityManager: Slow operation: 713ms so far, now at startProcess: asking zygote to start proc
+11-04 15:46:35.253   525   558 W ActivityManager: Slow operation: 738ms so far, now at startProcess: returned from zygote!
+11-04 15:46:35.532   525   557 W ActivityManager: Failed to clear dns cache for: com.android.car.settings
+11-04 15:46:35.544   525   557 W ActivityManager: Failed to clear dns cache for: com.android.car.settings
+11-04 15:46:35.553   525   557 W ActivityManager: Failed to clear dns cache for: com.android.car.settings
+11-04 15:46:35.558   525   557 W ActivityManager: Failed to clear dns cache for: com.android.car.settings
+11-04 15:46:35.688   525  1023 W ActivityManager: Slow operation: 459ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+11-04 15:46:35.690   525   558 W ActivityManager: Slow operation: 1175ms so far, now at startProcess: done updating battery stats
+11-04 15:46:35.690   525   558 W ActivityManager: Slow operation: 1175ms so far, now at startProcess: building log message
+11-04 15:46:35.723   525   558 W ActivityManager: Slow operation: 1208ms so far, now at startProcess: starting to update pids map
+11-04 15:46:35.723   525   558 W ActivityManager: Slow operation: 1208ms so far, now at startProcess: done updating pids map
+11-04 15:46:35.723   525   558 W ActivityManager: Slow operation: 761ms so far, now at startProcess: asking zygote to start proc
+11-04 15:46:35.732   525   558 W ActivityManager: Slow operation: 770ms so far, now at startProcess: returned from zygote!
+11-04 15:46:35.741   525   549 W ActivityManager: setHasOverlayUi called on unknown pid: 1251
+11-04 15:46:35.770   525   558 W ActivityManager: Slow operation: 808ms so far, now at startProcess: done updating battery stats
+11-04 15:46:35.770   525   558 W ActivityManager: Slow operation: 808ms so far, now at startProcess: building log message
+11-04 15:46:35.770   525   558 W ActivityManager: Slow operation: 808ms so far, now at startProcess: starting to update pids map
+11-04 15:46:35.770   525   558 W ActivityManager: Slow operation: 808ms so far, now at startProcess: done updating pids map
+11-04 15:46:36.376   525   830 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.auth.account.ACTION_UPDATE_WORK_AUTHENTICATOR cmp=com.google.android.gms/.auth.account.service.WorkAccountService (has extras) } U=10: not found
+11-04 15:46:36.872   525   558 W ActivityManager: Slow operation: 231ms so far, now at startProcess: done updating battery stats
+11-04 15:46:36.872   525   558 W ActivityManager: Slow operation: 231ms so far, now at startProcess: building log message
+11-04 15:46:36.972   525   558 W ActivityManager: Slow operation: 332ms so far, now at startProcess: starting to update pids map
+11-04 15:46:36.973   525   558 W ActivityManager: Slow operation: 332ms so far, now at startProcess: done updating pids map
+11-04 15:46:38.165   525  1128 W ActivityManager: Permission Denial: getUidProcessState from com.google.android.gms asks to run as user 0 but is calling from uid u10a173; this requires android.permission.INTERACT_ACROSS_USERS_FULL
+11-04 15:46:39.223   525   627 W ActivityManager: Unable to start service Intent { cmp=com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl } U=12: not found
+11-04 15:46:39.232   525   627 W ActivityManager: Unable to start service Intent { cmp=com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl } U=12: not found
+11-04 15:46:41.558   525   627 W ActivityManager: Unable to start service Intent { cmp=com.google.android.providers.media.module/com.android.providers.media.fuse.ExternalStorageServiceImpl } U=12: not found
+11-04 15:46:41.570   525   627 W ActivityManager: Unbind failed: could not find connection for android.app.LoadedApk$ServiceDispatcher$InnerConnection@cd68a99
+11-04 15:46:41.759   525  2471 W ActivityManager: Unable to start service Intent { cmp=com.google.android.gms/.fido.fido2.pollux.CableAuthenticatorService } U=0: not found
+11-04 15:46:44.780   525   558 W ActivityManager: Slow operation: 6924ms so far, now at startProcess: returned from zygote!
+11-04 15:46:44.781   525   558 W ActivityManager: Slow operation: 6924ms so far, now at startProcess: done updating battery stats
+11-04 15:46:44.781   525   558 W ActivityManager: Slow operation: 6924ms so far, now at startProcess: building log message
+11-04 15:46:44.781   525   558 W ActivityManager: Slow operation: 6924ms so far, now at startProcess: starting to update pids map
+11-04 15:46:44.781   525   558 W ActivityManager: Slow operation: 6924ms so far, now at startProcess: done updating pids map
+11-04 15:46:44.781   525   558 W ActivityManager: Slow operation: 3006ms so far, now at startProcess: asking zygote to start proc
+11-04 15:46:46.613   525   558 W ActivityManager: Slow operation: 4838ms so far, now at startProcess: returned from zygote!
+11-04 15:46:46.614   525   558 W ActivityManager: Slow operation: 4839ms so far, now at startProcess: done updating battery stats
+11-04 15:46:46.617   525   558 W ActivityManager: Slow operation: 4842ms so far, now at startProcess: building log message
+11-04 15:46:46.617   525   558 W ActivityManager: Slow operation: 4842ms so far, now at startProcess: starting to update pids map
+11-04 15:46:46.617   525   558 W ActivityManager: Slow operation: 4842ms so far, now at startProcess: done updating pids map
+11-04 15:46:46.617   525   558 W ActivityManager: Slow operation: 1097ms so far, now at startProcess: asking zygote to start proc
+11-04 15:46:46.910   525  1045 W ActivityManager: Slow operation: 65ms so far, now at attachApplicationLocked: immediately before bindApplication
+11-04 15:46:46.910   525  1045 W ActivityManager: Slow operation: 65ms so far, now at attachApplicationLocked: immediately after bindApplication
+11-04 15:46:46.911   525  1045 W ActivityManager: Slow operation: 66ms so far, now at attachApplicationLocked: after updateLruProcessLocked
+11-04 15:46:46.913   525  1045 W ActivityManager: Slow operation: 69ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+11-04 15:46:46.925   525  1045 W ActivityManager: Slow operation: 80ms so far, now at attachApplicationLocked: after sendPendingBroadcastsLocked
+11-04 15:46:49.017   525  2116 W ActivityManager: Unable to start service Intent { act=android.service.carrier.CarrierService pkg=com.android.carrierconfig } U=0: not found
+11-04 15:46:53.537   525   558 W ActivityManager: Slow operation: 8017ms so far, now at startProcess: returned from zygote!
+11-04 15:46:53.537   525   558 W ActivityManager: Slow operation: 8017ms so far, now at startProcess: done updating battery stats
+11-04 15:46:53.537   525   558 W ActivityManager: Slow operation: 8017ms so far, now at startProcess: building log message
+11-04 15:46:53.537   525   558 W ActivityManager: Slow operation: 8017ms so far, now at startProcess: starting to update pids map
+11-04 15:46:53.537   525   558 W ActivityManager: Slow operation: 8018ms so far, now at startProcess: done updating pids map
+11-04 15:46:53.538   525   558 W ActivityManager: Slow operation: 7898ms so far, now at startProcess: asking zygote to start proc
+11-04 15:46:54.176   525  2615 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.google.android.apps.automotive.templates.host/com.android.car.libraries.templates.host.RendererService
+11-04 15:46:54.899   525   556 W ActivityManager: Skipping broadcast of Intent { act=android.search.action.SEARCHABLES_CHANGED flg=0x24000010 }: user 11 and its parent (if any) are stopped
+11-04 15:46:58.550   525   556 W ActivityManager: Skipping broadcast of Intent { act=android.search.action.SEARCHABLES_CHANGED flg=0x24000010 }: user 12 and its parent (if any) are stopped
+11-04 15:46:58.638   525   556 W ActivityManager: Skipping broadcast of Intent { act=android.search.action.SEARCHABLES_CHANGED flg=0x24000010 }: user 12 and its parent (if any) are stopped
+11-04 15:47:03.786   525   558 W ActivityManager: Slow operation: 18146ms so far, now at startProcess: returned from zygote!
+11-04 15:47:03.787   525   558 W ActivityManager: Slow operation: 18147ms so far, now at startProcess: done updating battery stats
+11-04 15:47:03.787   525   558 W ActivityManager: Slow operation: 18147ms so far, now at startProcess: building log message
+11-04 15:47:03.787   525   558 W ActivityManager: Slow operation: 18147ms so far, now at startProcess: starting to update pids map
+11-04 15:47:03.787   525   558 W ActivityManager: Slow operation: 18147ms so far, now at startProcess: done updating pids map
+11-04 15:47:03.787   525   558 W ActivityManager: Slow operation: 15765ms so far, now at startProcess: asking zygote to start proc
+11-04 15:47:03.809   525   558 W ActivityManager: Slow operation: 15787ms so far, now at startProcess: returned from zygote!
+11-04 15:47:03.809   525   558 W ActivityManager: Slow operation: 15787ms so far, now at startProcess: done updating battery stats
+11-04 15:47:03.809   525   558 W ActivityManager: Slow operation: 15787ms so far, now at startProcess: building log message
+11-04 15:47:03.809   525   558 W ActivityManager: Slow operation: 15787ms so far, now at startProcess: starting to update pids map
+11-04 15:47:03.809   525   558 W ActivityManager: Slow operation: 15788ms so far, now at startProcess: done updating pids map
+11-04 15:47:03.809   525   558 W ActivityManager: Slow operation: 14398ms so far, now at startProcess: asking zygote to start proc
+11-04 15:47:03.830   525   558 W ActivityManager: Slow operation: 14418ms so far, now at startProcess: returned from zygote!
+11-04 15:47:03.830   525   558 W ActivityManager: Slow operation: 14418ms so far, now at startProcess: done updating battery stats
+11-04 15:47:03.830   525   558 W ActivityManager: Slow operation: 14418ms so far, now at startProcess: building log message
+11-04 15:47:03.830   525   558 W ActivityManager: Slow operation: 14418ms so far, now at startProcess: starting to update pids map
+11-04 15:47:03.830   525   558 W ActivityManager: Slow operation: 14418ms so far, now at startProcess: done updating pids map
+11-04 15:47:03.830   525   558 W ActivityManager: Slow operation: 5743ms so far, now at startProcess: asking zygote to start proc
+11-04 15:47:03.851   525   558 W ActivityManager: Slow operation: 5764ms so far, now at startProcess: returned from zygote!
+11-04 15:47:03.852   525   558 W ActivityManager: Slow operation: 5765ms so far, now at startProcess: done updating battery stats
+11-04 15:47:03.852   525   558 W ActivityManager: Slow operation: 5765ms so far, now at startProcess: building log message
+11-04 15:47:03.852   525   558 W ActivityManager: Slow operation: 5765ms so far, now at startProcess: starting to update pids map
+11-04 15:47:03.852   525   558 W ActivityManager: Slow operation: 5766ms so far, now at startProcess: done updating pids map
+11-04 15:47:03.853   525   558 W ActivityManager: Slow operation: 4293ms so far, now at startProcess: asking zygote to start proc
+11-04 15:47:03.875   525   558 W ActivityManager: Slow operation: 4315ms so far, now at startProcess: returned from zygote!
+11-04 15:47:03.875   525   558 W ActivityManager: Slow operation: 4315ms so far, now at startProcess: done updating battery stats
+11-04 15:47:03.875   525   558 W ActivityManager: Slow operation: 4315ms so far, now at startProcess: building log message
+11-04 15:47:03.875   525   558 W ActivityManager: Slow operation: 4315ms so far, now at startProcess: starting to update pids map
+11-04 15:47:03.875   525   558 W ActivityManager: Slow operation: 4315ms so far, now at startProcess: done updating pids map
+11-04 15:47:04.398   525  1053 W ActivityManager: Slow operation: 56ms so far, now at attachApplicationLocked: before bindApplication
+11-04 15:47:04.406   525  1053 W ActivityManager: Slow operation: 64ms so far, now at attachApplicationLocked: immediately before bindApplication
+11-04 15:47:04.406   525  1053 W ActivityManager: Slow operation: 65ms so far, now at attachApplicationLocked: immediately after bindApplication
+11-04 15:47:04.407   525  1053 W ActivityManager: Slow operation: 65ms so far, now at attachApplicationLocked: after updateLruProcessLocked
+11-04 15:47:04.407   525  1053 W ActivityManager: Slow operation: 65ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+11-04 15:47:04.416   525  1053 W ActivityManager: Slow operation: 74ms so far, now at attachApplicationLocked: after sendPendingBroadcastsLocked
+11-04 15:47:04.729   525  1053 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.android.car.messenger/.services.MessengerService
+11-04 15:47:04.801   525   558 W ActivityManager: Slow operation: 53ms so far, now at startProcess: done updating battery stats
+11-04 15:47:04.801   525   558 W ActivityManager: Slow operation: 53ms so far, now at startProcess: building log message
+11-04 15:47:04.801   525   558 W ActivityManager: Slow operation: 53ms so far, now at startProcess: starting to update pids map
+11-04 15:47:04.801   525   558 W ActivityManager: Slow operation: 53ms so far, now at startProcess: done updating pids map
+11-04 15:47:05.770   525  2117 W ActivityManager: Unable to start service Intent { act=android.os.image.action.NOTIFY_IF_IN_USE cmp=com.android.dynsystem/.DynamicSystemInstallationService } U=0: not found
+11-04 15:47:06.651   525  1573 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.nearby.discovery:ACTION_INIT_RUNTIME_STATE cmp=com.google.android.gms/.nearby.discovery.service.DiscoveryService } U=0: not found
+11-04 15:47:08.173   525   558 W ActivityManager: Slow operation: 58ms so far, now at startProcess: done updating battery stats
+11-04 15:47:08.173   525   558 W ActivityManager: Slow operation: 58ms so far, now at startProcess: building log message
+11-04 15:47:08.173   525   558 W ActivityManager: Slow operation: 58ms so far, now at startProcess: starting to update pids map
+11-04 15:47:08.173   525   558 W ActivityManager: Slow operation: 58ms so far, now at startProcess: done updating pids map
+11-04 15:47:08.776   525  2117 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.wearable.BIND pkg=com.google.android.gms } U=0: not found
+11-04 15:47:08.782   525  1053 W ActivityManager: Unbind failed: could not find connection for android.os.BinderProxy@db88d50
+11-04 15:47:10.910   525  2480 W ActivityManager: Slow operation: 72ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+11-04 15:47:11.693   525  2615 W ActivityManager: Slow operation: 66ms so far, now at attachApplicationLocked: after sendPendingBroadcastsLocked
+11-04 15:47:12.746   525  2480 W ActivityManager: Slow operation: 153ms so far, now at startProcess: done starting proc!
+11-04 15:47:12.747   525   558 W ActivityManager: Slow operation: 154ms so far, now at startProcess: asking zygote to start proc
+11-04 15:47:12.776   525   558 W ActivityManager: Slow operation: 183ms so far, now at startProcess: returned from zygote!
+11-04 15:47:12.776   525   558 W ActivityManager: Slow operation: 183ms so far, now at startProcess: done updating battery stats
+11-04 15:47:12.776   525   558 W ActivityManager: Slow operation: 183ms so far, now at startProcess: building log message
+11-04 15:47:12.776   525   558 W ActivityManager: Slow operation: 183ms so far, now at startProcess: starting to update pids map
+11-04 15:47:12.776   525   558 W ActivityManager: Slow operation: 183ms so far, now at startProcess: done updating pids map
+11-04 15:47:16.522   525  1875 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.nearby.discovery:ACTION_INIT_RUNTIME_STATE cmp=com.google.android.gms/.nearby.discovery.service.DiscoveryService } U=10: not found
+11-04 15:47:26.257   525   557 W ActivityManager: UserLifecycleEvent 6 received without an active userJourneySession.
 --------- beginning of main
-11-04 15:21:45.505   518   537 E ActivityManager: Sending non-protected broadcast android.location.action.ADAS_GNSS_ENABLED_CHANGED from system 518:system/1000 pkg android
-11-04 15:21:45.505   518   537 E ActivityManager: java.lang.Throwable
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.am.ActivityManagerService.checkBroadcastFromSystem(ActivityManagerService.java:13644)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.am.ActivityManagerService.broadcastIntentLocked(ActivityManagerService.java:14366)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.am.ActivityManagerService.broadcastIntentLocked(ActivityManagerService.java:13662)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.am.ActivityManagerService.broadcastIntentWithFeature(ActivityManagerService.java:14540)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at android.app.ContextImpl.sendBroadcastAsUser(ContextImpl.java:1416)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.location.LocationManagerService.onLocationUserSettingsChanged(LocationManagerService.java:504)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.location.LocationManagerService.$r8$lambda$uF7b_mBXNU5SEZNMxWv7H1zebvg(Unknown Source:0)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.location.LocationManagerService$$ExternalSyntheticLambda2.onLocationUserSettingsChanged(Unknown Source:2)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.location.settings.LocationSettings.fireListeners(LocationSettings.java:161)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.location.settings.LocationSettings$LocationUserSettingsStore.lambda$onChange$1$com-android-server-location-settings-LocationSettings$LocationUserSettingsStore(LocationSettings.java:192)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.location.settings.LocationSettings$LocationUserSettingsStore$$ExternalSyntheticLambda0.run(Unknown Source:6)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at android.os.Handler.handleCallback(Handler.java:942)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at android.os.Handler.dispatchMessage(Handler.java:99)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at android.os.Looper.loopOnce(Looper.java:201)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at android.os.Looper.loop(Looper.java:288)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at android.os.HandlerThread.run(HandlerThread.java:67)
-11-04 15:21:45.505   518   537 E ActivityManager: 	at com.android.server.ServiceThread.run(ServiceThread.java:44)
-11-04 15:21:45.571   518  1681 W ActivityManager: Unable to start service Intent { act=android.service.carrier.CarrierService pkg=com.android.carrierconfig } U=0: not found
-11-04 15:21:45.955   518   594 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.android.car.messenger/.services.MessengerService
-11-04 15:21:46.319   518   549 W ActivityManager: Slow operation: 79ms so far, now at startProcess: starting to update pids map
-11-04 15:21:46.320   518   549 W ActivityManager: Slow operation: 80ms so far, now at startProcess: done updating pids map
-11-04 15:21:48.183   518  1896 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.nearby.discovery:ACTION_INIT_RUNTIME_STATE cmp=com.google.android.gms/.nearby.discovery.service.DiscoveryService } U=0: not found
-11-04 15:21:51.731   518   518 W ActivityManager: Unable to launch app com.google.android.ext.services/1110203 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 11 is stopped
-11-04 15:21:51.733   518   518 W ActivityManager: Unable to launch app com.google.android.ext.services/1110203 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 11 is stopped
-11-04 15:21:51.734   518   518 W ActivityManager: Unable to launch app com.google.android.ext.services/1210203 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 12 is stopped
-11-04 15:21:51.735   518   518 W ActivityManager: Unable to launch app com.google.android.ext.services/1210203 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 12 is stopped
-11-04 15:21:57.918   518   518 W ActivityManager: Unable to launch app com.google.android.ext.services/1110203 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 11 is stopped
-11-04 15:21:57.919   518   518 W ActivityManager: Unable to launch app com.google.android.ext.services/1110203 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 11 is stopped
-11-04 15:21:57.919   518   518 W ActivityManager: Unable to launch app com.google.android.ext.services/1210203 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 12 is stopped
-11-04 15:21:57.919   518   518 W ActivityManager: Unable to launch app com.google.android.ext.services/1210203 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 12 is stopped
-11-04 15:22:34.679   518   548 W ActivityManager: Stopping service due to app idle: u10a103 -1m22s895ms com.android.car.dialer/.service.StartAppService
-11-04 15:22:53.344   518  2423 W ActivityManager: stopServiceToken startId 252 is last, but have 1 remaining args
-11-04 15:22:56.306   518  2423 W ActivityManager: stopServiceToken startId 455 is last, but have 1 remaining args
-11-04 15:23:21.479   518  2698 W ActivityManager: Slow operation: 66ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
-11-04 15:23:22.296  5314  5314 I Voice   : Pleos TTS → Android TTS (unavailable: Permission pleos.car.permission.TTS_SERVICE is required to perform this action.)
-11-04 15:23:27.265   518  1829 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:27.405  5314  5314 W PleosSignalSource: gear-now: getCurrentGearSelectionState need Permission
-11-04 15:23:27.405  5314  5314 I PleosSignalSource: registered gear-now
-11-04 15:23:27.406  5314  5314 W PleosSignalSource: skip gear: registerGearSelection need Permission
-11-04 15:23:27.442  5314  5314 W PleosSignalSource: skip wiper: registerWiperState need Permission
-11-04 15:23:27.487  5314  5314 W PleosSignalSource: skip fuel: registerFuelPercent need Permission
-11-04 15:23:27.561  5314  5314 W PleosSignalSource: skip soc: registerEvBatteryStateOfCharge need Permission
-11-04 15:23:27.627  5314  5314 W PleosSignalSource: distance: requestTripDrivingDistanceCapability need Permission
-11-04 15:23:27.627  5314  5314 I PleosSignalSource: registered distance
-11-04 15:23:27.638  5314  5314 W PleosSignalSource: skip brake: registerBrakePedalStatus need Permission
-11-04 15:23:27.767   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:28.348   518  2011 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:28.866   518  1294 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:29.372   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:29.875   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:30.376   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:30.877   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:31.420   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:31.970   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:32.578   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:33.080   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:33.582   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:34.083   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:34.584   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:35.086   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:35.587   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:36.095   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:36.619   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:37.121   518   594 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:37.623   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:38.124   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:38.625   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:39.126   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:39.628   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:40.129   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:40.630   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:41.132   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:41.633   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:42.134   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
-11-04 15:23:42.635   518  1671 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:47:26.292   525   546 E ActivityManager: Sending non-protected broadcast android.location.action.ADAS_GNSS_ENABLED_CHANGED from system 525:system/1000 pkg android
+11-04 15:47:26.292   525   546 E ActivityManager: java.lang.Throwable
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.am.ActivityManagerService.checkBroadcastFromSystem(ActivityManagerService.java:13644)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.am.ActivityManagerService.broadcastIntentLocked(ActivityManagerService.java:14366)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.am.ActivityManagerService.broadcastIntentLocked(ActivityManagerService.java:13662)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.am.ActivityManagerService.broadcastIntentWithFeature(ActivityManagerService.java:14540)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at android.app.ContextImpl.sendBroadcastAsUser(ContextImpl.java:1416)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.location.LocationManagerService.onLocationUserSettingsChanged(LocationManagerService.java:504)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.location.LocationManagerService.$r8$lambda$uF7b_mBXNU5SEZNMxWv7H1zebvg(Unknown Source:0)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.location.LocationManagerService$$ExternalSyntheticLambda2.onLocationUserSettingsChanged(Unknown Source:2)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.location.settings.LocationSettings.fireListeners(LocationSettings.java:161)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.location.settings.LocationSettings$LocationUserSettingsStore.lambda$onChange$1$com-android-server-location-settings-LocationSettings$LocationUserSettingsStore(LocationSettings.java:192)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.location.settings.LocationSettings$LocationUserSettingsStore$$ExternalSyntheticLambda0.run(Unknown Source:6)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at android.os.Handler.handleCallback(Handler.java:942)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at android.os.Looper.loopOnce(Looper.java:201)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at android.os.Looper.loop(Looper.java:288)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at android.os.HandlerThread.run(HandlerThread.java:67)
+11-04 15:47:26.292   525   546 E ActivityManager: 	at com.android.server.ServiceThread.run(ServiceThread.java:44)
+11-04 15:47:26.326   525   773 W ActivityManager: Unable to start service Intent { cmp=com.android.car.cartelemetryapp/.CarMetricsCollectorService } U=0: not found
+11-04 15:47:26.608   525  1027 W ActivityManager: Unable to start service Intent { act=android.service.carrier.CarrierService pkg=com.android.carrierconfig } U=0: not found
+11-04 15:47:27.237   525  3140 W ActivityManager: Foreground service started from background can not have location/camera/microphone access: service com.android.car.messenger/.services.MessengerService
+11-04 15:47:28.765   525   558 W ActivityManager: Slow operation: 69ms so far, now at startProcess: done updating battery stats
+11-04 15:47:28.765   525   558 W ActivityManager: Slow operation: 70ms so far, now at startProcess: building log message
+11-04 15:47:28.766   525   558 W ActivityManager: Slow operation: 70ms so far, now at startProcess: starting to update pids map
+11-04 15:47:28.766   525   558 W ActivityManager: Slow operation: 70ms so far, now at startProcess: done updating pids map
+11-04 15:47:30.776   525   544 W ActivityManager: Unable to start service Intent { act=com.google.android.gms.nearby.discovery:ACTION_INIT_RUNTIME_STATE cmp=com.google.android.gms/.nearby.discovery.service.DiscoveryService } U=0: not found
+11-04 15:47:38.472   525  1484 W ActivityManager: Unable to start service Intent { cmp=com.google.android.gms/.ads.identifier.service.AdvertisingIdNotificationService (has extras) } U=10: not found
+11-04 15:47:38.513   525  2117 W ActivityManager: Unable to start service Intent { cmp=com.google.android.gms/.ads.identifier.service.AdvertisingIdNotificationService (has extras) } U=10: not found
+11-04 15:47:40.011   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1110195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 11 is stopped
+11-04 15:47:40.012   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1110195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 11 is stopped
+11-04 15:47:40.012   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1210195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 12 is stopped
+11-04 15:47:40.012   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1210195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 12 is stopped
+11-04 15:47:43.867   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1110195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 11 is stopped
+11-04 15:47:43.867   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1110195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 11 is stopped
+11-04 15:47:43.867   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1210195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 12 is stopped
+11-04 15:47:43.868   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1210195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 12 is stopped
+11-04 15:47:47.997   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1110195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 11 is stopped
+11-04 15:47:47.998   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1110195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 11 is stopped
+11-04 15:47:47.998   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1210195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 12 is stopped
+11-04 15:47:47.998   525   525 W ActivityManager: Unable to launch app com.google.android.ext.services/1210195 for service Intent { act=android.service.autofill.InlineSuggestionRenderService cmp=com.google.android.ext.services/android.ext.services.autofill.InlineSuggestionRenderServiceImpl }: user 12 is stopped
+11-04 15:47:59.790   525  2480 W ActivityManager: stopServiceToken startId 455 is last, but have 2 remaining args
+11-04 15:48:05.665   525   557 W ActivityManager: Stopping service due to app idle: u10a103 -1m1s617ms com.android.car.dialer/.service.StartAppService
+11-04 15:48:39.710   525   558 W ActivityManager: Slow operation: 174ms so far, now at startProcess: returned from zygote!
+11-04 15:48:39.711   525   558 W ActivityManager: Slow operation: 175ms so far, now at startProcess: done updating battery stats
+11-04 15:48:39.711   525   558 W ActivityManager: Slow operation: 175ms so far, now at startProcess: building log message
+11-04 15:48:39.711   525   558 W ActivityManager: Slow operation: 175ms so far, now at startProcess: starting to update pids map
+11-04 15:48:39.712   525   558 W ActivityManager: Slow operation: 176ms so far, now at startProcess: done updating pids map
+11-04 15:48:40.145   525   736 W ActivityManager: Slow operation: 62ms so far, now at attachApplicationLocked: after mServices.attachApplicationLocked
+11-04 15:48:40.977  5426  5426 I Voice   : Pleos TTS → Android TTS (unavailable: Permission pleos.car.permission.TTS_SERVICE is required to perform this action.)
+11-04 15:48:46.551   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:46.851  5426  5426 W PleosSignalSource: gear-now: getCurrentGearSelectionState need Permission
+11-04 15:48:46.851  5426  5426 I PleosSignalSource: registered gear-now
+11-04 15:48:46.852  5426  5426 W PleosSignalSource: skip gear: registerGearSelection need Permission
+11-04 15:48:46.999  5426  5426 W PleosSignalSource: skip wiper: registerWiperState need Permission
+11-04 15:48:47.055   525  1027 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:47.152  5426  5426 W PleosSignalSource: skip fuel: registerFuelPercent need Permission
+11-04 15:48:47.337   525  1027 W ActivityManager: stopServiceToken startId 294 is last, but have 8 remaining args
+11-04 15:48:47.360  5426  5426 W PleosSignalSource: skip soc: registerEvBatteryStateOfCharge need Permission
+11-04 15:48:47.497  5426  5426 W PleosSignalSource: distance: requestTripDrivingDistanceCapability need Permission
+11-04 15:48:47.497  5426  5426 I PleosSignalSource: registered distance
+11-04 15:48:47.516  5426  5426 W PleosSignalSource: skip brake: registerBrakePedalStatus need Permission
+11-04 15:48:47.558   525  1027 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:48.111   525  1875 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:48.887   525  1045 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:50.023   525  1875 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:50.562   525  2111 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:51.075   525  2111 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:51.600   525  2111 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:52.125   525   773 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:52.832   525   773 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:53.359   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:53.863   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:54.366   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:54.869   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:55.372   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:55.875   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:56.378   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:56.887   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:57.395   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:57.908   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:58.413   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:58.915   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:59.418   525  1573 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:48:59.922   525  1045 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:49:00.426   525  1045 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:49:00.929   525  1045 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:49:01.430   525  1045 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:49:01.951   525  1045 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:49:02.469   525  1045 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
+11-04 15:49:02.972   525  1045 W ActivityManager: Unable to start service Intent { act=ai.pleos.playground.vehicle.VEHICLE_START cmp=ai.pleos.playground.service.vehicle/.VehicleService } U=10: not found
