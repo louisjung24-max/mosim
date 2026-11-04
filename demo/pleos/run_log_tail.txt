@@ -40,7 +40,7 @@ Auto-selecting single ABI x86_64
 == boot ==
 * daemon not running; starting now at tcp:5037
 * daemon started successfully
-booted after 6x5s
+booted after 8x5s
 Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys
 Physical size: 2560x1440
 package:ai.pleos.android.webview
@@ -113,11 +113,11 @@ Exception occurred while executing 'get-property-value':
 java.lang.SecurityException: The command 'get-property-value' requires non-user build
 	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
 == time zone: Asia/Seoul ==
-Thu Nov  5 00:51:13 KST 2026
+Thu Nov  5 01:20:38 KST 2026
 == install ==
 Performing Streamed Install
 Success
-package:/data/app/~~gFSgbDndT-B2wZxvDU7vbw==/com.hiddenframe.mosim-0Cgnn6idnZRdda82AcTUuA==/base.apk
+package:/data/app/~~n68yop4VYrAkc5j6FguvXQ==/com.hiddenframe.mosim-6sezTHDKjyFqUlAstSA14g==/base.apk
       android.permission.FOREGROUND_SERVICE: granted=true
       android.permission.INTERNET: granted=true
       pleos.car.permission.TTS_SERVICE: granted=true
@@ -137,9 +137,9 @@ package:/data/app/~~gFSgbDndT-B2wZxvDU7vbw==/com.hiddenframe.mosim-0Cgnn6idnZRdd
         pleos.car.permission.FUSED_LOCATION: granted=true
 Broadcasting: Intent { act=com.hiddenframe.mosim.SIM flg=0x400000 cmp=com.hiddenframe.mosim/.vehicle.SimulationReceiver (has extras) }
 Broadcast completed: result=0
-    topResumedActivity=ActivityRecord{d5a3aff u10 com.hiddenframe.mosim/.ui.MainActivity t1000008}
-    topResumedActivity=ActivityRecord{ccdbfa4 u10 ai.umos.drivingview/.DrivingViewActivity t1000006}
-family code: 
+    topResumedActivity=ActivityRecord{571f504 u10 com.hiddenframe.mosim/.ui.MainActivity t1000012}
+      topResumedActivity=ActivityRecord{6655dce u10 ai.umos.homescreen/.HomeActivity t1000006}
+family code: 24BG8RENJQ
 worker from host: 200
 == virtual console ==
 8088
@@ -151,64 +151,64 @@ click share:night
 click share:care
 click share:stop
 click consent
-16s gear D
+22s gear D
 PUT /vehicle/gear?gear=Drive -> 200
 PUT /vehicle/body?front_wiper=Low -> 200
-23s drive + hard brakes
-41s battery 8%
+29s drive + hard brakes
+53s battery 8%
 /vehicle/ev-battery?field=soc&value=8 -> 200
-50s slow stop
+63s slow stop
 shot demo/pleos/family_after_send.png
-76s idle (time-compressed) + veto
+96s idle (time-compressed) + veto
 click veto
-90s park + unlink
+228s park + unlink
 PUT /vehicle/body?front_wiper=Off -> 200
 PUT /vehicle/gear?gear=Park -> 200
 click unlink
 shot demo/pleos/family_after_unlink.png
-109s end
-/data/local/tmp/mosim_pleos.mp4: 1 file pulled, 0 skipped. 68.9 MB/s (2372548 bytes in 0.033s)
-total 5540
-drwxr-xr-x 2 runner runner    4096 Nov  4 15:56 .
-drwxr-xr-x 3 runner runner    4096 Nov  4 15:37 ..
--rw-r--r-- 1 runner runner  267308 Nov  4 15:51 00_boot.png
--rw-r--r-- 1 runner runner  351575 Nov  4 15:54 01_before_record.png
--rw-r--r-- 1 runner runner  350957 Nov  4 15:53 01_first_run.png
--rw-r--r-- 1 runner runner   17878 Nov  4 15:37 01_home.png
--rw-r--r-- 1 runner runner  253783 Nov  4 15:54 02_driving_pending.png
--rw-r--r-- 1 runner runner  247739 Nov  4 15:37 02_rainy_night.png
--rw-r--r-- 1 runner runner  241724 Nov  4 15:37 03_battery.png
--rw-r--r-- 1 runner runner  284094 Nov  4 15:55 03_stopped_voice.png
--rw-r--r-- 1 runner runner  230933 Nov  4 15:37 04_end.png
--rw-r--r-- 1 runner runner  246049 Nov  4 15:55 04_pending_stop.png
--rw-r--r-- 1 runner runner  261368 Nov  4 15:55 05_unlinked.png
--rw-r--r-- 1 runner runner    3567 Nov  4 15:44 avd_config.ini
--rw-r--r-- 1 runner runner     166 Nov  4 15:44 devices.txt
--rw-r--r-- 1 runner runner   10081 Nov  4 15:49 emulator.log
--rw-r--r-- 1 runner runner    5827 Nov  4 15:37 emulator_tail.txt
--rw-r--r-- 1 runner runner      64 Nov  4 15:44 emulator_version.txt
--rw-r--r-- 1 runner runner  106280 Nov  4 15:55 family_after_send.png
--rw-r--r-- 1 runner runner  106280 Nov  4 15:55 family_after_unlink.png
--rw-r--r-- 1 runner runner      14 Nov  4 15:53 family_code.txt
--rw-r--r-- 1 runner runner     126 Nov  4 15:51 fingerprint.txt
--rw-r--r-- 1 runner runner     943 Nov  4 15:52 granted.txt
--rw-r--r-- 1 runner runner     671 Nov  4 15:44 image_files.txt
--rw-r--r-- 1 runner runner     797 Nov  4 15:56 logcat_app.txt
--rw-r--r-- 1 runner runner   50043 Nov  4 15:37 logcat_pleos.txt
--rw-r--r-- 1 runner runner     656 Nov  4 15:37 logcat_start.txt
--rw-r--r-- 1 runner runner 2372548 Nov  4 15:56 mosim_pleos_raw.mp4
--rw-r--r-- 1 runner runner    8467 Nov  4 15:51 packages.txt
--rw-r--r-- 1 runner runner    2898 Nov  4 15:37 perm_defs.txt
--rw-r--r-- 1 runner runner    9778 Nov  4 15:37 perm_pleos_all.txt
--rw-r--r-- 1 runner runner    1663 Nov  4 15:37 perm_requested.txt
--rw-r--r-- 1 runner runner    9598 Nov  4 15:37 run_log_tail.txt
--rw-r--r-- 1 runner runner     288 Nov  4 15:55 taps.txt
--rw-r--r-- 1 runner runner     296 Nov  4 15:55 timeline.txt
--rw-r--r-- 1 runner runner   11960 Nov  4 15:55 vc_calls.txt
--rw-r--r-- 1 runner runner   50157 Nov  4 15:37 vc_catalog.json
--rw-r--r-- 1 runner runner    1934 Nov  4 15:37 vc_find_energy.txt
--rw-r--r-- 1 runner runner     346 Nov  4 15:37 vc_find_wiper.txt
--rw-r--r-- 1 runner runner   25362 Nov  4 15:37 vc_state.json
--rw-r--r-- 1 runner runner   21878 Nov  4 15:37 vc_state_end.json
--rw-r--r-- 1 runner runner    2430 Nov  4 15:51 vhal_probe.txt
--rw-r--r-- 1 runner runner    1349 Nov  4 15:37 wrangler_tail.txt
+250s end
+/data/local/tmp/mosim_pleos.mp4: 1 file pulled, 0 skipped. 10.6 MB/s (175001 bytes in 0.016s)
+total 2440
+drwxr-xr-x 2 runner runner   4096 Nov  4 16:26 .
+drwxr-xr-x 3 runner runner   4096 Nov  4 16:07 ..
+-rw-r--r-- 1 runner runner 265136 Nov  4 16:20 00_boot.png
+-rw-r--r-- 1 runner runner  73250 Nov  4 16:22 01_before_record.png
+-rw-r--r-- 1 runner runner  17880 Nov  4 16:22 01_first_run.png
+-rw-r--r-- 1 runner runner  17878 Nov  4 16:07 01_home.png
+-rw-r--r-- 1 runner runner 122599 Nov  4 16:23 02_driving_pending.png
+-rw-r--r-- 1 runner runner 247739 Nov  4 16:07 02_rainy_night.png
+-rw-r--r-- 1 runner runner 241724 Nov  4 16:07 03_battery.png
+-rw-r--r-- 1 runner runner 123301 Nov  4 16:23 03_stopped_voice.png
+-rw-r--r-- 1 runner runner 230933 Nov  4 16:07 04_end.png
+-rw-r--r-- 1 runner runner 225482 Nov  4 16:26 04_pending_stop.png
+-rw-r--r-- 1 runner runner 205941 Nov  4 16:26 05_unlinked.png
+-rw-r--r-- 1 runner runner   3567 Nov  4 16:12 avd_config.ini
+-rw-r--r-- 1 runner runner    166 Nov  4 16:12 devices.txt
+-rw-r--r-- 1 runner runner  10039 Nov  4 16:19 emulator.log
+-rw-r--r-- 1 runner runner   5861 Nov  4 16:07 emulator_tail.txt
+-rw-r--r-- 1 runner runner     64 Nov  4 16:12 emulator_version.txt
+-rw-r--r-- 1 runner runner 106280 Nov  4 16:24 family_after_send.png
+-rw-r--r-- 1 runner runner 106280 Nov  4 16:26 family_after_unlink.png
+-rw-r--r-- 1 runner runner     24 Nov  4 16:22 family_code.txt
+-rw-r--r-- 1 runner runner    126 Nov  4 16:20 fingerprint.txt
+-rw-r--r-- 1 runner runner    943 Nov  4 16:21 granted.txt
+-rw-r--r-- 1 runner runner    671 Nov  4 16:12 image_files.txt
+-rw-r--r-- 1 runner runner    372 Nov  4 16:26 logcat_app.txt
+-rw-r--r-- 1 runner runner  50043 Nov  4 16:07 logcat_pleos.txt
+-rw-r--r-- 1 runner runner    656 Nov  4 16:07 logcat_start.txt
+-rw-r--r-- 1 runner runner 175001 Nov  4 16:26 mosim_pleos_raw.mp4
+-rw-r--r-- 1 runner runner   8467 Nov  4 16:20 packages.txt
+-rw-r--r-- 1 runner runner   2898 Nov  4 16:07 perm_defs.txt
+-rw-r--r-- 1 runner runner   9778 Nov  4 16:07 perm_pleos_all.txt
+-rw-r--r-- 1 runner runner   1663 Nov  4 16:07 perm_requested.txt
+-rw-r--r-- 1 runner runner   9865 Nov  4 16:07 run_log_tail.txt
+-rw-r--r-- 1 runner runner    378 Nov  4 16:26 taps.txt
+-rw-r--r-- 1 runner runner    443 Nov  4 16:26 timeline.txt
+-rw-r--r-- 1 runner runner  14390 Nov  4 16:26 vc_calls.txt
+-rw-r--r-- 1 runner runner  50157 Nov  4 16:07 vc_catalog.json
+-rw-r--r-- 1 runner runner   1934 Nov  4 16:07 vc_find_energy.txt
+-rw-r--r-- 1 runner runner    346 Nov  4 16:07 vc_find_wiper.txt
+-rw-r--r-- 1 runner runner  25362 Nov  4 16:07 vc_state.json
+-rw-r--r-- 1 runner runner  21878 Nov  4 16:07 vc_state_end.json
+-rw-r--r-- 1 runner runner   2430 Nov  4 16:20 vhal_probe.txt
+-rw-r--r-- 1 runner runner   1483 Nov  4 16:07 wrangler_tail.txt
