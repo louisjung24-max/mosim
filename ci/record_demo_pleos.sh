@@ -133,12 +133,18 @@ VC() { curl -sS -m 10 -X PUT "http://127.0.0.1:8088$1" -o /dev/null -w "PUT $1 -
 ctl() { VC "/vehicle/controls?speed=$1&accelerator=$2&brake=$3&steering=0" >/dev/null; }
 drive() { for _ in $(seq 1 "$1"); do ctl "$2" "$([ "${3:-0}" -gt 0 ] && echo 0 || echo 30)" "${3:-0}"; sleep 1; done; }
 # uiautomator는 Pleos 이미지에서 연결이 안 되어, 디버그 빌드 전용 브로드캐스트로 같은 버튼 동작을 누릅니다
+# Pleos는 기어 변경 시 주행 화면·내비가 앞으로 올 수 있어, 모심 화면을 다시 앞으로 가져옵니다(singleTask, 재생성 없음)
+front() { adb shell am start -n $APP/.ui.MainActivity >/dev/null 2>&1; }
 TAP() { adb shell am broadcast -a $APP.UI --es click "$1" >/dev/null; echo "click $1" | tee -a "$OUT/taps.txt"; }
 ctl 0 0 0; VC "/vehicle/gear?gear=Park"; VC "/vehicle/body?front_wiper=Off"
 python3 ci/vconsole.py set "soc|state.?of.?charge" 60 >/dev/null 2>&1 || true
 sleep 3
 
-adb shell am start -n $APP/.ui.MainActivity >/dev/null 2>&1; sleep 4
+for i in $(seq 1 10); do
+  front; sleep 4
+  adb shell dumpsys activity activities | grep -m1 "topResumedActivity" | grep -q "$APP" && break
+done
+adb shell dumpsys activity activities | grep -m1 "topResumedActivity"
 adb exec-out screencap -p > "$OUT/01_before_record.png"
 
 log "record"
@@ -154,7 +160,7 @@ TAP share:stop; sleep 2
 TAP consent; sleep 6
 # 2) 새벽, 기어 D → 차 안 안내 + "부모님 먼저" 30초 대기 후 실제 서버로 전송
 mark "gear D"
-VC "/vehicle/gear?gear=Drive"; sleep 5
+VC "/vehicle/gear?gear=Drive"; sleep 1; front; sleep 4
 VC "/vehicle/body?front_wiper=Low"; sleep 2
 mark "drive + hard brakes"
 drive 7 50
@@ -181,7 +187,7 @@ adb exec-out screencap -p > "$OUT/04_pending_stop.png"
 TAP veto; sleep 6
 # 6) 주차 → 가족 연결 해제(서버 기록 삭제, 새 QR)
 mark "park + unlink"
-VC "/vehicle/body?front_wiper=Off"; VC "/vehicle/gear?gear=Park"; sleep 6
+VC "/vehicle/body?front_wiper=Off"; VC "/vehicle/gear?gear=Park"; sleep 1; front; sleep 5
 TAP unlink; sleep 8
 adb exec-out screencap -p > "$OUT/05_unlinked.png"
 python3 ci/family_shot.py "http://127.0.0.1:8787/f/$CODE" "$OUT/family_after_unlink.png" || true
