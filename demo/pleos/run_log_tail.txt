@@ -40,4 +40,176 @@ Auto-selecting single ABI x86_64
 == boot ==
 * daemon not running; starting now at tcp:5037
 * daemon started successfully
-booted after 17x5s
+booted after 10x5s
+Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys
+Physical size: 2560x1440
+package:ai.pleos.android.webview
+package:ai.pleos.connecttokensampleapp
+package:ai.pleos.connectwebconsole
+package:ai.pleos.gleoai.model.provider
+package:ai.pleos.hardware.vehicle.emulator
+package:ai.pleos.multimedia.mediabridge
+package:ai.pleos.playground.caas
+package:ai.pleos.playground.service.adas
+package:ai.pleos.playground.service.cap
+package:ai.pleos.playground.service.location.fused
+package:ai.pleos.playground.service.navi
+package:ai.pleos.playground.service.sync
+package:ai.pleos.playground.service.vehicle
+package:ai.pleos.service
+package:ai.pleos.service.car
+package:ai.pleos.service.profile
+package:ai.pleos.service.trustagent
+package:ai.pleos.service.ui
+package:ai.pleos.servicemodepro
+package:ai.pleos.system.service.hid
+package:ai.pleos.system.service.logcat_broker
+package:ai.pleos.system.service.wifi
+package:ai.pleos.system.update.broadcast
+package:ai.pleos.theme.connect
+package:ai.pleos.welcomescreen
+package:ai.umos.smartkeyconsole
+package:ai.umos.vehiclecontrol
+package:com.android.crpavd.wifiprovisioner
+== vhal probe ==
+## get-property 0x11400400
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+## get-property 0x13400CC8
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+## get-property 0x11600307
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+## get-property 0x11600106
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+## get-property 0x11200402
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
+## get-property 0x11600207
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+== time zone: Asia/Seoul ==
+Thu Nov  5 02:20:22 KST 2026
+== install ==
+Performing Streamed Install
+Success
+package:/data/app/~~vvOVQxAKyxc4AAODJHiGJA==/com.hiddenframe.mosim--9i837zh7DsWSQOg5NunXg==/base.apk
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.INTERNET: granted=true
+      pleos.car.permission.TTS_SERVICE: granted=true
+      android.permission.FOREGROUND_SERVICE_DATA_SYNC: granted=true
+      pleos.car.permission.CAR_ENERGY: granted=true
+      pleos.car.permission.CAR_INFO: granted=true
+      pleos.car.permission.CAR_WINDOWS: granted=true
+      pleos.car.permission.CAR_DRIVE: granted=true
+      android.car.permission.CAR_INFO: granted=true
+        android.permission.POST_NOTIFICATIONS: granted=true
+        android.car.permission.CAR_SPEED: granted=true
+        android.car.permission.CAR_ENERGY: granted=true
+        pleos.car.permission.FUSED_LOCATION: granted=true
+        android.permission.POST_NOTIFICATIONS: granted=true
+        android.car.permission.CAR_SPEED: granted=true
+        android.car.permission.CAR_ENERGY: granted=true
+        pleos.car.permission.FUSED_LOCATION: granted=true
+Broadcasting: Intent { act=com.hiddenframe.mosim.SIM flg=0x400000 cmp=com.hiddenframe.mosim/.vehicle.SimulationReceiver (has extras) }
+Broadcast completed: result=0
+    topResumedActivity=ActivityRecord{aa81bce u10 com.hiddenframe.mosim/.ui.MainActivity t1000008}
+    topResumedActivity=ActivityRecord{ac5aba5 u10 ai.umos.drivingview/.DrivingViewActivity t1000006}
+family code: GGBAXSHHSC
+worker from host: 200
+== virtual console ==
+8088
+PUT /vehicle/gear?gear=Park -> 200
+PUT /vehicle/body?front_wiper=Off -> 200
+    topResumedActivity=ActivityRecord{aa81bce u10 com.hiddenframe.mosim/.ui.MainActivity t1000008}
+== record ==
+3s first-run consent
+click share:night
+click share:care
+click share:stop
+click consent
+19s gear D
+PUT /vehicle/gear?gear=Drive -> 200
+PUT /vehicle/body?front_wiper=Low -> 200
+28s drive + hard brakes
+47s battery 8%
+/vehicle/ev-battery?field=soc&value=8 -> 200
+56s slow stop
+shot demo/pleos/family_after_send.png
+108s idle (time-compressed) + veto
+click veto
+124s park + unlink
+PUT /vehicle/body?front_wiper=Off -> 200
+PUT /vehicle/gear?gear=Park -> 200
+click unlink
+shot demo/pleos/family_after_unlink.png
+145s end
+/data/local/tmp/mosim_pleos.mp4: 1 file pulled, 0 skipped. 27.5 MB/s (2007018 bytes in 0.070s)
+total 5184
+drwxr-xr-x 2 runner runner    4096 Nov  4 17:25 .
+drwxr-xr-x 3 runner runner    4096 Nov  4 17:07 ..
+-rw-r--r-- 1 runner runner  208159 Nov  4 17:20 00_boot.png
+-rw-r--r-- 1 runner runner  351150 Nov  4 17:22 01_before_record.png
+-rw-r--r-- 1 runner runner  348154 Nov  4 17:22 01_first_run.png
+-rw-r--r-- 1 runner runner   17878 Nov  4 17:07 01_home.png
+-rw-r--r-- 1 runner runner  300917 Nov  4 17:23 02_driving_pending.png
+-rw-r--r-- 1 runner runner  247739 Nov  4 17:07 02_rainy_night.png
+-rw-r--r-- 1 runner runner  241724 Nov  4 17:07 03_battery.png
+-rw-r--r-- 1 runner runner  269119 Nov  4 17:23 03_stopped_voice.png
+-rw-r--r-- 1 runner runner  230933 Nov  4 17:07 04_end.png
+-rw-r--r-- 1 runner runner  246640 Nov  4 17:24 04_pending_stop.png
+-rw-r--r-- 1 runner runner  271067 Nov  4 17:25 05_unlinked.png
+-rw-r--r-- 1 runner runner    3567 Nov  4 17:12 avd_config.ini
+-rw-r--r-- 1 runner runner     166 Nov  4 17:12 devices.txt
+-rw-r--r-- 1 runner runner    9877 Nov  4 17:19 emulator.log
+-rw-r--r-- 1 runner runner    6998 Nov  4 17:07 emulator_tail.txt
+-rw-r--r-- 1 runner runner      64 Nov  4 17:12 emulator_version.txt
+-rw-r--r-- 1 runner runner  127827 Nov  4 17:24 family_after_send.png
+-rw-r--r-- 1 runner runner  106280 Nov  4 17:25 family_after_unlink.png
+-rw-r--r-- 1 runner runner      24 Nov  4 17:22 family_code.txt
+-rw-r--r-- 1 runner runner     126 Nov  4 17:20 fingerprint.txt
+-rw-r--r-- 1 runner runner     943 Nov  4 17:21 granted.txt
+-rw-r--r-- 1 runner runner     671 Nov  4 17:12 image_files.txt
+-rw-r--r-- 1 runner runner    1094 Nov  4 17:25 logcat_app.txt
+-rw-r--r-- 1 runner runner   50043 Nov  4 17:07 logcat_pleos.txt
+-rw-r--r-- 1 runner runner     656 Nov  4 17:07 logcat_start.txt
+-rw-r--r-- 1 runner runner 2007018 Nov  4 17:25 mosim_pleos_raw.mp4
+-rw-r--r-- 1 runner runner    8467 Nov  4 17:20 packages.txt
+-rw-r--r-- 1 runner runner    2898 Nov  4 17:07 perm_defs.txt
+-rw-r--r-- 1 runner runner    9778 Nov  4 17:07 perm_pleos_all.txt
+-rw-r--r-- 1 runner runner    1663 Nov  4 17:07 perm_requested.txt
+-rw-r--r-- 1 runner runner    1397 Nov  4 17:07 run_log_tail.txt
+-rw-r--r-- 1 runner runner     468 Nov  4 17:25 taps.txt
+-rw-r--r-- 1 runner runner     591 Nov  4 17:25 timeline.txt
+-rw-r--r-- 1 runner runner   16820 Nov  4 17:24 vc_calls.txt
+-rw-r--r-- 1 runner runner   50157 Nov  4 17:07 vc_catalog.json
+-rw-r--r-- 1 runner runner    1934 Nov  4 17:07 vc_find_energy.txt
+-rw-r--r-- 1 runner runner     346 Nov  4 17:07 vc_find_wiper.txt
+-rw-r--r-- 1 runner runner   25362 Nov  4 17:07 vc_state.json
+-rw-r--r-- 1 runner runner   21878 Nov  4 17:07 vc_state_end.json
+-rw-r--r-- 1 runner runner    2430 Nov  4 17:20 vhal_probe.txt
+-rw-r--r-- 1 runner runner    1239 Nov  4 17:07 wrangler_tail.txt

@@ -16,3 +16,9 @@ click share:stop
 click consent
 click veto
 click unlink
+click share:night
+click share:care
+click share:stop
+click consent
+click veto
+click unlink

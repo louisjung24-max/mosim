@@ -1,6 +1,16 @@
 --------- beginning of main
-11-05 01:22:06.132 13980 13980 I PleosSignalSource: registered gear-now
-11-05 01:22:06.147 13980 13980 I PleosSignalSource: registered gear
-11-05 01:22:07.767 13980 13980 I PleosSignalSource: registered wiper
-11-05 01:22:18.035 13980 13980 I PleosSignalSource: registered fuel
-11-05 01:22:20.791 13980 13980 I PleosSignalSource: registered soc
+11-05 02:22:18.105 15772 15772 I Voice   : Pleos TTS ready
+11-05 02:22:19.898 15772 15772 I PleosSignalSource: registered gear-now
+11-05 02:22:19.914 15772 15772 I PleosSignalSource: registered gear
+11-05 02:22:20.378 15772 15772 I PleosSignalSource: registered wiper
+11-05 02:22:21.924 15772 15772 I PleosSignalSource: registered fuel
+11-05 02:22:23.335 15772 15772 I PleosSignalSource: registered soc
+11-05 02:22:24.291 15772 15772 I PleosSignalSource: registered distance
+11-05 02:22:24.396 15772 15772 I PleosSignalSource: registered brake
+11-05 02:22:30.763 15772 15789 W PleosSignalSource: distance: ERROR_NOT_SUPPORTED_PROPERTY
+11-05 02:23:07.040 15772 15787 W Voice   : speak error: ON_DEVICE_ENGINE_ERROR
+11-05 02:23:07.042 15772 15772 I Voice   : Pleos TTS → Android TTS (speak ON_DEVICE_ENGINE_ERROR)
+11-05 02:23:07.064 15772 15772 W Voice   : TTS init failed
+11-05 02:24:11.611 15772 15820 I AlertSender: /api/event -> 200
+11-05 02:24:20.770 15772 15820 I AlertSender: /api/event -> 200
+11-05 02:25:01.846 15772 15820 I AlertSender: /api/unlink -> 200

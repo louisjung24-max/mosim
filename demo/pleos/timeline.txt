@@ -22,3 +22,11 @@
 96s idle (time-compressed) + veto
 228s park + unlink
 250s end
+3s first-run consent
+19s gear D
+28s drive + hard brakes
+47s battery 8%
+56s slow stop
+108s idle (time-compressed) + veto
+124s park + unlink
+145s end
