@@ -50,14 +50,5 @@
             android:exported="false"
             android:foregroundServiceType="dataSync" />
 
-        <!-- 데모·시연용: adb 또는 PT 현장에서 시나리오를 주입 -->
-        <receiver
-            android:name=".vehicle.SimulationReceiver"
-            android:exported="true"
-            tools:ignore="ExportedReceiver">
-            <intent-filter>
-                <action android:name="com.hiddenframe.mosim.SIM" />
-            </intent-filter>
-        </receiver>
     </application>
 </manifest>

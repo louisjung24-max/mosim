@@ -20,10 +20,12 @@ android {
         applicationId = "com.hiddenframe.mosim"
         minSdk = 28
         targetSdk = 33
-        versionCode = 2
-        versionName = "0.2.0"
+        versionCode = 3
+        versionName = "0.3.0"
         // 알림 서버 주소. 비어 있으면 서버 전송을 건너뛰고 화면에만 표시합니다.
         buildConfigField("String", "ALERT_ENDPOINT", "\"${System.getenv("MOSIM_ALERT_ENDPOINT") ?: ""}\"")
+        // 알림 서버 기기 토큰. 저장소에 넣지 않고 GitHub Secret(MOSIM_DEVICE_TOKEN)으로만 주입합니다.
+        buildConfigField("String", "DEVICE_TOKEN", "\"${System.getenv("MOSIM_DEVICE_TOKEN") ?: ""}\"")
     }
 
     signingConfigs {
@@ -75,6 +77,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
 
     // Pleos Connect SDK
+    implementation("com.google.zxing:core:3.5.3") // 가족 연결 QR
     implementation("ai.pleos.playground:Vehicle:2.3.2")
     implementation("ai.pleos.playground:TextToSpeech:3.3.1")
     implementation("ai.pleos.playground:FusedLocation:1.1.3")

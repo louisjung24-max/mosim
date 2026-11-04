@@ -43,8 +43,28 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v4
 
+      # 앱은 에뮬레이터 안에서 호스트(10.0.2.2)의 로컬 알림 서버로 실제 전송합니다
       - name: Build debug APK
+        env:
+          MOSIM_ALERT_ENDPOINT: http://10.0.2.2:8787
         run: ./gradlew --no-daemon assembleDebug
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Start local alert server (Cloudflare Worker, wrangler dev)
+        working-directory: worker
+        run: |
+          npm install --no-audit --no-fund >/dev/null
+          nohup npx wrangler dev --port 8787 --ip 0.0.0.0 > ../wrangler_dev.log 2>&1 &
+          for i in $(seq 1 60); do curl -s -o /dev/null http://127.0.0.1:8787/ && break; sleep 2; done
+          curl -s http://127.0.0.1:8787/ ; echo
+
+      - name: Install Playwright (자녀 페이지 캡처)
+        run: |
+          pip install -q playwright
+          python3 -m playwright install --with-deps chromium >/dev/null
 
       - name: Fetch Pleos system image (42dot license accepted by repo owner)
         run: bash ci/record_demo_pleos.sh fetch
@@ -67,6 +87,7 @@ jobs:
           mkdir -p demo/pleos
           tail -n 400 demo_pleos_run.log > demo/pleos/run_log_tail.txt || true
           tail -n 80 demo/pleos/emulator.log > demo/pleos/emulator_tail.txt 2>/dev/null || true
+          tail -n 100 wrangler_dev.log > demo/pleos/wrangler_tail.txt 2>/dev/null || true
           rm -f demo/pleos/emulator.log
           git config user.name "mosim-ci"
           git config user.email "ci@users.noreply.github.com"

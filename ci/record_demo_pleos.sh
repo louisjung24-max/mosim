@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Pleos Connect 에뮬레이터 v2.1.0(API 34)에서 실제 Pleos SDK 경로로 시연을 녹화합니다. (GitHub Actions용)
 # 라이선스: 42dot Pleos Connect SDK License Agreement — 저장소 소유자(정세준)가 동의함 (2026-10-28).
-# 차량 신호는 AAOS VHAL 주입(cmd car_service inject-vhal-event), 위치는 에뮬레이터 geo fix로 넣습니다.
+# 차량 신호는 에뮬레이터 안의 Pleos Virtual Console(HTTP API)로 바꾸고, 알림 서버는 같은 러너에서 띄운 로컬 Worker(10.0.2.2:8787)로 실제 저장합니다.
 set -uo pipefail
 # 이미지의 source.properties가 태그를 android-automotive로 선언하므로 그 경로에 둡니다
 PKG="system-images;android-34;android-automotive;x86_64"
@@ -92,107 +92,85 @@ VH() { adb shell cmd car_service "$@" 2>&1 | head -6; }
 { for p in 0x11400400 0x13400CC8 0x11600307 0x11600106 0x11200402 0x11600207; do echo "## get-property $p"; VH get-property-value $p; done; } > "$OUT/vhal_probe.txt" 2>&1
 cat "$OUT/vhal_probe.txt" | head -40
 
-log "time 22:40 KST"
-adb shell settings put global auto_time 0
-adb shell settings put global auto_time_zone 0
-adb shell service call alarm 3 s16 Asia/Seoul >/dev/null 2>&1 || adb shell setprop persist.sys.timezone Asia/Seoul
-adb shell "date $(date -u +%m%d)1340$(date -u +%Y).00" 2>&1 | tail -1   # 13:40 UTC = 22:40 KST
-adb shell date
-
 log "install"
 for i in $(seq 1 8); do
   adb install -r -g app/build/outputs/apk/debug/app-debug.apk && adb shell pm path $APP >/dev/null 2>&1 && break
   echo "install retry $i"; sleep 15
 done
 adb shell pm path $APP || { echo "INSTALL FAILED"; exit 1; }
-for p in pleos.car.permission.FUSED_LOCATION android.permission.POST_NOTIFICATIONS; do adb shell pm grant $APP $p 2>&1 | tail -1; done
-adb shell dumpsys package $APP | grep -E "pleos.car.permission.*granted" | tee "$OUT/granted.txt"
+adb shell dumpsys package $APP | grep -E "permission.*granted=true" | tee "$OUT/granted.txt"
+# 시연 전제: 2주(운행 10회) 학습을 마친 상태 — 디버그 빌드 전용 시연 데이터(낮 운행만)
+adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario seed_baseline
 adb logcat -c
-adb shell am start -n $APP/.ui.MainActivity
-sleep 12
-adb exec-out screencap -p > "$OUT/01_home.png"
-adb shell dumpsys package $APP | sed -n '/requested permissions/,/User 0/p' > "$OUT/perm_requested.txt"
-adb shell pm list permissions -f 2>/dev/null | grep -B1 -A4 -iE "WIPER|POWERTRAIN|MILEAGE|CAR_ENERGY|TTS_SERVICE" > "$OUT/perm_defs.txt"
-adb logcat -d -s PleosSignalSource:* Voice:* > "$OUT/logcat_start.txt"
-
-adb shell pm list permissions -g -f 2>/dev/null | grep -A3 "permission:pleos.car" > "$OUT/perm_pleos_all.txt"
+adb shell am start -W -n $APP/.ui.MainActivity >/dev/null
+sleep 10
+CODE=$(adb shell run-as $APP cat shared_prefs/share.xml | grep -o 'name="code">[A-Z0-9]*' | sed 's/.*>//')
+echo "family code: $CODE" | tee "$OUT/family_code.txt"
+adb exec-out screencap -p > "$OUT/01_first_run.png"
+curl -s -m 5 -o /dev/null -w "worker from host: %{http_code}\n" http://127.0.0.1:8787/ || true
 
 log "virtual console"
 adb forward tcp:8088 tcp:8088
-curl -sS -m 10 -o /dev/null -w "console http %{http_code}\n" http://127.0.0.1:8088/ || true
-# 콘솔은 브라우저 세션이 살아 있을 때 입력을 반영하므로 하트비트를 계속 보냅니다
 ( while true; do curl -s -m 3 -X POST "http://127.0.0.1:8088/browser/session?client=mosim-ci" >/dev/null 2>&1; sleep 1; done ) &
 HB=$!
-python3 ci/vconsole.py catalog "$OUT" 2>&1 | tail -2
-python3 ci/vconsole.py find "soc|state.?of.?charge|battery|fuel" > "$OUT/vc_find_energy.txt" 2>&1
-python3 ci/vconsole.py find "wiper" > "$OUT/vc_find_wiper.txt" 2>&1
-head -c 1500 "$OUT/vc_find_energy.txt"; echo
 VC() { curl -sS -m 10 -X PUT "http://127.0.0.1:8088$1" -o /dev/null -w "PUT $1 -> %{http_code}\n" | tee -a "$OUT/vc_calls.txt"; }
-ctl() { VC "/vehicle/controls?speed=$1&accelerator=$2&brake=$3&steering=0"; }
-
-# 주차(P), 와이퍼 끔에서 시작
+ctl() { VC "/vehicle/controls?speed=$1&accelerator=$2&brake=$3&steering=0" >/dev/null; }
+drive() { for _ in $(seq 1 "$1"); do ctl "$2" "$([ "${3:-0}" -gt 0 ] && echo 0 || echo 30)" "${3:-0}"; sleep 1; done; }
+TAP() { python3 ci/ui.py tap "$1" | tee -a "$OUT/taps.txt"; }
 ctl 0 0 0; VC "/vehicle/gear?gear=Park"; VC "/vehicle/body?front_wiper=Off"
+python3 ci/vconsole.py set "soc|state.?of.?charge" 60 >/dev/null 2>&1 || true
 sleep 3
 
-GEO_LAT=37.5012; GEO_LON=127.0396   # 강남대로 부근
-USE_GEO=0
-geo() { [ "$USE_GEO" = 1 ] && adb emu geo fix "$GEO_LON" "$GEO_LAT" >/dev/null 2>&1; true; }
-drive() { # $1=초, $2=km/h, $3=brake%
-  local step; step=$(python3 -c "print($2/3.6/111320)")
-  for _ in $(seq 1 "$1"); do
-    ctl "$2" "$([ "${3:-0}" -gt 0 ] && echo 0 || echo 30)" "${3:-0}" >/dev/null
-    GEO_LAT=$(python3 -c "print(f'{$GEO_LAT+$step:.7f}')"); geo; sleep 1
-  done
-}
-
-adb shell am start -W -n $APP/.ui.MainActivity >/dev/null
-sleep 5
-adb logcat -c
-
 log "record"
-adb shell "screenrecord --time-limit 105 --bit-rate 8000000 /data/local/tmp/mosim_pleos.mp4" &
+T0=$(date +%s); mark() { echo "$(( $(date +%s) - T0 ))s $*" | tee -a "$OUT/timeline.txt"; }
+adb shell "screenrecord --time-limit 170 --bit-rate 8000000 /data/local/tmp/mosim_pleos.mp4" &
 REC=$!
-sleep 4
-# 1) 밤, 기어 D → 야간 안내 + (공유 허용 시) 가족 알림
-VC "/vehicle/gear?gear=Drive"
-sleep 9
-# 2) 비: 앞유리 와이퍼
-VC "/vehicle/body?front_wiper=Low"
-sleep 5
-# 3) 주행 → 위치가 콘솔 속도를 따라가는지 확인, 아니면 geo fix로 이동
-drive 6 50
-drive 3 50
-echo "USE_GEO=$USE_GEO" | tee -a "$OUT/vc_calls.txt"
-# 급제동 2회
+sleep 3
+# 1) 주차 중 첫 설정: 모두 꺼진 상태에서 부모님이 직접 고름
+mark "first-run consent"
+TAP "평소와 다른 밤 외출"; sleep 2
+TAP "배터리·연료 부족"; sleep 2
+TAP "운행 중 오래 멈춤"; sleep 2
+TAP "이대로 시작하기"; sleep 6
+# 2) 새벽, 기어 D → 차 안 안내 + "부모님 먼저" 30초 대기 후 실제 서버로 전송
+mark "gear D"
+VC "/vehicle/gear?gear=Drive"; sleep 5
+VC "/vehicle/body?front_wiper=Low"; sleep 2
+mark "drive + hard brakes"
+drive 7 50
 drive 1 15 100
 drive 4 35
 drive 1 8 100
 drive 3 30
-adb exec-out screencap -p > "$OUT/02_rainy_night.png"
-sleep 8
-# 4) 배터리 부족 (전기차 SOC 8%)
-python3 ci/vconsole.py set "soc|state.?of.?charge" 8 2>&1 | tee -a "$OUT/vc_calls.txt" || true
-sleep 10
-adb exec-out screencap -p > "$OUT/03_battery.png"
-# 5) 천천히 멈춤(D 유지) → 장시간 정차(20분 경과를 시연용으로 앞당김)
-drive 1 20 30
-drive 1 10 30
-drive 2 0 40
+adb exec-out screencap -p > "$OUT/02_driving_pending.png"
+# 3) 배터리 8% (달리는 중이라 '보내지 않기'는 멈춰야 누를 수 있음)
+mark "battery 8%"
+python3 ci/vconsole.py set "soc|state.?of.?charge" 8 | tee -a "$OUT/vc_calls.txt"
+drive 8 30
+# 4) 천천히 멈춤 → 미뤄 둔 안내를 이때 말함
+mark "slow stop"
+drive 1 20 30; drive 1 10 30; drive 3 0 40
+adb exec-out screencap -p > "$OUT/03_stopped_voice.png"
+sleep 14
+python3 ci/family_shot.py "http://127.0.0.1:8787/f/$CODE" "$OUT/family_after_send.png" || true
+# 5) 운행 중 오래 멈춤(20분 경과를 시연용으로 앞당김) → 부모님이 '보내지 않기'
+mark "idle (time-compressed) + veto"
 adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario idle_only >/dev/null
-sleep 10
-# 6) 비 그침, 주차(P) → 운행 종료
-VC "/vehicle/body?front_wiper=Off"
-VC "/vehicle/gear?gear=Park"
-sleep 8
-# 7) 부모님이 '야간 외출' 공유를 끔 (공유 철회)
-adb shell input tap 2447 294
-sleep 9
-adb exec-out screencap -p > "$OUT/04_end.png"
+sleep 6
+adb exec-out screencap -p > "$OUT/04_pending_stop.png"
+TAP "보내지 않기"; sleep 6
+# 6) 주차 → 가족 연결 해제(서버 기록 삭제, 새 QR)
+mark "park + unlink"
+VC "/vehicle/body?front_wiper=Off"; VC "/vehicle/gear?gear=Park"; sleep 6
+TAP "연결 해제"; sleep 8
+adb exec-out screencap -p > "$OUT/05_unlinked.png"
+python3 ci/family_shot.py "http://127.0.0.1:8787/f/$CODE" "$OUT/family_after_unlink.png" || true
+mark "end"
+sleep 4
+adb shell pkill -INT screenrecord || true
 wait $REC || true
 kill $HB 2>/dev/null || true
 sleep 3
 adb pull /data/local/tmp/mosim_pleos.mp4 "$OUT/mosim_pleos_raw.mp4" || echo "pull failed"
 adb logcat -d -s PleosSignalSource:* Voice:* AlertSender:* CarApiSignalSource:* AndroidRuntime:E > "$OUT/logcat_app.txt"
-adb logcat -d | grep -iE "pleos|vehicle|fused|tts" | tail -300 > "$OUT/logcat_pleos.txt"
-curl -s -m 5 http://127.0.0.1:8088/vehicle/state > "$OUT/vc_state_end.json" || true
 ls -la "$OUT"

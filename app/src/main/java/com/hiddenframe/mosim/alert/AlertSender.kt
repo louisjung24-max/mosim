@@ -9,36 +9,51 @@ import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
 
+/** 전송 결과. 화면에는 [SENT]일 때만 "가족에게 전송됨"이라고 표시합니다. */
+enum class Delivery { SENT, NOT_CONFIGURED, REJECTED, FAILED }
+
 /**
- * 부모님이 허용한 이상 신호만 알림 서버(Cloudflare Workers)로 보냅니다.
- * 서버는 자녀 웹 페이지 갱신과 카카오톡 전송을 담당합니다. 원시 주행 데이터는 보내지 않습니다.
+ * 부모님이 허용하고 확인한 이상 신호만 알림 서버(Cloudflare Workers)로 보냅니다.
+ * 보내는 것은 {가족 코드, 유형, 제목, 한 줄 설명, 시각}뿐이며 속도·위치 같은 원시 데이터는 없습니다.
+ * 서버 인증 토큰은 빌드 시 GitHub Secret(MOSIM_DEVICE_TOKEN)으로만 주입합니다.
  */
 object AlertSender {
     private const val TAG = "AlertSender"
 
-    suspend fun send(familyCode: String, a: Anomaly): Boolean = withContext(Dispatchers.IO) {
-        val endpoint = BuildConfig.ALERT_ENDPOINT
-        if (endpoint.isBlank()) { Log.i(TAG, "endpoint not set; skip ${a.type}"); return@withContext false }
-        val body = JSONObject()
-            .put("code", familyCode)
-            .put("type", a.type.name.lowercase())
-            .put("title", a.title)
-            .put("body", a.body)
-            .put("ts", System.currentTimeMillis())
-            .toString()
+    val configured: Boolean get() = BuildConfig.ALERT_ENDPOINT.isNotBlank()
+    fun familyPageUrl(code: String): String? = if (configured) "${BuildConfig.ALERT_ENDPOINT}/f/$code" else null
+
+    suspend fun send(familyCode: String, a: Anomaly): Delivery = post("/api/event", JSONObject()
+        .put("code", familyCode)
+        .put("type", a.type.name.lowercase())
+        .put("title", a.title)
+        .put("body", a.body)
+        .put("ts", System.currentTimeMillis()))
+
+    /** 가족 연결 해제: 서버에 저장된 이 가족 코드의 기록을 지웁니다. */
+    suspend fun unlink(familyCode: String): Delivery = post("/api/unlink", JSONObject().put("code", familyCode))
+
+    private suspend fun post(path: String, body: JSONObject): Delivery = withContext(Dispatchers.IO) {
+        if (!configured) { Log.i(TAG, "endpoint not set; skip $path"); return@withContext Delivery.NOT_CONFIGURED }
         try {
-            val conn = (URL("$endpoint/api/event").openConnection() as HttpURLConnection).apply {
+            val conn = (URL("${BuildConfig.ALERT_ENDPOINT}$path").openConnection() as HttpURLConnection).apply {
                 requestMethod = "POST"
                 connectTimeout = 5000; readTimeout = 5000
                 doOutput = true
                 setRequestProperty("Content-Type", "application/json; charset=utf-8")
+                if (BuildConfig.DEVICE_TOKEN.isNotBlank()) setRequestProperty("x-device-token", BuildConfig.DEVICE_TOKEN)
             }
-            conn.outputStream.use { it.write(body.toByteArray(Charsets.UTF_8)) }
-            val ok = conn.responseCode in 200..299
+            conn.outputStream.use { it.write(body.toString().toByteArray(Charsets.UTF_8)) }
+            val code = conn.responseCode
             conn.disconnect()
-            ok
+            Log.i(TAG, "$path -> $code")
+            when (code) {
+                in 200..299 -> Delivery.SENT
+                in 400..499 -> Delivery.REJECTED
+                else -> Delivery.FAILED
+            }
         } catch (t: Throwable) {
-            Log.w(TAG, "send failed: ${t.message}"); false
+            Log.w(TAG, "$path failed: ${t.message}"); Delivery.FAILED
         }
     }
 }

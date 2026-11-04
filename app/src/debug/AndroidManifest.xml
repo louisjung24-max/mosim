@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 디버그(시연·CI) 빌드 전용. 릴리스 APK에는 외부에서 신호를 주입하는 수신기가 없습니다. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:networkSecurityConfig="@xml/network_security_config_debug"
+        tools:ignore="UnusedAttribute">
+        <receiver
+            android:name=".vehicle.SimulationReceiver"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.hiddenframe.mosim.SIM" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

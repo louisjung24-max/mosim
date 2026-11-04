@@ -3,7 +3,7 @@ package com.hiddenframe.mosim.rules
 import com.hiddenframe.mosim.data.Baseline
 import com.hiddenframe.mosim.vehicle.VehicleEvent
 
-/** 자녀에게 전달될 수 있는 "평소와 다름" 신호. 원시 주행 데이터가 아니라 판정 결과만 담습니다. */
+/** 가족에게 보낼 수 있는 "평소와 다름" 신호. 원시 주행 데이터가 아니라 판정 결과 한 줄만 담습니다. */
 data class Anomaly(
     val type: Type,
     val title: String,
@@ -18,12 +18,16 @@ data class Anomaly(
     }
 }
 
-/** 운전자에게 차 안에서 들려줄 음성. 비난하지 않고, 짧고, 존댓말. */
-data class VoiceCue(val text: String)
+/**
+ * 차 안에서 들려줄 말. 비난하지 않고, 짧고, 존댓말.
+ * [atStop]이 true면 달리는 중에는 말하지 않고 다음에 차가 멈췄을 때 말합니다(운전 중 말 아끼기).
+ */
+data class VoiceCue(val text: String, val atStop: Boolean = false)
 
 /**
- * 규칙 기반 판정기. 첫 2주는 [Baseline]을 학습하고, 이후 평소 패턴과의 차이만 봅니다.
- * 판정은 차량 안에서 끝나고, 결과(Anomaly)만 밖으로 나갑니다.
+ * 규칙 기반 판정기. 판정은 차량 안에서 끝나고, 결과(Anomaly)만 밖으로 나갈 수 있습니다.
+ * 운행 10회(약 2주) 학습 전에는 "평소"를 모르므로 가족에게 보낼 이상 신호를 만들지 않습니다(차량 관리 경고 제외).
+ * 기준값은 안전·의학 지표가 아닌 실험 규칙이며, 실차 데이터로 조정해야 합니다.
  */
 class AnomalyDetector(private val baseline: Baseline) {
 
@@ -32,20 +36,16 @@ class AnomalyDetector(private val baseline: Baseline) {
     private var hour: Int = 12
     private var wiperOn = false
     private var brakeCountThisTrip = 0
-    private var spokeNightOnce = false
     private var spokeBrakeOnce = false
     private var reportedDistanceOnce = false
+    private var tripKm = 0f
 
     fun onEvent(e: VehicleEvent): Result = when (e) {
         is VehicleEvent.Ignition -> onIgnition(e)
         is VehicleEvent.Wiper -> { wiperOn = e.on; Result() }
         is VehicleEvent.HardBrake -> onHardBrake()
-        is VehicleEvent.TirePressureLow -> Result(
-            voice = VoiceCue("${e.wheel} 타이어 공기압이 낮습니다. 가까운 정비소에서 점검받으시면 좋겠어요."),
-            anomaly = Anomaly(Anomaly.Type.VEHICLE_CARE, "타이어 공기압 낮음", "${e.wheel} 타이어 공기압이 낮습니다. 정비 예약을 도와드릴까요?"),
-        )
         is VehicleEvent.FuelLow -> Result(
-            voice = VoiceCue("연료가 ${e.percent}퍼센트 남았습니다. 주유소를 들르시면 좋겠어요."),
+            voice = VoiceCue("연료가 ${e.percent}퍼센트 남았습니다. 가까운 주유소에 들르시면 좋겠어요."),
             anomaly = Anomaly(Anomaly.Type.VEHICLE_CARE, "연료 부족", "연료가 ${e.percent}% 남았습니다."),
         )
         is VehicleEvent.BatteryLow -> Result(
@@ -53,32 +53,38 @@ class AnomalyDetector(private val baseline: Baseline) {
             anomaly = Anomaly(Anomaly.Type.VEHICLE_CARE, "배터리 부족", "배터리가 ${e.percent}% 남았습니다."),
         )
         is VehicleEvent.IdleStop -> if (e.minutes >= LONG_STOP_MIN) Result(
-            voice = VoiceCue("시동을 켜 둔 채 ${e.minutes}분째 멈춰 계세요. 괜찮으시면 말씀해 주세요."),
-            anomaly = Anomaly(Anomaly.Type.LONG_STOP, "장시간 정차", "시동이 켜진 채 ${e.minutes}분째 정차 중입니다. 평소보다 긴 정차예요."),
+            voice = VoiceCue("${e.minutes}분째 멈춰 계세요. 천천히 쉬어 가셔도 괜찮습니다."),
+            anomaly = Anomaly(Anomaly.Type.LONG_STOP, "운행 중 오래 멈춤", "운행 중에 ${e.minutes}분째 멈춰 있습니다."),
         ) else Result()
-        is VehicleEvent.Odometer -> if (!reportedDistanceOnce && baseline.learned && e.km >= baseline.usualTripKm * LONG_DISTANCE_RATIO) Result(
-            anomaly = Anomaly(Anomaly.Type.LONG_DISTANCE, "장거리 운행", "오늘 ${e.km.toInt()}km를 달리고 있어요. 평소보다 먼 길입니다."),
-        ).also { reportedDistanceOnce = true } else Result()
+        is VehicleEvent.Odometer -> onDistance(e.km)
         is VehicleEvent.Speed -> Result()
+    }
+
+    private fun onDistance(km: Float): Result {
+        if (km > tripKm) tripKm = km
+        val usual = baseline.usualTripKm
+        if (reportedDistanceOnce || !baseline.learned || usual <= 0f || tripKm < usual * LONG_DISTANCE_RATIO) return Result()
+        reportedDistanceOnce = true
+        return Result(anomaly = Anomaly(Anomaly.Type.LONG_DISTANCE, "평소보다 먼 길",
+            "이번 운행이 ${tripKm.toInt()}km를 넘었습니다. 평소(약 ${usual.toInt()}km)보다 먼 길이에요."))
     }
 
     private fun onIgnition(e: VehicleEvent.Ignition): Result {
         if (!e.on) {
-            baseline.recordTrip(hour, brakeCountThisTrip)
-            brakeCountThisTrip = 0; spokeNightOnce = false; spokeBrakeOnce = false; reportedDistanceOnce = false; wiperOn = false
+            baseline.recordTrip(hour, brakeCountThisTrip, tripKm)
+            brakeCountThisTrip = 0; spokeBrakeOnce = false; reportedDistanceOnce = false; wiperOn = false; tripKm = 0f
             return Result()
         }
         hour = e.hourOfDay ?: java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
-        baseline.recordTripStart()
         val isNight = hour >= NIGHT_FROM || hour < NIGHT_UNTIL
         if (!isNight) return Result(voice = weeklyGreetingIfSunday())
-        spokeNightOnce = true
         val label = if (hour >= NIGHT_FROM) "밤 ${hour - 12}시" else "새벽 ${if (hour == 0) 12 else hour}시"
         val voice = VoiceCue("지금 ${label}입니다. 밤길은 천천히 가셔도 괜찮아요.")
-        val unusual = !baseline.learned || !baseline.usuallyDrivesAt(hour)
+        // 밤 외출 자체는 위험의 근거가 아닙니다. 학습을 마친 뒤, 평소 그 시간에 운행한 적이 없을 때만 "평소와 다름"입니다.
+        val unusual = baseline.learned && !baseline.usuallyDrivesAt(hour)
         val anomaly = if (unusual) Anomaly(
-            Anomaly.Type.NIGHT_DEPARTURE, "야간 외출",
-            "차량이 ${String.format("%02d", hour)}시에 출발했습니다. 평소 야간 운행이 없던 시간대예요.",
+            Anomaly.Type.NIGHT_DEPARTURE, "평소와 다른 밤 외출",
+            "평소 운행하지 않던 ${String.format("%02d", hour)}시에 출발했습니다.",
         ) else null
         return Result(voice, anomaly)
     }
@@ -89,10 +95,11 @@ class AnomalyDetector(private val baseline: Baseline) {
         val spike = brakeCountThisTrip >= 2 && (!baseline.learned || brakeCountThisTrip >= usual * BRAKE_SPIKE_RATIO)
         if (!spike || spokeBrakeOnce) return Result()
         spokeBrakeOnce = true
-        val weather = if (wiperOn) "비 오는 밤이라 길이 미끄럽습니다. " else ""
-        val voice = VoiceCue("${weather}오늘은 급제동이 평소보다 잦았어요. 조금 천천히 가셔도 괜찮습니다.")
-        // 급제동 횟수는 부모님이 '운전 점수' 공유를 켠 경우에만 자녀에게 전달됩니다.
-        val anomaly = Anomaly(Anomaly.Type.HARD_BRAKE_SPIKE, "급제동 증가", "오늘 운행에서 급제동이 평소보다 잦습니다.")
+        val weather = if (wiperOn) "비가 와서 길이 미끄러워요. " else ""
+        // 급제동 직후가 아니라 다음에 멈췄을 때, 평가하지 않는 말로 짧게.
+        val voice = VoiceCue("${weather}급하게 멈출 일이 몇 번 있었어요. 천천히 가셔도 괜찮습니다.", atStop = true)
+        // '급제동이 잦은 날' 공유는 기본 꺼짐. 학습 전에는 가족에게 보낼 신호를 만들지 않습니다.
+        val anomaly = if (baseline.learned) Anomaly(Anomaly.Type.HARD_BRAKE_SPIKE, "급제동이 잦은 날", "오늘 운행에서 급제동이 평소보다 잦았습니다.") else null
         return Result(voice, anomaly)
     }
 
