@@ -14,15 +14,18 @@ import kotlinx.coroutines.launch
 /**
  * "부모님 먼저" 관문.
  * 가족에게 갈 신호는 차 화면에 먼저 [HOLD_SECONDS]초 동안 보여 드리고, 그 사이 부모님이 "보내지 않기"를 누르면 보내지 않습니다.
+ * 30초는 차가 멈춰 있을 때만 흐릅니다. 달리는 중에 생긴 신호는 다음에 멈출 때까지 기다려, 부모님이 운전 중 화면을 만지지 않고도 거부할 기회를 갖습니다.
  * 기다리는 동안 공유 설정이 꺼지거나 연결이 해제되면 보내지 않습니다(보내기 직전에 다시 확인).
  */
 class AlertGate(
     private val share: ShareSettings,
+    private val isStopped: () -> Boolean,
     private val onResult: (Anomaly, Outcome) -> Unit,
 ) {
     enum class Outcome { SENT, NOT_CONFIGURED, REJECTED, FAILED, VETOED, SHARING_OFF }
 
-    data class Pending(val id: Long, val anomaly: Anomaly, val secondsLeft: Int)
+    /** [waitingForStop]이면 차가 멈출 때까지 대기 중(카운트다운 멈춤) */
+    data class Pending(val id: Long, val anomaly: Anomaly, val secondsLeft: Int, val waitingForStop: Boolean = false)
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
     private val jobs = LinkedHashMap<Long, Job>()
@@ -33,9 +36,12 @@ class AlertGate(
     fun submit(a: Anomaly) {
         val id = ++seq
         jobs[id] = scope.launch {
-            for (s in HOLD_SECONDS downTo 1) {
-                update(id, a, s)
+            var left = HOLD_SECONDS
+            while (left > 0) {
+                val stopped = isStopped()
+                update(id, a, left, waiting = !stopped)
                 delay(1000)
+                if (stopped) left--
             }
             remove(id)
             val outcome = if (!share.allows(a)) Outcome.SHARING_OFF else when (AlertSender.send(share.familyCode, a)) {
@@ -63,9 +69,9 @@ class AlertGate(
         list.forEach { onResult(it.anomaly, Outcome.SHARING_OFF) }
     }
 
-    private fun update(id: Long, a: Anomaly, s: Int) {
+    private fun update(id: Long, a: Anomaly, s: Int, waiting: Boolean) {
         val others = _pending.value.filterNot { it.id == id }
-        _pending.value = (others + Pending(id, a, s)).sortedBy { it.id }
+        _pending.value = (others + Pending(id, a, s, waiting)).sortedBy { it.id }
     }
 
     private fun remove(id: Long) { _pending.value = _pending.value.filterNot { it.id == id }; jobs.remove(id) }

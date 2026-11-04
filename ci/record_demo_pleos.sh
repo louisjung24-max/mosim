@@ -177,7 +177,8 @@ drive 8 30
 mark "slow stop"
 drive 1 20 30; drive 1 10 30; drive 3 0 40
 adb exec-out screencap -p > "$OUT/03_stopped_voice.png"
-sleep 14
+# 달리는 동안 멈춰 있던 30초 확인이 정차 후 다시 흐르고, 두 신호(밤 외출·배터리)가 차례로 전송됩니다
+sleep 34
 python3 ci/family_shot.py "http://127.0.0.1:8787/f/$CODE" "$OUT/family_after_send.png" || true
 # 5) 운행 중 오래 멈춤(20분 경과를 시연용으로 앞당김) → 부모님이 '보내지 않기'
 mark "idle (time-compressed) + veto"

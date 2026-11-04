@@ -22,7 +22,7 @@ class MosimApp : Application() {
         share = ShareSettings(this)
         weekly = WeeklyStore(this)
         voice = PleosVoiceOutput(this)
-        gate = AlertGate(share) { a, outcome ->
+        gate = AlertGate(share, isStopped = { state.ui.value.stopped }) { a, outcome ->
             if (outcome == AlertGate.Outcome.SENT) weekly.addAnomaly()
             state.onOutcome(a, outcome)
         }

@@ -219,14 +219,15 @@ class MainActivity : AppCompatActivity() {
         b.pendingCard.visibility = View.VISIBLE
         b.pendingTitle.text = p.anomaly.title
         val more = if (list.size > 1) " · 대기 ${list.size - 1}건 더" else ""
-        b.pendingMeta.text = "${p.secondsLeft}초 뒤 가족에게 보냅니다$more"
+        b.pendingMeta.text = if (p.waitingForStop) "멈추시면 ${p.secondsLeft}초 동안 확인하실 수 있어요$more"
+            else "${p.secondsLeft}초 뒤 가족에게 보냅니다$more"
         renderVetoButton()
     }
 
     private fun renderVetoButton() {
         val canTouch = lastUi.stopped
         b.btnVeto.isEnabled = canTouch
-        b.btnVeto.text = if (canTouch) "보내지 않기" else "멈추면 누를 수 있어요"
+        b.btnVeto.text = if (canTouch) "보내지 않기" else "운전 중"
     }
 
     private fun render(s: UiState) {
