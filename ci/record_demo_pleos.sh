@@ -92,6 +92,14 @@ VH() { adb shell cmd car_service "$@" 2>&1 | head -6; }
 { for p in 0x11400400 0x13400CC8 0x11600307 0x11600106 0x11200402 0x11600207; do echo "## get-property $p"; VH get-property-value $p; done; } > "$OUT/vhal_probe.txt" 2>&1
 cat "$OUT/vhal_probe.txt" | head -40
 
+log "time zone: Asia/Seoul"
+adb shell settings put global auto_time_zone 0
+adb shell service call alarm 3 s16 Asia/Seoul >/dev/null 2>&1 || adb shell setprop persist.sys.timezone Asia/Seoul
+adb shell date
+# 런처·시스템 UI가 완전히 뜰 때까지 대기
+for i in $(seq 1 40); do adb shell dumpsys activity activities 2>/dev/null | grep -q "ResumedActivity" && break; sleep 5; done
+sleep 45
+
 log "install"
 for i in $(seq 1 8); do
   adb install -r -g app/build/outputs/apk/debug/app-debug.apk && adb shell pm path $APP >/dev/null 2>&1 && break
@@ -102,9 +110,16 @@ adb shell dumpsys package $APP | grep -E "permission.*granted=true" | tee "$OUT/
 # 시연 전제: 2주(운행 10회) 학습을 마친 상태 — 디버그 빌드 전용 시연 데이터(낮 운행만)
 adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario seed_baseline
 adb logcat -c
-adb shell am start -W -n $APP/.ui.MainActivity >/dev/null
-sleep 10
-CODE=$(adb shell run-as $APP cat shared_prefs/share.xml | grep -o 'name="code">[A-Z0-9]*' | sed 's/.*>//')
+for i in $(seq 1 12); do
+  adb shell am start -W -n $APP/.ui.MainActivity >/dev/null 2>&1
+  sleep 8
+  adb shell dumpsys activity activities | grep -q "ResumedActivity.*$APP" && break
+done
+adb shell dumpsys activity activities | grep "ResumedActivity" | head -2
+for i in $(seq 1 12); do
+  CODE=$(adb shell run-as $APP cat shared_prefs/share.xml 2>/dev/null | grep -o 'name="code">[A-Z0-9]*' | sed 's/.*>//')
+  [ -n "$CODE" ] && break; sleep 5
+done
 echo "family code: $CODE" | tee "$OUT/family_code.txt"
 adb exec-out screencap -p > "$OUT/01_first_run.png"
 curl -s -m 5 -o /dev/null -w "worker from host: %{http_code}\n" http://127.0.0.1:8787/ || true
@@ -116,10 +131,14 @@ HB=$!
 VC() { curl -sS -m 10 -X PUT "http://127.0.0.1:8088$1" -o /dev/null -w "PUT $1 -> %{http_code}\n" | tee -a "$OUT/vc_calls.txt"; }
 ctl() { VC "/vehicle/controls?speed=$1&accelerator=$2&brake=$3&steering=0" >/dev/null; }
 drive() { for _ in $(seq 1 "$1"); do ctl "$2" "$([ "${3:-0}" -gt 0 ] && echo 0 || echo 30)" "${3:-0}"; sleep 1; done; }
-TAP() { python3 ci/ui.py tap "$1" | tee -a "$OUT/taps.txt"; }
+# uiautomator는 Pleos 이미지에서 연결이 안 되어, 디버그 빌드 전용 브로드캐스트로 같은 버튼 동작을 누릅니다
+TAP() { adb shell am broadcast -a $APP.UI --es click "$1" >/dev/null; echo "click $1" | tee -a "$OUT/taps.txt"; }
 ctl 0 0 0; VC "/vehicle/gear?gear=Park"; VC "/vehicle/body?front_wiper=Off"
 python3 ci/vconsole.py set "soc|state.?of.?charge" 60 >/dev/null 2>&1 || true
 sleep 3
+
+adb shell am start -n $APP/.ui.MainActivity >/dev/null 2>&1; sleep 4
+adb exec-out screencap -p > "$OUT/01_before_record.png"
 
 log "record"
 T0=$(date +%s); mark() { echo "$(( $(date +%s) - T0 ))s $*" | tee -a "$OUT/timeline.txt"; }
@@ -128,10 +147,10 @@ REC=$!
 sleep 3
 # 1) 주차 중 첫 설정: 모두 꺼진 상태에서 부모님이 직접 고름
 mark "first-run consent"
-TAP "평소와 다른 밤 외출"; sleep 2
-TAP "배터리·연료 부족"; sleep 2
-TAP "운행 중 오래 멈춤"; sleep 2
-TAP "이대로 시작하기"; sleep 6
+TAP share:night; sleep 2
+TAP share:care; sleep 2
+TAP share:stop; sleep 2
+TAP consent; sleep 6
 # 2) 새벽, 기어 D → 차 안 안내 + "부모님 먼저" 30초 대기 후 실제 서버로 전송
 mark "gear D"
 VC "/vehicle/gear?gear=Drive"; sleep 5
@@ -158,11 +177,11 @@ mark "idle (time-compressed) + veto"
 adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario idle_only >/dev/null
 sleep 6
 adb exec-out screencap -p > "$OUT/04_pending_stop.png"
-TAP "보내지 않기"; sleep 6
+TAP veto; sleep 6
 # 6) 주차 → 가족 연결 해제(서버 기록 삭제, 새 QR)
 mark "park + unlink"
 VC "/vehicle/body?front_wiper=Off"; VC "/vehicle/gear?gear=Park"; sleep 6
-TAP "연결 해제"; sleep 8
+TAP unlink; sleep 8
 adb exec-out screencap -p > "$OUT/05_unlinked.png"
 python3 ci/family_shot.py "http://127.0.0.1:8787/f/$CODE" "$OUT/family_after_unlink.png" || true
 mark "end"

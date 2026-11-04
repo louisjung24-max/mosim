@@ -1,6 +1,11 @@
 package com.hiddenframe.mosim.ui
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
+import androidx.core.content.ContextCompat
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Bundle
@@ -93,6 +98,28 @@ class MainActivity : AppCompatActivity() {
                 launch { app.gate.pending.collect { renderPending(it) } }
             }
         }
+    }
+
+    // 디버그(CI 시연) 빌드 전용: 스크립트가 화면 버튼을 누른 것과 같은 동작을 재현합니다. 릴리스에는 등록되지 않습니다.
+    private val demoUi = object : BroadcastReceiver() {
+        override fun onReceive(c: Context, i: Intent) {
+            when (val t = i.getStringExtra("click") ?: return) {
+                "consent" -> b.btnConsent.performClick()
+                "veto" -> b.btnVeto.performClick()
+                "unlink" -> b.btnUnlink.performClick()
+                else -> if (t.startsWith("share:")) shareRows.firstOrNull { it.first == t.removePrefix("share:") }?.second?.root?.performClick()
+            }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (BuildConfig.DEBUG) ContextCompat.registerReceiver(this, demoUi, IntentFilter("com.hiddenframe.mosim.UI"), ContextCompat.RECEIVER_EXPORTED)
+    }
+
+    override fun onStop() {
+        if (BuildConfig.DEBUG) runCatching { unregisterReceiver(demoUi) }
+        super.onStop()
     }
 
     private fun say(text: String) { app.voice.speak(text); app.state.onVoice(text) }
