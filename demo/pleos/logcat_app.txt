@@ -1,89 +1,12 @@
 --------- beginning of main
-11-04 07:28:56.820 13513 13513 I PleosSignalSource: registered gear-now
-11-04 07:28:56.841 13513 13513 I PleosSignalSource: registered gear
-11-04 07:28:57.973 13513 13513 I PleosSignalSource: registered wiper
-11-04 07:28:59.360 13513 13513 I PleosSignalSource: registered fuel
---------- beginning of crash
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: FATAL EXCEPTION: main
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: PID: 13842
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: java.lang.RuntimeException: java.util.concurrent.TimeoutException: Timeout while connecting UiAutomation@fc9eb2[id=-1, displayId=0, flags=0]
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: 	at android.app.UiAutomation.connect(UiAutomation.java:331)
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: 	at com.android.uiautomator.core.UiAutomationShellWrapper.connect(UiAutomationShellWrapper.java:31)
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: 	at com.android.commands.uiautomator.DumpCommand.run(DumpCommand.java:78)
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: 	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:359)
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: Caused by: java.util.concurrent.TimeoutException: Timeout while connecting UiAutomation@fc9eb2[id=-1, displayId=0, flags=0]
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: 	at android.app.UiAutomation.connectWithTimeout(UiAutomation.java:408)
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: 	at android.app.UiAutomation.connect(UiAutomation.java:329)
-11-04 07:29:50.101 13842 13842 E AndroidRuntime: 	... 5 more
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: Error reporting crash
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: java.lang.RuntimeException: Bad file descriptor
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at android.os.BinderProxy.transactNative(Native Method)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at android.os.BinderProxy.transact(BinderProxy.java:584)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at android.os.IServiceManager$Stub$Proxy.checkService(IServiceManager.java:443)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at android.os.ServiceManagerProxy.getService(ServiceManagerNative.java:63)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at android.os.ServiceManager.rawGetService(ServiceManager.java:378)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at android.os.ServiceManager.getService(ServiceManager.java:147)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5251)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5248)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at android.util.Singleton.get(Singleton.java:43)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at android.app.ActivityManager.getService(ActivityManager.java:5239)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:160)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1071)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1066)
-11-04 07:29:50.102 13842 13842 E AndroidRuntime: 	at java.lang.Thread.dispatchUncaughtException(Thread.java:2306)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: FATAL EXCEPTION: main
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: PID: 13881
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: java.lang.RuntimeException: java.util.concurrent.TimeoutException: Timeout while connecting UiAutomation@30e147d[id=-1, displayId=0, flags=0]
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.app.UiAutomation.connect(UiAutomation.java:331)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at com.android.uiautomator.core.UiAutomationShellWrapper.connect(UiAutomationShellWrapper.java:31)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at com.android.commands.uiautomator.DumpCommand.run(DumpCommand.java:78)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at com.android.commands.uiautomator.Launcher.main(Launcher.java:83)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit.nativeFinishInit(Native Method)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit.main(RuntimeInit.java:359)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: Caused by: java.util.concurrent.TimeoutException: Timeout while connecting UiAutomation@30e147d[id=-1, displayId=0, flags=0]
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.app.UiAutomation.connectWithTimeout(UiAutomation.java:408)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.app.UiAutomation.connect(UiAutomation.java:329)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	... 5 more
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: Error reporting crash
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: java.lang.RuntimeException: Bad file descriptor
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.os.BinderProxy.transactNative(Native Method)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.os.BinderProxy.transact(BinderProxy.java:584)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.os.IServiceManager$Stub$Proxy.checkService(IServiceManager.java:443)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.os.ServiceManagerProxy.getService(ServiceManagerNative.java:63)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.os.ServiceManager.rawGetService(ServiceManager.java:378)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.os.ServiceManager.getService(ServiceManager.java:147)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5251)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.app.ActivityManager$3.create(ActivityManager.java:5248)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.util.Singleton.get(Singleton.java:43)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at android.app.ActivityManager.getService(ActivityManager.java:5239)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$KillApplicationHandler.uncaughtException(RuntimeInit.java:160)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1071)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at java.lang.ThreadGroup.uncaughtException(ThreadGroup.java:1066)
-11-04 07:30:11.894 13881 13881 E AndroidRuntime: 	at java.lang.Thread.dispatchUncaughtException(Thread.java:2306)
-11-04 07:30:54.360 13513 13513 I PleosSignalSource: registered soc
-11-04 07:31:18.435 13513 13513 I PleosSignalSource: registered distance
-11-04 07:31:18.851 13513 13513 I PleosSignalSource: registered brake
-11-04 07:31:34.279 13513 13527 W PleosSignalSource: distance: ERROR_NOT_SUPPORTED_PROPERTY
-11-04 07:31:36.025 13513 13527 D PleosSignalSource: fix dt=1.00s speed=0.0km/h
-11-04 07:31:38.026 13513 13527 D PleosSignalSource: fix dt=2.00s speed=0.0km/h
-11-04 07:31:39.033 13513 13527 D PleosSignalSource: fix dt=1.00s speed=0.0km/h
-11-04 07:31:41.126 13513 13527 D PleosSignalSource: fix dt=2.00s speed=0.0km/h
-11-04 07:31:43.029 13513 13527 D PleosSignalSource: fix dt=2.00s speed=0.0km/h
-11-04 07:31:45.027 13513 13527 D PleosSignalSource: fix dt=2.00s speed=0.0km/h
-11-04 07:31:46.030 13513 13527 D PleosSignalSource: fix dt=1.00s speed=0.0km/h
-11-04 07:31:47.156 13513 13527 D PleosSignalSource: fix dt=1.10s speed=0.0km/h
-11-04 07:31:49.139 13513 13527 D PleosSignalSource: fix dt=2.00s speed=0.0km/h
-11-04 07:31:51.072 13513 13527 D PleosSignalSource: fix dt=1.91s speed=0.0km/h
-11-04 07:31:52.146 13513 13573 D PleosSignalSource: fix dt=1.00s speed=0.0km/h
-11-04 07:31:55.057 13513 13573 D PleosSignalSource: fix dt=1.12s speed=0.0km/h
-11-04 07:31:55.284 13513 13573 D PleosSignalSource: fix dt=1.89s speed=0.0km/h
-11-04 07:31:56.059 13513 13573 D PleosSignalSource: fix dt=1.00s speed=0.0km/h
-11-04 07:31:57.148 13513 13573 D PleosSignalSource: fix dt=1.07s speed=0.0km/h
-11-04 07:31:58.584 13513 13573 D PleosSignalSource: fix dt=1.03s speed=0.0km/h
-11-04 07:32:00.812 13513 13573 D PleosSignalSource: fix dt=1.92s speed=0.0km/h
-11-04 07:32:02.632 13513 13573 D PleosSignalSource: fix dt=1.01s speed=0.0km/h
-11-04 07:32:02.645 13513 13527 D PleosSignalSource: fix dt=1.26s speed=0.0km/h
-11-04 07:32:04.437 13513 13573 D PleosSignalSource: fix dt=1.97s speed=0.0km/h
-11-04 07:32:06.166 13513 13573 D PleosSignalSource: fix dt=1.80s speed=0.0km/h
+11-05 00:52:40.046 14481 14481 I PleosSignalSource: registered gear-now
+11-05 00:52:40.047 14481 14481 I PleosSignalSource: registered gear
+11-05 00:52:40.366 14481 14481 I PleosSignalSource: registered wiper
+11-05 00:52:40.764 14481 14481 I PleosSignalSource: registered fuel
+11-05 00:52:41.206 14481 14481 I PleosSignalSource: registered soc
+11-05 00:52:41.602 14481 14481 I PleosSignalSource: registered distance
+11-05 00:52:41.686 14481 14481 I PleosSignalSource: registered brake
+11-05 00:52:45.504 14481 15099 W PleosSignalSource: distance: ERROR_NOT_SUPPORTED_PROPERTY
+11-05 00:54:52.772 14481 14768 I AlertSender: /api/event -> 200
+11-05 00:55:18.324 14481 14768 I AlertSender: /api/event -> 200
+11-05 00:55:41.662 14481 14768 I AlertSender: /api/unlink -> 200

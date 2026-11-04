@@ -4,3 +4,9 @@ NOT FOUND: 운행 중 오래 멈춤
 NOT FOUND: 이대로 시작하기
 NOT FOUND: 보내지 않기
 NOT FOUND: 연결 해제
+click share:night
+click share:care
+click share:stop
+click consent
+click veto
+click unlink
