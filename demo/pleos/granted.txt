@@ -1,7 +1,17 @@
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.INTERNET: granted=true
       pleos.car.permission.TTS_SERVICE: granted=true
+      android.permission.FOREGROUND_SERVICE_DATA_SYNC: granted=true
       pleos.car.permission.CAR_ENERGY: granted=true
       pleos.car.permission.CAR_INFO: granted=true
       pleos.car.permission.CAR_WINDOWS: granted=true
       pleos.car.permission.CAR_DRIVE: granted=true
+      android.car.permission.CAR_INFO: granted=true
+        android.permission.POST_NOTIFICATIONS: granted=true
+        android.car.permission.CAR_SPEED: granted=true
+        android.car.permission.CAR_ENERGY: granted=true
         pleos.car.permission.FUSED_LOCATION: granted=true
+        android.permission.POST_NOTIFICATIONS: granted=true
+        android.car.permission.CAR_SPEED: granted=true
+        android.car.permission.CAR_ENERGY: granted=true
         pleos.car.permission.FUSED_LOCATION: granted=true

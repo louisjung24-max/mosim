@@ -1,5 +1,5 @@
 == sdk components ==
-Android emulator version 37.2.12.0 (build_id 16428233) (CL:N/A)
+Android emulator version 37.2.13.0 (build_id 16740729) (CL:N/A)
 VerifiedBootParams.textproto
 advancedFeatures.ini
 build.prop
@@ -112,72 +112,98 @@ java.lang.SecurityException: The command 'get-property-value' requires non-user 
 Exception occurred while executing 'get-property-value':
 java.lang.SecurityException: The command 'get-property-value' requires non-user build
 	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
-== time 22:40 KST ==
-Wed Oct 28 13:40:00 KST 2026
-Thu Oct 29 01:56:06 KST 2026
 == install ==
 Performing Streamed Install
 Success
-package:/data/app/~~v5SofkH8-KwYhx1ZnBBs4A==/com.hiddenframe.mosim-AJPCI_YEeuu6S_inIHR_cw==/base.apk
+package:/data/app/~~3fx4Vni1oK-C5gwndC1aQQ==/com.hiddenframe.mosim-JmDH0y-mc22Vc_ZVFjFvQA==/base.apk
+      android.permission.FOREGROUND_SERVICE: granted=true
+      android.permission.INTERNET: granted=true
       pleos.car.permission.TTS_SERVICE: granted=true
+      android.permission.FOREGROUND_SERVICE_DATA_SYNC: granted=true
       pleos.car.permission.CAR_ENERGY: granted=true
       pleos.car.permission.CAR_INFO: granted=true
       pleos.car.permission.CAR_WINDOWS: granted=true
       pleos.car.permission.CAR_DRIVE: granted=true
+      android.car.permission.CAR_INFO: granted=true
+        android.permission.POST_NOTIFICATIONS: granted=true
+        android.car.permission.CAR_SPEED: granted=true
+        android.car.permission.CAR_ENERGY: granted=true
         pleos.car.permission.FUSED_LOCATION: granted=true
+        android.permission.POST_NOTIFICATIONS: granted=true
+        android.car.permission.CAR_SPEED: granted=true
+        android.car.permission.CAR_ENERGY: granted=true
         pleos.car.permission.FUSED_LOCATION: granted=true
-Starting: Intent { cmp=com.hiddenframe.mosim/.ui.MainActivity }
+Broadcasting: Intent { act=com.hiddenframe.mosim.SIM flg=0x400000 cmp=com.hiddenframe.mosim/.vehicle.SimulationReceiver (has extras) }
+Broadcast completed: result=0
+cat: shared_prefs/share.xml: No such file or directory
+family code: 
+worker from host: 200
 == virtual console ==
 8088
-console http 200
-63 writable features
-{"id": "telltales", "name": null, "title": null, "write_endpoint": "/vehicle/telltales/simulator", "control": {"kind": "enum", "field": "state", "area_field": "type", "params": {"color": "Red"}, "options": [{"label": "Off", "value": "Off"}, {"label": "On", "value": "On"}, {"label": "Blink", "value": "Blink"}]}}
-{"id": "ev-battery-level", "name": null, "title": null, "write_endpoint": "/vehicle/ev-battery", "control": {"kind": "range", "field": "value", "params": {"field": "battery_level"}, "min": 0, "max": 200, "step": 0.1}}
-{"id": "ev-battery-soc", "name": null, "title": null, "write_endpoint": "/vehicle/ev-battery", "control": {"kind": "range", "field": "value", "params": {"field": "soc"}, "min": 0, "max": 100, "step": 1}}
-{"id": "ev-battery-capacity", "name": null, "title": null, "write_endpoint": "/vehicle/ev-battery", "control": {"kind": "range", "field": "value", "params": {"field": "capacity"}, "min": 0, "max": 200, "step": 0.1}}
-{"id": "ev-charge-current-limit", "name": null, "title": null, "write_endpoint": "/vehicle/ev-battery", "control": {"kind": "range", "field": "value", "params": {"field": "current_limit"}, "min": 10, "max": 48, "step": 0.5}}
-{"id": "ev-charge-percent-limit", "name": null, "title": null, "write_endpoint": "/vehicle/ev-battery", "control": {"kind": "range", "field": "value", "params": {"field": "percent_limit"}, "min": 50, "max": 100, "step": 5}}
-{"id": "ev-charge-switch", "name": null, "title": null, "write_endpoint": "/vehicle/ev-battery", "co
-PUT /vehicle/controls?speed=0&accelerator=0&brake=0&steering=0 -> 200
 PUT /vehicle/gear?gear=Park -> 200
 PUT /vehicle/body?front_wiper=Off -> 200
 == record ==
+3s first-run consent
+NOT FOUND: 평소와 다른 밤 외출
+NOT FOUND: 배터리·연료 부족
+NOT FOUND: 운행 중 오래 멈춤
+NOT FOUND: 이대로 시작하기
+90s gear D
 PUT /vehicle/gear?gear=Drive -> 200
 PUT /vehicle/body?front_wiper=Low -> 200
-USE_GEO=0
+97s drive + hard brakes
+119s battery 8%
 /vehicle/ev-battery?field=soc&value=8 -> 200
+128s slow stop
+shot demo/pleos/family_after_send.png
+154s idle (time-compressed) + veto
+NOT FOUND: 보내지 않기
+179s park + unlink
 PUT /vehicle/body?front_wiper=Off -> 200
 PUT /vehicle/gear?gear=Park -> 200
-/data/local/tmp/mosim_pleos.mp4: 1 file pulled, 0 skipped. 22.8 MB/s (1678526 bytes in 0.070s)
-total 2676
-drwxr-xr-x 2 runner runner    4096 Oct 28 16:59 .
-drwxr-xr-x 3 runner runner    4096 Oct 28 16:42 ..
--rw-r--r-- 1 runner runner   23803 Oct 28 16:56 00_boot.png
--rw-r--r-- 1 runner runner   17878 Oct 28 16:56 01_home.png
--rw-r--r-- 1 runner runner  247739 Oct 28 16:58 02_rainy_night.png
--rw-r--r-- 1 runner runner  241724 Oct 28 16:58 03_battery.png
--rw-r--r-- 1 runner runner  230933 Oct 28 16:58 04_end.png
--rw-r--r-- 1 runner runner    3567 Oct 28 16:48 avd_config.ini
--rw-r--r-- 1 runner runner     166 Oct 28 16:48 devices.txt
--rw-r--r-- 1 runner runner   10149 Oct 28 16:55 emulator.log
--rw-r--r-- 1 runner runner    6640 Oct 28 16:42 emulator_tail.txt
--rw-r--r-- 1 runner runner      64 Oct 28 16:48 emulator_version.txt
--rw-r--r-- 1 runner runner     126 Oct 28 16:56 fingerprint.txt
--rw-r--r-- 1 runner runner     375 Oct 28 16:56 granted.txt
--rw-r--r-- 1 runner runner     671 Oct 28 16:48 image_files.txt
--rw-r--r-- 1 runner runner     274 Oct 28 16:59 logcat_app.txt
--rw-r--r-- 1 runner runner   50043 Oct 28 16:59 logcat_pleos.txt
--rw-r--r-- 1 runner runner     656 Oct 28 16:56 logcat_start.txt
--rw-r--r-- 1 runner runner 1678526 Oct 28 16:59 mosim_pleos_raw.mp4
--rw-r--r-- 1 runner runner    8467 Oct 28 16:56 packages.txt
--rw-r--r-- 1 runner runner    2898 Oct 28 16:56 perm_defs.txt
--rw-r--r-- 1 runner runner    9778 Oct 28 16:57 perm_pleos_all.txt
--rw-r--r-- 1 runner runner    1663 Oct 28 16:56 perm_requested.txt
--rw-r--r-- 1 runner runner    9491 Oct 28 16:42 run_log_tail.txt
--rw-r--r-- 1 runner runner    7100 Oct 28 16:58 vc_calls.txt
--rw-r--r-- 1 runner runner   50157 Oct 28 16:57 vc_catalog.json
--rw-r--r-- 1 runner runner    1934 Oct 28 16:57 vc_find_energy.txt
--rw-r--r-- 1 runner runner     346 Oct 28 16:57 vc_find_wiper.txt
--rw-r--r-- 1 runner runner   25362 Oct 28 16:57 vc_state.json
--rw-r--r-- 1 runner runner   21878 Oct 28 16:59 vc_state_end.json
--rw-r--r-- 1 runner runner    2430 Oct 28 16:56 vhal_probe.txt
+NOT FOUND: 연결 해제
+shot demo/pleos/family_after_unlink.png
+215s end
+/data/local/tmp/mosim_pleos.mp4: 1 file pulled, 0 skipped. 13.3 MB/s (384156 bytes in 0.027s)
+total 2088
+drwxr-xr-x 2 runner runner   4096 Nov  4 15:32 .
+drwxr-xr-x 3 runner runner   4096 Nov  4 15:14 ..
+-rw-r--r-- 1 runner runner 198671 Nov  4 15:27 00_boot.png
+-rw-r--r-- 1 runner runner  37287 Nov  4 15:29 01_first_run.png
+-rw-r--r-- 1 runner runner  17878 Nov  4 15:14 01_home.png
+-rw-r--r-- 1 runner runner  23826 Nov  4 15:31 02_driving_pending.png
+-rw-r--r-- 1 runner runner 247739 Nov  4 15:14 02_rainy_night.png
+-rw-r--r-- 1 runner runner 241724 Nov  4 15:14 03_battery.png
+-rw-r--r-- 1 runner runner  23826 Nov  4 15:31 03_stopped_voice.png
+-rw-r--r-- 1 runner runner 230933 Nov  4 15:14 04_end.png
+-rw-r--r-- 1 runner runner  38636 Nov  4 15:31 04_pending_stop.png
+-rw-r--r-- 1 runner runner 144216 Nov  4 15:32 05_unlinked.png
+-rw-r--r-- 1 runner runner   3567 Nov  4 15:20 avd_config.ini
+-rw-r--r-- 1 runner runner    166 Nov  4 15:20 devices.txt
+-rw-r--r-- 1 runner runner  10149 Nov  4 15:27 emulator.log
+-rw-r--r-- 1 runner runner   5827 Nov  4 15:14 emulator_tail.txt
+-rw-r--r-- 1 runner runner     64 Nov  4 15:19 emulator_version.txt
+-rw-r--r-- 1 runner runner 106280 Nov  4 15:31 family_after_send.png
+-rw-r--r-- 1 runner runner 106280 Nov  4 15:32 family_after_unlink.png
+-rw-r--r-- 1 runner runner     14 Nov  4 15:29 family_code.txt
+-rw-r--r-- 1 runner runner    126 Nov  4 15:27 fingerprint.txt
+-rw-r--r-- 1 runner runner    943 Nov  4 15:28 granted.txt
+-rw-r--r-- 1 runner runner    671 Nov  4 15:19 image_files.txt
+-rw-r--r-- 1 runner runner   8972 Nov  4 15:32 logcat_app.txt
+-rw-r--r-- 1 runner runner  50043 Nov  4 15:14 logcat_pleos.txt
+-rw-r--r-- 1 runner runner    656 Nov  4 15:14 logcat_start.txt
+-rw-r--r-- 1 runner runner 384156 Nov  4 15:32 mosim_pleos_raw.mp4
+-rw-r--r-- 1 runner runner   8467 Nov  4 15:27 packages.txt
+-rw-r--r-- 1 runner runner   2898 Nov  4 15:14 perm_defs.txt
+-rw-r--r-- 1 runner runner   9778 Nov  4 15:14 perm_pleos_all.txt
+-rw-r--r-- 1 runner runner   1663 Nov  4 15:14 perm_requested.txt
+-rw-r--r-- 1 runner runner   9491 Nov  4 15:14 run_log_tail.txt
+-rw-r--r-- 1 runner runner    198 Nov  4 15:32 taps.txt
+-rw-r--r-- 1 runner runner    150 Nov  4 15:32 timeline.txt
+-rw-r--r-- 1 runner runner   9530 Nov  4 15:32 vc_calls.txt
+-rw-r--r-- 1 runner runner  50157 Nov  4 15:14 vc_catalog.json
+-rw-r--r-- 1 runner runner   1934 Nov  4 15:14 vc_find_energy.txt
+-rw-r--r-- 1 runner runner    346 Nov  4 15:14 vc_find_wiper.txt
+-rw-r--r-- 1 runner runner  25362 Nov  4 15:14 vc_state.json
+-rw-r--r-- 1 runner runner  21878 Nov  4 15:14 vc_state_end.json
+-rw-r--r-- 1 runner runner   2430 Nov  4 15:28 vhal_probe.txt

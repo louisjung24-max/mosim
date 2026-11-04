@@ -1,4 +1,4 @@
-INFO         | Sending adb public key [QAAAAIMjLUPVfGouPkS4z3VeAPl0eq51vFhWstpz/Yik6mYjdOO6v4wN2ap7pd//X/AZRrMDdtTJPrOiNYkDcnewJxtNz6zaP+6+k6akofOplvg7wbhTJCNrDz5o1oh8DIU9eSKohm9+zFgcRwvNTCZgcyCCyIGCdwW0SEmL/IWn34QHDWSaU6lR0QQcV91SZjI7taTXoT17yktR4xw3u/UtbETaJjjDr3HWb5UlK4rj2W6oIOqiSFkX2XpXRa+TozfUMj3aCIqQxO5upDuPK1fDtP+tNhGky7eAZar40uWVSJBvTu/OnFX69kbGI8WNDlBX336kal4ij2+csoAG1CKkLeeD0FvKrwnr0D96NMUa9c29/1mOzAR5lyDGkfRPAAsXUCC4+oX/c2/VDmymsA2HhOnxyVzWXbhnZwFox1XFsD5dW5nlK/ujfC3vEJMb4UFgFTI5+yuj9DgvVZUfs4ICgZCgm9mXvcw/SoQjA2KEqkkx7TAEyph8eGryrjPHhOZ94RnUakUU9oB3TQE5aBelVBISJjpUFIZOy//NOOAMnoS8pE2JRKCDipazZFkGI/H3hu4uYYG93B45JwhblkaiFlE0xSuijBFHjdRxGMDes77hGiGzpNI1Hz/uVl7IwEbtPnvDyGXNrUiiodcbJOCu2a2wRna8vOAvatO+rf7uMW/3zjd4GwEAAQA= runner@unknown]
+INFO         | Sending adb public key [QAAAALdbrLX5jeFHrZznEYCpjF8fOHkRZJ3r/djFIK3WO125B8iNIPAGyWEM52XCaGPbiM9I/Oog8aktp72l0E+689aIKeRwhI5XPd52cigXLyqU3ExDndKsJWfJoVKV134/IJuTdR6NNqwrj7cxkvviy9YORrvMWbAlBdwX67ah57yOlp1MjJb+hwk6LfMim2hNQKEX0B/ZaKFgUjgtoNZHoWYijohnJANKBYAlVcQ55ydmh1RIsFwygju+JDVkUDGdAm5ElEQxH5EXEzZs9R3MbZXWXYlaQkI3U1fMrI38WTry+gwkOc2IFKJqX0AZnomR7i1lvJWrdhaOYM1/x0scri5z9PqkqH8fgO6uoDAwXb2anSTbm+yblyRbNAOhoXfiHwk/5ReKRgGHS9g3y7Ia3pPylfJYtl3PEekh5FgjmI1rwP6xGjTh5VULFQmnrIE2EZrtuyvT/xlI3qxbHS2z9vnk0eowcb8pgrcugM6ORbPUVFmMIC/tUyQaZrkIPAngQmVpmsvqnleuLJM0XTPP90wephyRUdpovAmiT9gvQvpO9zOSXnW9PJVI79DvplEIpMAPRxrrzDUsXbNiUBSs1L1zN3SCzVGUQAMNmwYowWo5TQ4NeOKRg5XKGJesCM42v7lcmq1z3FeBZzO8oJvXYK/cHpdOZsqeb1tkLQkHuCN93vSFHQEAAQA= runner@unknown]
 INFO         | Userspace boot properties:
 INFO         |   androidboot.boot_devices=pci0000:00/0000:00:03.0 pci0000:00/0000:00:06.0
 INFO         |   androidboot.dalvik.vm.heapsize=576m
@@ -10,7 +10,7 @@ INFO         |   androidboot.hardware.vulkan=ranchu
 INFO         |   androidboot.logcat=*:V
 INFO         |   androidboot.opengles.version=196608
 INFO         |   androidboot.qemu=1
-INFO         |   androidboot.qemu.adb.pubkey=QAAAAIMjLUPVfGouPkS4z3VeAPl0eq51vFhWstpz/Yik6mYjdOO6v4wN2ap7pd//X/AZRrMDdtTJPrOiNYkDcnewJxtNz6zaP+6+k6akofOplvg7wbhTJCNrDz5o1oh8DIU9eSKohm9+zFgcRwvNTCZgcyCCyIGCdwW0SEmL/IWn34QHDWSaU6lR0QQcV91SZjI7taTXoT17yktR4xw3u/UtbETaJjjDr3HWb5UlK4rj2W6oIOqiSFkX2XpXRa+TozfUMj3aCIqQxO5upDuPK1fDtP+tNhGky7eAZar40uWVSJBvTu/OnFX69kbGI8WNDlBX336kal4ij2+csoAG1CKkLeeD0FvKrwnr0D96NMUa9c29/1mOzAR5lyDGkfRPAAsXUCC4+oX/c2/VDmymsA2HhOnxyVzWXbhnZwFox1XFsD5dW5nlK/ujfC3vEJMb4UFgFTI5+yuj9DgvVZUfs4ICgZCgm9mXvcw/SoQjA2KEqkkx7TAEyph8eGryrjPHhOZ94RnUakUU9oB3TQE5aBelVBISJjpUFIZOy//NOOAMnoS8pE2JRKCDipazZFkGI/H3hu4uYYG93B45JwhblkaiFlE0xSuijBFHjdRxGMDes77hGiGzpNI1Hz/uVl7IwEbtPnvDyGXNrUiiodcbJOCu2a2wRna8vOAvatO+rf7uMW/3zjd4GwEAAQA= runner@unknown
+INFO         |   androidboot.qemu.adb.pubkey=QAAAALdbrLX5jeFHrZznEYCpjF8fOHkRZJ3r/djFIK3WO125B8iNIPAGyWEM52XCaGPbiM9I/Oog8aktp72l0E+689aIKeRwhI5XPd52cigXLyqU3ExDndKsJWfJoVKV134/IJuTdR6NNqwrj7cxkvviy9YORrvMWbAlBdwX67ah57yOlp1MjJb+hwk6LfMim2hNQKEX0B/ZaKFgUjgtoNZHoWYijohnJANKBYAlVcQ55ydmh1RIsFwygju+JDVkUDGdAm5ElEQxH5EXEzZs9R3MbZXWXYlaQkI3U1fMrI38WTry+gwkOc2IFKJqX0AZnomR7i1lvJWrdhaOYM1/x0scri5z9PqkqH8fgO6uoDAwXb2anSTbm+yblyRbNAOhoXfiHwk/5ReKRgGHS9g3y7Ia3pPylfJYtl3PEekh5FgjmI1rwP6xGjTh5VULFQmnrIE2EZrtuyvT/xlI3qxbHS2z9vnk0eowcb8pgrcugM6ORbPUVFmMIC/tUyQaZrkIPAngQmVpmsvqnleuLJM0XTPP90wephyRUdpovAmiT9gvQvpO9zOSXnW9PJVI79DvplEIpMAPRxrrzDUsXbNiUBSs1L1zN3SCzVGUQAMNmwYowWo5TQ4NeOKRg5XKGJesCM42v7lcmq1z3FeBZzO8oJvXYK/cHpdOZsqeb1tkLQkHuCN93vSFHQEAAQA= runner@unknown
 INFO         |   androidboot.qemu.avd_name=pleos
 INFO         |   androidboot.qemu.camera_hq_edge_processing=0
 INFO         |   androidboot.qemu.camera_protocol_ver=1
@@ -24,20 +24,20 @@ INFO         |   androidboot.qemu.settings.system.screen_off_timeout=2147483647
 INFO         |   androidboot.qemu.skin=2560x1440
 INFO         |   androidboot.qemu.virtiowifi=1
 INFO         |   androidboot.qemu.vsync=60
-INFO         |   androidboot.serialno=EMULATOR37X2X12X0
+INFO         |   androidboot.serialno=EMULATOR37X2X13X0
 INFO         |   androidboot.vbmeta.digest=a43808d542a6f7ea7a54c849d8cf5682b62ae48dca6607440bcc6c6799d72fd7
 INFO         |   androidboot.vbmeta.hash_alg=sha256
 INFO         |   androidboot.vbmeta.size=6720
 INFO         |   androidboot.veritymode=enforcing
-WARNING: cannnot unmap ptr 0x7fc06be01000 as it is in the protected range from 0x7fbf6be00000 to 0x7fc06c000000
+WARNING: cannnot unmap ptr 0x7fdc24201000 as it is in the protected range from 0x7fdb24200000 to 0x7fdc24400000
 pc_memory_init: above 4g size: 40000000
 INFO         | Monitoring duration of emulator setup.
 WARNING      | The emulator now requires a signed jwt token for gRPC access! Use the -grpc flag if you really want an open unprotected grpc port
 INFO         | Using security allow list from: /usr/local/lib/android/sdk/emulator/lib/emulator_access.json
-INFO         | The active JSON Web Key Sets can be found here: /run/user/1001/avd/running/3393/jwks/629d6467-8fe2-4228-8f24-675088e93015/active.jwk
-INFO         | Scanning /run/user/1001/avd/running/3393/jwks/629d6467-8fe2-4228-8f24-675088e93015 for jwk keys.
+INFO         | The active JSON Web Key Sets can be found here: /run/user/1001/avd/running/4149/jwks/dcb06c1e-33a9-4f44-b526-f99655ac10e1/active.jwk
+INFO         | Scanning /run/user/1001/avd/running/4149/jwks/dcb06c1e-33a9-4f44-b526-f99655ac10e1 for jwk keys.
 INFO         | Started GRPC server at 127.0.0.1:8554, security: Local, auth: +token
-INFO         | Advertising in: /run/user/1001/avd/running/pid_3393.ini
+INFO         | Advertising in: /run/user/1001/avd/running/pid_4149.ini
 INFO         | Activated packet streamer for bluetooth emulation
 INFO         | Successfully initialized netsim WiFi
 INFO         | Setting display: 0 configuration to: 2560x1440, dpi: 160x160 
@@ -46,35 +46,35 @@ INFO         | emulatorSetupEnvironment: Environment scene is not required
 USER_INFO    | Emulator is performing a full startup. This may take upto two minutes, or more.
 WARNING      | Failed to process .ini file /home/runner/.android/emu-update-last-check.ini for reading.
 WARNING      | Failed to process .ini file /home/runner/.android/emu-update-last-check.ini for reading.
-INFO         | Boot completed in 59081 ms
+INFO         | Boot completed in 58053 ms
 INFO         | Increasing screen off timeout, logcat buffer size to 2M.
-ERROR        | Failed to find ColorBuffer: 25
+ERROR        | Failed to find ColorBuffer: 18
 ERROR        | Failed to bind to texture: invalid color buffer.
 dlopen "libcuda.so" failed!
 dlopen "libcuda.so" failed!
 dlopen "libcuda.so" failed!
 Failed to call cuInit, cannot use nvidia cuvid decoder for h264 stream
-[h264 @ 0x55cb434d1680] no frame!
-[h264 @ 0x55cb434d1680] no frame!
-[h264 @ 0x55cb561c1b00] no frame!
-[h264 @ 0x55cb561c1b00] no frame!
-[h264 @ 0x55cb4e6b9b00] no frame!
-[h264 @ 0x55cb4e6b9b00] no frame!
-[h264 @ 0x55cb48ee2000] no frame!
-[h264 @ 0x55cb48ee2000] no frame!
-[h264 @ 0x55cb3fce1180] no frame!
-[h264 @ 0x55cb3fce1180] no frame!
-[h264 @ 0x55cb4e709180] no frame!
-[h264 @ 0x55cb4e709180] no frame!
-[h264 @ 0x55cb48d66880] no frame!
-[h264 @ 0x55cb48d66880] no frame!
-[h264 @ 0x55cb4e74e900] no frame!
-[h264 @ 0x55cb4e74e900] no frame!
-[h264 @ 0x55cb3fc27680] no frame!
-[h264 @ 0x55cb3fc27680] no frame!
-[h264 @ 0x55cb48dc4d80] no frame!
-[h264 @ 0x55cb48dc4d80] no frame!
-[h264 @ 0x55cb9726b180] no frame!
-[h264 @ 0x55cb9726b180] no frame!
-[h264 @ 0x55cb97375f80] no frame!
-[h264 @ 0x55cb97375f80] no frame!
+[h264 @ 0x55bc5e956880] no frame!
+[h264 @ 0x55bc5e956880] no frame!
+[h264 @ 0x55bc5bb87a80] no frame!
+[h264 @ 0x55bc5bb87a80] no frame!
+[h264 @ 0x55bc64494000] no frame!
+[h264 @ 0x55bc64494000] no frame!
+[h264 @ 0x55bc5e956400] no frame!
+[h264 @ 0x55bc5e956400] no frame!
+[h264 @ 0x55bc5a3bbb00] no frame!
+[h264 @ 0x55bc5a3bbb00] no frame!
+[h264 @ 0x55bc64494480] no frame!
+[h264 @ 0x55bc64494480] no frame!
+[h264 @ 0x55bc5b9e1200] no frame!
+[h264 @ 0x55bc5b9e1200] no frame!
+[h264 @ 0x55bca876c900] no frame!
+[h264 @ 0x55bca876c900] no frame!
+[h264 @ 0x55bca86f0d00] no frame!
+[h264 @ 0x55bca86f0d00] no frame!
+[h264 @ 0x55bc8f16a000] no frame!
+[h264 @ 0x55bc8f16a000] no frame!
+[h264 @ 0x55bca87e9680] no frame!
+[h264 @ 0x55bca87e9680] no frame!
+[h264 @ 0x55bca8758880] no frame!
+[h264 @ 0x55bca8758880] no frame!

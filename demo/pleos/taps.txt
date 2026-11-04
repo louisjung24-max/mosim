@@ -1,0 +1,6 @@
+NOT FOUND: 평소와 다른 밤 외출
+NOT FOUND: 배터리·연료 부족
+NOT FOUND: 운행 중 오래 멈춤
+NOT FOUND: 이대로 시작하기
+NOT FOUND: 보내지 않기
+NOT FOUND: 연결 해제
