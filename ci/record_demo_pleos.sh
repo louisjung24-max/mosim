@@ -116,8 +116,9 @@ for i in $(seq 1 12); do
   adb shell dumpsys activity activities | grep -q "ResumedActivity.*$APP" && break
 done
 adb shell dumpsys activity activities | grep "ResumedActivity" | head -2
+# AAOS는 앱이 사용자 10으로 돌아 run-as로 설정 파일을 못 읽습니다 → 디버그 빌드가 남기는 로그에서 가족 코드를 읽습니다
 for i in $(seq 1 12); do
-  CODE=$(adb shell run-as $APP cat shared_prefs/share.xml 2>/dev/null | grep -o 'name="code">[A-Z0-9]*' | sed 's/.*>//')
+  CODE=$(adb logcat -d -s MosimDemo:I | grep -o 'family code [A-Z0-9]*' | head -1 | awk '{print $3}')
   [ -n "$CODE" ] && break; sleep 5
 done
 echo "family code: $CODE" | tee "$OUT/family_code.txt"

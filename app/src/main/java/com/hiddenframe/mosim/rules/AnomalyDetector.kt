@@ -78,7 +78,11 @@ class AnomalyDetector(private val baseline: Baseline) {
         hour = e.hourOfDay ?: java.util.Calendar.getInstance().get(java.util.Calendar.HOUR_OF_DAY)
         val isNight = hour >= NIGHT_FROM || hour < NIGHT_UNTIL
         if (!isNight) return Result(voice = weeklyGreetingIfSunday())
-        val label = if (hour >= NIGHT_FROM) "밤 ${hour - 12}시" else "새벽 ${if (hour == 0) 12 else hour}시"
+        val label = when {
+            hour >= NIGHT_FROM -> "밤 ${hour - 12}시"
+            hour == 0 -> "밤 12시"
+            else -> "새벽 ${hour}시"
+        }
         val voice = VoiceCue("지금 ${label}입니다. 밤길은 천천히 가셔도 괜찮아요.")
         // 밤 외출 자체는 위험의 근거가 아닙니다. 학습을 마친 뒤, 평소 그 시간에 운행한 적이 없을 때만 "평소와 다름"입니다.
         val unusual = baseline.learned && !baseline.usuallyDrivesAt(hour)

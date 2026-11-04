@@ -183,6 +183,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun renderFamily() {
         val code = app.share.familyCode
+        if (BuildConfig.DEBUG) android.util.Log.i("MosimDemo", "family code $code")
         b.familyCode.text = code.chunked(5).joinToString(" ")
         val url = AlertSender.familyPageUrl(code)
         if (url == null) {

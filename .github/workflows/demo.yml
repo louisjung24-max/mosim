@@ -1,10 +1,8 @@
 name: Record Demo
 
+# 일반 AAOS 13 에뮬레이터 시연(구버전 흐름). 현재 제출 영상은 demo-pleos.yml(Pleos 에뮬레이터)로 만듭니다.
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Build APK"]
-    types: [completed]
 
 permissions:
   contents: write
