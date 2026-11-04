@@ -1,6 +1,32 @@
+INFO         | Using Vulkan externalMemoryMode: OpaqueFd for VkEmulation
+INFO         | Format VK_FORMAT_G10X6_B10X6R10X6_2PLANE_422_UNORM_3PACK16 does not support YCbCr sampler conversion
+INFO         | SharedLibrary::open for [libX11]
+WARNING      | Could not open libX11.so, try libX11.so.6
+INFO         | SharedLibrary::open for [libX11.so.6]
+INFO         | SharedLibrary::open for [libX11-xcb]
+WARNING      | Could not open libX11-xcb.so, try libX11-xcb.so.1
+INFO         | SharedLibrary::open for [libX11-xcb.so.1]
+INFO         | Initializing VkEmulation features:
+INFO         |     glInteropSupported: false
+INFO         |     useDeferredCommands: true
+INFO         |     createResourceWithRequirements: true
+INFO         |     useVulkanComposition: false
+INFO         |     useVulkanNativeSwapchain: false
+INFO         |     enable guestRenderDoc: false
+INFO         |     ASTC LDR emulation mode: Gpu
+INFO         |     enable ETC2 emulation: true
+INFO         |     enable Ycbcr emulation: false
+INFO         |     guestVulkanOnly: false
+INFO         |     useDedicatedAllocations: false
+INFO         |     guestVulkanMaxApiVersion: 1.3.0
+INFO         |     enableProtectedMemoryEmulation: false
+INFO         | Graphics Adapter Vendor Google (Google Inc.)
+INFO         | Graphics Adapter Android Emulator OpenGL ES Translator (Google SwiftShader)
+INFO         | Graphics API Version OpenGL ES 3.0 (OpenGL ES 3.0 SwiftShader 4.0.0.1)
+INFO         | Graphics API Extensions GL_OES_EGL_sync GL_OES_EGL_image GL_OES_EGL_image_external GL_OES_depth24 GL_OES_depth32 GL_OES_element_index_uint GL_OES_texture_float GL_OES_texture_float_linear GL_OES_compressed_paletted_texture GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth_texture GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_packed_depth_stencil GL_OES_vertex_half_float GL_OES_standard_derivatives GL_OES_texture_npot GL_OES_rgb8_rgba8 GL_EXT_color_buffer_float GL_EXT_color_buffer_half_float GL_EXT_texture_format_BGRA8888 GL_APPLE_texture_format_BGRA8888 
 INFO         | Graphics Device Extensions N/A
 INFO         | Disabling sparse binding feature support
-INFO         | Sending adb public key [QAAAADXgolvjjX7T0ysEfC5KUasLKDaYLNiizHBFs8Ilgp9zAaGFGHp9Tse6fZuDjVkrjBjzShsKednwsCvA1cx0f3L588VHfPQBKINajijviUiTzk6/zGsJFYS1IpHO9741EFIj1/hWjnlNDn4xDWoR4/MxohLRB4y+K4q1IDHg6LiCtwAeyx6lVgI8OgP+YKZv9FV5AW664HyDGMsVV5z+fmlrFkZmzSa1RtVg93qhgi3RXM6tUKMg14Yd5jmq8a7IjvyBRq3clmA5E0n8X0ijprTvZ1H2ouQBHF3sLW4Yahf0DHh3Icbo1EC22Ov/BF+5vXOUg4Kq8d8ZYnf35gm2U9Do2VfQXYNpZ+ei45f1m963ON22qgA/Hjm6qiZuW5l3YsfssZRsUnCyZOAaNKJz+TI3RgkdnljzDFbMusvu5VPhhpDgizQZ2j1Vm/rQltB2zD0OqdWdkvDgNia3KBBx+StEDczHvqS9VhQ2ba9YZ7Y5ea73lBLNY9cLPhkUPS8FHOvhAzLY3r68iDlADcIDouweLfTdbdzFn1Nxeh6/KkTYfsq2J6XQgky6RubNUZ6x27/gKblrLipXV7Ng5pLnESZgcyBxkMSwx7GnIV4SvkJ9BUXZdf2e6fpoIeYW8EeBrqekeAD24aZlrDSzElmWpiDtvgQ62qg97+Q/oVpHd6HXyeCpbgEAAQA= runner@unknown]
+INFO         | Sending adb public key [QAAAANVaK7aD8RYF7bhmT77KxBlsJlZJv+jbsNlKW5jZpAy/T01k3jdroRbPtWZ+kuHrq1D0z/N2mhhijIrcj/cj3wbEon0SHc3SHj8dlcG1I1434DtWGjtmY+T9/RtlYRrx1/p+1XywLckwhlWlb2ICOlbhshrSeu4rPQKMmtbbVQcZll15oU07UbnPGBkz11GKQIn/eVvjpbq57o6eSBkgG+q0Tr6RfZa8zcakeaGNTWKa+UUWfzE5TEaMM9WWDz9zqBrPPzxRFvpydm3bww3RTJ86Ts+EeNvMB6VsG3XyP0sX3ruHgTEWF90WwoM7+kG0CJV3JkZ7vDLOFkWA5ZEKkqc12xK/SxfeJskWxqieKSDsQUIBWEayzi2fEVKm0ubPkPq0WAK1Y098WwTeMKBybMuSrNtZtTyUWV+sJx2eDmsv506h7BcVacAK933PKo7EDJE/qa0s0s5iIA75ziTYfrWrtgHOj5wTs7vImRUczwb3W39IbG8yZNzp/s6tUjvmOzoAm/8EYC+CThp/gjiBYAyqSN5p2rV/1YNqFD5fVFj82yrkK3Zs85IDiN/lnZ+T5vpHmBU7D97w38nSyuiZljgJ6V/CaBBGIF2ONfJBOz4R3xkQAOaVd5CaL/dQVHSBlpsXdQkCeeLwbLS313SgVN3wqVFo/X5uYVgtWLwOuaUQMxWJVQEAAQA= runner@unknown]
 INFO         | Userspace boot properties:
 INFO         |   androidboot.boot_devices=pci0000:00/0000:00:03.0 pci0000:00/0000:00:06.0
 INFO         |   androidboot.dalvik.vm.heapsize=576m
@@ -12,7 +38,7 @@ INFO         |   androidboot.hardware.vulkan=ranchu
 INFO         |   androidboot.logcat=*:V
 INFO         |   androidboot.opengles.version=196608
 INFO         |   androidboot.qemu=1
-INFO         |   androidboot.qemu.adb.pubkey=QAAAADXgolvjjX7T0ysEfC5KUasLKDaYLNiizHBFs8Ilgp9zAaGFGHp9Tse6fZuDjVkrjBjzShsKednwsCvA1cx0f3L588VHfPQBKINajijviUiTzk6/zGsJFYS1IpHO9741EFIj1/hWjnlNDn4xDWoR4/MxohLRB4y+K4q1IDHg6LiCtwAeyx6lVgI8OgP+YKZv9FV5AW664HyDGMsVV5z+fmlrFkZmzSa1RtVg93qhgi3RXM6tUKMg14Yd5jmq8a7IjvyBRq3clmA5E0n8X0ijprTvZ1H2ouQBHF3sLW4Yahf0DHh3Icbo1EC22Ov/BF+5vXOUg4Kq8d8ZYnf35gm2U9Do2VfQXYNpZ+ei45f1m963ON22qgA/Hjm6qiZuW5l3YsfssZRsUnCyZOAaNKJz+TI3RgkdnljzDFbMusvu5VPhhpDgizQZ2j1Vm/rQltB2zD0OqdWdkvDgNia3KBBx+StEDczHvqS9VhQ2ba9YZ7Y5ea73lBLNY9cLPhkUPS8FHOvhAzLY3r68iDlADcIDouweLfTdbdzFn1Nxeh6/KkTYfsq2J6XQgky6RubNUZ6x27/gKblrLipXV7Ng5pLnESZgcyBxkMSwx7GnIV4SvkJ9BUXZdf2e6fpoIeYW8EeBrqekeAD24aZlrDSzElmWpiDtvgQ62qg97+Q/oVpHd6HXyeCpbgEAAQA= runner@unknown
+INFO         |   androidboot.qemu.adb.pubkey=QAAAANVaK7aD8RYF7bhmT77KxBlsJlZJv+jbsNlKW5jZpAy/T01k3jdroRbPtWZ+kuHrq1D0z/N2mhhijIrcj/cj3wbEon0SHc3SHj8dlcG1I1434DtWGjtmY+T9/RtlYRrx1/p+1XywLckwhlWlb2ICOlbhshrSeu4rPQKMmtbbVQcZll15oU07UbnPGBkz11GKQIn/eVvjpbq57o6eSBkgG+q0Tr6RfZa8zcakeaGNTWKa+UUWfzE5TEaMM9WWDz9zqBrPPzxRFvpydm3bww3RTJ86Ts+EeNvMB6VsG3XyP0sX3ruHgTEWF90WwoM7+kG0CJV3JkZ7vDLOFkWA5ZEKkqc12xK/SxfeJskWxqieKSDsQUIBWEayzi2fEVKm0ubPkPq0WAK1Y098WwTeMKBybMuSrNtZtTyUWV+sJx2eDmsv506h7BcVacAK933PKo7EDJE/qa0s0s5iIA75ziTYfrWrtgHOj5wTs7vImRUczwb3W39IbG8yZNzp/s6tUjvmOzoAm/8EYC+CThp/gjiBYAyqSN5p2rV/1YNqFD5fVFj82yrkK3Zs85IDiN/lnZ+T5vpHmBU7D97w38nSyuiZljgJ6V/CaBBGIF2ONfJBOz4R3xkQAOaVd5CaL/dQVHSBlpsXdQkCeeLwbLS313SgVN3wqVFo/X5uYVgtWLwOuaUQMxWJVQEAAQA= runner@unknown
 INFO         |   androidboot.qemu.avd_name=pleos
 INFO         |   androidboot.qemu.camera_hq_edge_processing=0
 INFO         |   androidboot.qemu.camera_protocol_ver=1
@@ -31,50 +57,24 @@ INFO         |   androidboot.vbmeta.digest=a43808d542a6f7ea7a54c849d8cf5682b62ae
 INFO         |   androidboot.vbmeta.hash_alg=sha256
 INFO         |   androidboot.vbmeta.size=6720
 INFO         |   androidboot.veritymode=enforcing
-WARNING: cannnot unmap ptr 0x7f2ba2001000 as it is in the protected range from 0x7f2aa2000000 to 0x7f2ba2200000
+WARNING: cannnot unmap ptr 0x7f9ec7e01000 as it is in the protected range from 0x7f9dc7e00000 to 0x7f9ec8000000
 pc_memory_init: above 4g size: 40000000
 INFO         | Monitoring duration of emulator setup.
 WARNING      | The emulator now requires a signed jwt token for gRPC access! Use the -grpc flag if you really want an open unprotected grpc port
 INFO         | Using security allow list from: /usr/local/lib/android/sdk/emulator/lib/emulator_access.json
-INFO         | The active JSON Web Key Sets can be found here: /run/user/1001/avd/running/4187/jwks/2d0d2066-bad7-483d-a403-b13421a148df/active.jwk
-INFO         | Scanning /run/user/1001/avd/running/4187/jwks/2d0d2066-bad7-483d-a403-b13421a148df for jwk keys.
+INFO         | The active JSON Web Key Sets can be found here: /run/user/1001/avd/running/4155/jwks/9f7d3576-03f2-4586-b097-4d5324cdb613/active.jwk
+INFO         | Scanning /run/user/1001/avd/running/4155/jwks/9f7d3576-03f2-4586-b097-4d5324cdb613 for jwk keys.
 INFO         | Started GRPC server at 127.0.0.1:8554, security: Local, auth: +token
-INFO         | Advertising in: /run/user/1001/avd/running/pid_4187.ini
-INFO         | Activated packet streamer for bluetooth emulation
+INFO         | Advertising in: /run/user/1001/avd/running/pid_4155.ini
 INFO         | Successfully initialized netsim WiFi
+INFO         | Activated packet streamer for bluetooth emulation
 INFO         | Setting display: 0 configuration to: 2560x1440, dpi: 160x160 
 INFO         | setDisplayActiveConfig: id:0, 2560x1440
 INFO         | emulatorSetupEnvironment: Environment scene is not required
 USER_INFO    | Emulator is performing a full startup. This may take upto two minutes, or more.
 WARNING      | Failed to process .ini file /home/runner/.android/emu-update-last-check.ini for reading.
 WARNING      | Failed to process .ini file /home/runner/.android/emu-update-last-check.ini for reading.
-INFO         | Boot completed in 58119 ms
+INFO         | Boot completed in 129175 ms
 INFO         | Increasing screen off timeout, logcat buffer size to 2M.
-dlopen "libcuda.so" failed!
-dlopen "libcuda.so" failed!
-dlopen "libcuda.so" failed!
-Failed to call cuInit, cannot use nvidia cuvid decoder for h264 stream
-[h264 @ 0x5566fe78d180] no frame!
-[h264 @ 0x5566fe78d180] no frame!
-[h264 @ 0x5566fe78ad80] no frame!
-[h264 @ 0x5566fe78ad80] no frame!
-[h264 @ 0x5567018bc900] no frame!
-[h264 @ 0x5567018bc900] no frame!
-[h264 @ 0x5566fe88f680] no frame!
-[h264 @ 0x5566fe88f680] no frame!
-[h264 @ 0x55670b4ab600] no frame!
-[h264 @ 0x55670b4ab600] no frame!
-[h264 @ 0x55670b6a5f80] no frame!
-[h264 @ 0x55670b6a5f80] no frame!
-[h264 @ 0x55670b52e400] no frame!
-[h264 @ 0x55670b52e400] no frame!
-[h264 @ 0x55670b63a400] no frame!
-[h264 @ 0x55670b63a400] no frame!
-[h264 @ 0x556700a8e480] no frame!
-[h264 @ 0x556700a8e480] no frame!
-[h264 @ 0x5567078e7600] no frame!
-[h264 @ 0x5567078e7600] no frame!
-[h264 @ 0x55674e332480] no frame!
-[h264 @ 0x55674e332480] no frame!
-[h264 @ 0x55670b63e480] no frame!
-[h264 @ 0x55670b63e480] no frame!
+ERROR        | Failed to find ColorBuffer: 18
+ERROR        | Failed to bind to texture: invalid color buffer.
