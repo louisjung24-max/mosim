@@ -171,8 +171,15 @@ drive 1 8 100
 drive 2 30
 # 4) 배터리 8% → 그때그때 알림(가족에게) + 보낸 뒤 알려 드림
 mark "battery 8%"
+python3 ci/vconsole.py set "soc|state.?of.?charge" 30 | tee -a "$OUT/vc_calls.txt"
+drive 2 30
 python3 ci/vconsole.py set "soc|state.?of.?charge" 8 | tee -a "$OUT/vc_calls.txt"
-drive 6 30
+drive 3 30
+# 배터리 콜백이 오지 않았으면 한 번 더(에뮬레이터 콜백 지연 대비)
+if [ "$(adb logcat -d -s AlertSender:* 2>/dev/null | grep -c 'api/event -> 200')" -lt 2 ]; then
+  python3 ci/vconsole.py set "soc|state.?of.?charge" 7 | tee -a "$OUT/vc_calls.txt"
+fi
+drive 3 30
 adb exec-out screencap -p > "$OUT/02_driving.png"
 # 5) 천천히 멈춤 → 미뤄 둔 안내를 이때 말함
 mark "slow stop"
