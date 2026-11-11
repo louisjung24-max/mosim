@@ -10,6 +10,11 @@ import androidx.lifecycle.LifecycleService
 import androidx.lifecycle.lifecycleScope
 import com.hiddenframe.mosim.MosimApp
 import com.hiddenframe.mosim.R
+import com.hiddenframe.mosim.alert.AlertSender
+import com.hiddenframe.mosim.alert.Delivery
+import com.hiddenframe.mosim.data.Trip
+import com.hiddenframe.mosim.data.TripLog
+import java.util.Calendar
 import com.hiddenframe.mosim.rules.AnomalyDetector
 import com.hiddenframe.mosim.vehicle.CarApiSignalSource
 import com.hiddenframe.mosim.vehicle.PleosSignalSource
@@ -21,7 +26,8 @@ import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.launch
 
 /**
- * 시동이 켜져 있는 동안 차량 신호를 듣고, 판정하고, 말하고, 허용된 신호만 자녀에게 보냅니다.
+ * 운행 중 차량 신호를 듣고, 동승 안내를 말하고, 운행 기록(거리·밤·고속·급제동)을 차 안에 쌓습니다.
+ * 매달 첫 출발 때 지난달 요약을 가족에게 보내고(동의한 경우), 보낸 뒤 차가 알려 드립니다.
  */
 class DriveMonitorService : LifecycleService() {
 
@@ -33,7 +39,7 @@ class DriveMonitorService : LifecycleService() {
     override fun onCreate() {
         super.onCreate()
         val app = application as MosimApp
-        detector = AnomalyDetector(app.baseline)
+        detector = AnomalyDetector()
         pleos = PleosSignalSource(this)
         carApi = CarApiSignalSource(this)
         // 우선순위: Pleos Vehicle SDK → (없으면) AAOS 기본 차량 속성. 시뮬레이터는 시연용으로 항상 켜 둡니다.
@@ -61,31 +67,35 @@ class DriveMonitorService : LifecycleService() {
         return START_STICKY
     }
 
-    // 운행 상태 추적: 장시간 정차(차속 2 km/h 미만 20분), 이번 운행 거리(차속 적분), 정차 시 말하기
+    // 운행 상태 추적: 거리(차속 적분), 고속 주행 시간, 급제동, 장시간 정차, 정차 시 말하기
     private var driving = false
+    private var tripStart = 0L
+    private var tripNight = false
+    private var tripBrakes = 0
+    private var fastMin = 0f
     private var stoppedSince = 0L
     private var idleReported = false
     private var lastSpeedKmh = 0f
     private var lastSpeedAt = 0L
     private var tripKm = 0f
-    private var reportedKm = 0f
+    private var sdkTripKm = 0f
     private val voiceAtStop = ArrayDeque<String>()
 
     private suspend fun track(e: VehicleEvent) {
         when (e) {
-            is VehicleEvent.Ignition -> {
-                driving = e.on; stoppedSince = 0L; idleReported = false
-                tripKm = 0f; reportedKm = 0f; lastSpeedAt = 0L
-                if (!e.on) flushVoiceAtStop()
-            }
+            is VehicleEvent.Ignition -> if (e.on) onTripStart(e) else onTripEnd()
+            is VehicleEvent.HardBrake -> if (driving) tripBrakes++
+            is VehicleEvent.Odometer -> if (driving && e.km > sdkTripKm) sdkTripKm = e.km
             is VehicleEvent.Speed -> if (driving) {
                 val now = System.currentTimeMillis()
                 if (lastSpeedAt > 0) {
-                    val h = (now - lastSpeedAt) / 3_600_000f
-                    if (h in 0f..(10f / 3600f)) tripKm += (lastSpeedKmh + e.kmh) / 2f * h
+                    val sec = (now - lastSpeedAt) / 1000f
+                    if (sec in 0f..10f) {
+                        tripKm += (lastSpeedKmh + e.kmh) / 2f * sec / 3600f
+                        if (lastSpeedKmh >= AnomalyDetector.FAST_KMH && e.kmh >= AnomalyDetector.FAST_KMH) fastMin += sec / 60f
+                    }
                 }
                 lastSpeedKmh = e.kmh; lastSpeedAt = now
-                if (tripKm - reportedKm >= 0.5f) { reportedKm = tripKm; handle(VehicleEvent.Odometer(tripKm)) }
                 if (e.kmh < STOPPED_KMH) {
                     flushVoiceAtStop()
                     if (stoppedSince == 0L) stoppedSince = now
@@ -100,6 +110,44 @@ class DriveMonitorService : LifecycleService() {
         }
     }
 
+    private fun onTripStart(e: VehicleEvent.Ignition) {
+        driving = true
+        tripStart = System.currentTimeMillis()
+        tripNight = AnomalyDetector.isNight(e.hourOfDay ?: Calendar.getInstance().get(Calendar.HOUR_OF_DAY))
+        tripBrakes = 0; fastMin = 0f; tripKm = 0f; sdkTripKm = 0f
+        stoppedSince = 0L; idleReported = false; lastSpeedAt = 0L; lastSpeedKmh = 0f
+        maybeSendMonthlySummary()
+    }
+
+    private fun onTripEnd() {
+        if (!driving) return
+        driving = false
+        flushVoiceAtStop()
+        val app = application as MosimApp
+        app.trips.add(Trip(tripStart, maxOf(tripKm, sdkTripKm), tripNight, fastMin, tripBrakes))
+        app.state.touch()
+    }
+
+    /** 매달 첫 출발 때 지난달 요약을 한 번 보내고, 보낸 뒤 알려 드립니다. */
+    private fun maybeSendMonthlySummary() {
+        val app = application as MosimApp
+        val thisMonth = TripLog.monthKey()
+        if (!app.share.monthlyOn || app.trips.lastSentMonth == thisMonth) return
+        val m = app.trips.lastMonth()
+        if (m.trips == 0) { app.trips.lastSentMonth = thisMonth; return }
+        lifecycleScope.launch {
+            val r = AlertSender.sendSummary(app.share.familyCode, m)
+            app.state.onDelivery("${m.label} 운전 요약", r)
+            if (r == Delivery.SENT) {
+                app.trips.lastSentMonth = thisMonth
+                app.weekly.addAnomaly()
+                say("${m.label} 운전 요약을 가족에게 보내 드렸어요. ${m.highlight()}")
+            } else if (r == Delivery.NOT_CONFIGURED) {
+                app.trips.lastSentMonth = thisMonth
+            }
+        }
+    }
+
     private fun say(text: String) {
         val app = application as MosimApp
         app.voice.speak(text); app.state.onVoice(text)
@@ -109,21 +157,20 @@ class DriveMonitorService : LifecycleService() {
 
     private suspend fun handle(e: VehicleEvent) {
         val app = application as MosimApp
-        if (e !is VehicleEvent.IdleStop && e !is VehicleEvent.Odometer) track(e)
+        if (e !is VehicleEvent.IdleStop) track(e)
         app.state.onEvent(e)
-        when (e) {
-            is VehicleEvent.Ignition -> if (e.on) app.weekly.addTrip(night = (e.hourOfDay ?: 12).let { it >= AnomalyDetector.NIGHT_FROM || it < AnomalyDetector.NIGHT_UNTIL })
-            is VehicleEvent.HardBrake -> app.weekly.addHardBrake()
-            else -> {}
-        }
+        if (e is VehicleEvent.Ignition && e.on) app.weekly.addTrip(night = tripNight)
         val r = detector.onEvent(e)
         r.voice?.let { v ->
             // 운전 중 말 아끼기: 급하지 않은 말은 다음에 멈췄을 때
             if (v.atStop && driving && lastSpeedKmh >= STOPPED_KMH) voiceAtStop.addLast(v.text) else say(v.text)
         }
         r.anomaly?.let { a ->
-            // 부모님이 켠 항목만, 차 화면에 먼저 보여 드린 뒤(30초) 보냅니다.
-            if (app.share.allows(a)) app.gate.submit(a) else app.state.onInCarOnly(a)
+            if (app.share.allows(a)) lifecycleScope.launch {
+                val d = AlertSender.send(app.share.familyCode, a)
+                app.state.onDelivery(a.title, d)
+                if (d == Delivery.SENT) { app.weekly.addAnomaly(); say("${a.title} 소식을 가족에게 알려 드렸어요.") }
+            } else app.state.onInCarOnly(a)
         }
     }
 

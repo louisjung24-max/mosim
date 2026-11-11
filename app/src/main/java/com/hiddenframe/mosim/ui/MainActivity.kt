@@ -21,10 +21,12 @@ import com.google.zxing.qrcode.QRCodeWriter
 import com.hiddenframe.mosim.BuildConfig
 import com.hiddenframe.mosim.MosimApp
 import com.hiddenframe.mosim.UiState
-import com.hiddenframe.mosim.alert.AlertGate
 import com.hiddenframe.mosim.alert.AlertSender
 import com.hiddenframe.mosim.alert.Delivery
+import com.hiddenframe.mosim.data.MonthlySummary
 import com.hiddenframe.mosim.data.ShareSettings
+import com.hiddenframe.mosim.databinding.ViewStatBinding
+import java.util.Calendar
 import com.hiddenframe.mosim.databinding.ActivityMainBinding
 import com.hiddenframe.mosim.databinding.ViewLogRowBinding
 import com.hiddenframe.mosim.databinding.ViewShareRowBinding
@@ -35,9 +37,9 @@ import kotlinx.coroutines.launch
 
 /**
  * 대화면 한 장짜리 화면.
- * - 왼쪽: 지금 상태, "부모님 먼저" 확인 카드(보내지 않기), 지금 안내, 오늘의 기록
- * - 오른쪽: 가족 공유 항목(처음엔 모두 꺼짐), 가족 연결(QR·해제), 이번 주 통계
- * 공유 설정·연결 해제는 운행 중(기어 P가 아님)에는 잠깁니다. "보내지 않기"는 멈춰 있을 때 누를 수 있습니다.
+ * - 왼쪽: 지금 상태, 지금 안내, 오늘의 기록
+ * - 오른쪽: 나의 운전 기록(가족이 받는 요약과 같은 내용), 가족과 나누기(한 번 동의 → 매달 자동, 끄기·연결 해제)
+ * 설정과 연결 해제는 운행 중(기어 P가 아님)에는 잠깁니다.
  */
 class MainActivity : AppCompatActivity() {
 
@@ -45,7 +47,6 @@ class MainActivity : AppCompatActivity() {
     private val app get() = application as MosimApp
     private val shareRows = mutableListOf<Pair<String, ViewShareRowBinding>>()
     private var lastUi = UiState()
-    private var pendingTop: AlertGate.Pending? = null
     private var demoMode = BuildConfig.DEBUG
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,28 +56,20 @@ class MainActivity : AppCompatActivity() {
         DriveMonitorService.start(this)
         requestPermissionsIfNeeded()
 
-        b.statTrips.statLabel.text = "이번 주 운행"
-        b.statNight.statLabel.text = "밤 운행"
-        b.statAlerts.statLabel.text = "가족에게 보낸 신호"
+        b.statTrips.statLabel.text = "운행"
+        b.statNight.statLabel.text = "밤 운전"
+        b.statFast.statLabel.text = "고속 주행(80km/h↑)"
+        b.statBrake.statLabel.text = "급제동 (100km당)"
         buildShareRows()
         renderFamily()
         renderLocks()
 
-        b.switchMaster.isChecked = app.share.sharingEnabled
-        b.switchMaster.setOnCheckedChangeListener { _, on ->
-            app.share.sharingEnabled = on
-            if (!on) app.gate.cancelAll()
-            say(if (on) "가족 공유를 켰습니다." else "가족 공유를 모두 껐습니다. 차 안 안내는 계속됩니다.")
-            renderLocks()
-        }
         b.btnConsent.setOnClickListener {
             app.share.consentDone = true
-            val chosen = ShareSettings.KEYS.filter { app.share.isShared(it) }.mapNotNull { ShareSettings.LABELS[it] }
-            say(if (chosen.isEmpty()) "아무것도 보내지 않도록 시작합니다. 언제든 바꾸실 수 있어요."
-                else "${chosen.joinToString(", ")}만 가족에게 보여 드릴게요. 보내기 전에 이 화면에 먼저 띄워 드립니다.")
+            buildShareRows()
+            say("고맙습니다. 매달 1일 첫 출발 때 지난달 운전 요약을 가족에게 보내고, 보낸 뒤 알려 드릴게요.")
             renderLocks()
         }
-        b.btnVeto.setOnClickListener { pendingTop?.let { app.gate.veto(it.id) } }
         b.btnUnlink.setOnClickListener { unlinkFamily() }
 
         // 시연 모드: 디버그 빌드는 기본 표시, 릴리스는 앱 이름을 길게 누르면 켜고 끕니다(심사·PT용).
@@ -95,7 +88,6 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 launch { app.state.ui.collect { render(it) } }
-                launch { app.gate.pending.collect { renderPending(it) } }
             }
         }
     }
@@ -105,7 +97,6 @@ class MainActivity : AppCompatActivity() {
         override fun onReceive(c: Context, i: Intent) {
             when (val t = i.getStringExtra("click") ?: return) {
                 "consent" -> b.btnConsent.performClick()
-                "veto" -> b.btnVeto.performClick()
                 "unlink" -> b.btnUnlink.performClick()
                 else -> if (t.startsWith("share:")) shareRows.firstOrNull { it.first == t.removePrefix("share:") }?.second?.root?.performClick()
             }
@@ -144,6 +135,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun buildShareRows() {
         b.shareList.removeAllViews(); shareRows.clear()
+        if (!app.share.consentDone) return
         val inflater = LayoutInflater.from(this)
         ShareSettings.KEYS.forEachIndexed { i, key ->
             val row = ViewShareRowBinding.inflate(inflater, b.shareList, false)
@@ -153,10 +145,9 @@ class MainActivity : AppCompatActivity() {
             row.rowDivider.visibility = if (i == ShareSettings.KEYS.lastIndex) View.INVISIBLE else View.VISIBLE
             row.rowSwitch.setOnCheckedChangeListener { _, on ->
                 app.share.setShared(key, on)
-                if (app.share.consentDone) {
-                    val label = ShareSettings.LABELS[key]
-                    say(if (on) "$label 공유를 켰습니다." else "$label 공유를 껐습니다. 이제부터 보내지 않습니다.")
-                }
+                val label = ShareSettings.LABELS[key]
+                say(if (on) "${label}을 다시 보냅니다." else "${label}을 보내지 않습니다. 언제든 다시 켤 수 있어요.")
+                renderLocks()
             }
             row.root.setOnClickListener { if (row.rowSwitch.isEnabled) row.rowSwitch.toggle() }
             b.shareList.addView(row.root)
@@ -167,18 +158,36 @@ class MainActivity : AppCompatActivity() {
     /** 공유 설정은 주차(P) 중에만 바꿀 수 있습니다. 운전 중 화면 조작을 줄이기 위해서입니다. */
     private fun renderLocks() {
         val parked = !lastUi.driving
-        val enabled = app.share.sharingEnabled
-        b.switchMaster.isEnabled = parked
-        shareRows.forEach { (_, r) -> r.rowSwitch.isEnabled = parked && enabled }
-        b.shareList.alpha = if (enabled) 1f else 0.4f
+        val consent = app.share.consentDone
+        shareRows.forEach { (_, r) -> r.rowSwitch.isEnabled = parked }
         b.btnUnlink.isEnabled = parked
         b.btnConsent.isEnabled = parked
-        b.consentCard.visibility = if (app.share.consentDone) View.GONE else View.VISIBLE
+        b.consentCard.visibility = if (consent) View.GONE else View.VISIBLE
+        b.familyCard.visibility = if (consent) View.VISIBLE else View.GONE
         b.shareHint.text = when {
+            !consent -> "아직 아무것도 보내지 않습니다."
             !parked -> "운행 중에는 바꿀 수 없어요. 주차(P) 후 바꿔 주세요."
-            !enabled -> "가족 공유가 꺼져 있습니다. 차 안 안내는 계속됩니다."
-            else -> "켜신 항목만, 이 화면에 먼저 보여 드린 뒤 보냅니다."
+            app.share.monthlyOn -> "다음 요약: ${nextMonthLabel()} 1일 첫 출발 때 보내고, 보낸 뒤 알려 드려요."
+            else -> "매달 요약을 보내지 않습니다."
         }
+    }
+
+    private fun nextMonthLabel(): String = "${Calendar.getInstance().apply { add(Calendar.MONTH, 1) }.get(Calendar.MONTH) + 1}월"
+
+    /** 나의 운전 기록: 가족에게 가는(또는 갈) 지난달 요약을 그대로 보여 드립니다. */
+    private fun renderMirror() {
+        val last = app.trips.lastMonth()
+        val m: MonthlySummary = if (last.trips > 0) last else app.trips.thisMonth()
+        val p = m.prev
+        b.mirrorTitle.text = "나의 운전 기록 · ${m.label}"
+        val now = app.trips.thisMonth()
+        b.mirrorHint.text = "가족이 받는 요약과 같은 내용입니다" + if (m !== now && now.trips > 0) " · 이번 달 지금까지 ${now.trips}회" else ""
+        fun tile(t: ViewStatBinding, value: String, delta: String?) { t.statValue.text = value; t.statDelta.text = delta ?: "" }
+        tile(b.statTrips, "${m.trips}회", "${Math.round(m.km)}km")
+        tile(b.statNight, "${m.nightTrips}회", p?.takeIf { it.trips > 0 }?.let { "지난달 ${it.nightTrips}회" })
+        tile(b.statFast, "${Math.round(m.fastMin)}분", null)
+        tile(b.statBrake, "%.1f회".format(m.brakesPer100Km), p?.takeIf { it.trips > 0 }?.let { "지난달 %.1f회".format(it.brakesPer100Km) })
+        b.mirrorLine.text = m.highlight()
     }
 
     private fun renderFamily() {
@@ -198,7 +207,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun unlinkFamily() {
         if (lastUi.driving) return
-        app.gate.cancelAll()
         val old = app.share.familyCode
         lifecycleScope.launch {
             val r = AlertSender.unlink(old)
@@ -212,29 +220,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun renderPending(list: List<AlertGate.Pending>) {
-        val p = list.firstOrNull()
-        pendingTop = p
-        if (p == null) { b.pendingCard.visibility = View.GONE; return }
-        b.pendingCard.visibility = View.VISIBLE
-        b.pendingTitle.text = p.anomaly.title
-        val more = if (list.size > 1) " · 대기 ${list.size - 1}건 더" else ""
-        b.pendingMeta.text = if (p.waitingForStop) "멈추시면 ${p.secondsLeft}초 동안 확인하실 수 있어요$more"
-            else "${p.secondsLeft}초 뒤 가족에게 보냅니다$more"
-        renderVetoButton()
-    }
-
-    private fun renderVetoButton() {
-        val canTouch = lastUi.stopped
-        b.btnVeto.isEnabled = canTouch
-        b.btnVeto.text = if (canTouch) "보내지 않기" else "운전 중"
-    }
-
     private fun render(s: UiState) {
         val drivingChanged = s.driving != lastUi.driving
         lastUi = s
         if (drivingChanged) renderLocks()
-        renderVetoButton()
+        renderMirror()
         val night = s.hour != null && (s.hour >= 21 || s.hour < 5)
         val title = when {
             !s.driving -> "주차 중"
@@ -259,9 +249,6 @@ class MainActivity : AppCompatActivity() {
             b.logList.addView(row.root)
         }
 
-        b.statTrips.statValue.text = "${app.weekly.trips}회"
-        b.statNight.statValue.text = "${app.weekly.nightTrips}회"
-        b.statAlerts.statValue.text = "${app.weekly.anomalies}건"
     }
 
     private fun qr(text: String, size: Int): Bitmap {

@@ -13,8 +13,8 @@ import java.net.URL
 enum class Delivery { SENT, NOT_CONFIGURED, REJECTED, FAILED }
 
 /**
- * 부모님이 허용하고 확인한 이상 신호만 알림 서버(Cloudflare Workers)로 보냅니다.
- * 보내는 것은 {가족 코드, 유형, 제목, 한 줄 설명, 시각}뿐이며 속도·위치 같은 원시 데이터는 없습니다.
+ * 부모님이 동의한 범위(매달 운전 요약, 배터리·연료 부족)만 알림 서버(Cloudflare Workers)로 보냅니다.
+ * 개별 운행 기록·위치·속도 같은 원시 데이터는 보내지 않습니다.
  * 서버 인증 토큰은 빌드 시 GitHub Secret(MOSIM_DEVICE_TOKEN)으로만 주입합니다.
  */
 object AlertSender {
@@ -28,6 +28,15 @@ object AlertSender {
         .put("type", a.type.name.lowercase())
         .put("title", a.title)
         .put("body", a.body)
+        .put("ts", System.currentTimeMillis()))
+
+    /** 한 달 운전 요약. 수치는 월 합계뿐이며 개별 운행·위치·속도 기록은 보내지 않습니다. */
+    suspend fun sendSummary(familyCode: String, m: com.hiddenframe.mosim.data.MonthlySummary): Delivery = post("/api/event", JSONObject()
+        .put("code", familyCode)
+        .put("type", "monthly_summary")
+        .put("title", "${m.label} 운전 요약")
+        .put("body", m.highlight())
+        .put("stats", m.toJson())
         .put("ts", System.currentTimeMillis()))
 
     /** 가족 연결 해제: 서버에 저장된 이 가족 코드의 기록을 지웁니다. */

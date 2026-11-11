@@ -85,63 +85,6 @@
                     android:textColor="@color/text_tertiary"
                     android:textSize="18sp" />
 
-                <!-- 부모님 먼저: 가족에게 보내기 전 30초 동안 먼저 보여 드림 -->
-                <LinearLayout
-                    android:id="@+id/pendingCard"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:background="@drawable/bg_pending_card"
-                    android:padding="20dp"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="가족에게 보내기 전에 먼저 보여 드려요"
-                            android:textColor="@color/informative_warning"
-                            android:textSize="15sp" />
-
-                        <TextView
-                            android:id="@+id/pendingTitle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:textColor="@color/text_primary"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/pendingMeta"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="16sp" />
-                    </LinearLayout>
-
-                    <Button
-                        android:id="@+id/btnVeto"
-                        style="@style/Widget.Mosim.ChipButton"
-                        android:layout_height="64dp"
-                        android:minHeight="64dp"
-                        android:paddingStart="26dp"
-                        android:paddingEnd="26dp"
-                        android:layout_marginEnd="0dp"
-                        android:text="보내지 않기"
-                        android:textColor="@color/text_primary"
-                        android:textSize="20sp"
-                        app:cornerRadius="32dp" />
-                </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -223,7 +166,7 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- 오른쪽: 가족 공유 -->
+        <!-- 오른쪽: 나의 운전 기록(운전 거울) + 가족과 나누기 -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -244,55 +187,112 @@
                     android:orientation="vertical"
                     android:padding="28dp">
 
+                    <TextView
+                        android:id="@+id/mirrorTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="나의 운전 기록"
+                        android:textColor="@color/text_primary"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/mirrorHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="가족이 받는 요약과 같은 내용입니다"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="15sp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
                         android:orientation="horizontal"
-                        android:gravity="center_vertical">
+                        android:baselineAligned="false">
 
-                        <LinearLayout
+                        <include
+                            android:id="@+id/statTrips"
+                            layout="@layout/view_stat"
                             android:layout_width="0dp"
-                            android:layout_weight="1"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="가족 공유"
-                                android:textColor="@color/text_primary"
-                                android:textSize="26sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/shareHint"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="4dp"
-                                android:textColor="@color/text_tertiary"
-                                android:textSize="15sp" />
-                        </LinearLayout>
-
-                        <com.google.android.material.materialswitch.MaterialSwitch
-                            android:id="@+id/switchMaster"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                        <include
+                            android:id="@+id/statNight"
+                            layout="@layout/view_stat"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
+
+                        <include
+                            android:id="@+id/statFast"
+                            layout="@layout/view_stat"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="8dp" />
+
+                        <include
+                            android:id="@+id/statBrake"
+                            layout="@layout/view_stat"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/mirrorLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:background="@drawable/bg_inner_card"
+                        android:padding="16dp"
+                        android:lineSpacingMultiplier="1.2"
+                        android:textColor="@color/informative_active"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="26dp"
+                        android:text="가족과 나누기"
+                        android:textColor="@color/text_primary"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/shareHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="15sp" />
 
                     <LinearLayout
                         android:id="@+id/consentCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="14dp"
                         android:orientation="vertical"
-                        android:background="@drawable/bg_inner_card"
+                        android:background="@drawable/bg_pending_card"
                         android:padding="20dp"
                         android:visibility="gone">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="처음 설정 · 가족에게 무엇을 보여 드릴까요?"
+                            android:text="가족에게 매달 운전 요약을 보낼까요?"
                             android:textColor="@color/text_primary"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -302,7 +302,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:lineSpacingMultiplier="1.25"
-                            android:text="모두 꺼져 있습니다. 켜신 항목만, 그것도 이 화면에 30초 먼저 보여 드린 뒤 보냅니다. 위치와 속도는 어떤 경우에도 보내지 않습니다."
+                            android:text="위에 보이는 요약 한 장이 매달 1일 첫 출발 때 가족에게 갑니다. 보낸 뒤에는 차가 알려 드리고, 언제든 여기서 끌 수 있어요. 위치는 보내지 않습니다."
                             android:textColor="@color/text_secondary"
                             android:textSize="15sp" />
 
@@ -312,7 +312,7 @@
                             android:layout_marginTop="14dp"
                             android:layout_height="56dp"
                             android:minHeight="56dp"
-                            android:text="이대로 시작하기"
+                            android:text="좋아요, 매달 보내 주세요"
                             android:textColor="@color/text_primary"
                             android:textSize="18sp" />
                     </LinearLayout>
@@ -321,14 +321,14 @@
                         android:id="@+id/shareList"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="14dp"
+                        android:layout_marginTop="8dp"
                         android:orientation="vertical" />
 
                     <LinearLayout
                         android:id="@+id/familyCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="14dp"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"
                         android:background="@drawable/bg_inner_card"
@@ -336,8 +336,8 @@
 
                         <ImageView
                             android:id="@+id/familyQr"
-                            android:layout_width="112dp"
-                            android:layout_height="112dp"
+                            android:layout_width="104dp"
+                            android:layout_height="104dp"
                             android:layout_marginEnd="18dp"
                             android:contentDescription="가족 연결 QR"
                             android:visibility="gone" />
@@ -371,7 +371,7 @@
                                 android:layout_marginTop="6dp"
                                 android:letterSpacing="0.12"
                                 android:textColor="@color/text_primary"
-                                android:textSize="22sp"
+                                android:textSize="20sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
 
@@ -380,37 +380,6 @@
                             style="@style/Widget.Mosim.ChipButton"
                             android:layout_marginEnd="0dp"
                             android:text="연결 해제" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:orientation="horizontal"
-                        android:baselineAligned="false">
-
-                        <include
-                            android:id="@+id/statTrips"
-                            layout="@layout/view_stat"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="8dp" />
-
-                        <include
-                            android:id="@+id/statNight"
-                            layout="@layout/view_stat"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_marginEnd="8dp" />
-
-                        <include
-                            android:id="@+id/statAlerts"
-                            layout="@layout/view_stat"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
                     </LinearLayout>
                 </LinearLayout>
             </ScrollView>

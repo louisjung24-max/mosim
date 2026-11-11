@@ -1,6 +1,6 @@
 /**
  * 모심 알림 서버 (Cloudflare Workers)
- *  POST /api/event    차량 앱이 보낸 신호 저장(부모님이 고르고 차 화면에서 먼저 확인한 것만 옴) + 카카오톡(선택)
+ *  POST /api/event    차량 앱이 보낸 소식 저장(매달 운전 요약·배터리/연료 부족 — 부모님이 동의한 것만) + 카카오톡(선택)
  *  POST /api/unlink   가족 연결 해제: 이 가족 코드의 기록 삭제
  *  GET  /f/:code      자녀용 알림 페이지(HTML) — 조회 횟수 제한
  *  GET  /             안내
@@ -14,10 +14,11 @@ export interface Env {
   DEVICE_TOKEN?: string;
 }
 
-type Ev = { type: string; title: string; body: string; ts: number };
+type Stats = { month: string; trips: number; km: number; night: number; fastMin: number; brakes100: number; prevNight: number | null; prevBrakes100: number | null; highlight: string };
+type Ev = { type: string; title: string; body: string; ts: number; stats?: Stats };
 
 const MAX_EVENTS = 200;
-const TYPES = new Set(["night_departure", "long_distance", "long_stop", "hard_brake_spike", "vehicle_care"]);
+const TYPES = new Set(["monthly_summary", "vehicle_care"]);
 const CODE_RE = /^[A-Z2-9]{10}$/;
 const PAGE_LIMIT_PER_MIN = 30;
 const json = (data: unknown, status = 200) =>
@@ -49,6 +50,22 @@ async function load(env: Env, c: string): Promise<Ev[]> {
   return (await env.EVENTS.get<Ev[]>(`ev:${c}`, "json")) ?? [];
 }
 
+/** 월 요약 수치 검증: 월 합계 숫자와 한 줄 문구만 받습니다(개별 운행·위치 없음). */
+function parseStats(o: any): Stats | null {
+  if (!o || typeof o !== "object") return null;
+  const n = (v: any, max: number) => { const x = Number(v); return Number.isFinite(x) && x >= 0 && x <= max ? x : NaN; };
+  const opt = (v: any, max: number) => (v === null || v === undefined ? null : n(v, max));
+  const st: Stats = {
+    month: /^\d{4}-\d{2}$/.test(String(o.month)) ? String(o.month) : "",
+    trips: n(o.trips, 2000), km: n(o.km, 100000), night: n(o.night, 2000), fastMin: n(o.fastMin, 50000),
+    brakes100: n(o.brakes100, 1000), prevNight: opt(o.prevNight, 2000), prevBrakes100: opt(o.prevBrakes100, 1000),
+    highlight: String(o.highlight ?? "").slice(0, 120),
+  };
+  const nums = [st.trips, st.km, st.night, st.fastMin, st.brakes100];
+  if (!st.month || nums.some((x) => Number.isNaN(x)) || Number.isNaN(st.prevNight as number) || Number.isNaN(st.prevBrakes100 as number)) return null;
+  return st;
+}
+
 function authorized(req: Request, env: Env): boolean {
   return !env.DEVICE_TOKEN || req.headers.get("x-device-token") === env.DEVICE_TOKEN;
 }
@@ -73,6 +90,11 @@ async function postEvent(req: Request, env: Env, origin: string): Promise<Respon
     body: String(b.body ?? "").slice(0, 300),
     ts: Number.isFinite(ts) && Math.abs(ts - now) < 86_400_000 ? ts : now,
   };
+  if (type === "monthly_summary") {
+    const st = parseStats(b.stats);
+    if (!st) return json({ error: "invalid stats" }, 400);
+    ev.stats = st;
+  }
 
   const list = await load(env, c);
   // 같은 신호가 1분 안에 다시 오면(재전송) 한 번만 저장
@@ -146,7 +168,7 @@ async function sendKakao(env: Env, ev: Ev, c: string, origin: string): Promise<s
 }
 
 const ICON: Record<string, string> = {
-  night_departure: "🌙", long_distance: "🛣️", long_stop: "⏸️", hard_brake_spike: "⚠️", vehicle_care: "🔋",
+  monthly_summary: "🗓️", vehicle_care: "🔋", night_departure: "🌙", long_distance: "🛣️", long_stop: "⏸️", hard_brake_spike: "⚠️",
 };
 
 function fmt(ts: number): string {
@@ -158,15 +180,33 @@ function esc(s: string): string {
   return s.replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch] as string));
 }
 
+function summaryHtml(e: Ev): string {
+  const s = e.stats!;
+  const [y, m] = s.month.split("-");
+  const prevN = s.prevNight !== null ? `<div class="p">지난달 ${s.prevNight}회</div>` : "";
+  const prevB = s.prevBrakes100 !== null ? `<div class="p">지난달 ${s.prevBrakes100.toFixed(1)}회</div>` : "";
+  return `<div class="sum"><div class="mh">${esc(y)}년 · ${fmt(e.ts)} 도착</div><div class="mt">${Number(m)}월 운전 요약</div>
+<div class="hl">${esc(s.highlight)}</div>
+<div class="grid">
+<div class="tile"><div class="l">운행</div><div class="v">${s.trips}회</div><div class="p">${Math.round(s.km)}km</div></div>
+<div class="tile"><div class="l">밤 운전</div><div class="v">${s.night}회</div>${prevN}</div>
+<div class="tile"><div class="l">고속 주행(80km/h↑)</div><div class="v">${Math.round(s.fastMin)}분</div></div>
+<div class="tile"><div class="l">급제동(100km당)</div><div class="v">${s.brakes100.toFixed(1)}회</div>${prevB}</div>
+</div><div class="same">부모님 차 화면에도 똑같이 보이는 요약입니다.</div></div>`;
+}
+
 async function page(env: Env, c: string): Promise<Response> {
   const list = c ? await load(env, c) : [];
-  const items = list.length
-    ? list.map((e) => `
+  const latest = list.find((e) => e.type === "monthly_summary" && e.stats);
+  const summaryCard = latest?.stats ? summaryHtml(latest) : "";
+  const rest = list.filter((e) => e !== latest);
+  const items = rest.length
+    ? rest.map((e) => `
       <li class="ev ${esc(e.type)}">
         <div class="ic">${ICON[e.type] ?? "•"}</div>
         <div class="tx"><div class="t">${esc(e.title)}</div><div class="b">${esc(e.body)}</div><div class="d">${fmt(e.ts)}</div></div>
       </li>`).join("")
-    : `<li class="empty">이 주소로 전달된 소식이 없습니다. 아직 보낸 소식이 없거나, 연결이 바뀌었을 수 있어요.</li>`;
+    : latest ? `<li class="empty">그 밖의 소식은 없습니다.</li>` : `<li class="empty">이 주소로 전달된 소식이 없습니다. 아직 보낸 소식이 없거나, 연결이 바뀌었을 수 있어요.</li>`;
 
   const html = `<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>모심 · 가족 알림</title>
@@ -184,11 +224,16 @@ ul{list-style:none;margin:0;padding:0}.ev{display:flex;gap:12px;padding:14px 0;b
 .cta{display:flex;gap:10px;margin-top:16px}.cta a{flex:1;text-align:center;padding:15px;border-radius:999px;text-decoration:none;font-weight:700}
 .call{background:var(--t);color:#131417}.fix{background:rgba(255,255,255,.08);color:var(--t)}
 .note{color:var(--m);font-size:12px;margin-top:18px;line-height:1.5}
+.sum{background:var(--card);border-radius:24px;padding:20px;margin-bottom:14px}.sum .mh{color:var(--m);font-size:13px}.sum .mt{font-size:22px;font-weight:800;margin:2px 0 10px}
+.hl{color:var(--a);font-size:17px;font-weight:700;background:rgba(46,212,122,.1);border-radius:14px;padding:12px 14px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.tile{background:var(--inner);border-radius:16px;padding:12px 14px}.tile .l{color:var(--m);font-size:12px}.tile .v{font-size:22px;font-weight:800;margin-top:2px}.tile .p{color:var(--m);font-size:12px;margin-top:2px}
+.same{color:var(--m);font-size:12px;margin-top:10px}
 </style></head><body><div class="wrap">
-<h1>모심</h1><h2>부모님 차에서 온 소식</h2><div class="sub">부모님이 고르고, 차 화면에서 먼저 확인한 소식만 옵니다</div>
+<h1>모심</h1><h2>부모님 차에서 온 소식</h2><div class="sub">부모님이 동의한 매달 운전 요약과 차량 관리 소식만 옵니다</div>
+${summaryCard}
 <div class="card"><ul>${items}</ul>
 <div class="cta"><a class="call" href="tel:">📞 전화하기</a><a class="fix" href="https://www.hyundai.com/kr/ko/service/bluehands" target="_blank">정비 예약</a></div></div>
-<div class="note"><b>소식이 없다고 해서 안전하다는 뜻은 아닙니다.</b> 궁금하시면 직접 전화해 보세요.<br>위치와 속도는 어떤 경우에도 전달되지 않습니다. 부모님이 차에서 연결을 해제하면 이 기록은 지워집니다.</div>
+<div class="note"><b>소식이 없다고 해서 안전하다는 뜻은 아닙니다.</b> 궁금하시면 직접 전화해 보세요.<br>위치와 개별 운행 기록은 전달되지 않습니다. 부모님이 차에서 공유를 끄거나 연결을 해제할 수 있고, 해제하면 이 기록은 지워집니다.</div>
 </div></body></html>`;
   return new Response(html, { headers: {
     "content-type": "text/html; charset=utf-8", "cache-control": "no-store",

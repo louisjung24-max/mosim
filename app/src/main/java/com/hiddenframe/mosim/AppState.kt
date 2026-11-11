@@ -1,6 +1,6 @@
 package com.hiddenframe.mosim
 
-import com.hiddenframe.mosim.alert.AlertGate
+import com.hiddenframe.mosim.alert.Delivery
 import com.hiddenframe.mosim.rules.Anomaly
 import com.hiddenframe.mosim.vehicle.VehicleEvent
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,6 +18,7 @@ data class UiState(
     val hour: Int? = null,
     val lastVoice: String = "출발하시면 모심이 함께 탑니다.",
     val log: List<Pair<String, String>> = emptyList(),
+    val rev: Int = 0,
 ) {
     /** 설정 변경·버튼 조작이 안전한 상태: 주차 중이거나 멈춰 있을 때 */
     val stopped: Boolean get() = !driving || speedKmh < 5
@@ -46,19 +47,21 @@ class AppState {
     fun note(text: String) { _ui.value = append(text) }
 
     /** 공유하지 않는 항목: 차 안에서만 안내 */
-    fun onInCarOnly(a: Anomaly) { _ui.value = append("차 안에서만: ${a.title} (공유 안 함)") }
+    fun onInCarOnly(a: Anomaly) { _ui.value = append("차 안에서만: ${a.title}") }
 
-    fun onOutcome(a: Anomaly, o: AlertGate.Outcome) {
-        val line = when (o) {
-            AlertGate.Outcome.SENT -> "가족에게 전송됨: ${a.title}"
-            AlertGate.Outcome.VETOED -> "부모님이 보내지 않음: ${a.title}"
-            AlertGate.Outcome.SHARING_OFF -> "보내지 않음(공유 꺼짐): ${a.title}"
-            AlertGate.Outcome.NOT_CONFIGURED -> "보내지 못함(서버 미설정): ${a.title}"
-            AlertGate.Outcome.REJECTED -> "보내지 못함(서버 거부): ${a.title}"
-            AlertGate.Outcome.FAILED -> "보내지 못함(연결 실패): ${a.title}"
+    /** '가족에게 보냄'은 서버 저장이 확인됐을 때만 표시합니다. */
+    fun onDelivery(title: String, d: Delivery) {
+        val line = when (d) {
+            Delivery.SENT -> "가족에게 보냄: $title"
+            Delivery.NOT_CONFIGURED -> "보내지 못함(서버 미설정): $title"
+            Delivery.REJECTED -> "보내지 못함(서버 거부): $title"
+            Delivery.FAILED -> "보내지 못함(연결 실패): $title"
         }
         _ui.value = append(line)
     }
+
+    /** 요약 화면을 다시 그리게 하는 신호 */
+    fun touch() { _ui.value = _ui.value.copy(rev = _ui.value.rev + 1) }
 
     private fun append(line: String): UiState {
         val l = (listOf(fmt.format(Date()) to line) + _ui.value.log).take(8)

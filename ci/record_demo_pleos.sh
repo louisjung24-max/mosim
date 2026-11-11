@@ -107,8 +107,8 @@ for i in $(seq 1 8); do
 done
 adb shell pm path $APP || { echo "INSTALL FAILED"; exit 1; }
 adb shell dumpsys package $APP | grep -E "permission.*granted=true" | tee "$OUT/granted.txt"
-# 시연 전제: 2주(운행 10회) 학습을 마친 상태 — 디버그 빌드 전용 시연 데이터(낮 운행만)
-adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario seed_baseline
+# 시연 전제: 지난 두 달의 운행 기록 — 디버그 빌드 전용 시연 데이터(실제 기록 아님)
+adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario seed_month
 adb logcat -c
 for i in $(seq 1 12); do
   adb shell am start -W -n $APP/.ui.MainActivity >/dev/null 2>&1
@@ -149,49 +149,43 @@ adb exec-out screencap -p > "$OUT/01_before_record.png"
 
 log "record"
 T0=$(date +%s); mark() { echo "$(( $(date +%s) - T0 ))s $*" | tee -a "$OUT/timeline.txt"; }
-adb shell "screenrecord --time-limit 170 --bit-rate 8000000 /data/local/tmp/mosim_pleos.mp4" &
+adb shell "screenrecord --time-limit 140 --bit-rate 8000000 /data/local/tmp/mosim_pleos.mp4" &
 REC=$!
 sleep 3
-# 1) 주차 중 첫 설정: 모두 꺼진 상태에서 부모님이 직접 고름
-mark "first-run consent"
-TAP share:night; sleep 2
-TAP share:care; sleep 2
-TAP share:stop; sleep 2
-TAP consent; sleep 6
-# 2) 새벽, 기어 D → 차 안 안내 + "부모님 먼저" 30초 대기 후 실제 서버로 전송
-mark "gear D"
-VC "/vehicle/gear?gear=Drive"; sleep 1; front; sleep 4
+# 1) 처음 한 번: 부모님이 "좋아요, 매달 보내 주세요"
+mark "consent"
+sleep 3
+TAP consent; sleep 7
+# 2) 이달 첫 출발(기어 D) → 지난달 운전 요약이 자동으로 가족에게(실제 서버 저장) → 보낸 뒤 차가 알려 드림
+mark "gear D -> monthly summary"
+VC "/vehicle/gear?gear=Drive"; sleep 1; front; sleep 9
+python3 ci/family_shot.py "http://127.0.0.1:8787/f/$CODE" "$OUT/family_summary.png" || true
+# 3) 비 오는 밤길: 와이퍼, 급제동 두 번(차 안에서만, 안내는 멈췄을 때)
+mark "rain + hard brakes"
 VC "/vehicle/body?front_wiper=Low"; sleep 2
-mark "drive + hard brakes"
-drive 7 50
+drive 6 50
 drive 1 15 100
 drive 4 35
 drive 1 8 100
-drive 3 30
-adb exec-out screencap -p > "$OUT/02_driving_pending.png"
-# 3) 배터리 8% (달리는 중이라 '보내지 않기'는 멈춰야 누를 수 있음)
+drive 2 30
+# 4) 배터리 8% → 그때그때 알림(가족에게) + 보낸 뒤 알려 드림
 mark "battery 8%"
 python3 ci/vconsole.py set "soc|state.?of.?charge" 8 | tee -a "$OUT/vc_calls.txt"
-drive 8 30
-# 4) 천천히 멈춤 → 미뤄 둔 안내를 이때 말함
+drive 6 30
+adb exec-out screencap -p > "$OUT/02_driving.png"
+# 5) 천천히 멈춤 → 미뤄 둔 안내를 이때 말함
 mark "slow stop"
 drive 1 20 30; drive 1 10 30; drive 3 0 40
-adb exec-out screencap -p > "$OUT/03_stopped_voice.png"
-# 달리는 동안 멈춰 있던 30초 확인이 정차 후 다시 흐르고, 두 신호(밤 외출·배터리)가 차례로 전송됩니다
-sleep 34
+sleep 4
+adb exec-out screencap -p > "$OUT/03_stopped.png"
 python3 ci/family_shot.py "http://127.0.0.1:8787/f/$CODE" "$OUT/family_after_send.png" || true
-# 5) 운행 중 오래 멈춤(20분 경과를 시연용으로 앞당김) → 부모님이 '보내지 않기'
-mark "idle (time-compressed) + veto"
-adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario idle_only >/dev/null
-sleep 6
-adb exec-out screencap -p > "$OUT/04_pending_stop.png"
-TAP veto; sleep 6
-# 6) 주차 → 가족 연결 해제(서버 기록 삭제, 새 QR)
-mark "park + unlink"
-VC "/vehicle/body?front_wiper=Off"; VC "/vehicle/gear?gear=Park"; sleep 1; front; sleep 5
-TAP unlink; sleep 8
-adb exec-out screencap -p > "$OUT/05_unlinked.png"
-python3 ci/family_shot.py "http://127.0.0.1:8787/f/$CODE" "$OUT/family_after_unlink.png" || true
+# 6) 주차 → 이번 운행이 '나의 운전 기록'에 쌓임
+mark "park"
+VC "/vehicle/body?front_wiper=Off"; VC "/vehicle/gear?gear=Park"; sleep 1; front; sleep 6
+# 7) 보내기 싫으면 설정에서 한 번: '매달 운전 요약' 끄기
+mark "settings: monthly off"
+TAP share:monthly; sleep 8
+adb exec-out screencap -p > "$OUT/04_settings_off.png"
 mark "end"
 sleep 4
 adb shell pkill -INT screenrecord || true
