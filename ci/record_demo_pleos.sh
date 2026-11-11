@@ -154,7 +154,8 @@ REC=$!
 sleep 3
 # 1) 처음 한 번: 부모님이 "좋아요, 매달 보내 주세요"
 mark "consent"
-sleep 3
+sleep 9
+adb exec-out screencap -p > "$OUT/01_consent.png"
 TAP consent; sleep 7
 # 2) 이달 첫 출발(기어 D) → 지난달 운전 요약이 자동으로 가족에게(실제 서버 저장) → 보낸 뒤 차가 알려 드림
 mark "gear D -> monthly summary"
