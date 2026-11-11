@@ -21,11 +21,10 @@ Features enabled by your requested compatibility date may not be available.
 Upgrade to `wrangler@4.160.0` to remove this warning.
 [wrangler:inf] Ready on http://0.0.0.0:8787
 [wrangler:inf] - http://127.0.0.1:8787
-[wrangler:inf] - http://10.1.3.107:8787
+[wrangler:inf] - http://10.1.0.108:8787
 [wrangler:inf] GET / 200 OK (3ms)
-[wrangler:inf] GET / 200 OK (2ms)
-[wrangler:inf] GET / 200 OK (258ms)
-[wrangler:inf] POST /api/event 200 OK (455ms)
-[wrangler:inf] GET /f/PBDJSE7HGQ 200 OK (32ms)
-[wrangler:inf] POST /api/event 200 OK (75ms)
-[wrangler:inf] GET /f/PBDJSE7HGQ 200 OK (99ms)
+[wrangler:inf] GET / 200 OK (1ms)
+[wrangler:inf] GET / 200 OK (114ms)
+[wrangler:inf] POST /api/event 200 OK (128ms)
+[wrangler:inf] GET /f/YBEA6Y3H3N 200 OK (50ms)
+[wrangler:inf] GET /f/YBEA6Y3H3N 200 OK (80ms)

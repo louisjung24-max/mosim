@@ -1,11 +1,10 @@
 --------- beginning of main
-11-11 12:41:06.611 17748 17748 I PleosSignalSource: registered gear-now
-11-11 12:41:06.615 17748 17748 I PleosSignalSource: registered gear
-11-11 12:41:07.489 17748 17748 I PleosSignalSource: registered wiper
-11-11 12:41:08.775 17748 17748 I PleosSignalSource: registered fuel
-11-11 12:41:09.563 17748 17748 I PleosSignalSource: registered soc
-11-11 12:41:11.306 17748 17748 I PleosSignalSource: registered distance
-11-11 12:41:11.527 17748 17748 I PleosSignalSource: registered brake
-11-11 12:41:18.059 17748 17767 W PleosSignalSource: distance: ERROR_NOT_SUPPORTED_PROPERTY
-11-11 12:41:50.860 17748 17948 I AlertSender: /api/event -> 200
-11-11 12:42:29.448 17748 17948 I AlertSender: /api/event -> 200
+11-11 21:23:08.991 29466 29466 I PleosSignalSource: registered gear-now
+11-11 21:23:08.996 29466 29466 I PleosSignalSource: registered gear
+11-11 21:23:09.503 29466 29466 I PleosSignalSource: registered wiper
+11-11 21:23:09.964 29466 29466 I PleosSignalSource: registered fuel
+11-11 21:23:10.881 29466 29466 I PleosSignalSource: registered soc
+11-11 21:23:11.520 29466 29466 I PleosSignalSource: registered distance
+11-11 21:23:11.582 29466 29466 I PleosSignalSource: registered brake
+11-11 21:23:18.492 29466 29482 W PleosSignalSource: distance: ERROR_NOT_SUPPORTED_PROPERTY
+11-11 21:23:58.701 29466 29639 I AlertSender: /api/event -> 200
