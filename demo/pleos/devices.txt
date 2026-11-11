@@ -1,5 +1,11 @@
-id: 0 or "automotive_1024p_landscape"
+id: 1 or "automotive_1024p_landscape"
     Name: Automotive (1024p landscape)
-id: 36 or "Pleos_Connect_v2_0"
-    Name: Pleos Connect v2.1.0
+id: 2 or "automotive_1080p_landscape"
+    Name: Automotive (1080p landscape)
+id: 3 or "automotive_1408p_landscape_with_google_apis"
+    Name: Automotive (1408p landscape)
+id: 4 or "automotive_1408p_landscape_with_play"
+    Name: Automotive (1408p landscape) with Google Play
+id: 5 or "automotive_distant_display"
+    Name: Automotive Distant Display
 device: Pleos_Connect_v2_0

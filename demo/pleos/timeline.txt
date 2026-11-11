@@ -30,3 +30,11 @@
 108s idle (time-compressed) + veto
 124s park + unlink
 145s end
+3s consent
+14s gear D -> monthly summary
+34s rain + hard brakes
+52s battery 8%
+66s slow stop
+86s park
+94s settings: monthly off
+107s end

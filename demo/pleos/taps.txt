@@ -22,3 +22,5 @@ click share:stop
 click consent
 click veto
 click unlink
+click consent
+click share:monthly
