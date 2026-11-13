@@ -54,3 +54,11 @@
 94s park
 102s settings: monthly off
 114s end
+3s consent
+22s gear D -> monthly summary
+42s rain + hard brakes
+60s battery 8%
+73s slow stop
+90s park
+114s settings: monthly off
+128s end

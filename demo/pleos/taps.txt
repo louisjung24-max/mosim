@@ -28,3 +28,5 @@ click consent
 click share:monthly
 click consent
 click share:monthly
+click consent
+click share:monthly
