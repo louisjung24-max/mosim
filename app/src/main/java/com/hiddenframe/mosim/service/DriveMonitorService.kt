@@ -129,6 +129,7 @@ class DriveMonitorService : LifecycleService() {
         tripNight = AnomalyDetector.isNight(e.hourOfDay ?: Calendar.getInstance().get(Calendar.HOUR_OF_DAY))
         tripBrakes = 0; tripFlips = 0; tripPanic = 0; reverse = null; hardAccelAt = 0L; fastMin = 0f; tripKm = 0f; sdkTripKm = 0f
         stoppedSince = 0L; idleReported = false; lastSpeedAt = 0L; lastSpeedKmh = 0f
+        android.util.Log.i("MosimDemo", "trip start")
         maybeSendMonthlySummary()
     }
 

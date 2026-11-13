@@ -159,7 +159,14 @@ adb exec-out screencap -p > "$OUT/01_consent.png"
 TAP consent; sleep 7
 # 2) 이달 첫 출발(기어 D) → 지난달 운전 요약이 자동으로 가족에게(실제 서버 저장) → 보낸 뒤 차가 알려 드림
 mark "gear D -> monthly summary"
-VC "/vehicle/gear?gear=Drive"; sleep 1; front; sleep 9
+VC "/vehicle/gear?gear=Drive"; sleep 1; front; sleep 4
+# 에뮬레이터가 기어 콜백을 놓치는 경우가 있어, 운행 시작이 안 잡히면 P→D를 다시 보냅니다
+for n in 1 2 3; do
+  adb logcat -d -s MosimDemo:I | grep -q "trip start" && break
+  echo "gear callback missing, retry $n" | tee -a "$OUT/vc_calls.txt"
+  VC "/vehicle/gear?gear=Park"; sleep 2; VC "/vehicle/gear?gear=Drive"; sleep 1; front; sleep 4
+done
+sleep 5
 python3 ci/family_shot.py "http://127.0.0.1:8787/f/$CODE" "$OUT/family_summary.png" || true
 # 3) 비 오는 밤길: 와이퍼, 급제동 두 번(차 안에서만, 안내는 멈췄을 때)
 mark "rain + hard brakes"
@@ -216,5 +223,5 @@ wait $REC || true
 kill $HB 2>/dev/null || true
 sleep 3
 adb pull /data/local/tmp/mosim_pleos.mp4 "$OUT/mosim_pleos_raw.mp4" || echo "pull failed"
-adb logcat -d -s PleosSignalSource:* Voice:* AlertSender:* CarApiSignalSource:* AndroidRuntime:E > "$OUT/logcat_app.txt"
+adb logcat -d -s MosimDemo:* PleosSignalSource:* Voice:* AlertSender:* CarApiSignalSource:* AndroidRuntime:E > "$OUT/logcat_app.txt"
 ls -la "$OUT"
