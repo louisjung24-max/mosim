@@ -10,6 +10,10 @@ sealed class VehicleEvent {
     data class Speed(val kmh: Float) : VehicleEvent()
     /** 급제동. [decel]은 m/s² 추정값. */
     data class HardBrake(val decel: Float) : VehicleEvent()
+    /** 저속에서 급가속. [fromKmh]는 밟기 직전 속도. */
+    data class HardAccel(val fromKmh: Float) : VehicleEvent()
+    /** 전진↔후진 전환(기어 D↔R). 주차할 때 앞뒤로 고쳐 대는 횟수를 셉니다. */
+    data class Direction(val reverse: Boolean) : VehicleEvent()
     data class Wiper(val on: Boolean) : VehicleEvent()
     data class FuelLow(val percent: Int) : VehicleEvent()
     /** 전기차 구동 배터리 잔량(%) 낮음 */

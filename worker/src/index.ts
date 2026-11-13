@@ -14,7 +14,12 @@ export interface Env {
   DEVICE_TOKEN?: string;
 }
 
-type Stats = { month: string; trips: number; km: number; night: number; fastMin: number; brakes100: number; prevNight: number | null; prevBrakes100: number | null; highlight: string };
+type Change = { t: string; d: string };
+type Stats = {
+  month: string; trips: number; km: number; night: number; brakes100: number; flips: number;
+  baseTrips: number | null; baseNight: number | null; baseBrakes100: number | null; baseFlips: number | null;
+  verdict: string; changes: Change[]; advice: string;
+};
 type Ev = { type: string; title: string; body: string; ts: number; stats?: Stats };
 
 const MAX_EVENTS = 200;
@@ -50,19 +55,22 @@ async function load(env: Env, c: string): Promise<Ev[]> {
   return (await env.EVENTS.get<Ev[]>(`ev:${c}`, "json")) ?? [];
 }
 
-/** 월 요약 수치 검증: 월 합계 숫자와 한 줄 문구만 받습니다(개별 운행·위치 없음). */
+/** 월 요약 검증: 월 합계 숫자, 한 줄 결론, '달라진 점' 몇 줄만 받습니다(개별 운행·위치 없음). */
 function parseStats(o: any): Stats | null {
   if (!o || typeof o !== "object") return null;
   const n = (v: any, max: number) => { const x = Number(v); return Number.isFinite(x) && x >= 0 && x <= max ? x : NaN; };
   const opt = (v: any, max: number) => (v === null || v === undefined ? null : n(v, max));
+  const changes: Change[] = Array.isArray(o.changes)
+    ? o.changes.slice(0, 8).map((c: any) => ({ t: String(c?.t ?? "").slice(0, 60), d: String(c?.d ?? "").slice(0, 60) })).filter((c: Change) => c.t)
+    : [];
   const st: Stats = {
     month: /^\d{4}-\d{2}$/.test(String(o.month)) ? String(o.month) : "",
-    trips: n(o.trips, 2000), km: n(o.km, 100000), night: n(o.night, 2000), fastMin: n(o.fastMin, 50000),
-    brakes100: n(o.brakes100, 1000), prevNight: opt(o.prevNight, 2000), prevBrakes100: opt(o.prevBrakes100, 1000),
-    highlight: String(o.highlight ?? "").slice(0, 120),
+    trips: n(o.trips, 2000), km: n(o.km, 100000), night: n(o.night, 2000), brakes100: n(o.brakes100, 1000), flips: n(o.flips, 100),
+    baseTrips: opt(o.baseTrips, 2000), baseNight: opt(o.baseNight, 2000), baseBrakes100: opt(o.baseBrakes100, 1000), baseFlips: opt(o.baseFlips, 100),
+    verdict: String(o.verdict ?? "").slice(0, 120), changes, advice: String(o.advice ?? "").slice(0, 120),
   };
-  const nums = [st.trips, st.km, st.night, st.fastMin, st.brakes100];
-  if (!st.month || nums.some((x) => Number.isNaN(x)) || Number.isNaN(st.prevNight as number) || Number.isNaN(st.prevBrakes100 as number)) return null;
+  const nums = [st.trips, st.km, st.night, st.brakes100, st.flips, st.baseTrips, st.baseNight, st.baseBrakes100, st.baseFlips];
+  if (!st.month || !st.verdict || nums.some((x) => x !== null && Number.isNaN(x))) return null;
   return st;
 }
 
@@ -183,16 +191,20 @@ function esc(s: string): string {
 function summaryHtml(e: Ev): string {
   const s = e.stats!;
   const [y, m] = s.month.split("-");
-  const prevN = s.prevNight !== null ? `<div class="p">지난달 ${s.prevNight}회</div>` : "";
-  const prevB = s.prevBrakes100 !== null ? `<div class="p">지난달 ${s.prevBrakes100.toFixed(1)}회</div>` : "";
+  const base = (v: number | null, unit: string, digits = 0) => (v !== null ? `<div class="p">평소 ${v.toFixed(digits)}${unit}</div>` : "");
+  const changed = s.changes.length > 0;
+  const list = changed
+    ? `<ul class="chg">${s.changes.map((c) => `<li><b>${esc(c.t)}</b><span>${esc(c.d)}</span></li>`).join("")}</ul>`
+    : "";
+  const advice = s.advice ? `<div class="adv"><div class="al">이렇게 해 보세요</div>${esc(s.advice)}</div>` : "";
   return `<div class="sum"><div class="mh">${esc(y)}년 · ${fmt(e.ts)} 도착</div><div class="mt">${Number(m)}월 운전 요약</div>
-<div class="hl">${esc(s.highlight)}</div>
+<div class="hl${changed ? " warn" : ""}">${esc(s.verdict)}</div>${list}${advice}
 <div class="grid">
-<div class="tile"><div class="l">운행</div><div class="v">${s.trips}회</div><div class="p">${Math.round(s.km)}km</div></div>
-<div class="tile"><div class="l">밤 운전</div><div class="v">${s.night}회</div>${prevN}</div>
-<div class="tile"><div class="l">고속 주행(80km/h↑)</div><div class="v">${Math.round(s.fastMin)}분</div></div>
-<div class="tile"><div class="l">급제동(100km당)</div><div class="v">${s.brakes100.toFixed(1)}회</div>${prevB}</div>
-</div><div class="same">부모님 차 화면에도 똑같이 보이는 요약입니다.</div></div>`;
+<div class="tile"><div class="l">운행</div><div class="v">${s.trips}회</div>${base(s.baseTrips, "회")}</div>
+<div class="tile"><div class="l">밤 운전</div><div class="v">${s.night}회</div>${base(s.baseNight, "회")}</div>
+<div class="tile"><div class="l">주차 고쳐 대기(운행당)</div><div class="v">${s.flips.toFixed(1)}번</div>${base(s.baseFlips, "번", 1)}</div>
+<div class="tile"><div class="l">급제동(100km당)</div><div class="v">${s.brakes100.toFixed(1)}번</div>${base(s.baseBrakes100, "번", 1)}</div>
+</div><div class="same">남과 비교하지 않고 지난 석 달의 부모님 자신과만 비교합니다. 진단이 아니라 달라진 점이며, 부모님 차 화면에도 똑같이 보입니다.</div></div>`;
 }
 
 async function page(env: Env, c: string): Promise<Response> {
@@ -226,6 +238,9 @@ ul{list-style:none;margin:0;padding:0}.ev{display:flex;gap:12px;padding:14px 0;b
 .note{color:var(--m);font-size:12px;margin-top:18px;line-height:1.5}
 .sum{background:var(--card);border-radius:24px;padding:20px;margin-bottom:14px}.sum .mh{color:var(--m);font-size:13px}.sum .mt{font-size:22px;font-weight:800;margin:2px 0 10px}
 .hl{color:var(--a);font-size:17px;font-weight:700;background:rgba(46,212,122,.1);border-radius:14px;padding:12px 14px;margin-bottom:12px}
+.hl.warn{color:#FFB547;background:rgba(255,181,71,.12)}
+.chg{list-style:none;margin:0 0 12px;padding:0}.chg li{background:var(--inner);border-radius:14px;padding:11px 14px;margin-bottom:6px}.chg b{display:block;font-size:15px}.chg span{display:block;color:var(--m);font-size:13px;margin-top:2px}
+.adv{border:1px solid rgba(255,181,71,.45);border-radius:14px;padding:12px 14px;margin-bottom:12px;font-size:15px;line-height:1.45}.adv .al{color:#FFB547;font-size:12px;font-weight:700;margin-bottom:3px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.tile{background:var(--inner);border-radius:16px;padding:12px 14px}.tile .l{color:var(--m);font-size:12px}.tile .v{font-size:22px;font-weight:800;margin-top:2px}.tile .p{color:var(--m);font-size:12px;margin-top:2px}
 .same{color:var(--m);font-size:12px;margin-top:10px}
 </style></head><body><div class="wrap">

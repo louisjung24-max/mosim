@@ -42,6 +42,7 @@ class CarApiSignalSource(private val context: Context) : VehicleSignalSource {
                         if (dt > 0) {
                             val decel = (lastSpeed - mps) / dt
                             if (decel >= HARD_BRAKE_MPS2) _events.tryEmit(VehicleEvent.HardBrake(decel))
+                            if (-decel >= HARD_ACCEL_MPS2 && lastSpeed * 3.6f < ACCEL_FROM_KMH) _events.tryEmit(VehicleEvent.HardAccel(lastSpeed * 3.6f))
                         }
                     }
                     lastSpeed = mps; lastSpeedAt = now
@@ -99,6 +100,9 @@ class CarApiSignalSource(private val context: Context) : VehicleSignalSource {
         @Volatile var lastVehicleSpeedAt = 0L
         fun vehicleSpeedFresh() = System.currentTimeMillis() - lastVehicleSpeedAt < 5_000L
         private const val HARD_BRAKE_MPS2 = 3.5f
+        /** 저속(시속 12km 미만)에서 이만큼 급하게 속도가 붙으면 급가속으로 봅니다. */
+        private const val HARD_ACCEL_MPS2 = 3.0f
+        private const val ACCEL_FROM_KMH = 12f
         private const val IGNITION_ON = 4 // VehicleIgnitionState.ON
     }
 }

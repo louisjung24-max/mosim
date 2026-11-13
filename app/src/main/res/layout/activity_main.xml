@@ -263,6 +263,14 @@
                         android:textSize="18sp" />
 
                     <TextView
+                        android:id="@+id/mirrorNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textColor="@color/text_tertiary"
+                        android:textSize="13sp" />
+
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="26dp"
@@ -302,7 +310,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="6dp"
                             android:lineSpacingMultiplier="1.25"
-                            android:text="위에 보이는 요약 한 장이 매달 1일 첫 출발 때 가족에게 갑니다. 보낸 뒤에는 차가 알려 드리고, 언제든 여기서 끌 수 있어요. 위치는 보내지 않습니다."
+                            android:text="위에 보이는 요약과 '지난 석 달과 달라진 점'이 매달 1일 첫 출발 때 가족에게 갑니다. 보낸 뒤에는 차가 알려 드리고, 언제든 여기서 끌 수 있어요. 위치는 보내지 않습니다."
                             android:textColor="@color/text_secondary"
                             android:textSize="15sp" />
 

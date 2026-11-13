@@ -107,7 +107,7 @@ for i in $(seq 1 8); do
 done
 adb shell pm path $APP || { echo "INSTALL FAILED"; exit 1; }
 adb shell dumpsys package $APP | grep -E "permission.*granted=true" | tee "$OUT/granted.txt"
-# 시연 전제: 지난 두 달의 운행 기록 — 디버그 빌드 전용 시연 데이터(실제 기록 아님)
+# 시연 전제: 지난 넉 달의 운행 기록 — 디버그 빌드 전용 시연 데이터(실제 기록 아님)
 adb shell am broadcast -a $APP.SIM -n $APP/.vehicle.SimulationReceiver --es scenario seed_month
 adb logcat -c
 for i in $(seq 1 12); do
@@ -189,7 +189,13 @@ adb exec-out screencap -p > "$OUT/03_stopped.png"
 python3 ci/family_shot.py "http://127.0.0.1:8787/f/$CODE" "$OUT/family_after_send.png" || true
 # 6) 주차 → 이번 운행이 '나의 운전 기록'에 쌓임
 mark "park"
-VC "/vehicle/body?front_wiper=Off"; VC "/vehicle/gear?gear=Park"; sleep 1; front; sleep 6
+VC "/vehicle/body?front_wiper=Off"
+# 주차하며 앞뒤로 고쳐 대기: 후진 → 전진 → 후진 → P (방향 전환 3번이 이번 운행 기록에 남음)
+VC "/vehicle/gear?gear=Reverse"; sleep 1; front; sleep 2
+VC "/vehicle/gear?gear=Drive"; sleep 1; front; sleep 2
+VC "/vehicle/gear?gear=Reverse"; sleep 1; front; sleep 2
+VC "/vehicle/gear?gear=Park"; sleep 1; front; sleep 7
+adb exec-out screencap -p > "$OUT/04_parked.png"
 # 7) 보내기 싫으면 설정에서 한 번: '매달 운전 요약' 끄기
 mark "settings: monthly off"
 TAP share:monthly; sleep 8

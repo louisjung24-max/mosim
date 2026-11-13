@@ -39,7 +39,7 @@ class AnomalyDetector {
         )
         is VehicleEvent.IdleStop -> if (e.minutes >= LONG_STOP_MIN)
             Result(voice = VoiceCue("${e.minutes}분째 멈춰 계세요. 천천히 쉬어 가셔도 괜찮습니다.")) else Result()
-        is VehicleEvent.Odometer, is VehicleEvent.Speed -> Result()
+        is VehicleEvent.Odometer, is VehicleEvent.Speed, is VehicleEvent.HardAccel, is VehicleEvent.Direction -> Result()
     }
 
     private fun onIgnition(e: VehicleEvent.Ignition): Result {

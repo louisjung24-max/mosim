@@ -39,6 +39,8 @@ class AppState {
             is VehicleEvent.BatteryLow -> append("배터리 ${e.percent}%")
             is VehicleEvent.IdleStop -> append("${e.minutes}분째 멈춤")
             is VehicleEvent.Odometer -> _ui.value
+            is VehicleEvent.HardAccel -> _ui.value
+            is VehicleEvent.Direction -> _ui.value
         }
     }
 

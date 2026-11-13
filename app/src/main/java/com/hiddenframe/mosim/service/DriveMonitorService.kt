@@ -26,7 +26,7 @@ import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.launch
 
 /**
- * 운행 중 차량 신호를 듣고, 동승 안내를 말하고, 운행 기록(거리·밤·고속·급제동)을 차 안에 쌓습니다.
+ * 운행 중 차량 신호를 듣고, 동승 안내를 말하고, 운행 기록(거리·밤·급제동·앞뒤로 고쳐 대기 등)을 차 안에 쌓습니다.
  * 매달 첫 출발 때 지난달 요약을 가족에게 보내고(동의한 경우), 보낸 뒤 차가 알려 드립니다.
  */
 class DriveMonitorService : LifecycleService() {
@@ -72,6 +72,10 @@ class DriveMonitorService : LifecycleService() {
     private var tripStart = 0L
     private var tripNight = false
     private var tripBrakes = 0
+    private var tripFlips = 0
+    private var tripPanic = 0
+    private var reverse: Boolean? = null
+    private var hardAccelAt = 0L
     private var fastMin = 0f
     private var stoppedSince = 0L
     private var idleReported = false
@@ -84,7 +88,16 @@ class DriveMonitorService : LifecycleService() {
     private suspend fun track(e: VehicleEvent) {
         when (e) {
             is VehicleEvent.Ignition -> if (e.on) onTripStart(e) else onTripEnd()
-            is VehicleEvent.HardBrake -> if (driving) tripBrakes++
+            is VehicleEvent.HardBrake -> if (driving) {
+                tripBrakes++
+                // 저속 급가속 직후(4초 안) 급제동: 페달을 헷갈렸을 수 있는 순간으로 셉니다.
+                if (hardAccelAt > 0 && System.currentTimeMillis() - hardAccelAt <= PANIC_WINDOW_MS) { tripPanic++; hardAccelAt = 0L }
+            }
+            is VehicleEvent.HardAccel -> if (driving) hardAccelAt = System.currentTimeMillis()
+            is VehicleEvent.Direction -> if (driving) {
+                if (reverse != null && reverse != e.reverse) tripFlips++
+                reverse = e.reverse
+            }
             is VehicleEvent.Odometer -> if (driving && e.km > sdkTripKm) sdkTripKm = e.km
             is VehicleEvent.Speed -> if (driving) {
                 val now = System.currentTimeMillis()
@@ -114,7 +127,7 @@ class DriveMonitorService : LifecycleService() {
         driving = true
         tripStart = System.currentTimeMillis()
         tripNight = AnomalyDetector.isNight(e.hourOfDay ?: Calendar.getInstance().get(Calendar.HOUR_OF_DAY))
-        tripBrakes = 0; fastMin = 0f; tripKm = 0f; sdkTripKm = 0f
+        tripBrakes = 0; tripFlips = 0; tripPanic = 0; reverse = null; hardAccelAt = 0L; fastMin = 0f; tripKm = 0f; sdkTripKm = 0f
         stoppedSince = 0L; idleReported = false; lastSpeedAt = 0L; lastSpeedKmh = 0f
         maybeSendMonthlySummary()
     }
@@ -124,7 +137,9 @@ class DriveMonitorService : LifecycleService() {
         driving = false
         flushVoiceAtStop()
         val app = application as MosimApp
-        app.trips.add(Trip(tripStart, maxOf(tripKm, sdkTripKm), tripNight, fastMin, tripBrakes))
+        val km = maxOf(tripKm, sdkTripKm)
+        app.trips.add(Trip(tripStart, km, tripNight, fastMin, tripBrakes, tripFlips, tripPanic))
+        app.state.note("이번 운행 기록: %.1fkm · 급제동 %d번 · 앞뒤로 고쳐 대기 %d번".format(km, tripBrakes, tripFlips))
         app.state.touch()
     }
 
@@ -141,7 +156,7 @@ class DriveMonitorService : LifecycleService() {
             if (r == Delivery.SENT) {
                 app.trips.lastSentMonth = thisMonth
                 app.weekly.addAnomaly()
-                say("${m.label} 운전 요약을 가족에게 보내 드렸어요. ${m.highlight()}")
+                say("${m.label} 운전 요약을 가족에게 보내 드렸어요. ${m.spoken()}")
             } else if (r == Delivery.NOT_CONFIGURED) {
                 app.trips.lastSentMonth = thisMonth
             }
@@ -180,7 +195,7 @@ class DriveMonitorService : LifecycleService() {
         return NotificationCompat.Builder(this, CHANNEL)
             .setSmallIcon(R.drawable.ic_stat_mosim)
             .setContentTitle("모심이 함께 타고 있어요")
-            .setContentText("부모님이 고르고 확인한 신호만 가족에게 전합니다")
+            .setContentText("동의하신 매달 요약과 차량 관리 소식만 가족에게 전합니다")
             .setOngoing(true)
             .build()
     }
@@ -195,6 +210,7 @@ class DriveMonitorService : LifecycleService() {
         private const val NOTIF_ID = 1001
         private const val PLEOS_PROBE_MS = 15000L
         private const val STOPPED_KMH = 2f
+        private const val PANIC_WINDOW_MS = 4000L
         const val ACTION_PERMISSIONS_GRANTED = "com.hiddenframe.mosim.PERMISSIONS_GRANTED"
         fun start(context: Context, action: String? = null) {
             val i = Intent(context, DriveMonitorService::class.java).setAction(action)

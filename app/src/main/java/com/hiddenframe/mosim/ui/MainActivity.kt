@@ -20,6 +20,7 @@ import com.google.zxing.BarcodeFormat
 import com.google.zxing.qrcode.QRCodeWriter
 import com.hiddenframe.mosim.BuildConfig
 import com.hiddenframe.mosim.MosimApp
+import com.hiddenframe.mosim.R
 import com.hiddenframe.mosim.UiState
 import com.hiddenframe.mosim.alert.AlertSender
 import com.hiddenframe.mosim.alert.Delivery
@@ -58,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         b.statTrips.statLabel.text = "운행"
         b.statNight.statLabel.text = "밤 운전"
-        b.statFast.statLabel.text = "고속 주행(80km/h↑)"
+        b.statFast.statLabel.text = "주차 때 앞뒤로 고쳐 대기 (운행당)"
         b.statBrake.statLabel.text = "급제동 (100km당)"
         buildShareRows()
         renderFamily()
@@ -178,16 +179,22 @@ class MainActivity : AppCompatActivity() {
     private fun renderMirror() {
         val last = app.trips.lastMonth()
         val m: MonthlySummary = if (last.trips > 0) last else app.trips.thisMonth()
-        val p = m.prev
+        val base = m.base
         b.mirrorTitle.text = "나의 운전 기록 · ${m.label}"
         val now = app.trips.thisMonth()
-        b.mirrorHint.text = "가족이 받는 요약과 같은 내용입니다" + if (m !== now && now.trips > 0) " · 이번 달 지금까지 ${now.trips}회" else ""
+        b.mirrorHint.text = "가족이 받는 요약과 같은 내용입니다" + if (m !== last || now.trips == 0) "" else " · 이번 달 지금까지 ${now.trips}회"
         fun tile(t: ViewStatBinding, value: String, delta: String?) { t.statValue.text = value; t.statDelta.text = delta ?: "" }
-        tile(b.statTrips, "${m.trips}회", "${Math.round(m.km)}km")
-        tile(b.statNight, "${m.nightTrips}회", p?.takeIf { it.trips > 0 }?.let { "지난달 ${it.nightTrips}회" })
-        tile(b.statFast, "${Math.round(m.fastMin)}분", null)
-        tile(b.statBrake, "%.1f회".format(m.brakesPer100Km), p?.takeIf { it.trips > 0 }?.let { "지난달 %.1f회".format(it.brakesPer100Km) })
-        b.mirrorLine.text = m.highlight()
+        tile(b.statTrips, "${m.trips}회", base?.let { "평소 ${Math.round(it.trips)}회" } ?: "${Math.round(m.now.km)}km")
+        tile(b.statNight, "${Math.round(m.now.night)}회", base?.let { "평소 ${Math.round(it.night)}회" })
+        tile(b.statFast, "%.1f번".format(m.now.flipsPerTrip), base?.let { "평소 %.1f번".format(it.flipsPerTrip) })
+        tile(b.statBrake, "%.1f번".format(m.now.brakesPer100Km), base?.let { "평소 %.1f번".format(it.brakesPer100Km) })
+        val ch = m.changes()
+        b.mirrorLine.text = buildString {
+            append(m.verdict())
+            ch.forEach { append("\n· ${it.text} (${it.detail})") }
+        }
+        b.mirrorLine.setTextColor(getColor(if (ch.isEmpty()) R.color.informative_active else R.color.text_primary))
+        b.mirrorNote.text = if (ch.isEmpty()) "남과 비교하지 않고, 지난 석 달의 나와만 비교합니다." else "남과 비교하지 않고 지난 석 달의 나와만 비교합니다. 진단이 아니라 달라진 점입니다."
     }
 
     private fun renderFamily() {

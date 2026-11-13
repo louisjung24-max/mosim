@@ -159,6 +159,8 @@ class PleosSignalSource(private val context: Context) : VehicleSignalSource {
             driving = false
             _events.tryEmit(VehicleEvent.Ignition(on = false))
         }
+        // 전진·후진 방향: 운행이 시작된 뒤에 알려, 주차할 때 앞뒤로 바꾼 횟수를 셀 수 있게 합니다.
+        if (moving) _events.tryEmit(VehicleEvent.Direction(reverse = gear == VehicleGear.GEAR_REVERSE))
     }
 
     private fun onFix(fix: LocationData) {

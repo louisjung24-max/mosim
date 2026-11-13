@@ -35,7 +35,7 @@ object AlertSender {
         .put("code", familyCode)
         .put("type", "monthly_summary")
         .put("title", "${m.label} 운전 요약")
-        .put("body", m.highlight())
+        .put("body", m.verdict())
         .put("stats", m.toJson())
         .put("ts", System.currentTimeMillis()))
 
