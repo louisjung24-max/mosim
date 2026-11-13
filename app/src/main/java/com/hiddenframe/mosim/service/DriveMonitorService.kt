@@ -139,6 +139,7 @@ class DriveMonitorService : LifecycleService() {
         val app = application as MosimApp
         val km = maxOf(tripKm, sdkTripKm)
         app.trips.add(Trip(tripStart, km, tripNight, fastMin, tripBrakes, tripFlips, tripPanic))
+        android.util.Log.i("MosimDemo", "trip end km=%.1f brakes=%d flips=%d panic=%d".format(km, tripBrakes, tripFlips, tripPanic))
         app.state.note("이번 운행 기록: %.1fkm · 급제동 %d번 · 앞뒤로 고쳐 대기 %d번".format(km, tripBrakes, tripFlips))
         app.state.touch()
     }

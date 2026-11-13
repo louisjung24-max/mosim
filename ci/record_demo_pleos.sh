@@ -194,7 +194,16 @@ VC "/vehicle/body?front_wiper=Off"
 VC "/vehicle/gear?gear=Reverse"; sleep 1; front; sleep 2
 VC "/vehicle/gear?gear=Drive"; sleep 1; front; sleep 2
 VC "/vehicle/gear?gear=Reverse"; sleep 1; front; sleep 2
-VC "/vehicle/gear?gear=Park"; sleep 1; front; sleep 7
+VC "/vehicle/gear?gear=Park"; sleep 3
+# 후진 때 뜨는 후방 카메라 창이 에뮬레이터에서는 P 뒤에도 남아, 닫고 모심 화면으로 돌아옵니다
+for n in 1 2 3; do
+  adb shell dumpsys window | grep -m1 mCurrentFocus | tee -a "$OUT/focus.txt"
+  adb shell dumpsys window | grep -m1 mCurrentFocus | grep -q "$APP" && break
+  [ "$n" = 1 ] && adb shell input keyevent KEYCODE_BACK
+  [ "$n" = 2 ] && adb shell input keyevent KEYCODE_HOME
+  sleep 2; front; sleep 3
+done
+sleep 5
 adb exec-out screencap -p > "$OUT/04_parked.png"
 # 7) 보내기 싫으면 설정에서 한 번: '매달 운전 요약' 끄기
 mark "settings: monthly off"
