@@ -1,0 +1,3 @@
+  mCurrentFocus=Window{a06617e u0 SystemUIOverlayWindow}
+  mCurrentFocus=Window{a06617e u0 SystemUIOverlayWindow}
+  mCurrentFocus=Window{a06617e u0 SystemUIOverlayWindow}
