@@ -45,7 +45,7 @@ Loading local repository...                                                     
 == boot ==
 * daemon not running; starting now at tcp:5037
 * daemon started successfully
-booted after 7x5s
+booted after 8x5s
 Pleos/crp_avd/crp_avd_x86_64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys
 Physical size: 2560x1440
 package:ai.pleos.android.webview
@@ -78,23 +78,51 @@ package:ai.umos.vehiclecontrol
 package:com.android.crpavd.wifiprovisioner
 == vhal probe ==
 ## get-property 0x11400400
-cmd: Can't find service: car_service
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
 ## get-property 0x13400CC8
-cmd: Can't find service: car_service
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
 ## get-property 0x11600307
-cmd: Can't find service: car_service
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
 ## get-property 0x11600106
-cmd: Can't find service: car_service
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
 ## get-property 0x11200402
-cmd: Can't find service: car_service
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
+	at com.android.car.CarShellCommand.onCommand(CarShellCommand.java:593)
+	at com.android.modules.utils.BasicShellCommandHandler.exec(BasicShellCommandHandler.java:97)
 ## get-property 0x11600207
-cmd: Can't find service: car_service
+
+Exception occurred while executing 'get-property-value':
+java.lang.SecurityException: The command 'get-property-value' requires non-user build
+	at com.android.car.CarShellCommand.exec(CarShellCommand.java:1141)
 == time zone: Asia/Seoul ==
-Fri Nov 13 22:52:42 KST 2026
+Fri Nov 13 23:10:16 KST 2026
 == install ==
 Performing Streamed Install
 Success
-package:/data/app/~~kmDpiNkNmQNcXzGrvPh_Jg==/com.hiddenframe.mosim-ngmc6mNiuy4Aq5shYbhfpA==/base.apk
+package:/data/app/~~fMbtg-XjmM6qwhZ6iHclrQ==/com.hiddenframe.mosim-7I00-qAzXm0ho84-ZiLXxQ==/base.apk
       android.permission.FOREGROUND_SERVICE: granted=true
       android.permission.INTERNET: granted=true
       pleos.car.permission.TTS_SERVICE: granted=true
@@ -114,90 +142,87 @@ package:/data/app/~~kmDpiNkNmQNcXzGrvPh_Jg==/com.hiddenframe.mosim-ngmc6mNiuy4Aq
         pleos.car.permission.FUSED_LOCATION: granted=true
 Broadcasting: Intent { act=com.hiddenframe.mosim.SIM flg=0x400000 cmp=com.hiddenframe.mosim/.vehicle.SimulationReceiver (has extras) }
 Broadcast completed: result=0
-    topResumedActivity=ActivityRecord{fb8101d u10 com.hiddenframe.mosim/.ui.MainActivity t1000004}
-  ResumedActivity: ActivityRecord{fb8101d u10 com.hiddenframe.mosim/.ui.MainActivity t1000004}
-family code: L55YJ4EW42
+    topResumedActivity=ActivityRecord{29245e3 u10 com.hiddenframe.mosim/.ui.MainActivity t1000016}
+    topResumedActivity=ActivityRecord{82aadd1 u10 ai.umos.drivingview/.DrivingViewActivity t1000013}
+family code: VQJUXCDYWF
 worker from host: 200
 == virtual console ==
 8088
 PUT /vehicle/gear?gear=Park -> 200
 PUT /vehicle/body?front_wiper=Off -> 200
-    topResumedActivity=ActivityRecord{fb8101d u10 com.hiddenframe.mosim/.ui.MainActivity t1000004}
+    topResumedActivity=ActivityRecord{29245e3 u10 com.hiddenframe.mosim/.ui.MainActivity t1000016}
 == record ==
 3s consent
 click consent
-20s gear D -> monthly summary
+26s gear D -> monthly summary
 PUT /vehicle/gear?gear=Drive -> 200
 shot demo/pleos/family_summary.png
-35s rain + hard brakes
+46s rain + hard brakes
 PUT /vehicle/body?front_wiper=Low -> 200
-52s battery 8%
+64s battery 8%
 /vehicle/ev-battery?field=soc&value=30 -> 200
 /vehicle/ev-battery?field=soc&value=8 -> 200
-/vehicle/ev-battery?field=soc&value=7 -> 200
-60s slow stop
+88s slow stop
 shot demo/pleos/family_after_send.png
-73s park
+108s park
 PUT /vehicle/body?front_wiper=Off -> 200
 PUT /vehicle/gear?gear=Reverse -> 200
 PUT /vehicle/gear?gear=Drive -> 200
 PUT /vehicle/gear?gear=Reverse -> 200
 PUT /vehicle/gear?gear=Park -> 200
-  mCurrentFocus=Window{a06617e u0 SystemUIOverlayWindow}
-  mCurrentFocus=Window{a06617e u0 SystemUIOverlayWindow}
-  mCurrentFocus=Window{a06617e u0 SystemUIOverlayWindow}
-106s settings: monthly off
+  mCurrentFocus=Window{17bbb3a u10 com.hiddenframe.mosim/com.hiddenframe.mosim.ui.MainActivity}
+134s settings: monthly off
 click share:monthly
-115s end
-/data/local/tmp/mosim_pleos.mp4: 1 file pulled, 0 skipped. 58.0 MB/s (404926 bytes in 0.007s)
-total 4020
-drwxr-xr-x 2 runner runner   4096 Nov 13 13:55 .
-drwxr-xr-x 3 runner runner   4096 Nov 13 13:39 ..
--rw-r--r-- 1 runner runner  17878 Nov 13 13:52 00_boot.png
--rw-r--r-- 1 runner runner 155892 Nov 13 13:53 01_before_record.png
--rw-r--r-- 1 runner runner 155892 Nov 13 13:54 01_consent.png
--rw-r--r-- 1 runner runner 155892 Nov 13 13:53 01_first_run.png
--rw-r--r-- 1 runner runner  17878 Nov 13 13:39 01_home.png
--rw-r--r-- 1 runner runner 173156 Nov 13 13:54 02_driving.png
--rw-r--r-- 1 runner runner 300917 Nov 13 13:39 02_driving_pending.png
--rw-r--r-- 1 runner runner 247739 Nov 13 13:39 02_rainy_night.png
--rw-r--r-- 1 runner runner 241724 Nov 13 13:39 03_battery.png
--rw-r--r-- 1 runner runner 173156 Nov 13 13:55 03_stopped.png
--rw-r--r-- 1 runner runner 269119 Nov 13 13:39 03_stopped_voice.png
--rw-r--r-- 1 runner runner 230933 Nov 13 13:39 04_end.png
--rw-r--r-- 1 runner runner 173002 Nov 13 13:55 04_parked.png
--rw-r--r-- 1 runner runner 246640 Nov 13 13:39 04_pending_stop.png
--rw-r--r-- 1 runner runner 175297 Nov 13 13:55 04_settings_off.png
--rw-r--r-- 1 runner runner 271067 Nov 13 13:39 05_unlinked.png
--rw-r--r-- 1 runner runner   3722 Nov 13 13:45 avd_config.ini
--rw-r--r-- 1 runner runner    454 Nov 13 13:45 devices.txt
--rw-r--r-- 1 runner runner   9839 Nov 13 13:50 emulator.log
--rw-r--r-- 1 runner runner   4017 Nov 13 13:39 emulator_tail.txt
--rw-r--r-- 1 runner runner     64 Nov 13 13:45 emulator_version.txt
--rw-r--r-- 1 runner runner 112933 Nov 13 13:55 family_after_send.png
--rw-r--r-- 1 runner runner 106280 Nov 13 13:39 family_after_unlink.png
--rw-r--r-- 1 runner runner     24 Nov 13 13:53 family_code.txt
--rw-r--r-- 1 runner runner 112933 Nov 13 13:54 family_summary.png
--rw-r--r-- 1 runner runner    126 Nov 13 13:52 fingerprint.txt
--rw-r--r-- 1 runner runner    171 Nov 13 13:55 focus.txt
--rw-r--r-- 1 runner runner    943 Nov 13 13:53 granted.txt
--rw-r--r-- 1 runner runner    671 Nov 13 13:45 image_files.txt
--rw-r--r-- 1 runner runner    513 Nov 13 13:55 logcat_app.txt
--rw-r--r-- 1 runner runner  50043 Nov 13 13:39 logcat_pleos.txt
--rw-r--r-- 1 runner runner    656 Nov 13 13:39 logcat_start.txt
--rw-r--r-- 1 runner runner 404926 Nov 13 13:55 mosim_pleos_raw.mp4
--rw-r--r-- 1 runner runner   8467 Nov 13 13:52 packages.txt
--rw-r--r-- 1 runner runner   2898 Nov 13 13:39 perm_defs.txt
--rw-r--r-- 1 runner runner   9778 Nov 13 13:39 perm_pleos_all.txt
--rw-r--r-- 1 runner runner   1663 Nov 13 13:39 perm_requested.txt
--rw-r--r-- 1 runner runner  10583 Nov 13 13:39 run_log_tail.txt
--rw-r--r-- 1 runner runner    638 Nov 13 13:55 taps.txt
--rw-r--r-- 1 runner runner   1279 Nov 13 13:55 timeline.txt
--rw-r--r-- 1 runner runner  28324 Nov 13 13:55 vc_calls.txt
--rw-r--r-- 1 runner runner  50157 Nov 13 13:39 vc_catalog.json
--rw-r--r-- 1 runner runner   1934 Nov 13 13:39 vc_find_energy.txt
--rw-r--r-- 1 runner runner    346 Nov 13 13:39 vc_find_wiper.txt
--rw-r--r-- 1 runner runner  25362 Nov 13 13:39 vc_state.json
--rw-r--r-- 1 runner runner  21878 Nov 13 13:39 vc_state_end.json
--rw-r--r-- 1 runner runner    384 Nov 13 13:52 vhal_probe.txt
--rw-r--r-- 1 runner runner   1459 Nov 13 13:39 wrangler_tail.txt
+151s end
+/data/local/tmp/mosim_pleos.mp4: 1 file pulled, 0 skipped. 8.5 MB/s (876355 bytes in 0.098s)
+total 5168
+drwxr-xr-x 2 runner runner   4096 Nov 13 14:15 .
+drwxr-xr-x 3 runner runner   4096 Nov 13 13:57 ..
+-rw-r--r-- 1 runner runner  65665 Nov 13 14:10 00_boot.png
+-rw-r--r-- 1 runner runner 191007 Nov 13 14:12 01_before_record.png
+-rw-r--r-- 1 runner runner 307727 Nov 13 14:12 01_consent.png
+-rw-r--r-- 1 runner runner 206550 Nov 13 14:12 01_first_run.png
+-rw-r--r-- 1 runner runner  17878 Nov 13 13:57 01_home.png
+-rw-r--r-- 1 runner runner 305115 Nov 13 14:14 02_driving.png
+-rw-r--r-- 1 runner runner 300917 Nov 13 13:57 02_driving_pending.png
+-rw-r--r-- 1 runner runner 247739 Nov 13 13:57 02_rainy_night.png
+-rw-r--r-- 1 runner runner 241724 Nov 13 13:57 03_battery.png
+-rw-r--r-- 1 runner runner 288871 Nov 13 14:14 03_stopped.png
+-rw-r--r-- 1 runner runner 269119 Nov 13 13:57 03_stopped_voice.png
+-rw-r--r-- 1 runner runner 230933 Nov 13 13:57 04_end.png
+-rw-r--r-- 1 runner runner 190552 Nov 13 14:14 04_parked.png
+-rw-r--r-- 1 runner runner 246640 Nov 13 13:57 04_pending_stop.png
+-rw-r--r-- 1 runner runner 192181 Nov 13 14:15 04_settings_off.png
+-rw-r--r-- 1 runner runner 271067 Nov 13 13:57 05_unlinked.png
+-rw-r--r-- 1 runner runner   3722 Nov 13 14:02 avd_config.ini
+-rw-r--r-- 1 runner runner    454 Nov 13 14:02 devices.txt
+-rw-r--r-- 1 runner runner  11868 Nov 13 14:12 emulator.log
+-rw-r--r-- 1 runner runner   6941 Nov 13 13:57 emulator_tail.txt
+-rw-r--r-- 1 runner runner     64 Nov 13 14:02 emulator_version.txt
+-rw-r--r-- 1 runner runner 182668 Nov 13 14:14 family_after_send.png
+-rw-r--r-- 1 runner runner 106280 Nov 13 13:57 family_after_unlink.png
+-rw-r--r-- 1 runner runner     24 Nov 13 14:12 family_code.txt
+-rw-r--r-- 1 runner runner 176683 Nov 13 14:13 family_summary.png
+-rw-r--r-- 1 runner runner    126 Nov 13 14:10 fingerprint.txt
+-rw-r--r-- 1 runner runner    267 Nov 13 14:14 focus.txt
+-rw-r--r-- 1 runner runner    943 Nov 13 14:11 granted.txt
+-rw-r--r-- 1 runner runner    671 Nov 13 14:02 image_files.txt
+-rw-r--r-- 1 runner runner   1177 Nov 13 14:15 logcat_app.txt
+-rw-r--r-- 1 runner runner  50043 Nov 13 13:57 logcat_pleos.txt
+-rw-r--r-- 1 runner runner    656 Nov 13 13:57 logcat_start.txt
+-rw-r--r-- 1 runner runner 876355 Nov 13 14:15 mosim_pleos_raw.mp4
+-rw-r--r-- 1 runner runner   8467 Nov 13 14:10 packages.txt
+-rw-r--r-- 1 runner runner   2898 Nov 13 13:57 perm_defs.txt
+-rw-r--r-- 1 runner runner   9778 Nov 13 13:57 perm_pleos_all.txt
+-rw-r--r-- 1 runner runner   1663 Nov 13 13:57 perm_requested.txt
+-rw-r--r-- 1 runner runner   8911 Nov 13 13:57 run_log_tail.txt
+-rw-r--r-- 1 runner runner    672 Nov 13 14:14 taps.txt
+-rw-r--r-- 1 runner runner   1418 Nov 13 14:15 timeline.txt
+-rw-r--r-- 1 runner runner  30768 Nov 13 14:14 vc_calls.txt
+-rw-r--r-- 1 runner runner  50157 Nov 13 13:57 vc_catalog.json
+-rw-r--r-- 1 runner runner   1934 Nov 13 13:57 vc_find_energy.txt
+-rw-r--r-- 1 runner runner    346 Nov 13 13:57 vc_find_wiper.txt
+-rw-r--r-- 1 runner runner  25362 Nov 13 13:57 vc_state.json
+-rw-r--r-- 1 runner runner  21878 Nov 13 13:57 vc_state_end.json
+-rw-r--r-- 1 runner runner   2430 Nov 13 14:10 vhal_probe.txt
+-rw-r--r-- 1 runner runner   1369 Nov 13 13:57 wrangler_tail.txt

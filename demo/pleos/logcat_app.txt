@@ -1,8 +1,17 @@
 --------- beginning of main
-11-13 22:53:29.842 11078 11078 I PleosSignalSource: registered gear-now
-11-13 22:53:29.842 11078 11078 I PleosSignalSource: registered gear
-11-13 22:53:29.919 11078 11078 I PleosSignalSource: registered wiper
-11-13 22:53:30.003 11078 11078 I PleosSignalSource: registered fuel
-11-13 22:53:30.146 11078 11078 I PleosSignalSource: registered soc
-11-13 22:53:30.277 11078 11078 I PleosSignalSource: registered distance
-11-13 22:53:30.294 11078 11078 I PleosSignalSource: registered brake
+11-13 23:12:00.943 20125 20125 I MosimDemo: family code VQJUXCDYWF
+11-13 23:12:07.708 20125 20125 I PleosSignalSource: registered gear-now
+11-13 23:12:07.712 20125 20125 I PleosSignalSource: registered gear
+11-13 23:12:11.090 20125 20125 I PleosSignalSource: registered wiper
+11-13 23:12:12.571 20125 20125 I PleosSignalSource: registered fuel
+11-13 23:12:14.977 20125 20125 I PleosSignalSource: registered soc
+11-13 23:12:17.719 20125 20125 I PleosSignalSource: registered distance
+11-13 23:12:19.299 20125 20125 I PleosSignalSource: registered brake
+11-13 23:12:27.408 20125 20837 W PleosSignalSource: distance: ERROR_NOT_SUPPORTED_PROPERTY
+11-13 23:12:59.551 20125 20125 I MosimDemo: trip start
+11-13 23:13:01.340 20125 20229 I AlertSender: /api/event -> 200
+11-13 23:13:26.278 20125 24622 W Voice   : speak error: ON_DEVICE_ENGINE_ERROR
+11-13 23:13:26.278 20125 20125 I Voice   : Pleos TTS → Android TTS (speak ON_DEVICE_ENGINE_ERROR)
+11-13 23:13:26.288 20125 20125 W Voice   : TTS init failed
+11-13 23:13:41.568 20125 20229 I AlertSender: /api/event -> 200
+11-13 23:14:34.540 20125 20125 I MosimDemo: trip end km=0.4 brakes=4 flips=3 panic=0

@@ -1,3 +1,4 @@
   mCurrentFocus=Window{a06617e u0 SystemUIOverlayWindow}
   mCurrentFocus=Window{a06617e u0 SystemUIOverlayWindow}
   mCurrentFocus=Window{a06617e u0 SystemUIOverlayWindow}
+  mCurrentFocus=Window{17bbb3a u10 com.hiddenframe.mosim/com.hiddenframe.mosim.ui.MainActivity}
